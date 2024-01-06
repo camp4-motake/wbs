@@ -1,6 +1,8 @@
 {
 	"core": "https://ja.wordpress.org/wordpress-latest-ja.zip",
-	"config": {},
+	"config": {
+		"WP_DEVELOPMENT_MODE": "all"
+	},
 	"plugins": [
 		"./source/wp-content/plugins/advanced-custom-fields-pro",
 		"./source/wp-content/plugins/mysite",
