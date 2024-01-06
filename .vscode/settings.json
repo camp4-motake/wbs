@@ -1,12 +1,12 @@
 {
 	"files.exclude": {
-		// ".cache": true,
-		// "composer.lock": true,
-		// "node_modules": true,
-		// "package-lock.json": true,
-		// "source/wp-content/mu-plugins": true,
-		// "source/wp-content/plugins/advanced-custom-fields-pro": true,
-		// "vendor": true
+		".cache": true,
+		"composer.lock": true,
+		"node_modules": true,
+		"package-lock.json": true,
+		"source/wp-content/mu-plugins": true,
+		"source/wp-content/plugins/advanced-custom-fields-pro": true,
+		"vendor": true
 	},
 	"files.watcherExclude": {
 		"env/_bkp/*": true,
