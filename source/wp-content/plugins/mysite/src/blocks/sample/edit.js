@@ -32,7 +32,7 @@ import './editor.css';
 export default function Edit() {
 	return (
 		<p {...useBlockProps()}>
-			{__('Myplugin – hello from the editor!', 'myplugin')}
+			{__('mysite – hello from the editor!', 'mysite')}
 		</p>
 	);
 }

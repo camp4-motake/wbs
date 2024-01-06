@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:       Myplugin
+ * Plugin Name:       mysite plugin
  * Description:       Example block scaffolded with Create Block tool.
  * Requires at least: 6.1
  * Requires PHP:      7.0
@@ -8,7 +8,7 @@
  * Author:            The WordPress Contributors
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       myplugin
+ * Text Domain:       mysite
  *
  * @package           create-block
  */
@@ -18,3 +18,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 require_once 'inc/acf-json.php';
+require_once 'inc/blocks.php';
