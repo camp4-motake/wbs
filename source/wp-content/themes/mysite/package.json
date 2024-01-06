@@ -1,0 +1,20 @@
+{
+	"name": "mysite",
+	"description": "The WordPress theme",
+	"version": "0.0.1",
+	"author": "CAMP4.inc",
+	"license": "GPL-2.0-or-later",
+	"private": true,
+	"devDependencies": {
+		"@types/alpinejs": "3.13.6",
+		"@types/node": "20.10.6",
+		"@wordpress/scripts": "26.19.0",
+		"cssnano": "6.0.3",
+		"postcss-preset-env": "9.3.0",
+		"postcss-sort-media-queries": "5.2.0"
+	},
+	"scripts": {
+		"dev": "wp-scripts start",
+		"build": "tsc && wp-scripts build"
+	}
+}

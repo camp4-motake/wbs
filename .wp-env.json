@@ -1,0 +1,18 @@
+{
+	"core": "https://ja.wordpress.org/wordpress-latest-ja.zip",
+	"config": {},
+	"plugins": [
+		"./source/wp-content/plugins/advanced-custom-fields-pro",
+		"./source/wp-content/plugins/mysite",
+		"https://downloads.wordpress.org/plugin/duplicate-post.zip",
+		"https://downloads.wordpress.org/plugin/wordpress-seo.zip",
+		"https://downloads.wordpress.org/plugin/wp-multibyte-patch.zip",
+		"https://downloads.wordpress.org/plugin/yoast-test-helper.zip"
+	],
+	"themes": ["./source/wp-content/themes/mysite"],
+	"mappings": {
+		"env": "./env",
+		"wp-content/mu-plugins": "./source/wp-content/mu-plugins",
+		"wp-cli.local.yml": "./wp-cli.local.yml"
+	}
+}

@@ -1,0 +1,45 @@
+{
+	"files.exclude": {
+		// ".cache": true,
+		// "composer.lock": true,
+		// "node_modules": true,
+		// "package-lock.json": true,
+		// "source/wp-content/mu-plugins": true,
+		// "source/wp-content/plugins/advanced-custom-fields-pro": true,
+		// "vendor": true
+	},
+	"files.watcherExclude": {
+		"env/_bkp/*": true,
+		"source/wp-content/plugins/mysite/build/*": true,
+		"source/wp-content/themes/mysite/build/*": true
+	},
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	"emmet.includeLanguages": {
+		"postcss": "css"
+	},
+	"files.associations": {
+		"*.css": "postcss"
+	},
+	"css.validate": false,
+	"postcss.validate": false,
+	"[typescript]": {
+		"editor.codeActionsOnSave": {
+			"source.organizeImports": "explicit"
+		}
+	},
+	"alpine-intellisense.settings.languageScopes": "html,php",
+	"[php]": {
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "obliviousharmony.vscode-php-codesniffer"
+	},
+	"phpCodeSniffer.autoExecutable": true,
+	"phpCodeSniffer.standard": "Automatic",
+	"phpCodeSniffer.lintAction": "Save",
+	"intelephense.environment.includePaths": [
+		"source/wp-content/plugins/advanced-custom-fields-pro"
+	],
+	"[handlebars]": {
+		"editor.formatOnSave": false
+	}
+}

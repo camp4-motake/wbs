@@ -1,0 +1,124 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 2,
+	"settings": {
+		"appearanceTools": true,
+		"layout": {
+			"contentSize": "1000px"
+		},
+		"custom": {
+			"typography": {
+				"line-height": {
+					"normal": 1.75
+				}
+			}
+		},
+		"typography": {
+			"dropCap": false,
+			"lineHeight": true,
+			"letterSpacing": false,
+			"textDecoration": false,
+			"textTransform": false,
+			"fontStyle": false,
+			"fontFamilies": [
+				{
+					"fontFamily": "-apple-system,BlinkMacSystemFont,\"Segoe UI\",Roboto,Oxygen-Sans,Ubuntu,Cantarell,\"Helvetica Neue\",sans-serif",
+					"name": "System Font",
+					"slug": "system-font"
+				}
+			],
+			"fontSizes": [
+				{
+					"size": "0.8rem",
+					"slug": "small"
+				},
+				{
+					"size": "1rem",
+					"slug": "medium"
+				},
+				{
+					"size": "1.5rem",
+					"slug": "large"
+				}
+			]
+		},
+		"spacing": {
+			"blockGap": true,
+			"margin": true,
+			"padding": true
+		},
+		"color": {
+			"palette": [
+				{
+					"slug": "smoke",
+					"color": "#f9fafb",
+					"name": "Smoke"
+				}
+			]
+		}
+	},
+	"templateParts": [
+		{
+			"name": "header",
+			"title": "Header",
+			"area": "header"
+		},
+		{
+			"name": "footer",
+			"title": "Footer",
+			"area": "footer"
+		}
+	],
+	"styles": {
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--system-font)",
+			"fontSize": "var(--wp--preset--font-size--medium)",
+			"lineHeight": "var(--wp--custom--typography--line-height--normal)"
+		},
+		"color": {
+			"background": "var(--wp--preset--color--white)",
+			"text": "var(--wp--preset--color--black)"
+		},
+		"elements": {
+			"link": {
+				"color": {
+					"text": "var(--wp--preset--color--black)"
+				}
+			}
+		},
+		"spacing": {
+			"blockGap": "3rem"
+		},
+		"blocks": {
+			"core/site-title": {
+				"spacing": {
+					"blockGap": "1rem",
+					"margin": {
+						"top": "1rem",
+						"bottom": "1rem"
+					}
+				},
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--large)",
+					"fontStyle": "normal",
+					"fontWeight": "bold"
+				}
+			},
+			"core/page-list": {
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--large)",
+					"fontStyle": "normal",
+					"fontWeight": "bold"
+				},
+				"spacing": {
+					"blockGap": "1rem"
+				}
+			},
+			"core/navigation": {
+				"spacing": {
+					"blockGap": "1rem"
+				}
+			}
+		}
+	}
+}
