@@ -10,8 +10,8 @@
 	},
 	"private": true,
 	"devDependencies": {
-		"@typescript-eslint/eslint-plugin": "6.17.0",
-		"@typescript-eslint/parser": "6.17.0",
+		"@typescript-eslint/eslint-plugin": "6.18.0",
+		"@typescript-eslint/parser": "6.18.0",
 		"@wordpress/browserslist-config": "5.31.0",
 		"@wordpress/env": "^9.0.0",
 		"@wordpress/eslint-plugin": "17.5.0",
