@@ -1,9 +1,8 @@
 const CopyPlugin = require('copy-webpack-plugin');
 const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
-const defaultConfig = require('@wordpress/scripts/config/webpack.config');
+const config = require('@wordpress/scripts/config/webpack.config');
 
 const svgFilter = (_source, sourcePath) => !/\.(svg)$/i.test(sourcePath);
-const config = defaultConfig;
 
 config.stats = 'minimal';
 

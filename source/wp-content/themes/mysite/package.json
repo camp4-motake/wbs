@@ -1,8 +1,8 @@
 {
-	"name": "mysite",
+	"name": "mysite-theme",
 	"description": "Site WordPress theme",
 	"version": "0.0.1",
-	"author": "CAMP4.inc",
+	"author": "CAMP4 inc.",
 	"license": "GPL-2.0-or-later",
 	"private": true,
 	"devDependencies": {
