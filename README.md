@@ -18,7 +18,7 @@ npm run setup
 
 ```sh
 # start wp-env
-npx wp-env start
+npm start
 
 # dev
 npm run dev
@@ -32,3 +32,5 @@ npm run lint
 # format
 npm run format
 ```
+
+[WordPress Developer Resources](https://developer.wordpress.org/)
