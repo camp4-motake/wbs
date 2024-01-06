@@ -21,30 +21,31 @@
 		"npm-run-all2": "6.1.1"
 	},
 	"scripts": {
+		"start": "npx wp-env start -- --xdebug",
 		"build": "npm run build --workspaces --if-present --silent",
 		"dev": "run-p dev:*",
-		"dev:wp": "npm run dev --workspaces --if-present --silent",
 		"dev:bs": "browser-sync start --config bs-config.js",
+		"dev:wp": "npm run dev --workspaces --if-present --silent",
+		"init": "chmod +x ./env/*.sh && chmod +x ./bin/init.sh && ./bin/init.sh",
+		"cli": "npm run wp-env run cli",
 		"composer": "docker run --rm --interactive --tty --volume $PWD:/app composer composer",
 		"format": "prettier --write --list-different . && run-s format:*",
+		"format:plugin": "npm run composer format ./source/wp-content/plugins/mysite",
 		"format:scripts": "npm run lint:scripts -- --fix",
 		"format:styles": "npm run lint:styles -- --fix",
-		"format:plugin": "npm run composer format ./source/wp-content/plugins/mysite",
 		"format:theme": "npm run composer format ./source/wp-content/themes/mysite",
 		"lint": "run-s lint:*",
+		"lint:plugin": "npm run composer lint ./source/wp-content/plugins/mysite",
 		"lint:scripts": "eslint --ignore-path .gitignore source/wp-content/{themes/mysite,plugins/mysite}",
 		"lint:styles": "stylelint source/wp-content/{themes/mysite,plugins/mysite}/**/*.css -i .gitignore",
-		"lint:plugin": "npm run composer lint ./source/wp-content/plugins/mysite",
 		"lint:theme": "npm run composer lint ./source/wp-content/themes/mysite",
-		"init": "chmod +x ./env/*.sh && chmod +x ./bin/init.sh && ./bin/init.sh",
-		"setup": "npm ci && npm run composer install && npx wp-env start && npx wp-env run cli ./env/setup.sh && npx wp-env run cli wp theme activate mysite",
-		"cli": "npm run wp-env run cli",
+		"setup": "npm ci && npm run composer install && npm start && npx wp-env run cli ./env/setup.sh && npx wp-env run cli wp theme activate mysite",
 		"wp-env": "wp-env",
 		"wp-export": "npx wp-env run cli ./env/export.sh",
 		"wp-import": "npx wp-env run cli ./env/import.sh"
 	},
 	"workspaces": [
-		"source/wp-content/plugins/myplugin",
+		"source/wp-content/plugins/mysite",
 		"source/wp-content/themes/mysite"
 	],
 	"browserslist": [
