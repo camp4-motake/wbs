@@ -4,13 +4,28 @@ WordPress Block Theme Site Starter
 
 ## setup
 
+1, install deps
+
 ```sh
-# 1, init project
-npm run init
+npm ci
+```
 
-# 2, add ACF Pro key -> auth.json
+2, Add ACF Pro key to username key in [auth.json](https://www.advancedcustomfields.com/resources/installing-acf-pro-with-composer/)
 
-# 3, run setup
+```json
+{
+ "http-basic": {
+  "connect.advancedcustomfields.com": {
++   "username": "ACF_PRO_KEY",
+   "password": "https://camp4.jp/"
+  }
+ }
+}
+```
+
+3, run wp auto setup
+
+```sh
 npm run setup
 ```
 
@@ -19,6 +34,8 @@ npm run setup
 ```sh
 # start wp-env
 npm start
+# or
+npx wp-env start
 
 # dev
 npm run dev
