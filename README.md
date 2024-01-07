@@ -15,7 +15,7 @@ WordPress Block Theme Site Starter
 npm ci
 ```
 
-2 Add ACF Pro key to username key in [auth.json](https://www.advancedcustomfields.com/resources/installing-acf-pro-with-composer/)
+2 Add ACF Pro key to `username` key in [auth.json](https://www.advancedcustomfields.com/resources/installing-acf-pro-with-composer/)
 
 ```json
 {
@@ -28,13 +28,13 @@ npm ci
 }
 ```
 
-> Add to .wp-env.override.json if you want to [change port numbers](https://github.com/WordPress/gutenberg/tree/HEAD/packages/env#custom-port-numbers), [etc](https://github.com/WordPress/gutenberg/tree/HEAD/packages/env#examples).
-
 3 run wp auto setup
 
 ```sh
 npm run setup
 ```
+
+> If you want to customize wp-env configuration, add settings to `.wp-env.override.json` in advance (e.g. [change port numbers](https://github.com/WordPress/gutenberg/tree/HEAD/packages/env#custom-port-numbers), [etc](https://github.com/WordPress/gutenberg/tree/HEAD/packages/env#examples))
 
 ## tasks
 
@@ -42,10 +42,10 @@ npm run setup
 # start wp-env (or "npm start")
 npx wp-env start
 
-# dev (all workspace)
+# dev
 npm run dev
 
-# build (all workspace)
+# build
 npm run build
 
 # lint
@@ -55,7 +55,8 @@ npm run lint
 npm run format
 ```
 
-### resource
+### resources
 
 - [wp-env](https://github.com/WordPress/gutenberg/tree/HEAD/packages/env#readme) | [wp-scripts](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/)
 - [WordPress Developer Resources](https://developer.wordpress.org/)
+- [npm workspaces](https://docs.npmjs.com/cli/v10/using-npm/workspaces)
