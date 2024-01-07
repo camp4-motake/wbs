@@ -10,3 +10,7 @@ if [ ! -e auth.json ]; then
   }
 }' > auth.json
 fi
+
+if [ ! -e .wp-env.override.json ]; then
+  echo '{}' > .wp-env.override.json
+fi

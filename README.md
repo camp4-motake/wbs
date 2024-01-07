@@ -23,19 +23,19 @@ npm ci
 }
 ```
 
+> Add to .wp-env.override.json if you want to [change port numbers](https://github.com/WordPress/gutenberg/tree/HEAD/packages/env#custom-port-numbers), [etc](https://github.com/WordPress/gutenberg/tree/HEAD/packages/env#examples).
+
 3, run wp auto setup
 
 ```sh
 npm run setup
 ```
 
-## task
+## tasks
 
 ```sh
-# start wp-env
+# start wp-env (or "npx wp-env start")
 npm start
-# or
-npx wp-env start
 
 # dev
 npm run dev
@@ -50,4 +50,7 @@ npm run lint
 npm run format
 ```
 
-[WordPress Developer Resources](https://developer.wordpress.org/)
+### resource
+
+- [wp-env](https://github.com/WordPress/gutenberg/tree/HEAD/packages/env#readme) | [wp-scripts](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/)
+- [WordPress Developer Resources](https://developer.wordpress.org/)
