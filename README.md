@@ -2,15 +2,20 @@
 
 WordPress Block Theme Site Starter
 
+## prerequisites
+
+- Docker Client
+- Node.js ^18 || ^20
+
 ## setup
 
-1, install deps
+1 install deps
 
 ```sh
 npm ci
 ```
 
-2, Add ACF Pro key to username key in [auth.json](https://www.advancedcustomfields.com/resources/installing-acf-pro-with-composer/)
+2 Add ACF Pro key to username key in [auth.json](https://www.advancedcustomfields.com/resources/installing-acf-pro-with-composer/)
 
 ```json
 {
@@ -25,7 +30,7 @@ npm ci
 
 > Add to .wp-env.override.json if you want to [change port numbers](https://github.com/WordPress/gutenberg/tree/HEAD/packages/env#custom-port-numbers), [etc](https://github.com/WordPress/gutenberg/tree/HEAD/packages/env#examples).
 
-3, run wp auto setup
+3 run wp auto setup
 
 ```sh
 npm run setup
@@ -34,13 +39,13 @@ npm run setup
 ## tasks
 
 ```sh
-# start wp-env (or "npx wp-env start")
-npm start
+# start wp-env (or "npm start")
+npx wp-env start
 
-# dev
+# dev (all workspace)
 npm run dev
 
-# build
+# build (all workspace)
 npm run build
 
 # lint
