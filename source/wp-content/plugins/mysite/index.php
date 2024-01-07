@@ -20,3 +20,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once 'inc/acf/acf-json.php';
 require_once 'inc/blocks/register-blocks.php';
+require_once 'inc/cleanup.php';
