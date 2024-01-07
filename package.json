@@ -1,14 +1,14 @@
 {
-	"name": "wp-block-theme",
+	"name": "wbs",
 	"version": "0.1.0",
-	"description": "CAMP4 inc.",
+	"description": "WordPress Block Base Site Starter",
 	"keywords": [],
-	"author": "",
+	"author": "CAMP4 inc.",
 	"license": "GPL-2.0-or-later",
+	"private": true,
 	"engines": {
 		"node": "^18 || ^20"
 	},
-	"private": true,
 	"devDependencies": {
 		"@typescript-eslint/eslint-plugin": "6.18.0",
 		"@typescript-eslint/parser": "6.18.0",
@@ -21,14 +21,12 @@
 		"npm-run-all2": "6.1.1"
 	},
 	"scripts": {
+		"postinstall": "npm run init",
 		"start": "npx wp-env start -- --xdebug",
 		"build": "npm run build --workspaces --if-present --silent",
 		"dev": "run-p dev:*",
 		"dev:bs": "browser-sync start --config bs-config.js",
 		"dev:wp": "npm run dev --workspaces --if-present --silent",
-		"init": "chmod +x ./env/*.sh && chmod +x ./bin/init.sh && ./bin/init.sh",
-		"cli": "npm run wp-env run cli",
-		"composer": "docker run --rm --interactive --tty --volume $PWD:/app composer composer",
 		"format": "prettier --write --list-different . && run-s format:*",
 		"format:plugin": "npm run composer format ./source/wp-content/plugins/mysite",
 		"format:scripts": "npm run lint:scripts -- --fix",
@@ -39,10 +37,17 @@
 		"lint:scripts": "eslint --ignore-path .gitignore source/wp-content/{themes/mysite,plugins/mysite}",
 		"lint:styles": "stylelint source/wp-content/{themes/mysite,plugins/mysite}/**/*.css -i .gitignore",
 		"lint:theme": "npm run composer lint ./source/wp-content/themes/mysite",
-		"setup": "npm ci && npm run composer install && npm start && npx wp-env run cli ./env/setup.sh && npx wp-env run cli wp theme activate mysite",
-		"wp-env": "wp-env",
+		"setup": "run-s setup:* --silent",
+		"setup:build": "npm run build",
+		"setup:composer": "npm run composer install",
+		"setup:wp-conf": "npx wp-env run cli ./env/setup.sh",
+		"setup:wp-env": "npm start",
+		"setup:wp-theme": "npx wp-env run cli wp theme activate mysite",
 		"wp-export": "npx wp-env run cli ./env/export.sh",
-		"wp-import": "npx wp-env run cli ./env/import.sh"
+		"wp-import": "npx wp-env run cli ./env/import.sh",
+		"init": "chmod +x ./{env,bin}/*.sh && ./bin/init.sh",
+		"composer": "docker run --rm --interactive --tty --volume $PWD:/app composer composer",
+		"cli": "npx wp-env run cli"
 	},
 	"workspaces": [
 		"source/wp-content/plugins/mysite",
@@ -52,6 +57,7 @@
 		"extends @wordpress/browserslist-config"
 	],
 	"volta": {
-		"node": "20.10.0"
+		"node": "20.10.0",
+		"npm": "10.2.5"
 	}
 }

@@ -1,9 +1,10 @@
 {
 	"name": "mysite-plugin",
+	"description": "Site Plugin",
 	"version": "0.1.0",
 	"author": "CAMP4 inc.",
 	"license": "GPL-2.0-or-later",
-	"main": "build/index.js",
+	"private": true,
 	"scripts": {
 		"dev": "wp-scripts build",
 		"build": "tsc && wp-scripts build",
