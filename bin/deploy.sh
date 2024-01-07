@@ -6,6 +6,8 @@ if [ -e .env ]; then
     source .env
 fi
 
+npm run build
+
 case "$1" in
   "production")
     if [[ -n "$RSYNC_PRODUCTION_REMOTE_WP_PATH" ]];
@@ -26,7 +28,6 @@ case "$1" in
     fi
     ;;
   "zip")
-	  npm run build
     mkdir -p .zip/themes && (cd ./source/wp-content/themes/${WP_SITE_SLUG}/ && zip -r -x "*.DS_Store" "*__MACOSX*" "*node_modules*" "*vendor*" "*.tsbuildinfo"  - .) > .zip/themes/${WP_SITE_SLUG}.zip
     mkdir -p .zip/plugins && (cd ./source/wp-content/plugins/${WP_SITE_SLUG}/ && zip -r -x "*.DS_Store" "*__MACOSX*" "*node_modules*" "*vendor*" "*.tsbuildinfo"  - .) > .zip/plugins/${WP_SITE_SLUG}.zip
     ;;
