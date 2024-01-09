@@ -11,9 +11,7 @@
 		"https://downloads.wordpress.org/plugin/wp-multibyte-patch.zip",
 		"https://downloads.wordpress.org/plugin/yoast-test-helper.zip"
 	],
-	"themes": [
-		"./source/wp-content/themes/mysite"
-	],
+	"themes": ["./source/wp-content/themes/mysite"],
 	"mappings": {
 		"env": "./env",
 		"wp-content/mu-plugins": "./source/wp-content/mu-plugins",
