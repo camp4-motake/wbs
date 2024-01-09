@@ -24,7 +24,7 @@
 		"postinstall": "npm run init --silent",
 		"start": "npx wp-env start -- --xdebug",
 		"build": "npm run build --workspaces --if-present --silent",
-		"dev": "run-p dev:*",
+		"dev": "run-p dev:* --silent",
 		"dev:bs": "browser-sync start --config bs-config.js",
 		"dev:wp": "npm run dev --workspaces --if-present --silent",
 		"cli": "npx wp-env run cli",
