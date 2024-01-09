@@ -1,6 +1,6 @@
 <?php
 
-namespace MySite\Plugin\Blocks;
+namespace Site\Plugin\Blocks;
 
 /**
  * Registers the block using the metadata loaded from the `block.json` file.

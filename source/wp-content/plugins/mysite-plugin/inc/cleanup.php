@@ -1,6 +1,6 @@
 <?php
 
-namespace MySite\Theme\Cleanup;
+namespace Site\Theme\Cleanup;
 
 /**
  * メタ削除

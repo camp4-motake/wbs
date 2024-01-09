@@ -1,6 +1,6 @@
 <?php
 
-namespace MySite\Plugin\Acf\Json;
+namespace Site\Plugin\Acf\Json;
 
 add_filter( 'acf/settings/save_json', __NAMESPACE__ . '\save_acf_json' );
 add_filter( 'acf/settings/load_json', __NAMESPACE__ . '\load_acf_json' );

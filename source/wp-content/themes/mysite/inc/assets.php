@@ -1,6 +1,6 @@
 <?php
 
-namespace MySite\Theme\Assets;
+namespace Site\Theme\Assets;
 
 function enqueue_theme_assets() {
 
@@ -8,14 +8,14 @@ function enqueue_theme_assets() {
 	$version    = isset( $asset_meta['version'] ) ? $asset_meta['version'] : null;
 
 	wp_enqueue_style(
-		'mysite-style',
+		'site-style',
 		get_theme_file_uri( '/build/index.css' ),
 		array(),
 		$version
 	);
 
 	wp_enqueue_script(
-		'mysite-script',
+		'site-script',
 		get_theme_file_uri( 'build/index.js' ),
 		array(),
 		$version
