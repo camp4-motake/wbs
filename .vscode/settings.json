@@ -11,7 +11,7 @@
 	},
 	"files.watcherExclude": {
 		"env/_bkp/*": true,
-		"source/wp-content/plugins/mysite/build/*": true,
+		"source/wp-content/plugins/mysite-plugin/build/*": true,
 		"source/wp-content/themes/mysite/build/*": true
 	},
 	"editor.defaultFormatter": "esbenp.prettier-vscode",

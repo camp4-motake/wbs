@@ -4,8 +4,8 @@ WordPress Block Theme Site Starter
 
 ## prerequisites
 
-- Docker Client
-- Node.js ^18 || ^20
+-   Docker Client
+-   Node.js ^18 || ^20
 
 ## setup
 
@@ -57,6 +57,6 @@ npm run format
 
 ### resources
 
-- [wp-env](https://github.com/WordPress/gutenberg/tree/HEAD/packages/env#readme) | [wp-scripts](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/)
-- [WordPress Developer Resources](https://developer.wordpress.org/)
-- [npm workspaces](https://docs.npmjs.com/cli/v10/using-npm/workspaces)
+-   [wp-env](https://github.com/WordPress/gutenberg/tree/HEAD/packages/env#readme) | [wp-scripts](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/)
+-   [WordPress Developer Resources](https://developer.wordpress.org/)
+-   [npm workspaces](https://docs.npmjs.com/cli/v10/using-npm/workspaces)
