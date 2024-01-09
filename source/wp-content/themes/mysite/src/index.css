@@ -1,3 +1,2 @@
-body {
-	background-color: var(--wp--preset--color--smoke);
-}
+@import "styles/config/**/*.css";
+@import "ress";

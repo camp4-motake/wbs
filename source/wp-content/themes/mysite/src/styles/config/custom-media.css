@@ -1,0 +1,15 @@
+/**
+ * custom-media
+ *
+ * @link https://www.w3.org/TR/mediaqueries-5/#at-ruledef-custom-media
+ * @link https://preset-env.cssdb.org/features/#custom-media-queries
+ */
+@custom-media --viewport-xs (width >= 23.4375em);
+@custom-media --viewport-sm (width >= 36em);
+@custom-media --viewport-md (width >= 48em);
+@custom-media --viewport-lg (width >= 62em);
+@custom-media --viewport-xl (width >= 75em);
+@custom-media --viewport-land (orientation: landscape);
+@custom-media --viewport-port (orientation: portrait);
+@custom-media --viewport-md-land (--viewport-md) and (--viewport-land),
+	(--viewport-lg);

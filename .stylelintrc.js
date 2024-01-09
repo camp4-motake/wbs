@@ -9,14 +9,7 @@ module.exports = {
 		'**/*.tsx',
 	],
 	rules: {
-		// "no-descending-specificity": null,
-		// "font-weight-notation": null,
-		// "selector-class-pattern": null,
-		// "value-keyword-case": [
-		// 	"lower",
-		// 	{
-		// 		camelCaseSvgKeywords: true,
-		// 	},
-		// ],
+		'at-rule-empty-line-before': null,
+		'rule-empty-line-before': null,
 	},
 };

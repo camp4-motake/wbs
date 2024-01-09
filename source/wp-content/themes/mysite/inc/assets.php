@@ -8,14 +8,14 @@ function enqueue_theme_assets() {
 	$version    = isset( $asset_meta['version'] ) ? $asset_meta['version'] : null;
 
 	wp_enqueue_style(
-		'site-style',
+		'app-styles',
 		get_theme_file_uri( '/build/index.css' ),
 		array(),
 		$version
 	);
 
 	wp_enqueue_script(
-		'site-script',
+		'app-scripts',
 		get_theme_file_uri( 'build/index.js' ),
 		array(),
 		$version
@@ -25,7 +25,7 @@ add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_theme_assets' );
 
 
 function replace_module_script_tag( string $tag, string $handle, string $src ) {
-	if ( in_array( $handle, array( 'mysite-script' ), true ) ) {
+	if ( in_array( $handle, array( 'app-scripts' ), true ) ) {
 		return '<script type="module" src="' . esc_url( $src ) . '" defer></script>' . "\n";
 	}
 	return $tag;
