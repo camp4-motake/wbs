@@ -7,7 +7,7 @@
 		"source/wp-content/mu-plugins": true,
 		"source/wp-content/plugins/advanced-custom-fields-pro": true,
 		"vendor": true,
-		"**/*.tsbuildinfo": true,
+		"**/*.tsbuildinfo": true
 	},
 	"files.watcherExclude": {
 		"env/_bkp/*": true,
