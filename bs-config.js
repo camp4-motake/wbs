@@ -1,23 +1,19 @@
 const { existsSync } = require('node:fs');
-
-const packageJson = require('./package.json');
-const wpEnv = require('./.wp-env.json');
-const wpEnvOr = existsSync('./.wp-env.override.json')
+const { workspaces } = require('./package.json');
+const wpEnv = existsSync('./.wp-env.override.json')
 	? require('./.wp-env.override.json')
-	: {};
-const port = wpEnvOr?.port || wpEnv?.port || 8888;
+	: require('./.wp-env.json');
 
-const config = {
-	ui: false,
-	files: packageJson.workspaces.flatMap((ws) => [
-		`${ws}/**/*.{php,html,json}`,
-		`${ws}/build`,
-		`!${ws}/{vendor,node_modules}`,
+module.exports = {
+	files: workspaces.flatMap((path) => [
+		`${path}/**/*.{php,html,json}`,
+		`${path}/build`,
+		`!${path}/{vendor,node_modules}`,
+		`!${path}/.*/*`,
 	]),
-	proxy: process.env.PROXY_URL || `http://localhost:${port}`,
 	ghostMode: false,
-	open: false,
 	notify: false,
+	open: false,
+	proxy: process.env.PROXY_URL || `http://localhost:${wpEnv?.port || 8888}`,
+	ui: false,
 };
-
-module.exports = config;
