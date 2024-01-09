@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Plugin Name:       mysite plugin
- * Description:       Custom Site Plugin
+ * Plugin Name:       mysite Plugin
+ * Description:       Site Custom Plugin
  * Requires at least: 6.4
  * Requires PHP:      8.1
  * Version:           0.1.0
