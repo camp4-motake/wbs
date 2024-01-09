@@ -4,8 +4,8 @@
 		"editorconfig.editorconfig",
 		"esbenp.prettier-vscode",
 		"obliviousharmony.vscode-php-codesniffer",
+		"pcbowers.alpine-intellisense",
 		"stylelint.vscode-stylelint",
-		"vunguyentuan.vscode-postcss",
-		"pcbowers.alpine-intellisense"
+		"vunguyentuan.vscode-postcss"
 	]
 }
