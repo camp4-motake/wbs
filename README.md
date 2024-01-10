@@ -17,49 +17,32 @@ npm ci
 
 2, Add ACF Pro key to `username` key in [auth.json](https://www.advancedcustomfields.com/resources/installing-acf-pro-with-composer/)
 
-3, run wp auto setup
+> If you want to customize wp-env configuration, add settings to `.wp-env.override.json` in advance (e.g. [change port numbers](https://github.com/WordPress/gutenberg/tree/HEAD/packages/env#custom-port-numbers), [etc](https://github.com/WordPress/gutenberg/tree/HEAD/packages/env#examples))
+
+3, run auto WordPress setup
 
 ```sh
 npm run setup
 ```
 
-> If you want to customize wp-env configuration, add settings to `.wp-env.override.json` in advance (e.g. [change port numbers](https://github.com/WordPress/gutenberg/tree/HEAD/packages/env#custom-port-numbers), [etc](https://github.com/WordPress/gutenberg/tree/HEAD/packages/env#examples))
-
 ## tasks
 
- start wp-env
-
 ```sh
+# start wp-env
 npx wp-env start
-```
-
- or
-
-```sh
+# or (same "npx wp-env start -- --xdebug")
 npm start
-```
 
-dev
-
-```sh
+# dev
 npm run dev
-```
 
-build
-
-```sh
+# build
 npm run build
-```
 
-lint
-
-```sh
+# lint
 npm run lint
-```
 
-format
-
-```sh
+# format
 npm run format
 ```
 
