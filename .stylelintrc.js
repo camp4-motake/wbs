@@ -1,5 +1,9 @@
 module.exports = {
-	extends: ['@wordpress/stylelint-config'],
+	extends: [
+		'@wordpress/stylelint-config',
+		'stylelint-config-recess-order',
+		'stylelint-config-prettier', // WORKAROUND: Stylelint v15 deprecated.
+	],
 	ignoreFiles: [
 		'build/**/*.css',
 		'node_modules/**/*.css',
@@ -9,7 +13,9 @@ module.exports = {
 		'**/*.tsx',
 	],
 	rules: {
-		'at-rule-empty-line-before': null,
+		'comment-empty-line-before': null,
+		'no-descending-specificity': null,
+		'selector-class-pattern': null,
 		'rule-empty-line-before': null,
 	},
 };
