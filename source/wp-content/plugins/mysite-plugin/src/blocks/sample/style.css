@@ -6,7 +6,7 @@
  */
 
 .wp-block-create-block-mysite {
-	background-color: #21759b;
-	color: #fff;
 	padding: 2px;
+	color: #fff;
+	background-color: #21759b;
 }
