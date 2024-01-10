@@ -1,0 +1,4 @@
+*.md
+*.hbs
+node_modules/
+vendor/
