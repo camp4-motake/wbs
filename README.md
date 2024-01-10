@@ -9,17 +9,17 @@ WordPress Block Theme Site Starter
 
 ## setup environment
 
-1, install dependencies
+1. install dependencies
 
 ```sh
 npm ci
 ```
 
-2, Add ACF Pro key to `username` key in [auth.json](https://www.advancedcustomfields.com/resources/installing-acf-pro-with-composer/)
+2. Add ACF Pro key to `username` key in [auth.json](https://www.advancedcustomfields.com/resources/installing-acf-pro-with-composer/)
 
 > If you want to customize wp-env configuration, add settings to `.wp-env.override.json` in advance (e.g. [change port numbers](https://github.com/WordPress/gutenberg/tree/HEAD/packages/env#custom-port-numbers), [etc](https://github.com/WordPress/gutenberg/tree/HEAD/packages/env#examples))
 
-3, run auto WordPress setup
+3. run auto WordPress setup
 
 ```sh
 npm run setup
