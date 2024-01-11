@@ -6,7 +6,7 @@
 		"jsx": "preserve",
 		"target": "esnext",
 		"module": "esnext",
-		"lib": ["dom", "esnext"],
+		"lib": ["DOM", "DOM.Iterable", "ESNext"],
 		"composite": true,
 		"baseUrl": ".",
 		"paths": {
