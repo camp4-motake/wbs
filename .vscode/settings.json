@@ -1,4 +1,9 @@
 {
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	"emmet.includeLanguages": {
+		"postcss": "css"
+	},
 	"files.exclude": {
 		".cache": true,
 		"composer.lock": true,
@@ -10,14 +15,11 @@
 		"**/*.tsbuildinfo": true
 	},
 	"files.watcherExclude": {
-		"env/_bkp/*": true,
-		"source/wp-content/plugins/mysite-plugin/build/*": true,
-		"source/wp-content/themes/mysite/build/*": true
-	},
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
-	"editor.formatOnSave": true,
-	"emmet.includeLanguages": {
-		"postcss": "css"
+		"**/_bkp/**": true,
+		"**/build/**": true,
+		"**/dist/**": true,
+		"*.sql": true,
+		"*.zip": true
 	},
 	"files.associations": {
 		"*.css": "postcss"
