@@ -7,6 +7,7 @@
 	"category": "text",
 	"icon": "smiley",
 	"description": "Example block scaffolded with Create Block tool.",
+	"attributes": {},
 	"example": {},
 	"supports": {
 		"html": false
