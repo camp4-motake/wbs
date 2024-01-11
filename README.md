@@ -28,9 +28,7 @@ npm run setup
 ## tasks
 
 ```sh
-# start wp-env
-npx wp-env start
-# or (same "npx wp-env start -- --xdebug")
+# start wp-env (same "npx wp-env start -- --xdebug")
 npm start
 
 # dev
