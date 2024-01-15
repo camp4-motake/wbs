@@ -19,10 +19,13 @@
 		"@types/wordpress__block-editor": "11.5.9",
 		"@types/wordpress__blocks": "12.5.13",
 		"@types/wordpress__components": "23.0.11",
-		"@types/wordpress__data": "7.0.0",
 		"@wordpress/scripts": "26.19.0",
 		"cssnano": "6.0.3",
 		"postcss-preset-env": "9.3.0",
 		"postcss-sort-media-queries": "5.2.0"
+	},
+	"dependencies": {
+		"@wordpress/i18n": "4.48.0",
+		"@wordpress/icons": "9.39.0"
 	}
 }
