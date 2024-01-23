@@ -1,0 +1,57 @@
+.wp-block-wbs-tabs {
+	.tab {
+		&-labels {
+			padding-left: 0;
+			.tab-label {
+				display: inline-block;
+				padding: 1em 2em 0.5em;
+				margin: 2.5px;
+				list-style: none;
+				cursor: pointer;
+				&.active {
+					background-color: var(--wp--preset--color--base);
+				}
+				&.active,
+				&:focus,
+				&:hover {
+					border-bottom: var(--wp--preset--color--warning) 4px solid;
+				}
+			}
+		}
+		&-content {
+			.tab-panel {
+				display: none;
+				&.active {
+					display: block;
+				}
+			}
+		}
+	}
+	@media only screen and (min-width: 768px) {
+		&.side-tab-layout {
+			display: flex;
+			width: 100%;
+			.tab-labels {
+				display: flex;
+				flex-direction: column;
+				border-right: solid var(--wp--preset--color--border) 1px;
+			}
+			.tab-content {
+				display: flex;
+				flex: 1;
+				flex-direction: column;
+				.tab-panel.active {
+					display: flex;
+					flex: 1;
+					flex-direction: column;
+					.wp-block-cgb-block-page-section {
+						flex: 1;
+					}
+					& > * {
+						padding: 0 2rem;
+					}
+				}
+			}
+		}
+	}
+}
