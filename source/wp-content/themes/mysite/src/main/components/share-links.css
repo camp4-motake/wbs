@@ -1,14 +1,14 @@
 .share-links {
 	display: flex;
-	gap: 1rem max(1rem, 2.5%);
 	align-items: center;
 	justify-content: center;
 	padding-top: var(--wp--preset--spacing--normal);
 	padding-bottom: var(--wp--preset--spacing--normal);
+	gap: 1rem max(1rem, 2.5%);
 
 	.share-links-label {
-		font-family: var(--wp--preset--font-family--sans-serif-en);
 		color: var(--wp--preset--color--border);
+		font-family: var(--wp--preset--font-family--sans-serif-en);
 	}
 
 	.share-link {

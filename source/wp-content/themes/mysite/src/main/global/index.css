@@ -5,8 +5,8 @@
 /* html, body { min-height: 100vh; } */
 
 html {
-	scroll-padding-top: var(--header-height);
 	background-color: var(--color-bacface);
+	scroll-padding-top: var(--header-height);
 
 	&:not(.is-animating) {
 		scroll-behavior: smooth;
@@ -14,15 +14,15 @@ html {
 }
 
 body {
-	overflow-y: scroll;
+	background-color: var(--wp--preset--color--base);
 	font-feature-settings: normal;
-	line-height: var(--wp--custom--line-height--base);
-	overflow-wrap: break-word;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	text-size-adjust: 100%;
 	font-synthesis: none;
-	background-color: var(--wp--preset--color--base);
+	line-height: var(--wp--custom--line-height--base);
+	overflow-wrap: break-word;
+	overflow-y: scroll;
+	text-size-adjust: 100%;
 }
 
 img,
@@ -40,12 +40,12 @@ hr,
 
 	width: 100%;
 	height: 1px;
-	margin: var(--wp--preset--spacing--normal) auto;
-	background-color: var(--wp--preset--color--border);
 	border: none;
 	border-color: transparent;
-	border-bottom-color: var(--wp--preset--color--border);
 	border-bottom-width: 1px;
+	border-bottom-color: var(--wp--preset--color--border);
+	margin: var(--wp--preset--spacing--normal) auto;
+	background-color: var(--wp--preset--color--border);
 
 	&.-max-lg {
 		max-width: min(
@@ -110,9 +110,9 @@ input,
 textarea {
 	position: relative;
 	padding: 0.5em;
-	font-size: max(16px, 1rem);
-	color: var(--wp--preset--color--text-base);
 	background-color: var(--wp--preset--color--base);
+	color: var(--wp--preset--color--text-base);
+	font-size: max(16px, 1rem);
 }
 
 fieldset,
@@ -124,19 +124,19 @@ fieldset {
 	display: block;
 	min-width: 0;
 	padding: 0;
-	margin: 0;
 	border: 0;
+	margin: 0;
 }
 
 :where(button) {
-	background-color: transparent;
 	border: 0;
+	background-color: transparent;
 }
 
 svg {
+	overflow: visible;
 	width: 100%;
 	height: auto;
-	overflow: visible;
 }
 
 p {
@@ -144,9 +144,9 @@ p {
 }
 
 .updated {
+	color: var(--wp--preset--color--border);
 	font-family: var(--wp--preset--font-family--sans-serif-en);
 	font-weight: var(--wp--custom--font-weight--medium);
-	color: var(--wp--preset--color--border);
 }
 
 /**

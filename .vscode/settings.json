@@ -10,7 +10,7 @@
 		"node_modules": false,
 		"package-lock.json": true,
 		"source/wp-content/mu-plugins": true,
-		"source/wp-content/plugins/advanced-custom-fields-pro": true,
+		"source/wp-content/plugins": true,
 		"vendor": true,
 		"**/*.tsbuildinfo": true
 	},
@@ -26,12 +26,9 @@
 	},
 	"css.validate": false,
 	"postcss.validate": false,
-	"[typescript]": {
-		"editor.codeActionsOnSave": {
-			"source.organizeImports": "explicit"
-		}
+	"editor.codeActionsOnSave": {
+		"source.organizeImports": "explicit"
 	},
-	"alpine-intellisense.settings.languageScopes": "html,php",
 	"[php]": {
 		"editor.formatOnSave": true,
 		"editor.defaultFormatter": "obliviousharmony.vscode-php-codesniffer"
@@ -44,5 +41,9 @@
 	],
 	"[handlebars]": {
 		"editor.formatOnSave": false
-	}
+	},
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"alpine-intellisense.settings.languageScopes": "html,php"
 }

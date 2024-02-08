@@ -17,8 +17,8 @@
 			display: inline-block;
 			width: 1em;
 			height: 1em;
-			content: "";
 			background-color: currentcolor;
+			content: "";
 			mask-image: var(--mask-ico-arrow-right);
 			mask-position: center;
 			mask-repeat: no-repeat;

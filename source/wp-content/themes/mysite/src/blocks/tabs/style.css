@@ -15,18 +15,18 @@
 		display: block;
 		width: 100%;
 		padding: 0.5em;
-		margin-bottom: -2px;
-		background-color: var(--wp--preset--color--bg-fill);
 		border-right: 2px solid var(--wp--preset--color--primary);
 		border-bottom: 2px solid var(--wp--preset--color--primary);
+		margin-bottom: -2px;
+		background-color: var(--wp--preset--color--bg-fill);
 
 		&:first-child {
 			border-left: 2px solid var(--wp--preset--color--primary);
 		}
 
 		&[aria-selected="true"] {
-			background-color: var(--wp--preset--color--base);
 			border-bottom-color: var(--wp--preset--color--base);
+			background-color: var(--wp--preset--color--base);
 		}
 	}
 
