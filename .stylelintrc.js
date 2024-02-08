@@ -1,7 +1,7 @@
 module.exports = {
 	extends: [
 		'@wordpress/stylelint-config',
-		'stylelint-config-recess-order',
+		'stylelint-config-idiomatic-order',
 		'stylelint-config-prettier', // WORKAROUND: Stylelint v15 or later is deprecated.
 	],
 	rules: {

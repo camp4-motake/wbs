@@ -19,8 +19,8 @@
 		"@wordpress/stylelint-config": "^21.33.0",
 		"browser-sync": "^3.0.2",
 		"npm-run-all2": "6.1.2",
-		"stylelint-config-prettier": "9.0.5",
-		"stylelint-config-recess-order": "3.1.0"
+		"stylelint-config-idiomatic-order": "10.0.0",
+		"stylelint-config-prettier": "9.0.5"
 	},
 	"scripts": {
 		"postinstall": "npm run init --silent",
