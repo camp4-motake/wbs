@@ -1,0 +1,130 @@
+:root {
+	--color-bacface: var(--wp--preset--color--primary, #468bb7);
+	--overay-opacity: 0.5;
+	--rem: 16 * 1rem;
+
+	/* z order */
+	--z-header: 1600;
+	--z-modal: 1800;
+	--z-nav-menu: 1200;
+	--z-badge: 20;
+	--z-go-top: 1100;
+
+	/* scrollbar width */
+	--window-scroll-bar-width: 0;
+
+	/* header size */
+	--header-height: calc(50 / var(--rem));
+	@media (--viewport-lg) {
+		--header-height: calc(85 / var(--rem));
+	}
+
+	/* menu toggle size */
+	--toggle-size: calc(60 / var(--rem));
+
+	/* wordpress admin bar (overide js) */
+	--wp-adminbar-height: 0;
+	--header-and-adminbar-height: calc(
+		var(--header-height) + var(--wp-adminbar-height)
+	);
+
+	/* container width */
+
+	--container-max-width: auto;
+	--container-max-width-sm: calc(540 / var(--rem));
+	--container-max-width-md: calc(720 / var(--rem));
+	--container-max-width-lg: calc(960 / var(--rem));
+	--container-max-width-xl: calc(1140 / var(--rem));
+	--container-max-width-2xl: calc(1400 / var(--rem));
+	--container-max-width-3xl: calc(1600 / var(--rem));
+	--container-max-width-entry: var(--container-max-width-md);
+	--container-max-width-fluid: calc(1980 / var(--rem));
+	--container-max-width-view: calc(2560 / var(--rem));
+	@media (--viewport-sm) {
+		--container-max-width: calc(540 / var(--rem));
+	}
+	@media (--viewport-md) {
+		--container-max-width: calc(720 / var(--rem));
+	}
+	@media (--viewport-lg) {
+		--container-max-width: calc(960 / var(--rem));
+	}
+	@media (--viewport-xl) {
+		--container-max-width: calc(1140 / var(--rem));
+	}
+	@media (--viewport-2xl) {
+		--container-max-width: calc(1400 / var(--rem));
+	}
+	@media (--viewport-3xl) {
+		--container-max-width: calc(1600 / var(--rem));
+	}
+
+	/* ease: cubic */
+
+	/*
+  --ease-in-cubic: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  --ease-out-cubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+  --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+  */
+
+	/* ease: circ */
+	--ease-in-circ: cubic-bezier(0.6, 0.04, 0.98, 0.335);
+	--ease-out-circ: cubic-bezier(0.075, 0.82, 0.165, 1);
+	--ease-in-out-circ: cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
+	/* ease: expo */
+
+	/*
+  --ease-in-expo: cubic-bezier(0.95, 0.05, 0.795, 0.035);
+  --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-in-out-expo: cubic-bezier(1, 0, 0, 1);
+  */
+
+	/* ease: quad */
+
+	/*
+  --ease-in-quad: cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  */
+
+	/* ease: quart */
+
+	/*
+  --ease-in-quart: cubic-bezier(0.895, 0.03, 0.685, 0.22);
+  --ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);
+  --ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
+  */
+
+	/* ease: quint */
+
+	/*
+  --ease-in-quint: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+  --ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-quint: cubic-bezier(0.86, 0, 0.07, 1);
+  */
+
+	/* ease: sine */
+	--ease-in-sine: cubic-bezier(0.47, 0, 0.745, 0.715);
+	--ease-out-sine: cubic-bezier(0.39, 0.575, 0.565, 1);
+	--ease-in-out-sine: cubic-bezier(0.445, 0.05, 0.55, 0.95);
+
+	/* ease: back */
+	--ease-in-back: cubic-bezier(0.6, -0.28, 0.735, 0.045);
+	--ease-out-back: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+	--ease-in-out-back: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+	--safe-top: env(safe-area-inset-top, 0);
+	--safe-right: env(safe-area-inset-right, 0);
+	--safe-bottom: env(safe-area-inset-bottom, 0);
+	--safe-left: env(safe-area-inset-left, 0);
+
+	/* imagse */
+	--bg-badge-new: url(../../images/_inline/badge-new.svg);
+	--mask-ico-arrow-left: url(../../images/_inline/ico-arrow-left.svg);
+	--mask-ico-arrow-right: url(../../images/_inline/ico-arrow-right.svg);
+	--mask-ico-external: url(../../images/_inline/ico-external.svg);
+	--mask-ico-pdf: url(../../images/_inline/ico-pdf.svg);
+	--mask-ico-plus: url(../../images/_inline/ico-plus.svg);
+	--mask-ico-time: url(../../images/_inline/ico-time.svg);
+}

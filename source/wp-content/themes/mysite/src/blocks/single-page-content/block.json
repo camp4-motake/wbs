@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wbs/single-page-content",
+	"version": "0.1.0",
+	"title": "Single Page Content",
+	"category": "wbs-blocks",
+	"icon": "edit-page",
+	"description": "single page dynamic content",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "dynamic",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

@@ -1,6 +1,0 @@
-/* editor styles */
-
-.alignfull {
-	margin-right: calc(var(--wp--custom--gutter) * -1);
-	margin-left: calc(var(--wp--custom--gutter) * -1);
-}

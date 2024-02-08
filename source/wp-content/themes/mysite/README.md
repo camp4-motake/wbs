@@ -1,3 +1,7 @@
-# mysite theme
+# wbs
 
-[Theme Handbook](https://developer.wordpress.org/themes/)
+## requirements
+
+- WordPress >= 6.4
+- PHP >= 8.1 (with php-mbstring enabled)
+- [ACF Pro](https://www.advancedcustomfields.com/pro/)

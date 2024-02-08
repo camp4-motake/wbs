@@ -5,7 +5,7 @@ WordPress Block Theme Site Starter
 ## prerequisites
 
 - Docker Client
-- Node.js ^18 || ^20
+- Node.js >=18 || ^20
 
 ## setup environment
 
@@ -28,7 +28,7 @@ npm run setup
 ## tasks
 
 ```sh
-# start wp-env (same "npx wp-env start -- --xdebug")
+# start wp-env (same "npx wp-env start --xdebug")
 npm start
 
 # dev

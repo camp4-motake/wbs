@@ -1,0 +1,150 @@
+.wp-block-table {
+	margin-bottom: var(--wp--preset--spacing--lg);
+	overflow: auto;
+	border-collapse: collapse;
+	-webkit-overflow-scrolling: touch;
+
+	& table {
+		margin-bottom: 0;
+		border-bottom: 1px solid var(--wp--preset--color--border);
+
+		& th,
+		& td {
+			line-height: var(--wp--custom--line-height--lg);
+			border-top: 1px solid var(--wp--preset--color--border);
+		}
+	}
+
+	& table + figcaption {
+		margin-top: var(--wp--preset--spacing--sm);
+	}
+
+	& thead {
+		border-bottom: 2px solid var(--wp--preset--color--border);
+	}
+
+	& tfoot {
+		border-top: 2px solid var(--wp--preset--color--border);
+	}
+
+	& td,
+	& th {
+		padding: 0.75em;
+		word-break: normal;
+		vertical-align: middle;
+		border: 1px solid var(--wp--preset--color--border);
+
+		&:where([class*="has-text-align-"]) {
+			width: initial;
+		}
+	}
+
+	& th {
+		white-space: nowrap;
+	}
+
+	& figcaption {
+		font-size: var(--wp--preset--font-size--12);
+		color: var(--wp--preset--color--text-placeholder);
+	}
+}
+
+.wp-block-table table:not(.has-background) {
+	& thead,
+	& tfoot {
+		background-color: var(--wp--preset--color--bg-fill);
+	}
+}
+
+.wp-block-table:not(.is-style-stripes) {
+	& thead,
+	& tfoot {
+		& th,
+		& td {
+			background-color: var(--wp--preset--color--bg-fill);
+		}
+	}
+
+	& thead th {
+		color: currentcolor;
+	}
+}
+
+.wp-block-table.is-style-stripes {
+	border-bottom: 0;
+
+	& table:not(.has-background) {
+		border: 0;
+
+		& thead {
+			font-weight: var(--wp--custom--font-weight--bold);
+			background-color: var(--wp--preset--color--bg-fill);
+			border-bottom: 2px solid var(--wp--preset--color--border);
+		}
+
+		& tfoot {
+			background-color: var(--wp--preset--color--bg-fill);
+			border-top: 2px solid var(--wp--preset--color--border);
+		}
+
+		& tbody tr:nth-child(odd) {
+			background-color: var(--wp--preset--color--bg-fill);
+		}
+
+		& td,
+		& th {
+			border: 0;
+		}
+	}
+}
+
+* + .wp-block-table {
+	margin-top: var(--wp--preset--spacing--lg);
+}
+
+.wp-block-table.is-style-definition {
+	table {
+		border-right: 0;
+		border-left: 0;
+
+		tr,
+		td {
+			border: 0;
+			border-bottom: 1px solid var(--wp--preset--color--text-placeholder);
+		}
+	}
+
+	tbody tr {
+		> td:first-child {
+			width: max-content;
+			min-width: initial;
+			padding-right: 0;
+			padding-left: 0;
+			font-weight: var(--wp--custom--font-weight--bold);
+			vertical-align: top;
+		}
+	}
+}
+
+.wp-block-table.is-style-all-border {
+	table {
+		border-right: 1px solid var(--wp--preset--color--border);
+		border-left: 1px solid var(--wp--preset--color--border);
+	}
+	& :where(th, td):not(:last-child) {
+		border-right: 1px solid var(--wp--preset--color--border);
+	}
+}
+
+.wp-block-table.is-style-bg-transparent table {
+	thead,
+	tfoot {
+		background-color: transparent;
+
+		& tr,
+		& th,
+		& td {
+			background-color: transparent;
+		}
+	}
+}

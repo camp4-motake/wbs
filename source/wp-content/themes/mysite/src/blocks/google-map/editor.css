@@ -1,0 +1,7 @@
+.wp-block-wbs-google-map {
+	position: relative;
+
+	.map {
+		pointer-events: none;
+	}
+}

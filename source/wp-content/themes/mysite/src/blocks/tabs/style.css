@@ -1,0 +1,51 @@
+.wp-block-wbs-tabs {
+	padding: var(--wp--preset--spacing--lg) 0;
+	margin-inline: auto;
+
+	.tab-labels {
+		display: flex;
+		max-width: min(
+			calc(100% - calc(var(--wp--preset--spacing--sm) * 2)),
+			var(--wp--style--global--content-size)
+		);
+		border-top: 2px solid var(--wp--preset--color--primary);
+	}
+
+	.tab-label {
+		display: block;
+		width: 100%;
+		padding: 0.5em;
+		margin-bottom: -2px;
+		background-color: var(--wp--preset--color--bg-fill);
+		border-right: 2px solid var(--wp--preset--color--primary);
+		border-bottom: 2px solid var(--wp--preset--color--primary);
+
+		&:first-child {
+			border-left: 2px solid var(--wp--preset--color--primary);
+		}
+
+		&[aria-selected="true"] {
+			background-color: var(--wp--preset--color--base);
+			border-bottom-color: var(--wp--preset--color--base);
+		}
+	}
+
+	.tab-content {
+		border-top: 2px solid var(--wp--preset--color--primary);
+		border-bottom: 2px solid var(--wp--preset--color--primary);
+	}
+
+	.tab-panel {
+		padding: var(--wp--custom--gutter) 0;
+	}
+}
+
+.entry-content,
+.editor-styles-wrapper {
+	> .wp-block-wbs-tabs {
+		width: 100%;
+		max-width: var(--container-max-width-view) !important;
+		padding-right: 0 !important;
+		padding-left: 0 !important;
+	}
+}

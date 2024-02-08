@@ -1,0 +1,19 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wbs/article-loop",
+	"version": "0.1.0",
+	"title": "Article Loop",
+	"category": "wbs-blocks",
+	"icon": "media-text",
+	"description": "article main query loop",
+	"example": {},
+	"supports": {
+		"html": false
+	},
+	"textdomain": "dynamic",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

@@ -6,24 +6,21 @@ const svgFilter = (_source, sourcePath) => !/\.(svg)$/i.test(sourcePath);
 
 config.stats = 'minimal';
 
-config.optimization.minimizer.push(
+config.plugins.push(
 	new ImageMinimizerPlugin({
-		minimizer: [
-			{
-				implementation: ImageMinimizerPlugin.sharpMinify,
-				filter: svgFilter,
-				options: { encodeOptions: {} },
-			},
-			{
-				implementation: ImageMinimizerPlugin.svgoMinify,
-				options: {
-					encodeOptions: {
-						multipass: true,
-						plugins: ['preset-default'],
-					},
+		test: /\.(svg)$/i,
+		minimizer: {
+			implementation: ImageMinimizerPlugin.svgoMinify,
+			options: {
+				encodeOptions: {
+					multipass: true,
+					plugins: ['preset-default'],
 				},
 			},
-		],
+		},
+	}),
+	new ImageMinimizerPlugin({
+		test: /\.(png|jpe?g|gif)$/i,
 		generator: [
 			{
 				type: 'asset',
@@ -36,7 +33,15 @@ config.optimization.minimizer.push(
 );
 
 config.plugins.push(
-	new CopyPlugin({ patterns: [{ from: 'src/images', to: 'images' }] })
+	new CopyPlugin({
+		patterns: [
+			{
+				from: 'src/images',
+				to: 'images',
+				globOptions: { ignore: ['**/_inline/**'] },
+			},
+		],
+	})
 );
 
 module.exports = config;

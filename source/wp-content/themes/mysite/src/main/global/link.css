@@ -1,0 +1,33 @@
+:where(a) {
+	color: var(---wp--preset--color--text-base);
+}
+
+a:not(.share-link, [class*="button"], :has(img, svg)) {
+	&[href*=".pdf"]::after {
+		display: inline-block;
+		width: 2em;
+		height: 1em;
+		margin-right: 0.25em;
+		margin-left: 0.25em;
+		content: "";
+		background-color: currentcolor;
+		mask-image: var(--mask-ico-pdf);
+		mask-position: center;
+		mask-repeat: no-repeat;
+		mask-size: 90%;
+	}
+
+	&[target="_blank"]::after {
+		display: inline-block;
+		width: 2em;
+		height: 1em;
+		margin-right: 0.25em;
+		margin-left: 0.25em;
+		content: "";
+		background-color: currentcolor;
+		mask-image: var(--mask-ico-external);
+		mask-position: center;
+		mask-repeat: no-repeat;
+		mask-size: contain;
+	}
+}

@@ -1,0 +1,59 @@
+.badge-round-text {
+	--size: calc(30 / var(--rem));
+	--color: var(--wp--preset--color--primary);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: var(--size);
+	height: var(--size);
+	overflow: hidden;
+	font-size: var(--wp--preset--font-size--12);
+	font-weight: var(--wp--custom--font-weight--bold);
+	line-height: var(--wp--custom--line-height--sm);
+	color: var(--wp--preset--color--base);
+	background-color: var(--color);
+	border-radius: 50%;
+}
+
+.badge-block-text {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: calc(30 / var(--rem));
+	padding: 0.25em 1em;
+	font-family: var(--wp--preset--font-family--sans-serif-en);
+	font-size: var(--wp--preset--font-size--12);
+	line-height: var(--wp--custom--line-height--sm);
+	color: var(--wp--preset--color--base);
+	text-transform: uppercase;
+	background-color: var(--wp--preset--color--primary);
+	@media (--viewport-md) {
+		font-size: var(--wp--preset--font-size--14);
+	}
+}
+
+.badge-new {
+	--size: calc(60 / var(--rem));
+
+	position: absolute;
+	z-index: var(--z-badge);
+	display: block;
+	width: var(--size);
+	height: var(--size);
+	font-size: 10px;
+	color: transparent;
+	background-image: url(../../images/_inline/badge-new.svg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+}
+
+.badge-hashtag {
+	font-size: var(--wp--preset--font-size--12);
+	color: var(--wp--preset--color--border);
+
+	&::before {
+		content: "#";
+	}
+}

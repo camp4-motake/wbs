@@ -1,0 +1,37 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wbs/tabs",
+	"version": "0.1.0",
+	"title": "Tab Layout",
+	"category": "wbs-blocks",
+	"icon": "index-card",
+	"description": "Display content in a tabbed layout",
+	"supports": {
+		"html": false,
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"keywords": ["tab", "tabbed content"],
+	"attributes": {
+		"tabLabelsArray": {
+			"type": "array",
+			"default": []
+		},
+		"updateChild": {
+			"type": "boolean",
+			"default": false
+		},
+		"sideTabLayout": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"textdomain": "wbs",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}

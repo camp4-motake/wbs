@@ -1,0 +1,10 @@
+.wp-block-wbs-tabs {
+	.tab-panel {
+		position: relative;
+		width: 100%;
+		max-width: min(
+			calc(100% - calc(var(--wp--preset--spacing--sm) * 2)),
+			var(--wp--style--global--content-size)
+		);
+	}
+}

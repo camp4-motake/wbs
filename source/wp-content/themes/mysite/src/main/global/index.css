@@ -1,0 +1,174 @@
+* {
+	box-sizing: border-box;
+}
+
+/* html, body { min-height: 100vh; } */
+
+html {
+	scroll-padding-top: var(--header-height);
+	background-color: var(--color-bacface);
+
+	&:not(.is-animating) {
+		scroll-behavior: smooth;
+	}
+}
+
+body {
+	overflow-y: scroll;
+	font-feature-settings: normal;
+	line-height: var(--wp--custom--line-height--base);
+	overflow-wrap: break-word;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-size-adjust: 100%;
+	font-synthesis: none;
+	background-color: var(--wp--preset--color--base);
+}
+
+img,
+svg {
+	max-width: 100%;
+	height: auto;
+}
+
+hr,
+.hr {
+	--hr-max-width: calc(
+		calc(100vw - var(--window-scroll-bar-width)) -
+			calc(var(--wp--preset--spacing--normal) * 2)
+	);
+
+	width: 100%;
+	height: 1px;
+	margin: var(--wp--preset--spacing--normal) auto;
+	background-color: var(--wp--preset--color--border);
+	border: none;
+	border-color: transparent;
+	border-bottom-color: var(--wp--preset--color--border);
+	border-bottom-width: 1px;
+
+	&.-max-lg {
+		max-width: min(
+			calc(
+				var(--container-max-width-lg) -
+					calc(var(--wp--preset--spacing--normal) * 2)
+			),
+			var(--hr-max-width)
+		);
+	}
+	&.-max-xl {
+		max-width: min(
+			calc(
+				var(--container-max-width-xl) -
+					calc(var(--wp--preset--spacing--normal) * 2)
+			),
+			var(--hr-max-width)
+		);
+	}
+}
+
+ul,
+ol {
+	padding-left: var(--wp--preset--spacing--lg);
+
+	&:where(:not(li > ul)) {
+		margin-bottom: var(--wp--preset--spacing--lg);
+	}
+}
+
+dl {
+	margin-bottom: var(--wp--preset--spacing--lg);
+}
+
+ul {
+	&.list-iroha {
+		list-style-type: katakana-iroha;
+	}
+	&.list-circled-decimal {
+		list-style-type: circled-decimal;
+	}
+	&.list-parenthesized-decimal {
+		list-style-type: parenthesized-decimal;
+	}
+}
+
+input,
+select,
+textarea,
+button {
+	appearance: none;
+
+	&::placeholder {
+		font-weight: var(--wp--custom--font-weight--regular);
+	}
+	&:focus::placeholder {
+		color: transparent;
+	}
+}
+
+input,
+textarea {
+	position: relative;
+	padding: 0.5em;
+	font-size: max(16px, 1rem);
+	color: var(--wp--preset--color--text-base);
+	background-color: var(--wp--preset--color--base);
+}
+
+fieldset,
+legend {
+	appearance: none;
+}
+
+fieldset {
+	display: block;
+	min-width: 0;
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+:where(button) {
+	background-color: transparent;
+	border: 0;
+}
+
+svg {
+	width: 100%;
+	height: auto;
+	overflow: visible;
+}
+
+p {
+	margin-bottom: 1em;
+}
+
+.updated {
+	font-family: var(--wp--preset--font-family--sans-serif-en);
+	font-weight: var(--wp--custom--font-weight--medium);
+	color: var(--wp--preset--color--border);
+}
+
+/**
+ * x-cloak
+ * https://alpinejs.dev/directives/cloak
+ */
+[x-cloak] {
+	display: none !important;
+}
+
+/**
+* wp adminbar position fix
+*/
+@media screen and (max-width: 600px) {
+	#wpadminbar {
+		position: fixed;
+	}
+}
+
+/**
+ * hide recaptcha badge
+ * https://developers.google.com/recaptcha/docs/faq?hl=ja#id-like-to-hide-the-recaptcha-badge.-what-is-allowed
+ */
+
+/* .grecaptcha-badge { visibility: hidden !important; } */

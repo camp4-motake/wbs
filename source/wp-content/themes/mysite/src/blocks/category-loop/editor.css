@@ -1,0 +1,6 @@
+@import "./style.css";
+
+.wp-block-wbs-category-loop .wp-block-wbs-category-loop {
+	padding-top: 0;
+	padding-bottom: 0;
+}

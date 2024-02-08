@@ -4,7 +4,7 @@
 	<arg name="extensions" value="php"/>
 	<arg value="ps"/>
 	<ini name="memory_limit" value="256M"/>
-	<rule ref="WordPress-Core" />
+	<rule ref="WordPress-Extra" />
 	<exclude-pattern>*/node_modules/*</exclude-pattern>
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<exclude-pattern>*/build/*</exclude-pattern>

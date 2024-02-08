@@ -1,0 +1,31 @@
+.wp-block-wbs-site-footer {
+	max-width: var(--container-max-width-view);
+	margin-inline: auto;
+	color: var(--wp--preset--color--base);
+	background-color: var(--wp--preset--color--primary);
+
+	.footer-body {
+		width: 100%;
+		max-width: var(--wp--style--global--content-size);
+		padding: var(--wp--preset--spacing--lg)
+			var(--wp--preset--spacing--normal);
+		margin-inline: auto;
+	}
+
+	.footer-brand {
+		display: block;
+		width: calc(100% - var(--wp--preset--spacing--normal));
+		max-width: clamp(calc(240 / var(--rem)), 30vw, calc(346 / var(--rem)));
+
+		& svg path:not([fill="none"]) {
+			fill: var(--wp--preset--color--base);
+		}
+	}
+
+	.copyright {
+		margin-top: var(--wp--preset--spacing--normal);
+		margin-bottom: 0;
+		font-size: var(--wp--preset--font-size--12);
+		text-align: center;
+	}
+}

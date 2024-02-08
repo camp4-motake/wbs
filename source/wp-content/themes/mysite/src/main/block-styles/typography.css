@@ -1,0 +1,25 @@
+.arrow-link,
+:where(.entry-content, .editor-styles-wrapper) p.is-style-arrow-link a {
+	position: relative;
+	display: inline-flex;
+	align-items: center;
+	text-decoration: underline;
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	&::after {
+		display: inline-block;
+		width: 1em;
+		height: 1em;
+		margin-right: 0.25em;
+		margin-left: 0.5em;
+		content: "";
+		background-color: currentcolor;
+		mask-image: var(--mask-ico-arrow-right);
+		mask-position: center;
+		mask-repeat: no-repeat;
+		mask-size: 0.6em;
+	}
+}
