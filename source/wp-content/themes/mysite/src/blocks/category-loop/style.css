@@ -8,8 +8,8 @@
 		width: 100%;
 		max-width: var(--wp--style--global--wide-size);
 		margin: 1em auto 0.5em;
-		color: var(--wp--preset--color--secondary);
 		font-size: var(--wp--preset--font-size--20);
+		color: var(--wp--preset--color--secondary);
 	}
 
 	&:where(.mode-index) .category-heading {
@@ -32,8 +32,8 @@
 			--badge-size: calc(22 / var(--rem));
 			display: inline-flex;
 			align-items: center;
-			color: var(--wp--preset--color--text-base);
 			line-height: var(-wp--custom--line-height--sm);
+			color: var(--wp--preset--color--text-base);
 
 			&:hover {
 				text-decoration: none;

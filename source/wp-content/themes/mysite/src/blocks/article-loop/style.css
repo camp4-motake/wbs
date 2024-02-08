@@ -16,9 +16,9 @@
 		position: relative;
 		display: block;
 		width: min(calc(250 / var(--rem)), 100%);
-		border-bottom: 1px solid currentcolor;
-		color: var(--wp--preset--color--border);
 		font-family: var(--wp--preset--font-family--sans-serif-en);
+		color: var(--wp--preset--color--border);
+		border-bottom: 1px solid currentcolor;
 
 		select,
 		option {
@@ -43,13 +43,13 @@
 			margin-top: -0.5em;
 			margin-right: 0.25em;
 			margin-left: 0.25em;
-			background-color: currentcolor;
+			pointer-events: none;
 			content: "";
+			background-color: currentcolor;
 			mask-image: var(--mask-ico-plus);
 			mask-position: center;
 			mask-repeat: no-repeat;
 			mask-size: 0.75em;
-			pointer-events: none;
 		}
 	}
 }

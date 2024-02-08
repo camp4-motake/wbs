@@ -23,8 +23,8 @@
 	}
 
 	:where(button) {
-		border: 0;
 		background-color: transparent;
+		border: 0;
 	}
 
 	.wp-block-media-text {

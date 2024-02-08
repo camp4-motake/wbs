@@ -1,9 +1,9 @@
 .block-editor-block-list__block.wp-block.wp-block-wbs-tabs {
 	.wp-block-wbs-tab {
 		padding: 0.25rem 0.5rem 40px;
-		border: 1px solid var(--wp--preset--color--bg-fill);
 		margin-bottom: 1em;
 		background-color: var(--wp--preset--color--bg-fill);
+		border: 1px solid var(--wp--preset--color--bg-fill);
 
 		&:hover {
 			border-color: var(--wp--preset--color--danger);

@@ -1,8 +1,8 @@
 .wp-block-wbs-site-footer {
 	max-width: var(--container-max-width-view);
-	background-color: var(--wp--preset--color--primary);
-	color: var(--wp--preset--color--base);
 	margin-inline: auto;
+	color: var(--wp--preset--color--base);
+	background-color: var(--wp--preset--color--primary);
 
 	.footer-body {
 		width: 100%;

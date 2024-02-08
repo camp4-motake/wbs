@@ -1,8 +1,8 @@
 .error404-section {
 	display: flex;
-	min-height: 60svh;
 	align-items: center;
 	justify-content: center;
+	min-height: 60svh;
 	font-family: var(--wp--preset--font-family--sans-serif-en);
 	text-align: center;
 }
@@ -13,9 +13,9 @@
 
 .error404-heading-status {
 	display: block;
-	color: var(--wp--preset--color--primary);
 	font-size: var(--wp--preset--font-size--64);
 	font-weight: var(--wp--custom--font-weight--bold);
+	color: var(--wp--preset--color--primary);
 }
 
 .error404-heading-label {

@@ -9,8 +9,8 @@ a:not(.share-link, [class*="button"], :has(img, svg)) {
 		height: 1em;
 		margin-right: 0.25em;
 		margin-left: 0.25em;
-		background-color: currentcolor;
 		content: "";
+		background-color: currentcolor;
 		mask-image: var(--mask-ico-pdf);
 		mask-position: center;
 		mask-repeat: no-repeat;
@@ -23,8 +23,8 @@ a:not(.share-link, [class*="button"], :has(img, svg)) {
 		height: 1em;
 		margin-right: 0.25em;
 		margin-left: 0.25em;
-		background-color: currentcolor;
 		content: "";
+		background-color: currentcolor;
 		mask-image: var(--mask-ico-external);
 		mask-position: center;
 		mask-repeat: no-repeat;

@@ -1,9 +1,9 @@
 .block-editor-block-list__block.wp-block.wp-block-wbs-tabs {
 	padding: 1em;
-	border: 1px dashed var(--wp--preset--color--primary);
 	margin-right: 0;
 	margin-left: 0;
 	background: var(--wp--preset--color--base);
+	border: 1px dashed var(--wp--preset--color--primary);
 
 	h2 {
 		margin-bottom: 0.5em;

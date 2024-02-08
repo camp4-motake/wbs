@@ -18,14 +18,14 @@
 
 		&::before {
 			position: absolute;
-			z-index: 0 !important;
 			right: 0;
 			bottom: 0;
+			z-index: 0 !important;
 			width: calc(100% - var(--wp--preset--spacing--normal));
 			height: calc(100% - var(--wp--preset--spacing--lg));
-			border-radius: 0;
-			background-color: var(--wp--preset--color--bg-fill);
 			content: "";
+			background-color: var(--wp--preset--color--bg-fill);
+			border-radius: 0;
 
 			@media (--viewport-sm-wp) {
 				width: 78.15%;
@@ -40,15 +40,15 @@
 		.wp-block-media-text__media {
 			width: 100%;
 			max-width: 90%;
-			border: 1px solid var(--wp--preset--color--placeholder);
+			aspect-ratio: 3/2;
 			margin-top: 0;
 			margin-bottom: var(--wp--preset--spacing--normal);
-			aspect-ratio: 3/2;
+			border: 1px solid var(--wp--preset--color--placeholder);
 
 			@media (--viewport-sm-wp) {
+				align-self: initial;
 				width: 100%;
 				max-width: initial;
-				align-self: initial;
 				margin-bottom: var(--wp--preset--spacing--lg);
 			}
 

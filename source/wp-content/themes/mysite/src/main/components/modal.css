@@ -1,17 +1,17 @@
 .modal {
 	position: fixed;
-	z-index: var(--z-modal);
 	top: 0;
 	left: 0;
-	overflow: auto;
+	z-index: var(--z-modal);
+	align-items: center;
 	width: 100%;
 	height: 100%;
-	align-items: center;
+	overflow: auto;
+	overscroll-behavior: contain;
 	-webkit-overflow-scrolling: touch;
 
 	/* hide scrollbar */
 	-ms-overflow-style: none;
-	overscroll-behavior: contain;
 	scrollbar-width: none;
 	&::-webkit-scrollbar {
 		display: none;
@@ -20,13 +20,13 @@
 	/* overray */
 	&::before {
 		position: fixed;
-		z-index: 0;
 		top: 0;
 		left: 0;
+		z-index: 0;
 		width: 100%;
 		height: 100%;
-		background-color: var(--wp--preset--color--text-base);
 		content: "";
+		background-color: var(--wp--preset--color--text-base);
 		opacity: var(--overay-opacity);
 	}
 
@@ -60,15 +60,15 @@
 }
 
 .modal-close {
-	cursor: pointer;
 	text-transform: uppercase;
+	cursor: pointer;
 
 	&.-top {
 		--size: calc(30 / var(--rem));
 		position: absolute;
-		z-index: 10;
 		top: var(--spacer-sm);
 		right: var(--spacer-sm);
+		z-index: 10;
 		width: var(--size);
 		height: var(--size);
 		background-image: var(--bg-ico-close);
@@ -102,8 +102,8 @@
 			height: var(--size);
 			margin-top: auto;
 			margin-bottom: auto;
-			background-color: var(--color-primary);
 			content: "";
+			background-color: var(--color-primary);
 			mask-image: var(--mask-ico-arrow-right);
 			mask-position: center;
 			mask-repeat: no-repeat;

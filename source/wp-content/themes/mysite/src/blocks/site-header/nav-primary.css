@@ -1,14 +1,14 @@
 .nav-modal {
 	--top-spacer: calc(var(--header-height));
 	position: fixed;
-	z-index: var(--z-nav-menu);
 	top: var(--top-spacer);
 	right: 0;
-	overflow: hidden;
+	z-index: var(--z-nav-menu);
 	width: 100%;
 	height: calc(100svh - var(--top-spacer));
-	opacity: 0;
+	overflow: hidden;
 	visibility: hidden;
+	opacity: 0;
 
 	@media (--viewport-lg) {
 		display: none;
@@ -47,14 +47,14 @@ body.admin-bar .nav-modal {
 	}
 }
 .is-page-active.is-menu-shown .nav-modal {
+	visibility: visible;
 	opacity: 1;
 	transition-duration: 0.2s;
-	visibility: visible;
 	&::before,
 	&::after {
-		transform: scaleY(1);
-		transition-duration: 0.66s;
 		transition-timing-function: var(--ease-in-out-circ);
+		transition-duration: 0.66s;
+		transform: scaleY(1);
 	}
 	&::after {
 		transition-delay: 0.16s;
@@ -66,17 +66,17 @@ body.admin-bar .nav-modal {
 	z-index: 5;
 	display: block;
 	display: flex;
-	overflow: auto;
+	flex-direction: column;
 	width: 100%;
 	height: 100%;
-	flex-direction: column;
 	padding: var(--wp--preset--spacing--lg);
+	overflow: auto;
+	overscroll-behavior-y: contain;
 
 	opacity: 0;
-	-webkit-overflow-scrolling: touch;
-	overscroll-behavior-y: contain;
-	scrollbar-width: none;
 	transform: translateY(-2rem);
+	-webkit-overflow-scrolling: touch;
+	scrollbar-width: none;
 }
 .is-page-active .nav-modal-body {
 	transition:
@@ -85,18 +85,18 @@ body.admin-bar .nav-modal {
 }
 .is-page-active.is-menu-shown .nav-modal-body {
 	opacity: 1;
-	transform: translateY(0);
 	transition-delay: 0.6s, 0.6s;
 	transition-duration: 0.8s, 0.8s;
+	transform: translateY(0);
 }
 
 .nav-modal-bg {
 	position: absolute;
 	top: 0;
 	left: 0;
-	overflow: hidden;
 	width: 100%;
 	height: 100%;
+	overflow: hidden;
 }
 
 .nav-modal-bg-svg {
@@ -104,9 +104,9 @@ body.admin-bar .nav-modal {
 	bottom: -5%;
 	left: 5%;
 	display: block;
-	overflow: hidden;
 	width: max(calc(730 / var(--rem)), 120%);
 	aspect-ratio: 844/234;
+	overflow: hidden;
 
 	svg {
 		position: absolute;
@@ -131,8 +131,8 @@ body.admin-bar .nav-modal {
 }
 .is-page-active.is-menu-shown .nav-modal-bg-svg {
 	path {
-		animation: ship-strole 3s;
 		stroke-dashoffset: 0;
+		animation: ship-strole 3s;
 	}
 }
 
@@ -176,10 +176,10 @@ body.admin-bar .nav-modal {
 		a {
 			position: relative;
 			display: flex;
+			gap: 1em;
 			align-items: center;
 			padding: 1.5em 2em 1.5em 0.25em;
 			color: var(--wp--preset--color--primary);
-			gap: 1em;
 			transition:
 				color 0.1s ease,
 				background-color 0.1s ease;
@@ -192,8 +192,8 @@ body.admin-bar .nav-modal {
 				display: inline-block;
 				width: 1em;
 				height: 1em;
-				background-color: currentcolor;
 				content: "";
+				background-color: currentcolor;
 				mask-image: var(--mask-ico-arrow-right);
 				mask-position: center;
 				mask-repeat: no-repeat;
@@ -211,13 +211,13 @@ body.admin-bar .nav-modal {
 			}
 			> small {
 				order: 2;
-				color: var(--wp--preset--color--text-base);
 				font-size: var(--wp--preset--font-size--14);
+				color: var(--wp--preset--color--text-base);
 			}
 
 			&:hover {
-				background-color: var(--wp--preset--color--primary);
 				color: var(--wp--preset--color--base) !important;
+				background-color: var(--wp--preset--color--primary);
 
 				> * {
 					color: var(--wp--preset--color--base) !important;
@@ -238,8 +238,8 @@ body.admin-bar .nav-modal {
 
 		a {
 			display: inline-block;
-			color: var(--wp--preset--color--border);
 			font-family: var(--wp--preset--font-family--sans-serif-en);
+			color: var(--wp--preset--color--border);
 
 			&:hover {
 				text-decoration: underline;

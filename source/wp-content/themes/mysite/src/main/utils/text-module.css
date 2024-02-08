@@ -147,8 +147,8 @@
 }
 
 .text-hide {
-	color: transparent;
 	font-size: 0;
+	color: transparent;
 }
 
 .text-block {

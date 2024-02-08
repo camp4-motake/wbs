@@ -4,8 +4,8 @@
 
 	.map {
 		display: block;
-		overflow: hidden;
 		aspect-ratio: var(--aspect-ratio, 4/3);
+		overflow: hidden;
 		background-color: var(--wp--preset--color--placeholder);
 
 		iframe {
