@@ -21,11 +21,11 @@ function enqueue_google_fonts() {
 		if ( 0 === $i ) {
 			$num = '';
 		}
-		wp_enqueue_style( 'google-fonts' . $num, esc_url( $fonts ), array(), get_bloginfo( 'version' ) );
+		wp_enqueue_style( 'google-fonts' . $num, esc_url( $fonts ), array(), null ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
 	}
 }
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . "\\enqueue_google_fonts" );
-add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . "\\enqueue_google_fonts" );
+add_action( 'enqueue_block_assets', __NAMESPACE__ . "\\enqueue_google_fonts" );
 
 /**
  * resource hints に Goggle Font の preconnect を追加
