@@ -1,12 +1,12 @@
 const { existsSync } = require('node:fs');
 const { workspaces } = require('./package.json');
 const { PROXY_URL, WP_ENV_PORT } = process.env;
-const wpEnv = {
-	...require('./.wp-env.json'),
-	...(existsSync('./.wp-env.override.json')
-		? require('./.wp-env.override.json')
-		: {}),
-};
+
+const wpEnvJson = ['./.wp-env.json', './.wp-env.override.json'];
+const wpEnv = wpEnvJson.reduce(
+	(acc, env) => (existsSync(env) ? { ...acc, ...require(env) } : acc),
+	{}
+);
 const wpPort = WP_ENV_PORT || wpEnv?.port || 8888;
 
 module.exports = {
