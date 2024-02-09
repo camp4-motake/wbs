@@ -39,6 +39,7 @@ config.plugins.push(
 				from: 'src/images',
 				to: 'images',
 				globOptions: { ignore: ['**/_inline/**'] },
+				noErrorOnMissing: true,
 			},
 		],
 	})
