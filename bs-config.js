@@ -1,9 +1,7 @@
 const { existsSync } = require('node:fs');
 const { workspaces } = require('./package.json');
 const { PROXY_URL, WP_ENV_PORT } = process.env;
-
-const wpEnvJson = ['./.wp-env.json', './.wp-env.override.json'];
-const wpEnv = wpEnvJson.reduce(
+const wpEnv = ['./.wp-env.json', './.wp-env.override.json'].reduce(
 	(acc, env) => (existsSync(env) ? { ...acc, ...require(env) } : acc),
 	{}
 );
