@@ -5,7 +5,7 @@ WordPress Block Theme Site Starter
 ## prerequisites
 
 - Docker Client
-- Node.js >=18 || ^20
+- Node.js ^18.18.0 || >=20
 
 ## setup environment
 
