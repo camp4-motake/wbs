@@ -87,3 +87,25 @@ add_filter( 'rest_endpoints', __NAMESPACE__ . '\\remove_user_endpoint', 10, 1 );
  */
 add_filter( 'wp_calculate_image_srcset', '__return_false' );
 add_filter( 'wp_calculate_image_sizes', '__return_false' );
+
+ /*  phpcs:ignore Squiz.PHP.CommentedOutCode.Found
+
+function custom_image_srcset( $sources, $size_array, $image_src ) {
+	// 既存のソースをクリア
+	$sources = array();
+
+	// カスタムサイズを定義
+	$custom_sizes = array( 320, 480, 640, 800, 1024 );
+
+	foreach ( $custom_sizes as $width ) {
+		$sources[ $width ] = array(
+			'url'        => add_query_arg( 'w', $width, $image_src ),
+			'descriptor' => 'w',
+			'value'      => $width,
+		);
+	}
+
+	return $sources;
+}
+add_filter( 'wp_calculate_image_srcset', 'custom_image_srcset', 10, 5 );
+*/

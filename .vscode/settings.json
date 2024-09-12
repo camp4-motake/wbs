@@ -21,9 +21,6 @@
 		"*.sql": true,
 		"*.zip": true
 	},
-	"files.associations": {
-		"*.css": "postcss"
-	},
 	"css.validate": false,
 	"postcss.validate": false,
 	"editor.codeActionsOnSave": {
@@ -44,23 +41,19 @@
 	"[jsonc]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
-	"alpine-intellisense.settings.languageScopes": "html,php"
+	"[php]": {
+		"editor.defaultFormatter": "Jota0222.multi-formatter",
+		"multiFormatter.formatterList": [
+			"bmewburn.vscode-intelephense-client",
+			"obliviousharmony.vscode-php-codesniffer"
+		]
+	}
 	/*
 
 	// ex) phpcs only
 	"[php]": {
 		"editor.formatOnSave": true,
 		"editor.defaultFormatter": "obliviousharmony.vscode-php-codesniffer"
-	},
-
-	// ex) multi-formatter
-	"[php]": {
-		"editor.formatOnSave": true,
-		"editor.defaultFormatter": "Jota0222.multi-formatter",
-		"multiFormatter.formatterList": [
-			"bmewburn.vscode-intelephense-client",
-			"obliviousharmony.vscode-php-codesniffer",
-		],
 	},
 
 	*/
