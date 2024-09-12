@@ -10,8 +10,9 @@
 		"node_modules": false,
 		"package-lock.json": true,
 		"source/wp-content/mu-plugins": true,
-		"source/wp-content/plugins": true,
-		"vendor": true
+		"source/wp-content/plugins/advanced-custom-fields-pro": true,
+		"vendor": true,
+		"**/*.tsbuildinfo": true
 	},
 	"files.watcherExclude": {
 		"**/_bkp/**": true,
@@ -28,10 +29,6 @@
 	"editor.codeActionsOnSave": {
 		"source.organizeImports": "explicit"
 	},
-	"[php]": {
-		"editor.formatOnSave": true,
-		"editor.defaultFormatter": "obliviousharmony.vscode-php-codesniffer"
-	},
 	"phpCodeSniffer.autoExecutable": true,
 	"phpCodeSniffer.standard": "Automatic",
 	"phpCodeSniffer.lintAction": "Save",
@@ -44,5 +41,27 @@
 	"[json]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
 	"alpine-intellisense.settings.languageScopes": "html,php"
+	/*
+
+	// ex) phpcs only
+	"[php]": {
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "obliviousharmony.vscode-php-codesniffer"
+	},
+
+	// ex) multi-formatter
+	"[php]": {
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "Jota0222.multi-formatter",
+		"multiFormatter.formatterList": [
+			"bmewburn.vscode-intelephense-client",
+			"obliviousharmony.vscode-php-codesniffer",
+		],
+	},
+
+	*/
 }
