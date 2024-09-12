@@ -78,14 +78,18 @@ Alpine.data( 'app', () => ( {
 
 	setWPMatchMediaEvent() {
 		this.wpAdminBar = document.getElementById( 'wpadminbar' );
-		if ( ! this.wpAdminBar ) return;
+		if ( ! this.wpAdminBar ) {
+			return;
+		}
 		const mq = window.matchMedia( 'screen and (max-width: 782px)' );
 		mq.addEventListener( 'change', () => this.setWPAdminBarSize() );
 		this.setWPAdminBarSize();
 	},
 
 	setWPAdminBarSize() {
-		if ( ! this.wpAdminBar ) return;
+		if ( ! this.wpAdminBar ) {
+			return;
+		}
 		const size = this.wpAdminBar.getBoundingClientRect();
 		this.$el.style.setProperty(
 			'--wp-adminbar-height',

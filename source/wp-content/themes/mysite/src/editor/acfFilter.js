@@ -1,5 +1,7 @@
 export const acfFilter = () => {
-	if ( ! window?.acf ) return;
+	if ( ! window?.acf ) {
+		return;
+	}
 
 	/**
 	 * acf color_picker_args

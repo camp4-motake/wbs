@@ -55,7 +55,9 @@ document.addEventListener( 'alpine:init', () => {
 		addOuterClickEvent() {
 			document.addEventListener( 'click', ( event ) => {
 				const { target } = event;
-				if ( target?.closest( ignoreCloseSelector ) ) return;
+				if ( target?.closest( ignoreCloseSelector ) ) {
+					return;
+				}
 				this.close();
 			} );
 		},

@@ -3,7 +3,9 @@
  * @see https://ja.wordpress.org/team/handbook/block-editor/reference-guides/block-api/block-styles/
  */
 export const blockStyles = () => {
-	if ( ! wp?.blocks ) return;
+	if ( ! wp?.blocks ) {
+		return;
+	}
 
 	/**
 	 * register styles

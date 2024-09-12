@@ -2,7 +2,9 @@
  * 利用可能ブロックを制限
  */
 export const allowedBlock = () => {
-	if ( ! wp.blocks ) return;
+	if ( ! wp.blocks ) {
+		return;
+	}
 
 	// console.log(wp.blocks.getBlockTypes());
 
@@ -108,23 +110,34 @@ export const allowedBlock = () => {
 	];
 
 	wp.blocks.getBlockTypes().forEach( ( block ) => {
-		if ( block.name.includes( 'acf/' ) ) return;
-		if ( block.name.includes( 'wbs/' ) ) return;
-		if ( allowedBlockList.includes( block.name ) ) return;
+		if ( block.name.includes( 'acf/' ) ) {
+			return;
+		}
+		if ( block.name.includes( 'wbs/' ) ) {
+			return;
+		}
+		if ( allowedBlockList.includes( block.name ) ) {
+			return;
+		}
 		wp.blocks.unregisterBlockType( block.name );
 	} );
 
 	// Yoastのブロックを削除
 	wp.blocks.getBlockTypes().forEach( ( { name } ) => {
-		if ( ! ( name.includes( 'yoast/' ) || name.includes( 'yoast-seo/' ) ) )
+		if (
+			! ( name.includes( 'yoast/' ) || name.includes( 'yoast-seo/' ) )
+		) {
 			return;
+		}
 		wp.blocks.unregisterBlockType( name );
 	} );
 
 	// embedの許可ブロック以外を解除
 	const allowedEmbedVariation = [ 'twitter', 'youtube', 'spotify' ];
 	wp.blocks.getBlockVariations( 'core/embed' ).forEach( ( v ) => {
-		if ( allowedEmbedVariation.includes( v.name ) ) return;
+		if ( allowedEmbedVariation.includes( v.name ) ) {
+			return;
+		}
 		wp.blocks.unregisterBlockVariation( 'core/embed', v.name );
 	} );
 };

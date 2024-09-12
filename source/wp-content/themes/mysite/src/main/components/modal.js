@@ -8,8 +8,9 @@ Alpine.data( 'modal', () => ( {
 	modal_dialog: {
 		'x-init'() {
 			this.$watch( 'open', ( val ) => {
-				if ( ! val )
+				if ( ! val ) {
 					sleep( 100 ).then( () => this.$el.scrollTo( 0, 0 ) );
+				}
 			} );
 		},
 		'x-show'() {

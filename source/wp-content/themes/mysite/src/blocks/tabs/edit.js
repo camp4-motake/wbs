@@ -16,7 +16,9 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 	const isLabelLengthUpdated = labelsArray.length !== tabLabelsArray.length;
 
 	useEffect( () => {
-		if ( ! ( isLabelLengthUpdated || updateChild ) ) return;
+		if ( ! ( isLabelLengthUpdated || updateChild ) ) {
+			return;
+		}
 		setAttributes( { tabLabelsArray: labelsArray } );
 		setAttributes( { updateChild: false } );
 	}, [

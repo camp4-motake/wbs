@@ -30,6 +30,13 @@
 	"scripts": {
 		"dev": "wp-scripts start",
 		"build": "wp-scripts build",
-		"packages-update": "wp-scripts packages-update"
+		"packages-update": "wp-scripts packages-update",
+		"lint": "run-s lint:**",
+		"lint:js": "wp-scripts lint-js",
+		"lint:css": "stylelint ./src/**/*.css -i .gitignore",
+		"format": "run-s format:**",
+		"format:prettier": "prettier --write .",
+		"format:js": "eslint --ignore-path .gitignore . --fix",
+		"format:css": "stylelint ./src/**/*.css -i .gitignore --fix"
 	}
 }
