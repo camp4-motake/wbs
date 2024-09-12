@@ -11,8 +11,7 @@
 		"package-lock.json": true,
 		"source/wp-content/mu-plugins": true,
 		"source/wp-content/plugins": true,
-		"vendor": true,
-		"**/*.tsbuildinfo": true
+		"vendor": true
 	},
 	"files.watcherExclude": {
 		"**/_bkp/**": true,
