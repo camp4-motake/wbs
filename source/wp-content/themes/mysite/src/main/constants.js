@@ -11,4 +11,4 @@ export const EXCLUDE_LINK_SELECTOR = [
 	'[href=""]',
 	'[href="#0"]',
 	'[href="#todo"]',
-].join(',');
+].join( ',' );

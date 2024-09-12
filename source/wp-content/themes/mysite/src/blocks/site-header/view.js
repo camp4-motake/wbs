@@ -4,13 +4,13 @@ const ignoreCloseSelector = [
 	'.nav-primary',
 	'.menu-toggle',
 	'[data-menu-close-ignore]',
-].join(',');
+].join( ',' );
 const breakpoint = MQ.lg;
 
-document.addEventListener('alpine:init', () => {
+document.addEventListener( 'alpine:init', () => {
 	const { Alpine } = window;
 
-	Alpine.data('menuToggle', () => ({
+	Alpine.data( 'menuToggle', () => ( {
 		init() {
 			this.addMatchMediaEvent();
 			this.addOuterClickEvent();
@@ -18,7 +18,7 @@ document.addEventListener('alpine:init', () => {
 
 		toggle: {
 			'@click'() {
-				this.$store.menuStatus.shown = !this.$store.menuStatus.shown;
+				this.$store.menuStatus.shown = ! this.$store.menuStatus.shown;
 			},
 
 			'@menu:close.window'() {
@@ -47,32 +47,32 @@ document.addEventListener('alpine:init', () => {
 		},
 
 		addMatchMediaEvent() {
-			window.matchMedia(breakpoint).addEventListener('change', () => {
-				this.$dispatch('menu:close');
-			});
+			window.matchMedia( breakpoint ).addEventListener( 'change', () => {
+				this.$dispatch( 'menu:close' );
+			} );
 		},
 
 		addOuterClickEvent() {
-			document.addEventListener('click', (event) => {
+			document.addEventListener( 'click', ( event ) => {
 				const { target } = event;
-				if (target?.closest(ignoreCloseSelector)) return;
+				if ( target?.closest( ignoreCloseSelector ) ) return;
 				this.close();
-			});
+			} );
 		},
 
 		close() {
 			this.$store.menuStatus.shown = false;
 		},
-	}));
+	} ) );
 
 	/**
 	 * close
 	 */
-	Alpine.data('menuClose', () => ({
+	Alpine.data( 'menuClose', () => ( {
 		menuClose: {
 			'@click'() {
 				this.$store.menuStatus.shown = false;
 			},
 		},
-	}));
-});
+	} ) );
+} );

@@ -4,7 +4,7 @@
 	"description": "A custom testimonial block that uses ACF fields.",
 	"category": "formatting",
 	"icon": "admin-comments",
-	"keywords": ["testimonial", "quote"],
+	"keywords": [ "testimonial", "quote" ],
 	"acf": {
 		"mode": "auto",
 		"renderTemplate": "render.php"

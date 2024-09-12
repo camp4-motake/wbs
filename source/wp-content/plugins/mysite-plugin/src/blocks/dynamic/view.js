@@ -21,5 +21,5 @@
  */
 
 /* eslint-disable no-console */
-console.log('Hello World! (from wbs-dynamic block)');
+console.log( 'Hello World! (from wbs-dynamic block)' );
 /* eslint-enable no-console */

@@ -1,8 +1,8 @@
 // TODO
-document.addEventListener('alpine:init', () => {
+document.addEventListener( 'alpine:init', () => {
 	const { Alpine } = window;
 
-	Alpine.data('tabs', () => ({
+	Alpine.data( 'tabs', () => ( {
 		activeTab: 0,
-	}));
-});
+	} ) );
+} );

@@ -1,5 +1,5 @@
 import Alpine from 'alpinejs';
 
-Alpine.store('menuStatus', {
+Alpine.store( 'menuStatus', {
 	shown: false,
-});
+} );

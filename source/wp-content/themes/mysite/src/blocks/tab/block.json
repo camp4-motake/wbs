@@ -7,11 +7,11 @@
 	"category": "wbs-blocks",
 	"icon": "welcome-add-page",
 	"description": "Tab Content Block",
-	"parent": ["wbs/tabs"],
+	"parent": [ "wbs/tabs" ],
 	"supports": {
 		"html": false
 	},
-	"keywords": ["tab"],
+	"keywords": [ "tab" ],
 	"attributes": {
 		"tabLabel": {
 			"type": "string",

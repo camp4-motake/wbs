@@ -8,8 +8,8 @@ import './style.css';
 
 const { name } = metadata;
 
-registerBlockType(name, {
-	title: __('Tab', 'wbs'),
+registerBlockType( name, {
+	title: __( 'Tab', 'wbs' ),
 	edit: Edit,
 	save,
-});
+} );

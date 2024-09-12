@@ -7,48 +7,43 @@
 	"license": "GPL-2.0-or-later",
 	"private": true,
 	"engines": {
-		"node": "^18.18.0 || >=20"
+		"node": ">=20"
 	},
 	"devDependencies": {
-		"@typescript-eslint/eslint-plugin": "6.21.0",
-		"@typescript-eslint/parser": "6.21.0",
-		"@wordpress/browserslist-config": "5.33.0",
-		"@wordpress/env": "^9.2.0",
-		"@wordpress/eslint-plugin": "17.7.0",
-		"@wordpress/prettier-config": "3.7.0",
-		"@wordpress/stylelint-config": "^21.33.0",
+		"@wordpress/env": "10.7.0",
 		"browser-sync": "^3.0.2",
-		"npm-run-all2": "6.1.2",
-		"stylelint-config-prettier": "9.0.5",
-		"stylelint-config-recess-order": "3.1.0"
+		"npm-run-all2": "6.2.2",
+		"sharp": "0.33.5"
 	},
 	"scripts": {
 		"postinstall": "npm run init --silent",
 		"init": "chmod +x ./{env,bin}/*.sh && ./bin/init.sh",
 		"start": "npx wp-env start --xdebug",
 		"build": "npm run build --workspaces --if-present --silent",
-		"dev": "run-p dev:* --silent",
+		"dev": "run-p dev:**",
+		"dev:ws": "npm run dev --workspaces --if-present --silent",
 		"dev:bs": "browser-sync start --config bs-config.js",
-		"dev:wp": "npm run dev --workspaces --if-present --silent",
 		"lint": "run-s lint:**",
 		"lint:scripts": "eslint --ignore-path .gitignore .",
 		"lint:styles": "stylelint ./**/*.css -i .gitignore",
-		"lint:php": "npm run composer lint source/wp-content/themes/mysite",
+		"lint:php": "npm run composer lint source/wp-content/{themes,plugins}/mysite*",
 		"format": "run-s format:**",
 		"format:prettier": "prettier --write --list-different .",
 		"format:scripts": "npm run lint:scripts -- --fix",
 		"format:styles": "npm run lint:styles -- --fix",
-		"format:php": "npm run composer format source/wp-content/themes/mysite",
+		"format:php": "npm run composer format source/wp-content/{themes,plugins}/mysite*",
 		"setup": "run-s setup:**",
 		"setup:composer": "npm run composer install",
 		"setup:wp-env": "npx wp-env start",
-		"setup:wp-conf": "npx wp-env run cli ./env/setup.sh",
+		"setup:wp-opt": "npx wp-env run cli ./env/setup.sh",
 		"setup:wp-theme-activate": "npx wp-env run cli wp theme activate mysite",
 		"setup:build": "npm run build",
 		"cli": "npx wp-env run cli",
 		"composer": "docker run --rm --interactive --tty --volume $PWD:/app composer composer",
+		"wp-flush": "npx wp-env run cli wp rewrite flush --hard",
 		"wp-export": "npx wp-env run cli ./env/export.sh",
-		"wp-import": "npx wp-env run cli ./env/import.sh"
+		"wp-import": "npx wp-env run cli ./env/import.sh",
+		"packages-update": "npm run packages-update --workspaces --if-present"
 	},
 	"workspaces": [
 		"source/wp-content/themes/mysite"

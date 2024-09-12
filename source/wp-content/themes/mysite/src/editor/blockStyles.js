@@ -3,7 +3,7 @@
  * @see https://ja.wordpress.org/team/handbook/block-editor/reference-guides/block-api/block-styles/
  */
 export const blockStyles = () => {
-	if (!wp?.blocks) return;
+	if ( ! wp?.blocks ) return;
 
 	/**
 	 * register styles
@@ -24,7 +24,7 @@ export const blockStyles = () => {
 		// { block: 'core/table', option: { name: 'bg-transparent', label: '背景色なし' }, },
 		// { block: 'core/table', option: { name: 'all-border', label: '全枠' }, },
 	];
-	add.forEach((s) => wp?.blocks?.registerBlockStyle(s.block, s.option));
+	add.forEach( ( s ) => wp?.blocks?.registerBlockStyle( s.block, s.option ) );
 
 	/**
 	 * remove default core styles
@@ -33,5 +33,5 @@ export const blockStyles = () => {
 		{ block: 'core/button', style: 'outline' },
 		{ block: 'core/button', style: 'squared' },
 	];
-	remove.forEach((s) => wp.blocks.registerBlockStyle(s.block, s.style));
+	remove.forEach( ( s ) => wp.blocks.registerBlockStyle( s.block, s.style ) );
 };

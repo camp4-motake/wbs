@@ -1,7 +1,7 @@
-module.exports = (ctx) => ({
+module.exports = ( ctx ) => ( {
 	plugins: {
 		'@csstools/postcss-global-data': {
-			files: ['./src/main/config/custom-media.css'],
+			files: [ './src/main/config/custom-media.css' ],
 		},
 		'postcss-easy-import': {},
 		'postcss-preset-env': {
@@ -9,9 +9,8 @@ module.exports = (ctx) => ({
 			features: { 'nesting-rules': true },
 		},
 		'postcss-url': { filter: '**/_inline/*', url: 'inline' },
-		'postcss-sort-media-queries': {},
-		...(ctx.mode === 'production'
+		...( ctx.mode === 'production'
 			? { cssnano: { preset: 'default' } }
-			: {}),
+			: {} ),
 	},
-});
+} );

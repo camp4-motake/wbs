@@ -14,7 +14,7 @@
 			"padding": true
 		}
 	},
-	"keywords": ["tab", "tabbed content"],
+	"keywords": [ "tab", "tabbed content" ],
 	"attributes": {
 		"tabLabelsArray": {
 			"type": "array",

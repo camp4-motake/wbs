@@ -4,42 +4,45 @@ import { dispatch, select } from '@wordpress/data';
 import { useEffect } from '@wordpress/element';
 import './editor.css';
 
-export default function Edit({ attributes, clientId, setAttributes }) {
+export default function Edit( { attributes, clientId, setAttributes } ) {
 	const { tabLabel, blockIndex } = attributes;
-	const editor = select('core/block-editor');
-	const parentBlockID = editor.getBlockParentsByBlockName(clientId, [
+	const editor = select( 'core/block-editor' );
+	const parentBlockID = editor.getBlockParentsByBlockName( clientId, [
 		'wbs/tabs',
-	]);
+	] );
 
-	useEffect(() => {
-		const newBlockIndex = editor.getBlockIndex(clientId);
+	useEffect( () => {
+		const newBlockIndex = editor.getBlockIndex( clientId );
 		const blockIndexChange = newBlockIndex !== blockIndex;
-		if (blockIndexChange) {
-			setAttributes({ blockIndex: newBlockIndex });
-			dispatch('core/block-editor').updateBlockAttributes(parentBlockID, {
-				updateChild: true,
-			});
+		if ( blockIndexChange ) {
+			setAttributes( { blockIndex: newBlockIndex } );
+			dispatch( 'core/block-editor' ).updateBlockAttributes(
+				parentBlockID,
+				{
+					updateChild: true,
+				}
+			);
 		}
-	}, [blockIndex, clientId, editor, parentBlockID, setAttributes]);
+	}, [ blockIndex, clientId, editor, parentBlockID, setAttributes ] );
 
-	const onChangeTabLabel = (newTabLabel) => {
-		const getBlockIndex = editor.getBlockIndex(clientId);
-		setAttributes({ tabLabel: newTabLabel });
-		setAttributes({ blockIndex: getBlockIndex });
-		dispatch('core/block-editor').updateBlockAttributes(parentBlockID, {
+	const onChangeTabLabel = ( newTabLabel ) => {
+		const getBlockIndex = editor.getBlockIndex( clientId );
+		setAttributes( { tabLabel: newTabLabel } );
+		setAttributes( { blockIndex: getBlockIndex } );
+		dispatch( 'core/block-editor' ).updateBlockAttributes( parentBlockID, {
 			updateChild: true,
-		});
+		} );
 	};
 
 	return (
-		<div {...useBlockProps()}>
+		<div { ...useBlockProps() }>
 			<h4>Tab Label</h4>
 			<TextControl
-				className={'tab-label_input'}
+				className={ 'tab-label_input' }
 				placeholder="Add Tab Label"
 				type="text"
-				value={tabLabel}
-				onChange={onChangeTabLabel}
+				value={ tabLabel }
+				onChange={ onChangeTabLabel }
 			/>
 			<h4>Tab Content</h4>
 			<InnerBlocks />

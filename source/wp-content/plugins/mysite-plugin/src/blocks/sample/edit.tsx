@@ -27,8 +27,8 @@ import './editor.css';
  */
 export default function Edit() {
 	return (
-		<p {...useBlockProps()}>
-			{__('mysite – hello from the editor!', 'mysite')}
+		<p { ...useBlockProps() }>
+			{ __( 'mysite – hello from the editor!', 'mysite' ) }
 		</p>
 	);
 }

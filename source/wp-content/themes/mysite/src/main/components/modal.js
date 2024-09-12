@@ -1,15 +1,16 @@
 import Alpine from 'alpinejs';
 import { sleep } from '../utils/sleep';
 
-Alpine.data('modal', () => ({
+Alpine.data( 'modal', () => ( {
 	open: false,
 	contentVisible: false,
 
 	modal_dialog: {
 		'x-init'() {
-			this.$watch('open', (val) => {
-				if (!val) sleep(100).then(() => this.$el.scrollTo(0, 0));
-			});
+			this.$watch( 'open', ( val ) => {
+				if ( ! val )
+					sleep( 100 ).then( () => this.$el.scrollTo( 0, 0 ) );
+			} );
 		},
 		'x-show'() {
 			return this.open;
@@ -51,7 +52,7 @@ Alpine.data('modal', () => ({
 
 	modal_trigger: {
 		'@click'() {
-			this.open = !this.open;
+			this.open = ! this.open;
 		},
 	},
 
@@ -60,4 +61,4 @@ Alpine.data('modal', () => ({
 			this.open = false;
 		},
 	},
-}));
+} ) );
