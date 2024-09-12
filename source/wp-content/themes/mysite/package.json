@@ -6,10 +6,10 @@
 	"license": "GPL-2.0-or-later",
 	"private": true,
 	"dependencies": {
+		"@acab/reset.css": "0.10.0",
 		"@alpinejs/intersect": "3.14.1",
 		"@wordpress/scripts": "29.0.0",
-		"alpinejs": "3.14.1",
-		"ress": "5.0.2"
+		"alpinejs": "3.14.1"
 	},
 	"devDependencies": {
 		"@csstools/postcss-global-data": "3.0.0",

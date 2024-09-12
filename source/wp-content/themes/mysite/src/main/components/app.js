@@ -1,5 +1,9 @@
 import Alpine from 'alpinejs';
 
+document.addEventListener( 'alpine:init', () => {
+	document.documentElement.setAttribute( 'x-data', 'app' );
+} );
+
 Alpine.data( 'app', () => ( {
 	interval: 0,
 	isRecaptcha: false,
@@ -7,6 +11,8 @@ Alpine.data( 'app', () => ( {
 	wpAdminBar: null,
 
 	init() {
+		document.documentElement.setAttribute( 'x-bind', 'app_attr' );
+
 		this.$nextTick( () => {
 			this.$store.siteStatus.isPageActive = true;
 			this.scrollBarCheckInterval();
@@ -14,7 +20,7 @@ Alpine.data( 'app', () => ( {
 		} );
 	},
 
-	root: {
+	app_attr: {
 		':class'() {
 			return {
 				'is-dialog-open': this.$store.siteStatus.isDialogOpen,
