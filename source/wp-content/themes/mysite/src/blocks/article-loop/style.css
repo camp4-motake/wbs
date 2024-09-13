@@ -16,7 +16,7 @@
 	.archive-category-select-box {
 		position: relative;
 		display: block;
-		width: min(calc(250 / var(--rem)), 100%);
+		width: min(calc(250 * var(--rem)), 100%);
 		font-family: var(--wp--preset--font-family--sans-serif-en);
 		color: var(--wp--preset--color--border);
 		border-bottom: 1px solid currentcolor;

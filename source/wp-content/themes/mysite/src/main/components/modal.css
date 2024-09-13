@@ -70,7 +70,7 @@
 	text-transform: uppercase;
 
 	&.-top {
-		--size: calc(30 / var(--rem));
+		--size: calc(30 * var(--rem));
 
 		position: absolute;
 		z-index: 10;
@@ -100,7 +100,7 @@
 		}
 
 		&::after {
-			--size: calc(8 / var(--rem));
+			--size: calc(8 * var(--rem));
 
 			content: "";
 			position: absolute;

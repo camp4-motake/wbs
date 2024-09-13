@@ -31,7 +31,7 @@
 }
 
 .pagination-item {
-	--pagination-link-width: calc(42 / var(--rem));
+	--pagination-link-width: calc(42 * var(--rem));
 
 	position: relative;
 	display: block;

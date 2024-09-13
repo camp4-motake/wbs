@@ -38,7 +38,7 @@
 	.header-brand {
 		display: block;
 		width: 100%;
-		max-width: clamp(calc(190 / var(--rem)), 30vw, calc(332 / var(--rem)));
+		max-width: clamp(calc(190 * var(--rem)), 30vw, calc(332 * var(--rem)));
 		margin-right: auto;
 		margin-left: 0;
 
@@ -85,9 +85,9 @@
 					content: "";
 					position: absolute;
 					top: 0;
-					right: calc(-0.5 / var(--rem));
+					right: calc(-0.5 * var(--rem));
 					bottom: 0;
-					width: calc(1 / var(--rem));
+					width: calc(1 * var(--rem));
 					height: 30%;
 					margin-top: auto;
 					margin-bottom: auto;
@@ -135,7 +135,7 @@
 						bottom: 0;
 						left: 0;
 						width: 50%;
-						height: calc(5 / var(--rem));
+						height: calc(5 * var(--rem));
 						margin: auto auto 0;
 						background-color: var(--wp--preset--color--primary);
 					}

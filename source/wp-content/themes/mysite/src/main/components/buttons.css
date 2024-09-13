@@ -1,7 +1,7 @@
 .wp-block-button {
 	.wp-block-button__link.wp-element-button {
 		position: relative;
-		min-width: calc(240 / var(--rem));
+		min-width: calc(240 * var(--rem));
 		padding-right: 1.75em;
 		padding-left: 1.75em;
 		transition:

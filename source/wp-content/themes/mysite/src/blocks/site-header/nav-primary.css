@@ -116,7 +116,7 @@ body.admin-bar .nav-modal {
 	overflow: hidden;
 	display: block;
 	aspect-ratio: 844/234;
-	width: max(calc(730 / var(--rem)), 120%);
+	width: max(calc(730 * var(--rem)), 120%);
 
 	svg {
 		position: absolute;

@@ -15,7 +15,7 @@
 	.footer-brand {
 		display: block;
 		width: calc(100% - var(--wp--preset--spacing--normal));
-		max-width: clamp(calc(240 / var(--rem)), 30vw, calc(346 / var(--rem)));
+		max-width: clamp(calc(240 * var(--rem)), 30vw, calc(346 * var(--rem)));
 
 		& svg path:not([fill="none"]) {
 			fill: var(--wp--preset--color--base);

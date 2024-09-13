@@ -1,5 +1,5 @@
 .badge-round-text {
-	--size: calc(30 / var(--rem));
+	--size: calc(30 * var(--rem));
 	--color: var(--wp--preset--color--primary);
 
 	overflow: hidden;
@@ -20,7 +20,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	min-height: calc(30 / var(--rem));
+	min-height: calc(30 * var(--rem));
 	padding: 0.25em 1em;
 	font-family: var(--wp--preset--font-family--sans-serif-en);
 	font-size: var(--wp--preset--font-size--12);
@@ -35,7 +35,7 @@
 }
 
 .badge-new {
-	--size: calc(60 / var(--rem));
+	--size: calc(60 * var(--rem));
 
 	position: absolute;
 	z-index: var(--z-badge);
