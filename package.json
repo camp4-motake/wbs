@@ -45,7 +45,7 @@
 		"init": "chmod +x ./{env,bin}/*.sh && ./bin/init.sh",
 		"cli": "npx wp-env run cli",
 		"composer": "docker run --rm --interactive --tty --volume $PWD:/app composer composer",
-		"wp-debug": "npx wp-env start --xdebug",
+		"wp-env": "npx wp-env",
 		"wp-flush": "npx wp-env run cli wp rewrite flush --hard",
 		"wp-export": "npx wp-env run cli ./env/export.sh",
 		"wp-import": "npx wp-env run cli ./env/import.sh",
