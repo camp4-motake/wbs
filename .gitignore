@@ -145,7 +145,7 @@ Movefile
 node_modules
 */wp-content/languages
 */wp-content/plugins/*
-!*/wp-content/plugins/mysite-plugin
+# !*/wp-content/plugins/mysite-*
 */dist
 .tmp/
 auth.json

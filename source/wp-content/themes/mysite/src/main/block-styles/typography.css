@@ -10,12 +10,12 @@
 	}
 
 	&::after {
+		content: "";
 		display: inline-block;
 		width: 1em;
 		height: 1em;
 		margin-right: 0.25em;
 		margin-left: 0.5em;
-		content: "";
 		background-color: currentcolor;
 		mask-image: var(--mask-ico-arrow-right);
 		mask-position: center;

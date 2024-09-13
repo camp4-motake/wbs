@@ -3,9 +3,9 @@
 	margin-bottom: var(--wp--preset--spacing--lg);
 
 	.map {
+		overflow: hidden;
 		display: block;
 		aspect-ratio: var(--aspect-ratio, 4/3);
-		overflow: hidden;
 		background-color: var(--wp--preset--color--placeholder);
 
 		iframe {

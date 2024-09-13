@@ -30,6 +30,7 @@
 
 		a {
 			--badge-size: calc(22 / var(--rem));
+
 			display: inline-flex;
 			align-items: center;
 			line-height: var(-wp--custom--line-height--sm);
@@ -38,6 +39,7 @@
 			&:hover {
 				text-decoration: none;
 			}
+
 			.badge-num {
 				font-size: var(--wp--preset--font-size--12);
 			}

@@ -5,8 +5,8 @@
 /* html, body { min-height: 100vh; } */
 
 html {
-	background-color: var(--color-bacface);
 	scroll-padding-top: var(--header-height);
+	background-color: var(--color-bacface);
 
 	&:not(.is-animating) {
 		scroll-behavior: smooth;
@@ -16,13 +16,13 @@ html {
 body {
 	overflow-y: scroll;
 	font-feature-settings: normal;
-	line-height: var(--wp--custom--line-height--base);
-	overflow-wrap: break-word;
-	background-color: var(--wp--preset--color--base);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	font-synthesis: none;
+	line-height: var(--wp--custom--line-height--base);
 	text-size-adjust: 100%;
+	overflow-wrap: break-word;
+	background-color: var(--wp--preset--color--base);
+	font-synthesis: none;
 }
 
 img,
@@ -56,6 +56,7 @@ hr,
 			var(--hr-max-width)
 		);
 	}
+
 	&.-max-xl {
 		max-width: min(
 			calc(
@@ -84,9 +85,11 @@ ul {
 	&.list-iroha {
 		list-style-type: katakana-iroha;
 	}
+
 	&.list-circled-decimal {
 		list-style-type: circled-decimal;
 	}
+
 	&.list-parenthesized-decimal {
 		list-style-type: parenthesized-decimal;
 	}
@@ -101,6 +104,7 @@ button {
 	&::placeholder {
 		font-weight: var(--wp--custom--font-weight--regular);
 	}
+
 	&:focus::placeholder {
 		color: transparent;
 	}
@@ -123,8 +127,8 @@ legend {
 fieldset {
 	display: block;
 	min-width: 0;
-	padding: 0;
 	margin: 0;
+	padding: 0;
 	border: 0;
 }
 
@@ -134,9 +138,9 @@ fieldset {
 }
 
 svg {
+	overflow: visible;
 	width: 100%;
 	height: auto;
-	overflow: visible;
 }
 
 p {

@@ -2,12 +2,12 @@
 	--size: calc(30 / var(--rem));
 	--color: var(--wp--preset--color--primary);
 
+	overflow: hidden;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	width: var(--size);
 	height: var(--size);
-	overflow: hidden;
 	font-size: var(--wp--preset--font-size--12);
 	font-weight: var(--wp--custom--font-weight--bold);
 	line-height: var(--wp--custom--line-height--sm);

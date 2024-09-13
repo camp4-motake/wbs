@@ -24,7 +24,9 @@
 	"css.validate": false,
 	"postcss.validate": false,
 	"editor.codeActionsOnSave": {
-		"source.organizeImports": "explicit"
+		"source.organizeImports": "explicit",
+		"source.fixAll.eslint": "explicit",
+		"source.fixAll.stylelint": "explicit"
 	},
 	"phpCodeSniffer.autoExecutable": true,
 	"phpCodeSniffer.standard": "Automatic",

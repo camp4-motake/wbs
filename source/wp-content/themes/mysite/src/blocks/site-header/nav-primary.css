@@ -1,12 +1,13 @@
 .nav-modal {
 	--top-spacer: calc(var(--header-height));
+
 	position: fixed;
+	z-index: var(--z-nav-menu);
 	top: var(--top-spacer);
 	right: 0;
-	z-index: var(--z-nav-menu);
+	overflow: hidden;
 	width: 100%;
 	height: calc(100svh - var(--top-spacer));
-	overflow: hidden;
 	visibility: hidden;
 	opacity: 0;
 
@@ -16,97 +17,106 @@
 
 	&::before,
 	&::after {
+		will-change: transform;
+		content: "";
 		position: absolute;
 		top: 0;
 		left: 0;
+		transform-origin: center top;
+		transform: scaleY(0);
 		width: 100%;
 		height: 100%;
 		backface-visibility: hidden;
-		content: "";
-		transform: scaleY(0);
-		transform-origin: center top;
-		will-change: transform;
 	}
+
 	&::before {
 		z-index: 0;
 		background-color: var(--wp--preset--color--primary);
 	}
+
 	&::after {
 		z-index: 1;
 		background-color: var(--wp--preset--color--base);
 	}
 }
+
 body.admin-bar .nav-modal {
 	--top-spacer: calc(var(--header-height) + var(--wp-adminbar-height));
 }
+
 .is-page-active .nav-modal {
 	transition: 0.2s ease;
+
 	&::before,
 	&::after {
 		transition: 0.2s ease;
 	}
 }
+
 .is-page-active.is-menu-shown .nav-modal {
 	visibility: visible;
 	opacity: 1;
 	transition-duration: 0.2s;
+
 	&::before,
 	&::after {
+		transform: scaleY(1);
 		transition-timing-function: var(--ease-in-out-circ);
 		transition-duration: 0.66s;
-		transform: scaleY(1);
 	}
+
 	&::after {
 		transition-delay: 0.16s;
 	}
 }
 
 .nav-modal-body {
+	scrollbar-width: none;
 	position: relative;
 	z-index: 5;
+	transform: translateY(-2rem);
+	overflow: auto;
+	overscroll-behavior-y: contain;
 	display: block;
 	display: flex;
 	flex-direction: column;
 	width: 100%;
 	height: 100%;
 	padding: var(--wp--preset--spacing--lg);
-	overflow: auto;
-	overscroll-behavior-y: contain;
-
 	opacity: 0;
-	transform: translateY(-2rem);
 	-webkit-overflow-scrolling: touch;
-	scrollbar-width: none;
 }
+
 .is-page-active .nav-modal-body {
 	transition:
 		opacity 0.2s ease,
 		transform 0.2s var(--ease-out-circ);
 }
+
 .is-page-active.is-menu-shown .nav-modal-body {
+	transform: translateY(0);
 	opacity: 1;
 	transition-delay: 0.6s, 0.6s;
 	transition-duration: 0.8s, 0.8s;
-	transform: translateY(0);
 }
 
 .nav-modal-bg {
 	position: absolute;
 	top: 0;
 	left: 0;
+	overflow: hidden;
 	width: 100%;
 	height: 100%;
-	overflow: hidden;
 }
 
 .nav-modal-bg-svg {
 	position: absolute;
 	bottom: -5%;
 	left: 5%;
-	display: block;
-	width: max(calc(730 / var(--rem)), 120%);
-	aspect-ratio: 844/234;
 	overflow: hidden;
+	display: block;
+	aspect-ratio: 844/234;
+	width: max(calc(730 / var(--rem)), 120%);
 
 	svg {
 		position: absolute;
@@ -129,6 +139,7 @@ body.admin-bar .nav-modal {
 		/* stroke-dashoffset: 1000px; */
 	}
 }
+
 .is-page-active.is-menu-shown .nav-modal-bg-svg {
 	path {
 		stroke-dashoffset: 0;
@@ -140,6 +151,7 @@ body.admin-bar .nav-modal {
 	0% {
 		stroke-dashoffset: 1200px;
 	}
+
 	100% {
 		stroke-dashoffset: 0;
 	}
@@ -149,14 +161,15 @@ body.admin-bar .nav-modal {
 	position: relative;
 	width: 100%;
 	max-width: var(--container-max-width-sm);
-	padding-top: var(--wp--preset--spacing--lg);
 	margin-inline: auto;
+	padding-top: var(--wp--preset--spacing--lg);
 
 	ul {
-		padding: 0;
 		margin: 0;
+		padding: 0;
 		list-style: none;
 	}
+
 	a {
 		text-decoration: none;
 	}
@@ -186,13 +199,13 @@ body.admin-bar .nav-modal {
 
 			/* right arrow */
 			&::after {
+				content: "";
 				position: absolute;
 				top: calc(50% - 0.5em);
 				right: 0.75em;
 				display: inline-block;
 				width: 1em;
 				height: 1em;
-				content: "";
 				background-color: currentcolor;
 				mask-image: var(--mask-ico-arrow-right);
 				mask-position: center;
@@ -204,11 +217,13 @@ body.admin-bar .nav-modal {
 			> small {
 				display: block;
 			}
+
 			> span {
 				order: 1;
 				font-family: var(--wp--preset--font-family--sans-serif-en);
 				font-size: var(--wp--preset--font-size--20);
 			}
+
 			> small {
 				order: 2;
 				font-size: var(--wp--preset--font-size--14);
@@ -230,6 +245,7 @@ body.admin-bar .nav-modal {
 		ul {
 			display: block;
 		}
+
 		li {
 			display: flex;
 			align-items: center;

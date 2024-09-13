@@ -1,7 +1,7 @@
 .wp-block-table {
-	margin-bottom: var(--wp--preset--spacing--lg);
 	overflow: auto;
 	border-collapse: collapse;
+	margin-bottom: var(--wp--preset--spacing--lg);
 	-webkit-overflow-scrolling: touch;
 
 	& table {
@@ -131,6 +131,7 @@
 		border-right: 1px solid var(--wp--preset--color--border);
 		border-left: 1px solid var(--wp--preset--color--border);
 	}
+
 	& :where(th, td):not(:last-child) {
 		border-right: 1px solid var(--wp--preset--color--border);
 	}

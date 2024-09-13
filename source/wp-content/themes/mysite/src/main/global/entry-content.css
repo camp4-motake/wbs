@@ -47,9 +47,11 @@
 	&.alignWide {
 		max-width: var(--wp--style--global--wide-size);
 	}
+
 	&.alignfull {
 		max-width: 100% !important;
 	}
+
 	&.align-max-2xl {
 		max-width: var(--container-max-width-2xl);
 	}

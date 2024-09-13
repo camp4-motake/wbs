@@ -9,39 +9,46 @@
 	"engines": {
 		"node": ">=20"
 	},
+	"dependencies": {
+		"@wordpress/scripts": "29.0.0"
+	},
 	"devDependencies": {
 		"@wordpress/env": "10.7.0",
 		"browser-sync": "^3.0.2",
 		"npm-run-all2": "6.2.2",
-		"sharp": "0.33.5"
+		"sharp": "0.33.5",
+		"zx": "8.1.6"
 	},
 	"scripts": {
-		"postinstall": "npm run init --silent",
-		"init": "chmod +x ./{env,bin}/*.sh && ./bin/init.sh",
-		"start": "npx wp-env start --xdebug",
 		"build": "npm run build --workspaces --if-present --silent",
 		"dev": "run-p dev:**",
 		"dev:ws": "npm run dev --workspaces --if-present --silent",
 		"dev:bs": "browser-sync start --config bs-config.js",
+		"start": "npx wp-env start --xdebug",
+		"init": "chmod +x ./{env,bin}/*.sh && ./bin/init.sh",
+		"postinstall": "npm run init --silent",
+		"--- lint ---": "",
 		"lint": "run-s lint:**",
 		"lint:ws": "npm run lint --workspaces --if-present",
-		"lint:php": "npm run composer lint source/wp-content/{themes,plugins}/mysite*",
+		"lint:php": "npm run composer lint source/wp-content/themes/mysite",
 		"format": "run-s format:**",
-		"format:root": "prettier --write --list-different . && wp-scripts format . '!source'",
+		"format:root": "wp-scripts format . '!source' ",
 		"format:ws": "npm run format --workspaces --if-present",
-		"format:php": "npm run composer format source/wp-content/{themes,plugins}/mysite*",
+		"format:php": "npm run composer format source/wp-content/themes/mysite",
+		"--- setup ---": "",
 		"setup": "run-s setup:**",
 		"setup:composer": "npm run composer install",
 		"setup:wp-env": "npx wp-env start",
 		"setup:wp-opt": "npx wp-env run cli ./env/setup.sh",
 		"setup:wp-theme-activate": "npx wp-env run cli wp theme activate mysite",
 		"setup:build": "npm run build",
+		"--- tools ---": "",
 		"cli": "npx wp-env run cli",
 		"composer": "docker run --rm --interactive --tty --volume $PWD:/app composer composer",
 		"wp-flush": "npx wp-env run cli wp rewrite flush --hard",
 		"wp-export": "npx wp-env run cli ./env/export.sh",
 		"wp-import": "npx wp-env run cli ./env/import.sh",
-		"packages-update": "npm run packages-update --workspaces --if-present"
+		"packages-update": "wp-scripts packages-update && npm run packages-update --workspaces --if-present"
 	},
 	"workspaces": [
 		"source/wp-content/themes/mysite"

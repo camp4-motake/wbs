@@ -13,6 +13,7 @@
 
 	.share-link {
 		--size: calc(30 / var(--rem));
+
 		position: relative;
 		display: block;
 		width: var(--size);
