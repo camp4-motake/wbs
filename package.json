@@ -27,7 +27,7 @@
 		"setup": "run-s setup:**",
 		"--- dev ---": "",
 		"dev:ws": "npm run dev --workspaces --if-present --silent",
-		"dev:bs": "",
+		"dev:bs": "browser-sync start --config bs-config.js",
 		"--- linter ---": "",
 		"lint:ws": "npm run lint --workspaces --if-present",
 		"lint:php": "npm run composer lint source/wp-content/themes/mysite",
