@@ -1,5 +1,10 @@
 #!/bin/bash
 
+WP_THEME_NAME=mysite
+
+# theme activate
+wp theme activate $WP_THEME_NAME
+
 wp rewrite structure /%post_id%/
 wp rewrite flush --hard
 

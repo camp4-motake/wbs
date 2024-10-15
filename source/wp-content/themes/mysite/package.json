@@ -5,39 +5,43 @@
 	"author": "CAMP4 inc.",
 	"license": "GPL-2.0-or-later",
 	"private": true,
-	"dependencies": {
-		"@acab/reset.css": "0.10.0",
-		"@alpinejs/intersect": "3.14.1",
-		"@wordpress/scripts": "29.0.0",
-		"alpinejs": "3.14.1"
-	},
-	"devDependencies": {
-		"@csstools/postcss-global-data": "3.0.0",
-		"@types/alpinejs": "3.13.10",
-		"@typescript-eslint/eslint-plugin": "8.5.0",
-		"@typescript-eslint/parser": "8.5.0",
-		"copy-webpack-plugin": "12.0.2",
-		"cssnano": "7.0.6",
-		"image-minimizer-webpack-plugin": "4.1.0",
-		"npm-run-all2": "6.2.2",
-		"postcss-easy-import": "4.0.0",
-		"postcss-preset-env": "10.0.3",
-		"postcss-url": "10.1.3",
-		"sharp": "0.33.5",
-		"stylelint-config-clean-order": "6.1.0",
-		"stylelint-config-prettier": "^9.0.5",
-		"svgo": "3.3.2"
-	},
 	"scripts": {
-		"dev": "wp-scripts start",
-		"build": "wp-scripts build",
+		"dev": "wp-scripts start --experimental-modules",
+		"build": "wp-scripts build --experimental-modules",
 		"lint": "run-p lint:**",
 		"lint:js": "wp-scripts lint-js src",
 		"lint:css": "wp-scripts lint-style *.css src/**/*.scss",
 		"format": "run-s format:**",
-		"format:prettier": "prettier --write .",
-		"format:css": "stylelint ./src/**/*.{css,scss} -i .gitignore --fix",
-		"format:js": "eslint --ignore-path .gitignore . --fix",
-		"packages-update": "wp-scripts packages-update"
+		"format:css": "stylelint './src/**/*.{css,scss}' -i .prettierignore --fix",
+		"format:js": "eslint --ignore-path .prettierignore . --fix",
+		"format:prettier": "wp-scripts format",
+		"packages-update": "wp-scripts packages-update",
+		"prebuild": "rimraf build/*",
+		"predev": "rimraf build/*"
+	},
+	"dependencies": {
+		"@acab/reset.css": "0.10.0",
+		"@alpinejs/intersect": "3.14.1",
+		"@wordpress/scripts": "30.1.0",
+		"alpinejs": "3.14.1"
+	},
+	"devDependencies": {
+		"@csstools/postcss-global-data": "3.0.0",
+		"copy-webpack-plugin": "12.0.2",
+		"cssnano": "7.0.6",
+		"image-minimizer-webpack-plugin": "4.1.0",
+		"npm-run-all2": "6.2.3",
+		"postcss-easy-import": "4.0.0",
+		"postcss-preset-env": "10.0.7",
+		"postcss-url": "10.1.3",
+		"sharp": "0.33.5",
+		"svgo": "3.3.2"
+	},
+	"prettier": "../../../../.prettierrc.js",
+	"eslintConfig": {
+		"extends": "../../../../.eslintrc.js"
+	},
+	"stylelint": {
+		"extends": "../../../../.stylelintrc.js"
 	}
 }
