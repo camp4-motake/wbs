@@ -1,7 +1,7 @@
 .wp-block-table {
+	margin-bottom: var(--wp--preset--spacing--lg);
 	overflow: auto;
 	border-collapse: collapse;
-	margin-bottom: var(--wp--preset--spacing--lg);
 	-webkit-overflow-scrolling: touch;
 
 	& table {

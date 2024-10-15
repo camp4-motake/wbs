@@ -2,12 +2,12 @@
 	--top-spacer: calc(var(--header-height));
 
 	position: fixed;
-	z-index: var(--z-nav-menu);
 	top: var(--top-spacer);
 	right: 0;
-	overflow: hidden;
+	z-index: var(--z-nav-menu);
 	width: 100%;
 	height: calc(100svh - var(--top-spacer));
+	overflow: hidden;
 	visibility: hidden;
 	opacity: 0;
 
@@ -17,15 +17,15 @@
 
 	&::before,
 	&::after {
-		will-change: transform;
-		content: "";
 		position: absolute;
 		top: 0;
 		left: 0;
-		transform-origin: center top;
-		transform: scaleY(0);
 		width: 100%;
 		height: 100%;
+		content: "";
+		transform: scaleY(0);
+		transform-origin: center top;
+		will-change: transform;
 		backface-visibility: hidden;
 	}
 
@@ -60,9 +60,9 @@ body.admin-bar .nav-modal {
 
 	&::before,
 	&::after {
-		transform: scaleY(1);
 		transition-timing-function: var(--ease-in-out-circ);
 		transition-duration: 0.66s;
+		transform: scaleY(1);
 	}
 
 	&::after {
@@ -71,19 +71,19 @@ body.admin-bar .nav-modal {
 }
 
 .nav-modal-body {
-	scrollbar-width: none;
 	position: relative;
 	z-index: 5;
-	transform: translateY(-2rem);
-	overflow: auto;
-	overscroll-behavior-y: contain;
 	display: block;
 	display: flex;
 	flex-direction: column;
 	width: 100%;
 	height: 100%;
 	padding: var(--wp--preset--spacing--lg);
+	overflow: auto;
+	overscroll-behavior-y: contain;
+	scrollbar-width: none;
 	opacity: 0;
+	transform: translateY(-2rem);
 	-webkit-overflow-scrolling: touch;
 }
 
@@ -94,29 +94,29 @@ body.admin-bar .nav-modal {
 }
 
 .is-page-active.is-menu-shown .nav-modal-body {
-	transform: translateY(0);
 	opacity: 1;
 	transition-delay: 0.6s, 0.6s;
 	transition-duration: 0.8s, 0.8s;
+	transform: translateY(0);
 }
 
 .nav-modal-bg {
 	position: absolute;
 	top: 0;
 	left: 0;
-	overflow: hidden;
 	width: 100%;
 	height: 100%;
+	overflow: hidden;
 }
 
 .nav-modal-bg-svg {
 	position: absolute;
 	bottom: -5%;
 	left: 5%;
-	overflow: hidden;
 	display: block;
-	aspect-ratio: 844/234;
 	width: max(calc(730 * var(--rem)), 120%);
+	aspect-ratio: 844/234;
+	overflow: hidden;
 
 	svg {
 		position: absolute;
@@ -161,12 +161,12 @@ body.admin-bar .nav-modal {
 	position: relative;
 	width: 100%;
 	max-width: var(--container-max-width-sm);
-	margin-inline: auto;
 	padding-top: var(--wp--preset--spacing--lg);
+	margin-inline: auto;
 
 	ul {
-		margin: 0;
 		padding: 0;
+		margin: 0;
 		list-style: none;
 	}
 
@@ -199,17 +199,17 @@ body.admin-bar .nav-modal {
 
 			/* right arrow */
 			&::after {
-				content: "";
 				position: absolute;
 				top: calc(50% - 0.5em);
 				right: 0.75em;
 				display: inline-block;
 				width: 1em;
 				height: 1em;
+				content: "";
 				background-color: currentcolor;
 				mask-image: var(--mask-ico-arrow-right);
-				mask-position: center;
 				mask-repeat: no-repeat;
+				mask-position: center;
 				mask-size: 0.6em;
 			}
 

@@ -35,8 +35,6 @@
 		}
 
 		&::after {
-			pointer-events: none;
-			content: "";
 			position: absolute;
 			top: 50%;
 			right: 0.5em;
@@ -46,10 +44,12 @@
 			margin-top: -0.5em;
 			margin-right: 0.25em;
 			margin-left: 0.25em;
+			pointer-events: none;
+			content: "";
 			background-color: currentcolor;
 			mask-image: var(--mask-ico-plus);
-			mask-position: center;
 			mask-repeat: no-repeat;
+			mask-position: center;
 			mask-size: 0.75em;
 		}
 	}

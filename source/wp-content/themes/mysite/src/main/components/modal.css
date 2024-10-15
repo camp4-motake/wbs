@@ -1,14 +1,14 @@
 .modal {
-	scrollbar-width: none;
 	position: fixed;
-	z-index: var(--z-modal);
 	top: 0;
 	left: 0;
-	overflow: auto;
-	overscroll-behavior: contain;
+	z-index: var(--z-modal);
 	align-items: center;
 	width: 100%;
 	height: 100%;
+	overflow: auto;
+	overscroll-behavior: contain;
+	scrollbar-width: none;
 	-webkit-overflow-scrolling: touch;
 
 	/* hide scrollbar */
@@ -20,15 +20,15 @@
 
 	/* overray */
 	&::before {
-		content: "";
 		position: fixed;
-		z-index: 0;
 		top: 0;
 		left: 0;
+		z-index: 0;
 		width: 100%;
 		height: 100%;
-		opacity: var(--overay-opacity);
+		content: "";
 		background-color: var(--wp--preset--color--text-base);
+		opacity: var(--overay-opacity);
 	}
 
 	> .spacer {
@@ -36,27 +36,27 @@
 	}
 
 	/* transition */
-	&.-enter {
+	&.is-enter {
 		transition: 0.3s var(--ease-out-circ);
 	}
 
-	&.-enter-start {
+	&.is-enter-start {
 		opacity: 0;
 	}
 
-	&.-enter-end {
+	&.is-enter-end {
 		opacity: 1;
 	}
 
-	&.-leave {
+	&.is-leave {
 		transition: 0.3s var(--ease-out-circ);
 	}
 
-	&.-leave-start {
+	&.is-leave-start {
 		opacity: 1;
 	}
 
-	&.-leave-end {
+	&.is-leave-end {
 		opacity: 0;
 	}
 }
@@ -66,23 +66,23 @@
 }
 
 .modal-close {
-	cursor: pointer;
 	text-transform: uppercase;
+	cursor: pointer;
 
-	&.-top {
+	&.is-top {
 		--size: calc(30 * var(--rem));
 
 		position: absolute;
-		z-index: 10;
 		top: var(--spacer-sm);
 		right: var(--spacer-sm);
+		z-index: 10;
 		width: var(--size);
 		height: var(--size);
 		background-image: var(--bg-ico-close);
 		background-size: contain;
 	}
 
-	&.-link {
+	&.is-link {
 		position: relative;
 		display: inline-block;
 		padding-right: 1em;
@@ -101,8 +101,6 @@
 
 		&::after {
 			--size: calc(8 * var(--rem));
-
-			content: "";
 			position: absolute;
 			top: 0;
 			right: 0.25em;
@@ -111,10 +109,12 @@
 			height: var(--size);
 			margin-top: auto;
 			margin-bottom: auto;
+
+			content: "";
 			background-color: var(--color-primary);
 			mask-image: var(--mask-ico-arrow-right);
-			mask-position: center;
 			mask-repeat: no-repeat;
+			mask-position: center;
 			mask-size: contain;
 		}
 	}

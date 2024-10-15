@@ -1,8 +1,8 @@
 :where(h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6) {
 	&:where(:not(#wpbody-content .wrap *)) {
 		margin-bottom: var(--wp--preset--spacing--normal);
-		font-feature-settings: "palt";
 		font-weight: var(--wp--custom--font-weight--bold);
+		font-feature-settings: "palt";
 		line-height: var(--wp--custom--line-height--hd);
 		text-wrap: balance;
 		overflow-wrap: break-word;
@@ -83,9 +83,9 @@ p {
 }
 
 .ellipsis-1 {
-	overflow: hidden;
 	width: 100%;
 	max-width: 100%;
+	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 }

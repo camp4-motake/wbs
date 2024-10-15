@@ -47,7 +47,7 @@ hr,
 	border-bottom-color: var(--wp--preset--color--border);
 	border-bottom-width: 1px;
 
-	&.-max-lg {
+	&.is-max-lg {
 		max-width: min(
 			calc(
 				var(--container-max-width-lg) -
@@ -57,7 +57,7 @@ hr,
 		);
 	}
 
-	&.-max-xl {
+	&.is-max-xl {
 		max-width: min(
 			calc(
 				var(--container-max-width-xl) -
@@ -127,8 +127,8 @@ legend {
 fieldset {
 	display: block;
 	min-width: 0;
-	margin: 0;
 	padding: 0;
+	margin: 0;
 	border: 0;
 }
 
@@ -138,9 +138,9 @@ fieldset {
 }
 
 svg {
-	overflow: visible;
 	width: 100%;
 	height: auto;
+	overflow: visible;
 }
 
 p {

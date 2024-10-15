@@ -7,9 +7,9 @@
 	.footer-body {
 		width: 100%;
 		max-width: var(--wp--style--global--content-size);
-		margin-inline: auto;
 		padding: var(--wp--preset--spacing--lg)
 			var(--wp--preset--spacing--normal);
+		margin-inline: auto;
 	}
 
 	.footer-brand {

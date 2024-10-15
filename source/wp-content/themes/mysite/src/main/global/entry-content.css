@@ -7,13 +7,13 @@
 		margin-top: 1em;
 	}
 
-	> *:not(.alignWide):not(.alignfull) {
+	> *:not(.alignwide):not(.alignfull) {
 		max-width: var(--wp--style--global--content-size);
 		padding-right: var(--wp--custom--gutter);
 		padding-left: var(--wp--custom--gutter);
 	}
 
-	> *.alignWide {
+	> *.alignwide {
 		max-width: var(--wp--style--global--wide-size);
 	}
 
@@ -44,7 +44,7 @@
 	max-width: var(--wp--style--global--content-size);
 	margin-inline: auto;
 
-	&.alignWide {
+	&.alignwide {
 		max-width: var(--wp--style--global--wide-size);
 	}
 

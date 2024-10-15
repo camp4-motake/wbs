@@ -1,20 +1,20 @@
 .menu-toggle {
 	position: relative;
-	overflow: hidden;
 	display: block;
 	width: var(--header-height);
 	height: var(--header-height);
 	margin-right: 0;
 	margin-left: auto;
+	overflow: hidden;
 	background-color: var(--wp--preset--color--primary);
 
 	.toggle-image {
 		position: absolute;
 		inset: 0;
-		overflow: hidden;
 		display: block;
 		width: 100%;
 		height: 100%;
+		overflow: hidden;
 		opacity: 0;
 		transition: 0.25s var(--ease-out-circ);
 
@@ -28,12 +28,12 @@
 }
 
 .toggle-image {
-	&.-toggle {
+	&.is-toggle {
 		visibility: visible;
 		opacity: 1;
 	}
 
-	&.-close {
+	&.is-close {
 		visibility: hidden;
 		opacity: 0;
 	}
@@ -42,12 +42,12 @@
 .is-menu-shown .toggle-image {
 	transform: rotate(90deg);
 
-	&.-toggle {
+	&.is-toggle {
 		visibility: hidden;
 		opacity: 0;
 	}
 
-	&.-close {
+	&.is-close {
 		visibility: visible;
 		opacity: 1;
 	}

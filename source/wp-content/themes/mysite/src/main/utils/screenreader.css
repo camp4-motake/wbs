@@ -1,21 +1,21 @@
 .sr-only {
 	position: absolute !important;
-	overflow: hidden !important;
 	width: 1px !important;
 	height: 1px !important;
-	margin: -1px !important;
 	padding: 0 !important;
-	white-space: nowrap !important;
+	margin: -1px !important;
+	overflow: hidden !important;
 	clip: rect(0, 0, 0, 0) !important;
+	white-space: nowrap !important;
 	border: 0 !important;
 
 	&:active,
 	&:focus {
 		position: static;
-		overflow: visible;
 		width: auto;
 		height: auto;
-		white-space: normal;
+		overflow: visible;
 		clip: auto;
+		white-space: normal;
 	}
 }

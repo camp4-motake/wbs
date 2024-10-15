@@ -46,7 +46,7 @@
 	font-weight: var(--wp--custom--font-weight--black) !important;
 }
 
-.text-sansSerif-oswald {
+.text-sans-serif-oswald {
 	font-family: var(--wp--preset--font-family--sans-serif-en);
 }
 
@@ -177,7 +177,7 @@
 	}
 }
 
-.text-autoLine {
+.text-auto-line {
 	& > span {
 		display: inline-block;
 	}
@@ -189,7 +189,7 @@
 	}
 }
 
-.text-autoCentering {
+.text-auto-centering {
 	display: inline-block;
 	text-align: initial !important;
 }

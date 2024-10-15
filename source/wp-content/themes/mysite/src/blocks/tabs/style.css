@@ -1,6 +1,6 @@
 .wp-block-wbs-tabs {
-	margin-inline: auto;
 	padding: var(--wp--preset--spacing--lg) 0;
+	margin-inline: auto;
 
 	.tab-labels {
 		display: flex;
@@ -14,8 +14,8 @@
 	.tab-label {
 		display: block;
 		width: 100%;
-		margin-bottom: -2px;
 		padding: 0.5em;
+		margin-bottom: -2px;
 		background-color: var(--wp--preset--color--bg-fill);
 		border-right: 2px solid var(--wp--preset--color--primary);
 		border-bottom: 2px solid var(--wp--preset--color--primary);
