@@ -8,8 +8,6 @@
 
 namespace Site\Theme\Admin\Hooks;
 
-use Site\Theme\Helper\Env;
-
 /**
  * ページリストの投稿表示数を変更
  *
@@ -35,7 +33,7 @@ function add_page_column_title( $columns ) {
 	return $columns;
 }
 add_filter( 'manage_pages_columns', __NAMESPACE__ . '\\add_page_column_title' );
-/* add_filter('manage_[post_type]_posts_columns', __NAMESPACE__ . '\\add_page_column_title');  */
+/* add_filter('manage_[post_type]_posts_columns', __NAMESPACE__ . '\\add_page_column_title');  */ // phpcs:ignore Squiz.PHP.CommentedOutCode.Found
 
 /**
  * 固定ページ一覧にスラッグを表示
@@ -59,7 +57,7 @@ function add_page_column( $column_name, $post_id ) {
 	}
 }
 add_action( 'manage_pages_custom_column', __NAMESPACE__ . '\\add_page_column', 10, 2 );
-/* add_action('manage_[post_type]_posts_custom_column', __NAMESPACE__ . '\\add_page_column', 10, 2); */
+/* add_action('manage_[post_type]_posts_custom_column', __NAMESPACE__ . '\\add_page_column', 10, 2); */ // phpcs:ignore Squiz.PHP.CommentedOutCode.Found
 
 /**
  * 管理画面カスタマイズ用追加インラインCSS
@@ -68,9 +66,9 @@ function add_inline_styles() {
 	$style = '<style>';
 
 	// 管理バー左上タイトルにローカルホスト・開発サーバー識別文字を追加.
-	if ( Env\in_local() ) {
+	if ( wp_get_environment_type() === 'local' ) {
 		$style .= '#wp-admin-bar-site-name .ab-item:after { content:"（ローカル）"; }';
-	} elseif ( Env\in_staging() ) {
+	} elseif ( wp_get_environment_type() === 'staging' ) {
 		$style .= '#wp-admin-bar-site-name .ab-item:after { content:"（ステージング環境）"; }';
 	}
 	$style .= '</style>';
