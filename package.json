@@ -59,8 +59,6 @@
 		"packages-update": "wp-scripts packages-update && npm run packages-update --workspaces --if-present"
 	},
 	"workspaces": [
-		"source/wp-content/plugins/mysite",
-		"source/wp-content/plugins/test",
 		"source/wp-content/themes/mysite"
 	],
 	"browserslist": [
