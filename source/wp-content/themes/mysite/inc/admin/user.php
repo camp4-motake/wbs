@@ -20,7 +20,9 @@ function media_display_limit_current_user( $where ) {
 		return $where;
 	}
 
-	$is_action = ! empty( $_POST['action'] ) && 'query-attachments' === wp_unslash( $_POST['action'] );
+	$is_action = ! empty( $_POST['action'] ) &&
+		'query-attachments' === wp_unslash( $_POST['action'] ) &&
+		wp_verify_nonce( $_POST['_wpnonce'], 'query-attachments' );
 
 	if ( $is_action ) {
 		global $current_user;
