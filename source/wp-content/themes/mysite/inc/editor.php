@@ -42,14 +42,14 @@ function fix_cpt_lug( $slug, $post_ID, $post_status, $post_type ) {
 	$post            = get_post( $post_ID );
 	$is_slug_invalid = preg_match( '/(%[0-9a-f]{2})+/', $slug );
 
-	if ( $is_slug_invalid && $post->post_date_gmt === '0000-00-00 00:00:00' ) {
-		if ( $post_type === 'page' ) {
+	if ( $is_slug_invalid && '0000-00-00 00:00:00' === $post->post_date_gmt ) {
+		if ( 'page' === $post_type ) {
 			return 'page-' . $post_ID;
 		}
 		return $post_ID;
 	}
 	if ( $is_slug_invalid ) {
-		if ( $post_type === 'page' ) {
+		if ( 'page' === $post_type ) {
 			return 'page-' . $post_ID;
 		}
 		return $post_ID;

@@ -292,7 +292,7 @@ function get_srcset_attr( $filename = '', $resolution = array(), $non_1x = false
 	$srcset        = array();
 	$srcset_string = '';
 	foreach ( $resolution as $key => $res ) {
-		if ( $key === '1x' && $non_1x === true ) {
+		if ( '1x' === $key && true === $non_1x ) {
 			continue;
 		}
 		$high_res_name = preg_replace( '/\.[^.]s+$/', $res . '$0', $filename );
@@ -324,7 +324,7 @@ function array_to_attr_string( $attrs = array(), $spacer = ' ' ): string {
 
 	foreach ( $attrs as $key => $attr ) {
 		$attr_string .= esc_attr( $key ) . '="' . esc_attr( $attr ) . '"';
-		if ( $attr !== end( $attrs ) ) {
+		if ( end( $attrs ) !== $attr ) {
 			$attr_string .= ' ';
 		}
 	}
