@@ -53,7 +53,7 @@ function add_page_column( $column_name, $post_id ) {
 			$error = '<strong class="error" style="color:red;">【!】パーマリンクのURLスラッグを半角英数字のみに修正してから公開してください。</strong>';
 		}
 
-		echo $error . '<a href="' . esc_url( $uri ) . '" target="_blank" rel="noopener">' . esc_attr( $slug ) . ' </a>';
+		echo wp_kses_post( $error ) . '<a href="' . esc_url( $uri ) . '" target="_blank" rel="noopener">' . esc_attr( $slug ) . ' </a>';
 	}
 }
 add_action( 'manage_pages_custom_column', __NAMESPACE__ . '\\add_page_column', 10, 2 );
