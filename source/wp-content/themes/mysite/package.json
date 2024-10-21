@@ -21,11 +21,10 @@
 	},
 	"dependencies": {
 		"@acab/reset.css": "0.10.0",
-		"@alpinejs/intersect": "3.14.1",
-		"@wordpress/scripts": "30.1.0",
-		"alpinejs": "3.14.1"
+		"@alpinejs/intersect": "3.14.3",
+		"@wordpress/scripts": "30.3.0",
+		"alpinejs": "3.14.3"
 	},
-	"devDependencies": {},
 	"prettier": "../../../../.prettierrc.js",
 	"eslintConfig": {
 		"extends": "../../../../.eslintrc.js"
