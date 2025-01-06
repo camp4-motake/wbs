@@ -9,6 +9,22 @@
 	"engines": {
 		"node": "20 || 22"
 	},
+	"scripts": {
+		"build": "npm run build --workspaces --if-present --silent",
+		"dev": "node ./bin/dev.mjs",
+		"format": "node ./bin/lint.mjs --format",
+		"lint": "node ./bin/lint.mjs ",
+		"setup": "node ./bin/wp-setup.mjs",
+		"cli": "npx wp-env run cli",
+		"composer": "docker run --rm --interactive --tty --volume $PWD:/app composer composer",
+		"wp-env": "npx wp-env",
+		"wp-flush": "npx wp-env run cli wp rewrite flush --hard",
+		"wp-export": "npx wp-env run cli ./env/export.sh",
+		"wp-import": "npx wp-env run cli ./env/import.sh",
+		"packages-update": "wp-scripts packages-update && npm run packages-update --workspaces --if-present",
+		"init": "chmod +x ./{env,bin}/*.sh && ./bin/init.sh",
+		"postinstall": "npm run init --silent"
+	},
 	"dependencies": {
 		"@wordpress/scripts": "30.8.1",
 		"copy-webpack-plugin": "12.0.2",
@@ -25,22 +41,6 @@
 	"devDependencies": {
 		"@wordpress/env": "10.15.0",
 		"browser-sync": "^3.0.3"
-	},
-	"scripts": {
-		"build": "npm run build --workspaces --if-present --silent",
-		"dev": "node ./bin/dev.mjs",
-		"format": "node ./bin/lint.mjs --format",
-		"lint": "node ./bin/lint.mjs ",
-		"setup": "node ./bin/wp-setup.mjs",
-		"cli": "npx wp-env run cli",
-		"composer": "docker run --rm --interactive --tty --volume $PWD:/app composer composer",
-		"wp-env": "npx wp-env",
-		"wp-flush": "npx wp-env run cli wp rewrite flush --hard",
-		"wp-export": "npx wp-env run cli ./env/export.sh",
-		"wp-import": "npx wp-env run cli ./env/import.sh",
-		"packages-update": "wp-scripts packages-update && npm run packages-update --workspaces --if-present",
-		"init": "chmod +x ./{env,bin}/*.sh && ./bin/init.sh",
-		"postinstall": "npm run init --silent"
 	},
 	"workspaces": [
 		"source/wp-content/themes/mysite"
