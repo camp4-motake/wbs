@@ -1,0 +1,24 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wbs/accordion-item",
+	"version": "0.1.0",
+	"title": "アコーディオン",
+	"category": "wbs-theme-blocks",
+	"icon": "welcome-add-page",
+	"description": "",
+	"parent": [ "wbs/accordion" ],
+	"supports": {
+		"html": false
+	},
+	"keywords": [ "accordion", "item" ],
+	"attributes": {
+		"summaryLabel": { "type": "string", "default": "" },
+		"itemID": { "type": "string", "default": "" },
+		"isInitialOpen": { "type": "boolean", "default": false }
+	},
+	"textdomain": "wbs",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

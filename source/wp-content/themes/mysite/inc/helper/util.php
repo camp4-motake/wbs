@@ -9,6 +9,35 @@
 namespace Site\Theme\Helper\Util;
 
 /**
+ * get_template_partと同じロジックでテンプレートファイルの存在を確認する
+ *
+ * @param string $slug テンプレートスラッグ
+ * @param string|null $name テンプレート名（オプション）
+ * @return bool テンプレートが存在すれば true
+ */
+function check_template_part_exists( $slug, $name = null ) {
+	// スラッグを正規化（先頭のスラッシュを削除）
+	$slug = ltrim( $slug, '/' );
+
+	// 検索するテンプレートファイル名の配列を作成
+	$templates = array();
+
+	if ( ! empty( $name ) ) {
+		// {slug}-{name}.php を最初に検索
+		$templates[] = "{$slug}-{$name}.php";
+	}
+
+	// {slug}.php を次に検索
+	$templates[] = "{$slug}.php";
+
+	// locate_template()でテンプレートを検索
+	// 見つかった場合はパスを、見つからない場合は''を返す
+	$located = locate_template( $templates, false );
+
+	return ! empty( $located );
+}
+
+/**
  * Namespace 生成
  *
  * @param object $post .
@@ -184,4 +213,18 @@ function random_text( string $str = '', int $min = 0, int $max = 10 ): string {
  */
 function plugin_exists( $plugin_path = '' ) {
 	return ( in_array( $plugin_path, apply_filters( 'active_plugins', get_option( 'active_plugins' ) ), true ) );
+}
+
+/**
+ * 指定スラッグのページが公開されているか判定
+ *
+ * @param [type] $slug
+ * @return boolean
+ */
+function is_page_published_by_slug( $slug ) {
+	$page = get_page_by_path( $slug );
+	if ( $page ) {
+		return get_post_status( $page->ID ) === 'publish';
+	}
+	return false;
 }

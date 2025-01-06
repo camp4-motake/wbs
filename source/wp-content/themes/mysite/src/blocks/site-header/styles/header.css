@@ -1,0 +1,61 @@
+.wp-block-wbs-site-header {
+	position: fixed;
+	inset-inline: 0;
+	z-index: var(--wp--custom--z--header);
+	display: flex;
+	max-inline-size: var(--wp--custom--container-max-width--view);
+	margin-inline: auto;
+	transition: background-color 0.2s ease;
+	will-change: background-color;
+	container-type: inline-size;
+	container-name: site-header;
+
+	&:has(:focus-visible) {
+		background-color: var(--wp--preset--color--bg-fill-global);
+	}
+
+	@media (any-hover: hover) {
+		&:hover {
+			background-color: var(--wp--preset--color--bg-fill-global);
+		}
+	}
+
+	.header-container {
+		display: grid;
+		align-items: center;
+		block-size: var(--header-height);
+		padding-inline: var(--wp--preset--spacing--normal);
+	}
+}
+
+.has-menu-shown .wp-block-wbs-site-header {
+	background-color: var(--wp--preset--color--bg-fill-global);
+}
+
+[data-header-trigger] {
+	display: block;
+	block-size: var(--header-height);
+}
+
+[data-modal-overlay] {
+	position: fixed;
+	z-index: calc(var(--wp--custom--z--overlay) - 1);
+	inline-size: 100%;
+	block-size: 100%;
+	pointer-events: none;
+	visibility: hidden;
+	background-color: var(--wp--preset--color--text-base);
+	opacity: 0;
+	transition: 0.2s ease;
+	will-change: opacity;
+}
+
+:where(.has-page-active) [data-modal-overlay] {
+	transition: 0.4s ease;
+}
+
+:where(.has-menu-shown) [data-modal-overlay] {
+	visibility: visible;
+	opacity: var(--overlay-opacity);
+	transition-duration: 1.4s;
+}

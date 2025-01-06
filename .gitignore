@@ -141,11 +141,15 @@ Movefile
 # php-cs-fixer
 .php-cs-fixer.cache
 
+# mise
+mise.local.toml
+mise.*.local.toml
+
 # workspace
 node_modules
 */wp-content/languages
 */wp-content/plugins/*
-# !*/wp-content/plugins/mysite-*
+# !*/wp-content/plugins/wbs-*
 */dist
 .tmp/
 auth.json

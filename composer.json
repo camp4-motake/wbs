@@ -1,8 +1,7 @@
 {
 	"require-dev": {
 		"squizlabs/php_codesniffer": "*",
-		"wp-coding-standards/wpcs": "*",
-		"wpengine/advanced-custom-fields-pro": "*"
+		"wp-coding-standards/wpcs": "*"
 	},
 	"repositories": [
 		{

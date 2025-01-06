@@ -1,0 +1,37 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wbs/contents-carousel",
+	"version": "0.1.0",
+	"title": "カルーセル",
+	"category": "wbs-theme-blocks",
+	"icon": "slides",
+	"description": "",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": [ "wide", "full" ],
+		"color": { "background": true },
+		"interactivity": true,
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"attributes": {
+		"innerContent": {
+			"type": "string",
+			"default": ""
+		},
+		"sliderOption": {
+			"type": "object",
+			"default": {}
+		}
+	},
+	"textdomain": "wbs",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": [ "file:./style-index.css", "theme-swiper-styles" ],
+	"render": "file:./render.php",
+	"viewScriptModule": "file:./view.js"
+}

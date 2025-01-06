@@ -3,12 +3,13 @@
 	"apiVersion": 3,
 	"name": "wbs/tabs",
 	"version": "0.1.0",
-	"title": "Tab Layout",
-	"category": "wbs-blocks",
+	"title": "タブレイアウト",
+	"category": "wbs-theme-blocks",
 	"icon": "index-card",
 	"description": "Display content in a tabbed layout",
 	"supports": {
 		"html": false,
+		"inserter": false,
 		"spacing": {
 			"margin": true,
 			"padding": true

@@ -28,14 +28,22 @@ add_action( 'init', __NAMESPACE__ . '\\create_block_wbs_blocks_block_init' );
  */
 function custom_block_category( $categories ) {
 	$categories[] = array(
-		'slug'  => 'wbs-blocks',
-		'title' => __( 'サイトレイアウト', 'wbs' ),
+		'slug'  => 'wbs-theme-blocks',
+		'title' => __( 'WBSテーマ専用レイアウト', 'wbs' ),
 	);
 
 	return $categories;
 }
 add_filter( 'block_categories_all', __NAMESPACE__ . '\\custom_block_category' );
 
+/**
+ * Custom Pattern Category
+ * @see https://ja.wordpress.org/team/handbook/block-editor/reference-guides/block-api/block-patterns/
+ */
+function custom_register_theme_pattern_categories() {
+	register_block_pattern_category( 'wbs-theme-patterns', array( 'label' => __( 'WBSテーマ専用パターン', 'wbs' ) ) );
+}
+add_action( 'init', __NAMESPACE__ . '\\custom_register_theme_pattern_categories' );
 
 /**
  * remove Openverse

@@ -1,0 +1,62 @@
+.nav-modal {
+	position: fixed;
+	inset-block-start: var(--header-and-adminbar-heigh);
+	inset-inline-end: 0;
+	z-index: var(--wp--custom--z--nav-menu);
+	inline-size: 100%;
+	block-size: calc(100svh - var(--header-and-adminbar-height));
+	overflow: clip;
+	visibility: hidden;
+	opacity: 0;
+}
+
+.has-page-active .nav-modal {
+	transition: 0.2s ease;
+
+	.nav-modal-bg__overlay {
+		transition: 0.2s ease;
+	}
+}
+
+.has-page-active.has-menu-shown .nav-modal {
+	visibility: visible;
+	opacity: 1;
+	transition-duration: 0.2s;
+}
+
+.nav-modal-scroller {
+	position: relative;
+	z-index: 10;
+	display: block;
+	inline-size: 100%;
+	block-size: 100%;
+	overflow: auto;
+	overscroll-behavior-y: contain;
+	scrollbar-width: none;
+	-webkit-overflow-scrolling: touch;
+}
+
+.nav-modal-scroller__inner {
+	position: relative;
+	padding: 0 var(--wp--preset--spacing--lg) var(--wp--preset--spacing--xl);
+}
+
+.nav-modal-content {
+	position: relative;
+	z-index: 10;
+	opacity: 0;
+	transform: translateY(-2rem);
+}
+
+.has-page-active .nav-modal-content {
+	transition:
+		opacity 0.2s ease,
+		transform 0.2s var(--ease-out-circ);
+}
+
+.has-page-active.has-menu-shown .nav-modal-content {
+	opacity: 1;
+	transition-delay: 0.6s, 0.6s;
+	transition-duration: 0.8s, 0.8s;
+	transform: translateY(0);
+}

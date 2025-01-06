@@ -1,0 +1,85 @@
+.wp-block-wbs-section-heading {
+	margin-block-end: 1.5em;
+	color: var(--wp--preset--color--text);
+	text-align: center;
+
+	.head-content,
+	.label-content {
+		display: block;
+		font-weight: var(--wp--custom--font-weight--bold);
+		line-height: var(--wp--custom--line-height--md);
+	}
+
+	.head-content {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		column-gap: 0.25em;
+		justify-content: center;
+		inline-size: fit-content;
+		margin: 0 auto;
+		font-family: var(--wp--preset--font-family--sans-serif-en);
+		font-size: var(--wp--preset--font-size--80);
+		line-height: var(--wp--custom--line-height--sm);
+		letter-spacing: var(--wp--custom--letter-spacing--heading);
+
+		@media (width >= 48em) {
+			font-size: var(--wp--preset--font-size--100);
+		}
+
+		&::before {
+			--_size: 0.75em;
+			display: block;
+			block-size: var(--_size);
+			aspect-ratio: 25.79 / 68.14;
+			margin-block: calc((1lh - var(--_size)) * 0.5);
+			content: "";
+			background-color: var(--wp--preset--color--theme-rd);
+			mask: no-repeat center / contain;
+			mask-image: var(--img-obj-v-shapes-rd);
+		}
+	}
+
+	&:not(.has-text-color) .head-content {
+		color: var(--wp--preset--color--secondary);
+	}
+
+	.label-content {
+		margin-top: 0.125em;
+		font-size: var(--wp--preset--font-size--18);
+		letter-spacing: var(--wp--custom--letter-spacing--latin);
+
+		@media (width >= 48em) {
+			font-size: var(--wp--preset--font-size--26);
+		}
+	}
+
+	&.is-style-obj-rd .head-content::before {
+		background-color: var(--wp--preset--color--theme-rd);
+		mask-image: var(--img-obj-v-shapes-rd);
+	}
+
+	&.is-style-obj-or .head-content::before {
+		background-color: var(--wp--preset--color--theme-or);
+		mask-image: var(--img-obj-v-shapes-or);
+	}
+
+	&.is-style-obj-yl .head-content::before {
+		background-color: var(--wp--preset--color--theme-yl);
+		mask-image: var(--img-obj-v-shapes-yl);
+	}
+
+	&.is-style-obj-gr .head-content::before {
+		background-color: var(--wp--preset--color--theme-gr);
+		mask-image: var(--img-obj-v-shapes-gr);
+	}
+
+	&.is-style-obj-bl .head-content::before {
+		background-color: var(--wp--preset--color--theme-bl);
+		mask-image: var(--img-obj-v-shapes-bl);
+	}
+
+	&.is-style-obj-pl .head-content::before {
+		background-color: var(--wp--preset--color--theme-pl);
+		mask-image: var(--img-obj-v-shapes-pl);
+	}
+}

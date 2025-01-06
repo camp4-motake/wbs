@@ -1,0 +1,9 @@
+{
+	"$schema": "https://json.schemastore.org/jsconfig",
+	"extends": "../../../../tsconfig.base.json",
+	"compilerOptions": {
+		"declarationDir": "build-types",
+		"noImplicitAny": false
+	},
+	"include": [ "src/**/*" ]
+}

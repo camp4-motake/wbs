@@ -1,3 +1,9 @@
-@import "./style.css";
+.wp-block-wbs-article-loop {
+	a {
+		pointer-events: none;
+	}
+}
 
-/* .wp-block-wbs-site-footer { position: relative; } */
+.wp-block-wbs-article-loop .wp-block-wbs-article-loop {
+	display: contents !important;
+}

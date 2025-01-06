@@ -1,0 +1,31 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wbs/accordion",
+	"version": "0.1.0",
+	"title": "アコーディオン",
+	"category": "wbs-theme-blocks",
+	"icon": "excerpt-view",
+	"description": "Accordion",
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": [ "wide", "full" ],
+		"color": { "text": false, "background": false },
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"keywords": [ "accordion" ],
+	"attributes": {
+		"isShadow": { "type": "boolean", "default": false },
+		"isSingleOpen": { "type": "boolean", "default": false }
+	},
+	"styles": [ { "name": "q-a", "label": "Q&A" } ],
+	"textdomain": "wbs",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScriptModule": "file:./view.js"
+}

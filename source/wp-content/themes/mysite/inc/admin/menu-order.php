@@ -8,16 +8,17 @@
 
 namespace Site\Theme\Admin\MenuOrder;
 
-add_action( 'init', __NAMESPACE__ . '\\init' );
+add_action('init', __NAMESPACE__ . '\\init');
 
 /**
  * Init
  *
  * @return void
  */
-function init() {
-	add_filter( 'custom_menu_order', __NAMESPACE__ . '\\custom_menu_order' );
-	add_filter( 'menu_order', __NAMESPACE__ . '\\custom_menu_order' );
+function init()
+{
+	add_filter('custom_menu_order', __NAMESPACE__ . '\\custom_menu_order');
+	add_filter('menu_order', __NAMESPACE__ . '\\custom_menu_order');
 	// add_custom_menu_links();
 }
 
@@ -27,8 +28,9 @@ function init() {
  * @param array $menu_ord .
  * @return mixture
  */
-function custom_menu_order( $menu_ord ) {
-	if ( ! $menu_ord ) {
+function custom_menu_order($menu_ord)
+{
+	if (! $menu_ord) {
 		return true;
 	}
 
@@ -66,10 +68,11 @@ function add_custom_menu_links() {
  *
  * @return [string] URL
  */
-function get_frontpage_url() {
+function get_frontpage_url()
+{
 
-	$front_page_id = get_option( 'page_on_front' );
-	$url           = get_edit_post_link( $front_page_id );
+	$front_page_id = get_option('page_on_front');
+	$url           = get_edit_post_link($front_page_id);
 
 	return $url ? $url : null;
 }

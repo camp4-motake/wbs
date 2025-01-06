@@ -1,0 +1,32 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wbs/dynamic-template-part",
+	"version": "0.1.0",
+	"title": "Dynamic Template",
+	"category": "wbs-theme-blocks",
+	"icon": "admin-generic",
+	"description": "",
+	"supports": {
+		"anchor": false,
+		"html": false,
+		"align": false,
+		"reusable": false,
+		"inserter": false,
+		"spacing": {
+			"margin": true,
+			"padding": false
+		}
+	},
+	"attributes": {
+		"templatePartPath": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"textdomain": "wbs",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

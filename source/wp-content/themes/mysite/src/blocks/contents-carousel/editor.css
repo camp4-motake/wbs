@@ -1,0 +1,38 @@
+.wp-block-wbs-contents-carousel {
+	.edit-slider-heading {
+		margin-top: 0;
+		margin-bottom: 1rem;
+		font-size: var(--wp--preset--font-size--14);
+	}
+
+	.edit-mode {
+		position: relative;
+		display: block;
+		inline-size: 100%;
+		padding: 0.25rem;
+		border: 1px dashed
+			color-mix(
+				in srgb,
+				var(--wp--preset--color--text-base),
+				transparent 60%
+			);
+	}
+
+	.edit-mode__inner {
+		padding-inline: var(--wp--preset--spacing--sm);
+	}
+
+	.edit-mode .block-list-appender {
+		position: relative !important;
+		margin-block-start: 0.5rem;
+	}
+
+	.preview-mode {
+		.slider-btn-prev,
+		.slider-btn-next {
+			&::after {
+				visibility: visible;
+			}
+		}
+	}
+}

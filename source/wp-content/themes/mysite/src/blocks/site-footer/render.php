@@ -6,19 +6,18 @@
  * @package wbs
  */
 
-use Site\Theme\Helper\Image;
+$is_rest_request      = defined( 'REST_REQUEST' ) && REST_REQUEST;
+$attr                 = array( 'class' => 'footer' );
+$inner_blocks_content = $content;
 
-$attr = array(
-	'class'  => 'footer',
-	'x-bind' => 'footer_trigger',
-);
+if ( empty( $inner_blocks_content ) && ! empty( $attributes['innerContent'] ) ) {
+	$inner_blocks_content = $attributes['innerContent'];
+}
 
 ?>
 <div <?php echo wp_kses_post( get_block_wrapper_attributes( $attr ) ); ?>>
 	<div class="footer-body">
-		<a href="<?php echo esc_url( home_url() ); ?>" title=" <?php echo esc_html( get_bloginfo( 'name' ) ); ?>">
-			<span><?php echo esc_html( get_bloginfo( 'name' ) ); ?></span>
-		</a>
-		<?php get_template_part( 'src/blocks/site-footer/copyright', null, array( 'class' => 'container -max-lg' ) ); ?>
+		<!-- TODO -->
 	</div>
+	<?php get_template_part( 'src/blocks/site-footer/copyright' ); ?>
 </div>

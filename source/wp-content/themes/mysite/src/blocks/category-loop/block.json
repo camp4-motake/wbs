@@ -3,13 +3,14 @@
 	"apiVersion": 3,
 	"name": "wbs/category-loop",
 	"version": "0.1.0",
-	"title": "Category Loop",
-	"category": "wbs-blocks",
+	"title": "カテゴリーループ",
+	"category": "wbs-theme-blocks",
 	"icon": "excerpt-view",
-	"description": "Article Category Loop",
+	"description": "",
 	"example": {},
 	"supports": {
 		"html": false,
+		"inserter": false,
 		"spacing": {
 			"margin": true,
 			"padding": true

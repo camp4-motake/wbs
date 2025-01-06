@@ -11,6 +11,23 @@ namespace Site\Theme\Helper\Image;
 use Site\Theme\Helper\Path;
 
 /**
+ * wp_get_attachment_image without srcset
+ *
+ * @param number $attachment_id
+ * @param string $size
+ * @param boolean $icon
+ * @param string $attr
+ * @return string
+ */
+function wp_get_attachment_image_without_srcset( $attachment_id, $size = 'full', $icon = false, $attr = '' ) {
+	add_filter( 'wp_calculate_image_srcset_meta', '__return_null' );
+	$result = wp_get_attachment_image( $attachment_id, $size, $icon, $attr );
+	remove_filter( 'wp_calculate_image_srcset_meta', '__return_null' );
+	return $result;
+}
+
+
+/**
  * Inline SVG
  *
  * @param String $filepath svg path.
@@ -21,7 +38,7 @@ function inline_svg( string $filepath = '', string $title = '' ) {
 	$svg_asset_path = get_theme_file_path( $filepath );
 
 	if ( ! file_exists( $svg_asset_path ) ) {
-		return;
+		return '';
 	}
 
 	// WORKAROUND
@@ -39,12 +56,14 @@ function inline_svg( string $filepath = '', string $title = '' ) {
 /**
  * svg kses rule set
  *
+ * https://gist.github.com/TremiDkhar/a5f0a761c42bf4135e05b05ce829d78f
  * @return array
  */
 function kses_svg() {
 	$kses_defaults = wp_kses_allowed_html( 'post' );
 	$svg_args      = array(
-		'svg'   => array(
+		'svg'    => array(
+			'id'              => true,
 			'class'           => true,
 			'aria-hidden'     => true,
 			'aria-labelledby' => true,
@@ -54,11 +73,25 @@ function kses_svg() {
 			'height'          => true,
 			'viewbox'         => true, // <= Must be lower case!
 		),
-		'g'     => array( 'fill' => true ),
-		'title' => array( 'title' => true ),
-		'path'  => array(
+		'g'      => array( 'fill' => true ),
+		'title'  => array( 'title' => true ),
+		'path'   => array(
 			'd'    => true,
 			'fill' => true,
+		),
+		'circle' => array(
+			'cx'   => true,
+			'cy'   => true,
+			'r'    => true,
+			'fill' => true,
+		),
+		'rect'   => array(
+			'fill'      => true,
+			'fill-rule' => true,
+			'height'    => true,
+			'width'     => true,
+			'x'         => true,
+			'y'         => true,
 		),
 	);
 	return array_merge( $kses_defaults, $svg_args );
@@ -158,7 +191,7 @@ function auto_img( $path = '', $attrs = array(), $is_origin = true ) {
  * Image Helper
  *
  * @example single image
- * echo Image\mq_picture($src = 'images/sample.png', $img_attrs = [], $picture_attrs = []);
+ * echo Image\picture_media($src = 'images/sample.png', $img_attrs = [], $picture_attrs = []);
  *
  * @example responsive image
  * $src = [
@@ -168,7 +201,7 @@ function auto_img( $path = '', $attrs = array(), $is_origin = true ) {
  *     ['src' => 'images/sample-sm.jpg', 'media' => MQ_MD],
  *   ]
  * ];
- * echo Image\mq_picture($src, $img_attrs = [], $picture_attrs = []);
+ * echo Image\picture_media($src, $img_attrs = [], $picture_attrs = []);
  *
  * @param string|array $src_path image path.
  * @param array        $img_attrs image attr.

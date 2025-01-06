@@ -1,0 +1,7 @@
+:root {
+	/* mask */
+	--img-ico-external: url(../../images/_inline/ico-external.svg);
+	--img-ico-pdf: url(../../images/_inline/ico-pdf.svg);
+	--img-ico-plus: url(../../images/_inline/ico-plus.svg);
+	--img-ico-time: url(../../images/_inline/ico-time.svg);
+}

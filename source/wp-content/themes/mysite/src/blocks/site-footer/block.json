@@ -3,13 +3,26 @@
 	"apiVersion": 3,
 	"name": "wbs/site-footer",
 	"version": "0.1.0",
-	"title": "Site Footer",
-	"category": "wbs-blocks",
+	"title": "サイトフッター",
+	"category": "wbs-theme-blocks",
 	"icon": "text-page",
-	"description": "Site Footer",
+	"description": "",
 	"example": {},
 	"supports": {
-		"html": false
+		"html": false,
+		"inserter": false,
+		"interactivity": true,
+		"reusable": false
+	},
+	"attributes": {
+		"contentUpdated": {
+			"type": "number",
+			"default": 0
+		},
+		"innerContent": {
+			"type": "string",
+			"default": ""
+		}
 	},
 	"textdomain": "dynamic",
 	"editorScript": "file:./index.js",

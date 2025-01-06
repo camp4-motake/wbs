@@ -6,32 +6,51 @@
  * @package wbs
  */
 
+namespace Site\Theme\Editor;
+
 /**
  * Enqueue editor assets
  *
  * @return void
  */
 function enqueue_editor_assets() {
+	if ( ! is_admin() ) {
+		return;
+	}
 
-	$asset = include_once get_theme_file_path( 'build/editor/index.asset.php' );
+	$asset        = include_once get_theme_file_path( 'build/editor/index.asset.php' );
+	$dependencies = ( ! empty( $asset['dependencies'] ) ) ? $asset['dependencies'] : array();
+	$version      = ( ! empty( $asset['version'] ) ) ? $asset['version'] : null;
 
 	wp_enqueue_style(
 		'theme-editor-styles',
 		get_theme_file_uri( 'build/editor/index.css' ),
 		array(),
-		$asset['version']
+		$version,
 	);
 
 	wp_enqueue_script(
 		'theme-editor-scripts',
 		get_theme_file_uri( 'build/editor/index.js' ),
 		array(),
-		$asset['version'],
+		$version,
+		false
+	);
+
+	// styles css
+	$asset        = include get_theme_file_path( 'build/block-styles/index.asset.php' );
+	$dependencies = ( ! empty( $asset['dependencies'] ) ) ? $asset['dependencies'] : array();
+	$version      = ( ! empty( $asset['version'] ) ) ? $asset['version'] : null;
+
+	wp_enqueue_script(
+		'theme-block-styles-scripts',
+		get_theme_file_uri( 'build/block-styles/index.js' ),
+		$dependencies,
+		$version,
 		false
 	);
 }
-add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\\enqueue_editor_assets', 100 );
-
+add_action( 'enqueue_block_assets', __NAMESPACE__ . '\\enqueue_editor_assets', 100 );
 
 /**
  * 投稿の初回保存時にページIDを設定（記事の日本語タイトルがそのままスラッグになるのを防ぐ）
@@ -42,7 +61,11 @@ function fix_cpt_lug( $slug, $post_ID, $post_status, $post_type ) {
 	$post            = get_post( $post_ID );
 	$is_slug_invalid = preg_match( '/(%[0-9a-f]{2})+/', $slug );
 
-	if ( $is_slug_invalid && '0000-00-00 00:00:00' === $post->post_date_gmt ) {
+	if (
+		$is_slug_invalid &&
+		! empty( $post->post_date_gmt ) &&
+		'0000-00-00 00:00:00' === $post->post_date_gmt
+	) {
 		if ( 'page' === $post_type ) {
 			return 'page-' . $post_ID;
 		}

@@ -4,12 +4,13 @@
 	"name": "wbs/single-page-content",
 	"version": "0.1.0",
 	"title": "Single Page Content",
-	"category": "wbs-blocks",
+	"category": "wbs-theme-blocks",
 	"icon": "edit-page",
-	"description": "single page dynamic content",
+	"description": "",
 	"example": {},
 	"supports": {
-		"html": false
+		"html": false,
+		"inserter": false
 	},
 	"textdomain": "dynamic",
 	"editorScript": "file:./index.js",

@@ -1,5 +1,5 @@
 {
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
 	"editor.formatOnSave": true,
 	"emmet.includeLanguages": {
 		"postcss": "css"
@@ -49,7 +49,8 @@
 			"bmewburn.vscode-intelephense-client",
 			"obliviousharmony.vscode-php-codesniffer"
 		]
-	}
+	},
+	"cSpell.words": [ "LGBTQ", "WBS", "uncategorized" ]
 	/*
 
 	// ex) phpcs only

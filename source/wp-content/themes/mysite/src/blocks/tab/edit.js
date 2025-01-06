@@ -43,6 +43,7 @@ export default function Edit( { attributes, clientId, setAttributes } ) {
 				type="text"
 				value={ tabLabel }
 				onChange={ onChangeTabLabel }
+				__nextHasNoMarginBottom
 			/>
 			<h4>Tab Content</h4>
 			<InnerBlocks />

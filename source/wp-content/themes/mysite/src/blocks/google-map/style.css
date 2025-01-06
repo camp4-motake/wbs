@@ -9,8 +9,8 @@
 		background-color: var(--wp--preset--color--placeholder);
 
 		iframe {
-			width: 100%;
-			height: 100%;
+			inline-size: 100%;
+			block-size: 100%;
 			object-fit: cover;
 		}
 	}

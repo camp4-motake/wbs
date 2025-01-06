@@ -1,41 +1,53 @@
-.entry-content {
-	> :where(* + *) {
-		margin-top: var(--wp--preset--spacing--lg);
+:where(.entry-content, .editor-styles-wrapper .is-root-container) {
+	container-name: entry-content;
+	container-type: inline-size;
+
+	> :where(*.alignfull) {
+		max-width: var(--wp--custom--container-max-width--view);
+	}
+
+	> .has-global-padding {
+		padding-inline: var(--wp--custom--gutter);
+	}
+}
+
+:root :where(.is-layout-constrained) {
+	> * + * {
+		margin-block-start: var(--wp--custom--block-gutter);
 	}
 
 	* + p {
-		margin-top: 1em;
+		margin-block-start: 1em;
 	}
+}
 
-	> *:not(.alignwide):not(.alignfull) {
-		max-width: var(--wp--style--global--content-size);
-		padding-right: var(--wp--custom--gutter);
-		padding-left: var(--wp--custom--gutter);
+:where(.entry-content) {
+	--_max-inline-gutter-width: calc(100% - (2 * var(--wp--custom--gutter)));
+
+	display: flow-root;
+
+	> * {
+		inline-size: min(
+			var(--_max-inline-gutter-width),
+			var(--wp--style--global--content-size)
+		);
+		margin-inline: auto;
 	}
 
 	> *.alignwide {
-		max-width: var(--wp--style--global--wide-size);
+		inline-size: min(
+			var(--_max-inline-gutter-width),
+			var(--wp--style--global--wide-size)
+		);
+		max-width: var(--_max-inline-gutter-width);
 	}
 
 	> *.alignfull {
-		width: 100%;
-		max-width: var(--container-max-width-view);
-		margin-inline: auto;
-
-		/*
-		margin-right: calc(var(--wp--custom--gutter) * -1);
-		margin-left: calc(var(--wp--custom--gutter) * -1);
-		*/
-	}
-
-	> *:not(.alignfull) {
-		margin-right: auto;
-		margin-left: auto;
+		inline-size: min(100%, var(--wp--custom--container-max-width--view));
 	}
 
 	&.wp-block-post-content.has-global-padding {
-		padding-right: 0;
-		padding-left: 0;
+		padding-inline: 0;
 	}
 }
 
@@ -53,7 +65,7 @@
 	}
 
 	&.align-max-2xl {
-		max-width: var(--container-max-width-2xl);
+		max-width: var(--wp--custom--container-max-width--xxl);
 	}
 }
 
@@ -61,15 +73,14 @@
 	margin-top: var(--wp--preset--spacing--lg);
 }
 
-.is-layout-flow > * + h1,
-.is-layout-flow > * + h2,
-.is-layout-flow > * + h3,
-.is-layout-flow > * + h4,
-.is-layout-flow > * + h5,
-.is-layout-flow > * + h6 {
+.is-layout-flow > * + :is(h1, h2, h3, h4, h5, h6) {
 	margin-top: var(--wp--preset--spacing--lg);
 }
 
 .has-display-contents {
 	display: contents;
+}
+
+.has-global-padding > .alignfull {
+	margin-inline: auto;
 }

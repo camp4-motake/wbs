@@ -4,7 +4,7 @@
 
 	.tab-labels {
 		display: flex;
-		max-width: min(
+		max-inline-size: min(
 			calc(100% - calc(var(--wp--preset--spacing--sm) * 2)),
 			var(--wp--style--global--content-size)
 		);
@@ -13,7 +13,7 @@
 
 	.tab-label {
 		display: block;
-		width: 100%;
+		inline-size: 100%;
 		padding: 0.5em;
 		margin-bottom: -2px;
 		background-color: var(--wp--preset--color--bg-fill);
@@ -43,8 +43,10 @@
 .entry-content,
 .editor-styles-wrapper {
 	> .wp-block-wbs-tabs {
-		width: 100%;
-		max-width: var(--container-max-width-view) !important;
+		inline-size: 100%;
+		max-inline-size: var(
+			--wp--custom--container-max-width--view
+		) !important;
 		padding-right: 0 !important;
 		padding-left: 0 !important;
 	}

@@ -1,0 +1,10 @@
+.wp-block-wbs-contents-carousel-slide {
+	--_gutter: max(calc(var(--wp--custom--gutter) * 2), 7.5%);
+
+	position: relative;
+	box-sizing: border-box;
+	inline-size: 100%;
+	min-height: 1rem;
+	padding-right: var(--_gutter);
+	padding-left: var(--_gutter);
+}

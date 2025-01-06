@@ -1,0 +1,71 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wbs/grid-layout",
+	"version": "0.1.0",
+	"title": "グリッドカラムコンテンツ",
+	"category": "wbs-theme-blocks",
+	"icon": "grid-view",
+	"description": "",
+	"supports": {
+		"align": true,
+		"anchor": true,
+		"className": true,
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"html": false
+	},
+	"keywords": [ "grid", "column" ],
+	"attributes": {
+		"gridType": {
+			"type": "string",
+			"default": "responsive"
+		},
+		"columns": {
+			"type": "number",
+			"default": 3
+		},
+		"minColumnWidth": {
+			"type": "string",
+			"default": "16rem"
+		},
+		"useSubgrid": {
+			"type": "boolean",
+			"default": false
+		},
+		"gap": {
+			"type": "string",
+			"default": "1rem"
+		},
+		"rowGap": {
+			"type": "string",
+			"default": "1rem"
+		},
+		"columnGap": {
+			"type": "string",
+			"default": "1rem"
+		},
+		"columnSpan": {
+			"type": "number",
+			"default": 1
+		},
+		"rowSpan": {
+			"type": "number",
+			"default": 3
+		},
+		"minHeight": {
+			"type": "string",
+			"default": "auto"
+		},
+		"columnBorderRadius": {
+			"type": "string",
+			"default": "0rem"
+		}
+	},
+	"textdomain": "wbs",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

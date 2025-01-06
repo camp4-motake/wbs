@@ -1,68 +1,44 @@
 :root {
-	--color-bacface: var(--wp--preset--color--primary, #468bb7);
-	--overay-opacity: 0.5;
-	--rem: 16 / 1rem;
+	--overlay-opacity: 0.25;
+	--font-base: 16;
+	--rem: calc(1rem / var(--font-base));
 
-	/* z order */
-	--z-header: 1600;
-	--z-modal: 1800;
-	--z-nav-menu: 1200;
-	--z-badge: 20;
-	--z-go-top: 1100;
-
-	/* scrollbar width */
 	--window-scroll-bar-width: 0;
+	--wp-adminbar-block-size: 0;
 
-	/* header size */
-	--header-height: calc(50 * var(--rem));
+	/* header */
+	--header-height: calc(60 * var(--rem));
 
-	@media (--viewport-lg) {
-		--header-height: calc(85 * var(--rem));
-	}
+	/* @media (width >= 62em) { --header-height: calc(130 * var(--rem)); } */
 
-	/* menu toggle size */
-	--toggle-size: calc(60 * var(--rem));
-
-	/* wordpress admin bar (overide js) */
-	--wp-adminbar-height: 0;
 	--header-and-adminbar-height: calc(
-		var(--header-height) + var(--wp-adminbar-height)
+		var(--header-height) + var(--wp-adminbar-block-size)
 	);
 
-	/* container width */
-
+	/* adaptive container width */
 	--container-max-width: auto;
-	--container-max-width-sm: calc(540 * var(--rem));
-	--container-max-width-md: calc(720 * var(--rem));
-	--container-max-width-lg: calc(960 * var(--rem));
-	--container-max-width-xl: calc(1140 * var(--rem));
-	--container-max-width-2xl: calc(1400 * var(--rem));
-	--container-max-width-3xl: calc(1600 * var(--rem));
-	--container-max-width-entry: var(--container-max-width-md);
-	--container-max-width-fluid: calc(1980 * var(--rem));
-	--container-max-width-view: calc(2560 * var(--rem));
 
-	@media (--viewport-sm) {
+	@media (width >= 36em) {
 		--container-max-width: calc(540 * var(--rem));
 	}
 
-	@media (--viewport-md) {
+	@media (width >= 48em) {
 		--container-max-width: calc(720 * var(--rem));
 	}
 
-	@media (--viewport-lg) {
+	@media (width >= 62em) {
 		--container-max-width: calc(960 * var(--rem));
 	}
 
-	@media (--viewport-xl) {
+	@media (width >= 75em) {
 		--container-max-width: calc(1140 * var(--rem));
 	}
 
-	@media (--viewport-2xl) {
+	@media (width >= 100em) {
 		--container-max-width: calc(1400 * var(--rem));
 	}
 
-	@media (--viewport-3xl) {
+	@media (width >= 120em) {
 		--container-max-width: calc(1600 * var(--rem));
 	}
 
@@ -116,22 +92,18 @@
 	--ease-out-sine: cubic-bezier(0.39, 0.575, 0.565, 1);
 	--ease-in-out-sine: cubic-bezier(0.445, 0.05, 0.55, 0.95);
 
-	/* ease: back */
+	/* ease: back
 	--ease-in-back: cubic-bezier(0.6, -0.28, 0.735, 0.045);
 	--ease-out-back: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 	--ease-in-out-back: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	*/
 
+	/* math: Golden ratio */
+	--golden-ratio: 1.618;
+
+	/* safe area */
 	--safe-top: env(safe-area-inset-top, 0);
 	--safe-right: env(safe-area-inset-right, 0);
 	--safe-bottom: env(safe-area-inset-bottom, 0);
 	--safe-left: env(safe-area-inset-left, 0);
-
-	/* imagse */
-	--bg-badge-new: url(../../images/_inline/badge-new.svg);
-	--mask-ico-arrow-left: url(../../images/_inline/ico-arrow-left.svg);
-	--mask-ico-arrow-right: url(../../images/_inline/ico-arrow-right.svg);
-	--mask-ico-external: url(../../images/_inline/ico-external.svg);
-	--mask-ico-pdf: url(../../images/_inline/ico-pdf.svg);
-	--mask-ico-plus: url(../../images/_inline/ico-plus.svg);
-	--mask-ico-time: url(../../images/_inline/ico-time.svg);
 }

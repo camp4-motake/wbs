@@ -1,0 +1,27 @@
+.wp-block-wbs-definition-list-item {
+	dt,
+	dd {
+		padding: 2px;
+		border: 1px dashed transparent;
+
+		@media (any-hover: hover) {
+			&:hover {
+				border-color: color-mix(
+					in srgb,
+					var(--wp--preset--color--text-base),
+					transparent 60%
+				);
+			}
+		}
+	}
+
+	.block-editor-block-list__layout {
+		> *:first-child {
+			margin-block-start: 0;
+		}
+
+		> *:last-child {
+			margin-block-end: 0;
+		}
+	}
+}

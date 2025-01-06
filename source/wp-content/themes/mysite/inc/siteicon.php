@@ -56,7 +56,7 @@ function additional_head_assets() {
 	}
 
 	// theme color.
-	echo '<meta name="theme-color" content="#468bb7">' . "\n";
+	// echo '<meta name="theme-color" content="#468bb7">' . "\n";
 
 	// theme color (dark mode support)
 	// echo '<meta name="theme-color" media="(prefers-color-scheme: light)" content="#efefef">' . "\n";

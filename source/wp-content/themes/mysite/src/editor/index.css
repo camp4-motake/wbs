@@ -4,11 +4,13 @@
 @import "../main/components/**/*.css";
 @import "../main/block-styles/**/*.css";
 @import "../main/utils/**/*.css";
+@import "./ui-helper.css";
 
 .editor-styles-wrapper {
 	padding: 0 1rem 1rem !important;
 
 	:where(*) {
+		box-sizing: border-box;
 		line-height: var(--wp--custom--line-height--base);
 	}
 
@@ -32,7 +34,37 @@
 	}
 
 	.block-editor-block-list__layout.is-root-container > .alignfull {
-		margin-right: calc(var(--wp--style--root--padding-right) * -1);
-		margin-left: calc(var(--wp--style--root--padding-left) * -1);
+		margin-inline-start: calc(var(--wp--style--root--padding-left) * -1);
+		margin-inline-end: calc(var(--wp--style--root--padding-right) * -1);
 	}
+}
+
+.wp-block.is-reusable {
+	margin-inline: auto;
+
+	&:has(.alignfull) {
+		max-inline-size: var(
+			--wp--custom--container-max-width--view
+		) !important;
+	}
+
+	&:has(.alignwide) {
+		max-inline-size: var(--wp--style--global--wide-size) !important;
+	}
+}
+
+:where(.visually-hidden:not(:focus-within, :active)) {
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	overflow: hidden !important;
+	clip-path: inset(50%) !important;
+	white-space: nowrap !important;
+	user-select: none !important;
+	border: 0 !important;
+}
+
+.editor-styles-wrapper
+	.wp-block.block-library-block__reusable-block-container.is-reusable {
+	margin-inline: auto;
 }

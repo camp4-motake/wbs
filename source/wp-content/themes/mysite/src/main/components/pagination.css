@@ -11,35 +11,34 @@
 }
 
 * + .pagination-scroller {
-	margin-top: var(--wp--preset--spacing--lg);
+	margin-block-start: var(--wp--preset--spacing--lg);
 }
 
 .pagination {
 	position: relative;
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
-	max-width: 100%;
-	padding-top: var(--wp--preset--spacing--lg);
-	padding-left: 0;
-	margin-bottom: 0;
+	max-inline-size: 100%;
+	padding-block-start: var(--wp--preset--spacing--lg);
+	padding-inline-start: 0;
+	margin-block-end: 0;
 	list-style: none;
 
-	@media (--viewport-md) {
-		margin-bottom: var(--wp--preset--spacing--lg);
+	@media (width >= 48em) {
+		margin-block-end: var(--wp--preset--spacing--lg);
 	}
 }
 
 .pagination-item {
-	--pagination-link-width: calc(42 * var(--rem));
+	--_pagination-link-inline-size: calc(42 * var(--rem));
 
 	position: relative;
-	display: block;
-	height: 100%;
-	margin-right: 0.25em;
-	margin-bottom: 0;
-	margin-left: 0.25em;
-	font-size: var(--wp--preset--font-size--14);
+	display: grid;
+	block-size: 100%;
+	margin: 0 0.25em;
+	font-size: var(--wp--preset--font-size--16);
 
 	& a {
 		text-decoration: none;
@@ -48,29 +47,26 @@
 	& .page-numbers {
 		position: relative;
 		display: flex;
-		flex-wrap: wrap;
+		grid-area: 1/1;
 		align-items: center;
 		justify-content: center;
-		width: var(--pagination-link-width);
-		height: var(--pagination-link-width);
+		inline-size: var(--_pagination-link-inline-size);
+		aspect-ratio: 1;
 		padding: 0.2em;
-		overflow: hidden;
+		overflow: clip;
 		font-family: var(--wp--preset--font-family--sans-serif-en);
-		font-weight: 700;
+		font-size: var(--wp--preset--font-size--16);
+		font-weight: var(--wp--custom--font-weight--bold);
 		line-height: 1;
-		color: var(--wp--preset--color--text);
+		color: var(--wp--preset--color--text-base);
 		text-decoration: none;
 		background-color: var(--wp--preset--color--base);
-		border: 1px solid var(--wp--preset--color--border);
+		border: calc(1.5 * var(--rem)) solid var(--wp--preset--color--text-base);
+		border-radius: 50%;
 		transition: 0.2s ease;
 
 		&:not(.current, .prev, .next) {
 			display: flex;
-		}
-
-		&[aria-current="page"] {
-			color: var(--wp--preset--color--base);
-			background-color: var(--wp--preset--color--primary);
 		}
 
 		&.dots {
@@ -80,9 +76,10 @@
 		}
 	}
 
-	& a:hover.page-numbers {
-		color: var(--wp--preset--color--primary);
-		border-color: var(--wp--preset--color--primary);
+	@media (any-hover: hover) {
+		a.page-numbers:hover {
+			background-color: var(--wp--preset--color--border);
+		}
 	}
 
 	& a.page-numbers {
@@ -91,30 +88,27 @@
 	}
 
 	& .page-numbers.current {
+		color: var(--wp--preset--color--base);
 		pointer-events: none;
+		background-color: var(--wp--preset--color--text-base);
 	}
 
 	& .prev,
 	& .next {
 		position: relative;
-		width: calc(var(--pagination-link-width) * 0.75);
-		min-width: 1em;
-		height: calc(var(--pagination-link-width) * 0.75);
 		color: transparent !important;
-		background-color: transparent;
-		border: none;
 
 		&::after {
 			position: absolute;
 			inset: 0;
-			width: 100%;
-			height: 100%;
+			inline-size: 100%;
+			block-size: 100%;
 			margin: auto;
 			content: "";
 			background-color: var(--wp--preset--color--text-base);
 			mask-repeat: no-repeat no-repeat;
 			mask-position: center;
-			mask-size: 0.5rem;
+			mask-size: 1.25em;
 		}
 
 		&.is-disable {
@@ -123,11 +117,11 @@
 	}
 
 	& .prev::after {
-		mask-image: var(--mask-ico-arrow-left);
+		mask-image: var(--img-ico-border-arrow-left);
 	}
 
 	& .next::after {
-		mask-image: var(--mask-ico-arrow-right);
+		mask-image: var(--img-ico-border-arrow-right);
 	}
 
 	& a:hover {
@@ -143,7 +137,7 @@
 	font-weight: var(--wp--custom--font-weight--bold);
 	text-align: center;
 
-	@media (--viewport-md) {
+	@media (width >= 48em) {
 		display: none;
 	}
 }

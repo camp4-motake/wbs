@@ -34,7 +34,7 @@ export default function Edit( { attributes, setAttributes, clientId } ) {
 	return (
 		<div { ...useBlockProps() }>
 			<h2>{ __( 'Tabbed Layout Block', 'wbs' ) }</h2>
-			{ /* <ToggleControl label={__('Switch to side tab layout', 'wbs')} help={helpLabels} checked={sideTabLayout} onChange={(toggle) => setAttributes({ sideTabLayout: toggle })} /> */ }
+			{ /* <ToggleControl label={__('Switch to side tab layout', 'wbs')} help={helpLabels} checked={sideTabLayout} onChange={(toggle) => setAttributes({ sideTabLayout: toggle })} __nextHasNoMarginBottom /> */ }
 			<InnerBlocks
 				allowedBlocks={ ALLOWED_BLOCKS }
 				renderAppender={ InnerBlocks.ButtonBlockAppender }
