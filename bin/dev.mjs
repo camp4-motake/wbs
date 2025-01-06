@@ -11,7 +11,5 @@ $.verbose = true;
 // dev task
 await Promise.all( [
 	$`npx browser-sync start --config bs-config.js`,
-	...workspaces.map(
-		async ( ws ) => await $`npm run dev --if-present -w ${ ws }`
-	),
+	...workspaces.map( ( ws ) => $`npm run dev --if-present -w ${ ws }` ),
 ] );
