@@ -1,9 +1,9 @@
 import { InspectorControls } from '@wordpress/block-editor';
 import {
-    CheckboxControl,
-    PanelBody,
-    RadioControl,
-    SelectControl,
+	CheckboxControl,
+	PanelBody,
+	RadioControl,
+	SelectControl,
 } from '@wordpress/components';
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { Fragment, useEffect, useState } from '@wordpress/element';

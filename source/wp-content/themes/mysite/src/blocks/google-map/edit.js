@@ -1,9 +1,9 @@
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import {
-    BaseControl,
-    PanelBody,
-    SelectControl,
-    TextControl,
+	BaseControl,
+	PanelBody,
+	SelectControl,
+	TextControl,
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import ServerSideRender from '@wordpress/server-side-render';

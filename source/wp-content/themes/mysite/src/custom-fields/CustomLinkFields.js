@@ -3,9 +3,9 @@
  */
 
 import {
-    // WORKAROUND
-    // eslint-disable-next-line @wordpress/no-unsafe-wp-apis
-    __experimentalLinkControl as LinkControl,
+	// WORKAROUND
+	// eslint-disable-next-line @wordpress/no-unsafe-wp-apis
+	__experimentalLinkControl as LinkControl,
 } from '@wordpress/block-editor';
 import { Button, PanelRow, Popover } from '@wordpress/components';
 import { useEntityProp } from '@wordpress/core-data';

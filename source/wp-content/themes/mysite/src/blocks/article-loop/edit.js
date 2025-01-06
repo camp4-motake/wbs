@@ -1,9 +1,9 @@
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import {
-    BaseControl,
-    PanelBody,
-    RangeControl,
-    SelectControl,
+	BaseControl,
+	PanelBody,
+	RangeControl,
+	SelectControl,
 } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { useEffect, useState } from '@wordpress/element';

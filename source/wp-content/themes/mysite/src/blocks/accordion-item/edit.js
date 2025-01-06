@@ -1,8 +1,8 @@
 import {
-    InnerBlocks,
-    InspectorControls,
-    RichText,
-    useBlockProps,
+	InnerBlocks,
+	InspectorControls,
+	RichText,
+	useBlockProps,
 } from '@wordpress/block-editor';
 import { PanelBody, ToggleControl } from '@wordpress/components';
 import { useInstanceId } from '@wordpress/compose';

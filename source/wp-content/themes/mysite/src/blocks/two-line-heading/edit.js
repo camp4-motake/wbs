@@ -1,9 +1,9 @@
 import {
-    AlignmentToolbar,
-    BlockControls,
-    HeadingLevelDropdown,
-    RichText,
-    useBlockProps,
+	AlignmentToolbar,
+	BlockControls,
+	HeadingLevelDropdown,
+	RichText,
+	useBlockProps,
 } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 
