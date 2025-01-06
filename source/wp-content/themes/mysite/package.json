@@ -24,8 +24,8 @@
 		"@wordpress/icons": "10.15.1",
 		"@wordpress/scripts": "30.8.1",
 		"clsx": "2.1.1",
-		"es-toolkit": "1.29.0",
-		"swiper": "11.1.15"
+		"es-toolkit": "1.31.0",
+		"swiper": "11.2.0"
 	},
 	"prettier": "../../../../.prettierrc.js",
 	"eslintConfig": {
