@@ -59,7 +59,7 @@ $class_name = 'mode-' . $_mode;
 
 				while ( $the_query->have_posts() ) :
 					$the_query->the_post();
-					$num = get_field( 'article_number', get_the_ID() );
+					$num = 0;
 
 					?>
 					<li>
@@ -90,7 +90,7 @@ $class_name = 'mode-' . $_mode;
 				while ( $the_query->have_posts() ) :
 
 					$the_query->the_post();
-					get_template_part( 'parts/components/content', $_post_type . '-modal' );
+					get_template_part( 'template-parts/components/content', $_post_type . '-modal' );
 
 				endwhile;
 
@@ -102,7 +102,7 @@ $class_name = 'mode-' . $_mode;
 	endforeach;
 
 	if ( ! $_terms ) {
-		get_template_part( 'parts/components/no-posts' );
+		get_template_part( 'template-parts/components/no-posts' );
 	}
 
 	wp_reset_postdata();

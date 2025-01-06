@@ -4,7 +4,7 @@
 	"name": "wbs/google-map",
 	"version": "0.1.0",
 	"title": "Google Map",
-	"category": "wbs-blocks",
+	"category": "wbs-theme-blocks",
 	"icon": "location",
 	"description": "display Google Map and other iFrame content box Block",
 	"example": {},
@@ -12,6 +12,7 @@
 		"html": false,
 		"align": true,
 		"alignWide": true,
+		"inserter": false,
 		"spacing": {
 			"margin": true,
 			"padding": true

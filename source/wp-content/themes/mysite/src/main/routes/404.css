@@ -2,7 +2,7 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	min-height: 60svh;
+	min-block-size: 60svh;
 	font-family: var(--wp--preset--font-family--sans-serif-en);
 	text-align: center;
 }

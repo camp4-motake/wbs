@@ -9,6 +9,22 @@
 namespace Site\Theme\Plugins\Acf;
 
 /**
+ * プロダクション環境で ACF Editor を無効化
+ *
+ * @see https://www.advancedcustomfields.com/resources/how-to-hide-acf-menu-from-clients/#hide-on-live-site-only
+ */
+function init_plugin_acf_settings() {
+	$disabled_env = array( 'production', 'staging' );
+	$is_hidden    = in_array( wp_get_environment_type(), $disabled_env, true );
+
+	if ( $is_hidden ) {
+		add_filter( 'acf/settings/show_admin', '__return_false' );
+	}
+}
+add_action( 'init', __NAMESPACE__ . '\\init_plugin_acf_settings' );
+
+
+/**
  * acf/the_field/escape_html_optin
  * @see https://www.advancedcustomfields.com/blog/acf-6-2-5-security-release/#enable-the-new-behavior-early
  */

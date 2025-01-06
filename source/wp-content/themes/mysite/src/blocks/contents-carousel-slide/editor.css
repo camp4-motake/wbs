@@ -1,0 +1,14 @@
+.edit-slide {
+	.wp-block-wbs-contents-carousel-slide {
+		inline-size: auto;
+		max-inline-size: 100%;
+		padding: var(--wp--custom--gutter);
+		background-color: var(--wp--preset--color--base);
+		border: 1px solid var(--wp--preset--color--success);
+	}
+
+	.wp-block-wbs-contents-carousel-slide
+		+ .wp-block-wbs-contents-carousel-slide {
+		margin-top: var(--wp--custom--gutter);
+	}
+}

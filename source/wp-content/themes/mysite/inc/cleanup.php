@@ -36,6 +36,9 @@ function remove_head_meta() {
 	remove_action( 'wp_head', 'wp_oembeds_add_discovery_links' );
 	remove_action( 'wp_head', 'wp_oembed_add_host_js' );
 	remove_action( 'template_redirect', 'rest_output_link_header', 11 );
+
+	// skip link
+	// remove_action( 'wp_footer', 'the_block_template_skip_link' );
 }
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\remove_head_meta', 102 );
 
@@ -83,29 +86,31 @@ function remove_user_endpoint( $endpoints ) {
 add_filter( 'rest_endpoints', __NAMESPACE__ . '\\remove_user_endpoint', 10, 1 );
 
 /**
- * WORKAROUND: srcset 削除
+ * author アーカイブを無効化
+ *
+ * 著者のリライトルールを無効化
+ * 著者リンクを無効化
+ * 著者アーカイブページにアクセスされた場合に404エラーを返す
+ *
  */
-add_filter( 'wp_calculate_image_srcset', '__return_false' );
-add_filter( 'wp_calculate_image_sizes', '__return_false' );
-
- /*  phpcs:ignore Squiz.PHP.CommentedOutCode.Found
-
-function custom_image_srcset( $sources, $size_array, $image_src ) {
-	// 既存のソースをクリア
-	$sources = array();
-
-	// カスタムサイズを定義
-	$custom_sizes = array( 320, 480, 640, 800, 1024 );
-
-	foreach ( $custom_sizes as $width ) {
-		$sources[ $width ] = array(
-			'url'        => add_query_arg( 'w', $width, $image_src ),
-			'descriptor' => 'w',
-			'value'      => $width,
-		);
+add_filter( 'author_rewrite_rules', '__return_empty_array' );
+add_filter( 'author_link', '__return_false' );
+function disable_author_archives() {
+	if ( is_author() ) {
+		global $wp_query;
+		$wp_query->set_404();
+		status_header( 404 );
 	}
-
-	return $sources;
 }
-add_filter( 'wp_calculate_image_srcset', 'custom_image_srcset', 10, 5 );
-*/
+add_action( 'template_redirect', __NAMESPACE__ . '\\disable_author_archives' );
+
+/**
+ * author アーカイブをwp-sitemap.xmlから削除
+ */
+function remove_author_archive_from_sitemap( $provider, $name ) {
+	if ( 'users' === $name ) {
+		return false;
+	}
+	return $provider;
+}
+add_filter( 'wp_sitemaps_add_provider', __NAMESPACE__ . '\\remove_author_archive_from_sitemap', 10, 2 );

@@ -1,0 +1,39 @@
+{
+	"$schema": "https://json.schemastore.org/jsconfig",
+	"compilerOptions": {
+		"allowJs": true,
+		"allowSyntheticDefaultImports": true,
+		"jsx": "preserve",
+		"target": "esnext",
+		"module": "esnext",
+		"lib": [ "DOM", "DOM.Iterable", "ESNext" ],
+		"declaration": true,
+		"declarationMap": true,
+		"composite": true,
+		"emitDeclarationOnly": true,
+		"isolatedModules": true,
+
+		"skipDefaultLibCheck": true,
+
+		/* Strict Type-Checking Options */
+		"strict": true,
+
+		/* Additional Checks */
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+
+		/* Module Resolution Options */
+		"moduleResolution": "node",
+
+		/* This needs to be false so our types are possible to consume without setting this */
+		"esModuleInterop": false,
+		"resolveJsonModule": true,
+
+		"typeRoots": [ "./node_modules/@types" ]
+	},
+	"exclude": [
+		"source/wp-content/**/build-*/**",
+		"source/wp-content/**/build/**",
+		"**/test/**"
+	]
+}

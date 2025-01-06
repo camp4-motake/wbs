@@ -1,0 +1,56 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wbs/two-line-heading",
+	"version": "0.1.0",
+	"title": "ショルダー見出し",
+	"category": "wbs-theme-blocks",
+	"icon": "heading",
+	"description": "",
+	"attributes": {
+		"level": {
+			"type": "number",
+			"default": 2
+		},
+		"alignment": {
+			"type": "string",
+			"default": "center"
+		},
+		"shoulderContent": {
+			"type": "string",
+			"default": ""
+		},
+		"content": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"example": {},
+	"supports": {
+		"align": [ "wide", "full" ],
+		"anchor": true,
+		"ariaLabel": true,
+		"className": true,
+		"html": false,
+		"color": {
+			"text": true,
+			"background": true
+		},
+		"typography": {
+			"fontSize": true
+		},
+		"spacing": {
+			"margin": true,
+			"padding": true,
+			"__experimentalDefaultControls": {
+				"margin": false,
+				"padding": false
+			}
+		}
+	},
+	"styles": [],
+	"textdomain": "wbs",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

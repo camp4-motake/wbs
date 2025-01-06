@@ -14,6 +14,7 @@ namespace Site\Theme\Setup;
  * @see https://developer.wordpress.org/reference/functions/add_theme_support/
  */
 function site_theme_setup() {
+	add_theme_support( 'title-tag' );
 	add_theme_support( 'align-wide' );
 	add_theme_support( 'block-template-parts' );
 	add_theme_support( 'post-thumbnails' );
@@ -31,8 +32,9 @@ add_action( 'after_setup_theme', __NAMESPACE__ . '\\site_theme_setup' );
 function add_theme_custom_menu() {
 	register_nav_menus(
 		array(
-			'nav_primary'     => __( 'nav primary', 'wbs' ),
-			'nav_primary_sub' => __( 'nav primary sub', 'wbs' ),
+			'nav_header' => __( 'nav header', 'wbs' ),
+			'nav_modal'  => __( 'nav modal', 'wbs' ),
+			'nav_footer' => __( 'nav footer', 'wbs' ),
 		)
 	);
 }

@@ -1,31 +1,30 @@
 {
 	"name": "wbs",
-	"version": "0.1.0",
+	"version": "1.0.1",
 	"description": "WordPress Block Base Site Starter",
 	"keywords": [],
 	"author": "CAMP4 inc.",
 	"license": "GPL-2.0-or-later",
 	"private": true,
 	"engines": {
-		"node": "18 || 20"
+		"node": "20 || 22"
 	},
 	"dependencies": {
-		"@wordpress/scripts": "30.3.0"
-	},
-	"devDependencies": {
-		"@csstools/postcss-global-data": "3.0.0",
-		"@wordpress/env": "10.10.0",
-		"browser-sync": "^3.0.3",
+		"@wordpress/scripts": "30.8.1",
 		"copy-webpack-plugin": "12.0.2",
 		"cssnano": "7.0.6",
-		"image-minimizer-webpack-plugin": "4.1.0",
-		"npm-run-all2": "6.2.4",
+		"image-minimizer-webpack-plugin": "4.1.1",
+		"npm-run-all2": "7.0.1",
 		"postcss-easy-import": "4.0.0",
-		"postcss-preset-env": "10.0.7",
+		"postcss-preset-env": "10.1.1",
 		"postcss-url": "10.1.3",
 		"sharp": "0.33.5",
 		"stylelint-config-recess-order": "5.1.1",
 		"svgo": "3.3.2"
+	},
+	"devDependencies": {
+		"@wordpress/env": "10.15.0",
+		"browser-sync": "^3.0.3"
 	},
 	"scripts": {
 		"build": "npm run build --workspaces --if-present --silent",
@@ -33,39 +32,36 @@
 		"format": "run-s format:**",
 		"lint": "run-p lint:**",
 		"setup": "run-s setup:**",
-		"--- dev ---": "",
+		"--- dev": "",
 		"dev:ws": "node ./bin/dev.js",
 		"dev:bs": "browser-sync start --config bs-config.js",
-		"--- linter ---": "",
+		"--- linter": "",
 		"lint:ws": "npm run lint --workspaces --if-present",
 		"lint:php": "npm run composer lint source/wp-content/themes/mysite",
 		"format:root": "wp-scripts format . '!source' ",
 		"format:ws": "npm run format --workspaces --if-present",
 		"format:php": "npm run composer format source/wp-content/themes/mysite",
-		"--- setup ---": "",
+		"--- setup": "",
 		"setup:composer": "npm run composer install",
 		"setup:wp-env": "npx wp-env start",
 		"setup:wp-opt": "npx wp-env run cli ./env/setup.sh",
 		"setup:build": "npm run build",
-		"--- tools ---": "",
-		"postinstall": "npm run init --silent",
-		"init": "chmod +x ./{env,bin}/*.sh && ./bin/init.sh",
+		"--- tools": "",
 		"cli": "npx wp-env run cli",
 		"composer": "docker run --rm --interactive --tty --volume $PWD:/app composer composer",
 		"wp-env": "npx wp-env",
 		"wp-flush": "npx wp-env run cli wp rewrite flush --hard",
 		"wp-export": "npx wp-env run cli ./env/export.sh",
 		"wp-import": "npx wp-env run cli ./env/import.sh",
-		"packages-update": "wp-scripts packages-update && npm run packages-update --workspaces --if-present"
+		"packages-update": "wp-scripts packages-update && npm run packages-update --workspaces --if-present",
+		"--- hooks": "",
+		"init": "chmod +x ./{env,bin}/*.sh && ./bin/init.sh",
+		"postinstall": "npm run init --silent"
 	},
 	"workspaces": [
 		"source/wp-content/themes/mysite"
 	],
 	"browserslist": [
 		"extends @wordpress/browserslist-config"
-	],
-	"volta": {
-		"node": "20.10.0",
-		"npm": "10.2.5"
-	}
+	]
 }

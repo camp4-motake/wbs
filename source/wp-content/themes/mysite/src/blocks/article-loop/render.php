@@ -2,32 +2,61 @@
 
 /**
  * main article loop
+ *
+ * @package wbs
  */
 
-global $wp_query;
+$is_rest_request = defined( 'REST_REQUEST' ) && REST_REQUEST;
 
-$attr       = array( 'class' => 'archive-section' );
-$_post_type = get_post_type();
+$query_args = array(
+	'post_type'              => $attributes['postTypeSlug'],
+	'posts_per_page'         => $attributes['postPerPage'],
+	'no_found_rows'          => true,
+	'update_post_meta_cache' => false,
+	'update_post_term_cache' => false,
+);
+if (
+	! empty( $attributes['taxonomySlug'] ) &&
+	! empty( $attributes['termID'] )
+) {
+	$query_args['tax_query'] = array(
+		array(
+			'taxonomy' => $attributes['taxonomySlug'],
+			'field'    => 'term_id',
+			'terms'    => $attributes['termID'],
+		),
+	);
+}
+$the_query = new WP_Query( $query_args );
+
+$grid_class = 'archive-grid';
+$post_count = '';
+
+if ( $the_query->post_count ) {
+	$post_count = $the_query->post_count;
+}
+
+$extra_attributes = array( 'class' => 'has-post-type-' . $attributes['postTypeSlug'] );
 
 ?>
-<div <?php echo wp_kses_post( get_block_wrapper_attributes( $attr ) ); ?>class="archive-section">
-	<?php
-
-	if ( 'topics' === $_post_type ) {
-		get_template_part( 'parts/components/term-select-topics' );
-	}
-
-	?>
-	<div class="entry-container alignWide content-grid -repeat-2 -dummy" data-post-count="<?php echo esc_attr( $wp_query->post_count ); ?>">
+<div <?php echo wp_kses_post( get_block_wrapper_attributes( $extra_attributes ) ); ?>>
+	<div class="<?php echo esc_attr( $grid_class ); ?>" data-post-count="<?php echo esc_attr( $post_count ); ?>">
 		<?php
 
-		while ( have_posts() ) :
-			the_post();
-			get_template_part( 'parts/components/content', $_post_type );
-		endwhile;
+		if ( ! $the_query->have_posts() && $is_rest_request ) {
+			get_template_part( 'parts/ssr/no-posts', null, array( 'no_post_label' => __( '該当する記事がありません', 'wbs' ) ) );
+		}
+
+		if ( $the_query->have_posts() ) {
+
+			while ( $the_query->have_posts() ) {
+				$the_query->the_post();
+				get_template_part( 'template-parts/components/content', get_post_type() );
+			}
+
+			wp_reset_postdata();
+		}
 
 		?>
 	</div>
-
-	<?php get_template_part( 'parts/components/pagination' ); ?>
 </div>

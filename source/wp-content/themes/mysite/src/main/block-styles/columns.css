@@ -1,5 +1,0 @@
-.wp-block-columns {
-	&.is-layout-flex {
-		column-gap: max(var(--wp--preset--spacing--normal), 2.5%);
-	}
-}

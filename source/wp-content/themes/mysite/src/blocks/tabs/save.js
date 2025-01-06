@@ -9,7 +9,7 @@ export default function save( { attributes } ) {
 		: useBlockProps.save( { className: 'alignFull ' } );
 
 	return (
-		<div { ...blockProps } { ...{ 'x-data': '{ activeTab:  0 }' } }>
+		<div { ...blockProps }>
 			<div
 				className="tab-labels entry-container"
 				role="tablist"

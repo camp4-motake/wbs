@@ -16,7 +16,7 @@ function remove_admin_menu() {
 	unset( $menu[5] ); // 投稿
 	unset( $menu[25] ); // コメント
 
-	if ( ! current_user_can( 'edit_files' ) ) {
+	if ( ! current_user_can( 'manage_options' ) ) {
 		// unset($menu[2]);  // ダッシュボード
 		// unset($menu[4]);  // メニューの線1
 		// unset($menu[5]);  // 投稿
@@ -174,3 +174,13 @@ add_action(
 		unregister_taxonomy_for_object_type( 'category', 'post' );
 	}
 );
+
+/**
+ * 不要なメニューを削除
+ */
+function remove_default_menu_items() {
+	remove_post_type_support( 'add-post', 'nav-menus', 'side' );      // 投稿
+	remove_post_type_support( 'add-category', 'nav-menus', 'side' );  // カテゴリー
+	remove_post_type_support( 'add-post_tag', 'nav-menus', 'side' );  // タグ
+}
+add_action( 'admin_menu', __NAMESPACE__ . '\\remove_default_menu_items' );

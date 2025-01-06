@@ -2,7 +2,7 @@
 
 .wp-block-wbs-site-header {
 	position: relative;
-	width: 100%;
+	inline-size: 100%;
 
 	/* margin-right: calc(var(--wp--preset--spacing--normal) * -1);
 	margin-left: calc(var(--wp--preset--spacing--normal) * -1); */

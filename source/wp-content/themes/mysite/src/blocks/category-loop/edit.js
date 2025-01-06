@@ -17,6 +17,7 @@ export default function Edit( { name, attributes, setAttributes } ) {
 						id="postType"
 						label={ __( 'PostType', 'wbs' ) }
 						help={ __( '投稿タイプ' ) }
+						__nextHasNoMarginBottom
 					>
 						<SelectControl
 							value={ attributes.postType }
@@ -24,12 +25,14 @@ export default function Edit( { name, attributes, setAttributes } ) {
 								setAttributes( { postType: val } )
 							}
 							options={ POST_TYPE }
+							__nextHasNoMarginBottom
 						/>
 					</BaseControl>
 					<BaseControl
 						id="category"
 						label={ __( 'Category', 'wbs' ) }
 						help={ __( 'カテゴリー' ) }
+						__nextHasNoMarginBottom
 					>
 						<SelectControl
 							value={ attributes.category }
@@ -37,12 +40,14 @@ export default function Edit( { name, attributes, setAttributes } ) {
 								setAttributes( { category: val } )
 							}
 							options={ CATEGORY }
+							__nextHasNoMarginBottom
 						/>
 					</BaseControl>
 					<BaseControl
 						id="mode"
 						label={ __( 'Mode', 'wbs' ) }
 						help={ __( '表示モード' ) }
+						__nextHasNoMarginBottom
 					>
 						<SelectControl
 							value={ attributes.displayMode }
@@ -50,6 +55,7 @@ export default function Edit( { name, attributes, setAttributes } ) {
 								setAttributes( { displayMode: val } )
 							}
 							options={ DISPLAY_MODE }
+							__nextHasNoMarginBottom
 						/>
 					</BaseControl>
 				</PanelBody>

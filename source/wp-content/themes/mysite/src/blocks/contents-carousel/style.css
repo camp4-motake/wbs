@@ -1,0 +1,47 @@
+/* @import "../../shared/swiper.css"; */
+
+.wp-block-wbs-contents-carousel {
+	--swiper-navigation-sides-offset: calc(-20 * var(--rem));
+	--swiper-pagination-bottom: var(--wp--preset--spacing--normal);
+	--swiper-pagination-color: var(--wp--preset--color--primary);
+
+	position: relative;
+	padding: var(--wp--preset--spacing--normal);
+
+	.content-carousel-container {
+		position: relative;
+		box-sizing: border-box;
+		overflow: visible;
+	}
+
+	.content-carousel-inner {
+		position: relative;
+		overflow: visible;
+	}
+
+	.swiper {
+		position: relative;
+		padding: var(--wp--preset--spacing--lg) 0;
+		margin-block-end: 0;
+		background-color: var(--wp--preset--color--base);
+		border-radius: 1.25em;
+	}
+
+	.slider-btn-prev,
+	.slider-btn-next {
+		position: absolute;
+		inset-block: 50%;
+		z-index: 1;
+		background-color: var(--wp--preset--color--base);
+	}
+
+	.slider-btn-prev {
+		inset-inline: 0 auto;
+		translate: -50% -50% 0;
+	}
+
+	.slider-btn-next {
+		inset-inline: auto 0;
+		translate: 50% -50% 0;
+	}
+}

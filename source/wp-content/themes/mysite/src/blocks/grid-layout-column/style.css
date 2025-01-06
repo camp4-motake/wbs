@@ -1,0 +1,24 @@
+.wp-block-wbs-grid-layout-column {
+	position: relative;
+	box-sizing: border-box;
+	box-sizing: border-box;
+	display: grid;
+	inline-size: 100%;
+	block-size: 100%;
+	padding: 0;
+	overflow: clip;
+
+	> .block-editor-inner-blocks {
+		height: 100%;
+
+		> .block-editor-block-list__layout {
+			display: grid;
+			gap: inherit;
+			height: 100%;
+
+			> * {
+				max-inline-size: 100%;
+			}
+		}
+	}
+}

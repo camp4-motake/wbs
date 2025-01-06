@@ -1,135 +1,78 @@
 * {
 	box-sizing: border-box;
-}
+	min-inline-size: 0;
 
-/* html, body { min-height: 100vh; } */
+	&:focus-visible {
+		outline: 2px solid rgb(60 0 255);
+		outline-offset: 2px;
+	}
 
-html {
-	scroll-padding-top: var(--header-height);
-	background-color: var(--color-bacface);
-
-	&:not(.is-animating) {
-		scroll-behavior: smooth;
+	*::placeholder {
+		color: var(--wp--preset--color--placeholder);
+		opacity: 0.5;
 	}
 }
 
-body {
+html {
+	/* scroll-behavior: auto; */
 	overflow-y: scroll;
-	font-feature-settings: normal;
+	font-size: var(--wp--custom--font-sizes--root);
+	color-scheme: initial;
+	scroll-padding-top: var(--header-height);
+}
+
+body {
+	/* overflow-y: scroll; */
+	font-family: var(--wp--preset--font-family--sans-serif-ja);
+	font-weight: var(--wp--custom--font-weight--medium);
+	font-feature-settings: "palt";
+	font-optical-sizing: auto;
+	line-height: var(--wp--custom--line-height--base);
+	letter-spacing: var(--wp--custom--letter-spacing--base);
+	overflow-wrap: break-word;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	line-height: var(--wp--custom--line-height--base);
 	text-size-adjust: 100%;
-	overflow-wrap: break-word;
-	background-color: var(--wp--preset--color--base);
 	font-synthesis: none;
+	scrollbar-gutter: stable;
 }
 
 img,
 svg {
-	max-width: 100%;
-	height: auto;
+	max-inline-size: 100%;
+	block-size: auto;
 }
 
 hr,
 .hr {
-	--hr-max-width: calc(
-		calc(100vw - var(--window-scroll-bar-width)) -
+	--_hr-max-inline-size: calc(
+		calc(100vw - var(--window-scroll-bar-width, 0)) -
 			calc(var(--wp--preset--spacing--normal) * 2)
 	);
 
-	width: 100%;
-	height: 1px;
-	margin: var(--wp--preset--spacing--normal) auto;
-	background-color: var(--wp--preset--color--border);
-	border: none;
-	border-color: transparent;
-	border-bottom-color: var(--wp--preset--color--border);
-	border-bottom-width: 1px;
+	inline-size: calc(100% - (var(--wp--custom--gutter) * 2));
+	margin: var(--wp--preset--spacing--md) auto;
+	border-block-start-color: var(--wp--preset--color--border);
 
-	&.is-max-lg {
-		max-width: min(
-			calc(
-				var(--container-max-width-lg) -
-					calc(var(--wp--preset--spacing--normal) * 2)
-			),
-			var(--hr-max-width)
-		);
+	&.alignwide {
+		max-inline-size: var(--wp--style--global--wide-size);
 	}
 
-	&.is-max-xl {
-		max-width: min(
-			calc(
-				var(--container-max-width-xl) -
-					calc(var(--wp--preset--spacing--normal) * 2)
-			),
-			var(--hr-max-width)
-		);
+	&.is-width-xl {
+		max-inline-size: var(--wp--custom--container-max-width--xl);
+	}
+
+	&.is-width-xxl {
+		max-inline-size: var(--wp--custom--container-max-width--xxl);
+	}
+
+	&.alignfull {
+		inline-size: 100%;
 	}
 }
 
-ul,
-ol {
-	padding-left: var(--wp--preset--spacing--lg);
-
-	&:where(:not(li > ul)) {
-		margin-bottom: var(--wp--preset--spacing--lg);
-	}
-}
-
-dl {
-	margin-bottom: var(--wp--preset--spacing--lg);
-}
-
-ul {
-	&.list-iroha {
-		list-style-type: katakana-iroha;
-	}
-
-	&.list-circled-decimal {
-		list-style-type: circled-decimal;
-	}
-
-	&.list-parenthesized-decimal {
-		list-style-type: parenthesized-decimal;
-	}
-}
-
-input,
-select,
-textarea,
-button {
-	appearance: none;
-
-	&::placeholder {
-		font-weight: var(--wp--custom--font-weight--regular);
-	}
-
-	&:focus::placeholder {
-		color: transparent;
-	}
-}
-
-input,
-textarea {
-	position: relative;
-	padding: 0.5em;
-	font-size: max(16px, 1rem);
-	color: var(--wp--preset--color--text-base);
-	background-color: var(--wp--preset--color--base);
-}
-
-fieldset,
-legend {
-	appearance: none;
-}
-
-fieldset {
-	display: block;
-	min-width: 0;
-	padding: 0;
-	margin: 0;
-	border: 0;
+strong {
+	font-weight: var(--wp--custom--font-weight--bold);
 }
 
 :where(button) {
@@ -137,42 +80,150 @@ fieldset {
 	border: 0;
 }
 
+:where(figcaption) {
+	padding-block: 0.25em;
+	font-size: var(--wp--preset--font-size--14);
+	line-height: var(--wp--custom--line-height--sm);
+}
+
 svg {
-	width: 100%;
-	height: auto;
+	inline-size: 100%;
+	block-size: auto;
 	overflow: visible;
 }
 
-p {
-	margin-bottom: 1em;
+:where(p) {
+	margin-block-end: 1em;
+}
+
+:where(a, button, summary) {
+	text-underline-offset: 0.25em;
+}
+
+:where(a) {
+	text-decoration: underline;
+
+	&:focus-visible {
+		text-decoration: none;
+	}
+
+	@media (any-hover: hover) {
+		&:hover {
+			text-decoration: none;
+		}
+	}
+}
+
+:where(ul, ol) {
+	padding-inline-start: var(--spacer-md);
+}
+
+:where(ul) {
+	list-style: initial;
+}
+
+:where(ol) {
+	list-style-type: decimal;
+}
+
+:where(table) {
+	inline-size: 100%;
+	border-collapse: collapse;
+}
+
+:where(.has-fixed-layout table, table.has-fixed-layout) {
+	inline-size: 100%;
+	table-layout: fixed;
+}
+
+:where(thead) {
+	border-block-end: max(1px, calc(1 * var(--rem))) solid;
+}
+
+:where(tfoot) {
+	border-block-start: max(1px, calc(1 * var(--rem))) solid;
+}
+
+:where(td, th) {
+	padding: 0.5em 0.75em;
+	line-break: anywhere;
+	border: max(1px, calc(1 * var(--rem))) solid;
+}
+
+:where(mark, .marker) {
+	background-color: var(--current-theme-color-alpha);
+}
+
+main,
+.has-contents-root {
+	> :where(*) {
+		max-inline-size: var(--wp--custom--container-max-width--view);
+		margin-inline: auto;
+	}
+}
+
+[hidden]:not([hidden="until-found"]) {
+	display: none !important;
 }
 
 .updated {
 	font-family: var(--wp--preset--font-family--sans-serif-en);
-	font-weight: var(--wp--custom--font-weight--medium);
-	color: var(--wp--preset--color--border);
+	font-size: var(--wp--preset--font-size--14);
+	font-weight: var(--wp--custom--font-weight--bold);
 }
 
-/**
- * x-cloak
- * https://alpinejs.dev/directives/cloak
- */
-[x-cloak] {
-	display: none !important;
+.no-posts {
+	font-size: var(--wp--preset--font-size--14);
+	text-align: center;
 }
 
-/**
-* wp adminbar position fix
-*/
+/* wp adminbar position fix */
 @media screen and (max-width: 600px) {
 	#wpadminbar {
 		position: fixed;
 	}
 }
 
-/**
- * hide recaptcha badge
- * https://developers.google.com/recaptcha/docs/faq?hl=ja#id-like-to-hide-the-recaptcha-badge.-what-is-allowed
- */
+/*
+x-cloak
+@see https://alpinejs.dev/directives/cloak
 
-/* .grecaptcha-badge { visibility: hidden !important; } */
+[x-cloak] { display: none !important; }
+*/
+
+/*
+hide recaptcha badge
+@see https://developers.google.com/recaptcha/docs/faq?hl=ja#id-like-to-hide-the-recaptcha-badge.-what-is-allowed
+
+.grecaptcha-badge { visibility: hidden !important; }
+*/
+
+/*
+gsap marker fix
+
+[clss*="gsap-marker"] { z-index: 10000 !important; }
+*/
+
+/* prevent action (画像の保存操作禁止など) */
+.has-prevent-default,
+[data-prevent-default] {
+	pointer-events: none !important;
+	user-select: none !important;
+}
+
+/* 印刷時 非表示 */
+@media print {
+	.has-no-print {
+		display: none !important;
+	}
+}
+
+@media (prefers-reduced-motion) {
+	*,
+	*::before,
+	*::after {
+		scroll-behavior: auto !important;
+		transition: none !important;
+		animation-duration: 0s !important;
+	}
+}

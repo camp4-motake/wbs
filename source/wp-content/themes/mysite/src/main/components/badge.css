@@ -1,60 +1,47 @@
 .badge-round-text {
-	--size: calc(30 * var(--rem));
-	--color: var(--wp--preset--color--primary);
+	--_size: calc(30 * var(--rem));
+	--_text-color: var(--wp--preset--color--base);
+	--_bg-color: var(--wp--preset--color--text-base);
+
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	width: var(--size);
-	height: var(--size);
-
-	overflow: hidden;
-	font-size: var(--wp--preset--font-size--12);
+	inline-size: fit-content;
+	block-size: var(--_size);
+	padding: 0.125em 1.25em;
+	font-size: var(--wp--preset--font-size--10);
 	font-weight: var(--wp--custom--font-weight--bold);
-	line-height: var(--wp--custom--line-height--sm);
-	color: var(--wp--preset--color--base);
-	background-color: var(--color);
-	border-radius: 50%;
-}
+	line-height: var(--wp--custom--line-height--xs);
+	color: var(--_text-color);
+	background-color: var(--_bg-color);
+	border-radius: var(--wp--custom--infinity);
 
-.badge-block-text {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-height: calc(30 * var(--rem));
-	padding: 0.25em 1em;
-	font-family: var(--wp--preset--font-family--sans-serif-en);
-	font-size: var(--wp--preset--font-size--12);
-	line-height: var(--wp--custom--line-height--sm);
-	color: var(--wp--preset--color--base);
-	text-transform: uppercase;
-	background-color: var(--wp--preset--color--primary);
+	&.has-theme-color-rd {
+		--_bg-color: var(--wp--preset--color--theme-rd);
+	}
 
-	@media (--viewport-md) {
-		font-size: var(--wp--preset--font-size--14);
+	&.has-theme-color-or {
+		--_bg-color: var(--wp--preset--color--theme-or);
+	}
+
+	&.has-theme-color-yl {
+		--_bg-color: var(--wp--preset--color--theme-yl);
+		--_text-color: var(--wp--preset--color--text-base);
+	}
+
+	&.has-theme-color-gr {
+		--_bg-color: var(--wp--preset--color--theme-gr);
+	}
+
+	&.has-theme-color-bl {
+		--_bg-color: var(--wp--preset--color--theme-bl);
+	}
+
+	&.has-theme-color-pl {
+		--_bg-color: var(--wp--preset--color--theme-pl);
 	}
 }
 
-.badge-new {
-	--size: calc(60 * var(--rem));
-
-	position: absolute;
-	z-index: var(--z-badge);
-	display: block;
-	width: var(--size);
-	height: var(--size);
-	font-size: 10px;
-	color: transparent;
-	background-image: url(../../images/_inline/badge-new.svg);
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: contain;
-}
-
-.badge-hashtag {
-	font-size: var(--wp--preset--font-size--12);
-	color: var(--wp--preset--color--border);
-
-	&::before {
-		content: "#";
-	}
+a.badge-round-text {
+	text-decoration: none;
 }

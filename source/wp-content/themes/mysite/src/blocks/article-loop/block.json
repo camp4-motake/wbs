@@ -3,13 +3,38 @@
 	"apiVersion": 3,
 	"name": "wbs/article-loop",
 	"version": "0.1.0",
-	"title": "Article Loop",
-	"category": "wbs-blocks",
+	"title": "記事リスト",
+	"category": "wbs-theme-blocks",
 	"icon": "media-text",
-	"description": "article main query loop",
+	"description": "article post loop",
 	"example": {},
 	"supports": {
-		"html": false
+		"anchor": true,
+		"html": false,
+		"reusable": false,
+		"align": [ "wide" ],
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"attributes": {
+		"postTypeSlug": {
+			"type": "string",
+			"default": "news"
+		},
+		"taxonomySlug": {
+			"type": "string",
+			"default": ""
+		},
+		"termID": {
+			"type": "number",
+			"default": 0
+		},
+		"postPerPage": {
+			"type": "number",
+			"default": 3
+		}
 	},
 	"textdomain": "dynamic",
 	"editorScript": "file:./index.js",

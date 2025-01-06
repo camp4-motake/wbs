@@ -7,8 +7,8 @@
 		&[target="_blank"]::after,
 		&[href*=".pdf"]::after {
 			display: inline-block;
-			width: 2em;
-			height: 1em;
+			inline-size: 1.25em;
+			block-size: 1em;
 			margin-right: 0.25em;
 			margin-left: 0.25em;
 			content: "";
@@ -16,14 +16,15 @@
 		}
 
 		&[href*=".pdf"]::after {
-			mask-image: var(--mask-ico-pdf);
+			inline-size: 1.5em;
+			mask-image: var(--img-ico-pdf);
 			mask-repeat: no-repeat;
 			mask-position: center;
 			mask-size: 90%;
 		}
 
 		&[target="_blank"]::after {
-			mask-image: var(--mask-ico-external);
+			mask-image: var(--img-ico-external);
 			mask-repeat: no-repeat;
 			mask-position: center;
 			mask-size: contain;

@@ -15,6 +15,4 @@ define( 'MQ_LANDSCAPE', '(orientation: landscape)' );
 define( 'MQ_PORTRAIT', '(orientation: portrait)' );
 
 define( 'IS_ENABLE_THEME_SITE_ICON', false );
-define( 'IS_ENABLE_GTM_TRACKING', false );
-
-define( 'GOOGLE_FONTS', array( 'https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap' ) );
+define( 'IS_ENABLE_GTM_TRACKING', true );

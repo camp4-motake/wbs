@@ -1,0 +1,23 @@
+.wp-block-wbs-definition-list {
+	padding: 2px;
+	padding-block-end: calc(52 * var(--rem));
+	border: 1px dashed transparent;
+
+	@media (any-hover: hover) {
+		&:hover {
+			border-color: color-mix(
+				in srgb,
+				var(--wp--preset--color--text-base),
+				transparent 60%
+			);
+		}
+	}
+
+	> .block-editor-inner-blocks {
+		display: contents;
+
+		> .block-editor-block-list__layout {
+			display: contents;
+		}
+	}
+}

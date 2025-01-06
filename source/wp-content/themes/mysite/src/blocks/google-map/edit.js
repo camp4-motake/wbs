@@ -1,9 +1,9 @@
 import { InspectorControls, useBlockProps } from '@wordpress/block-editor';
 import {
-	BaseControl,
-	PanelBody,
-	SelectControl,
-	TextControl,
+    BaseControl,
+    PanelBody,
+    SelectControl,
+    TextControl,
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import ServerSideRender from '@wordpress/server-side-render';
@@ -22,18 +22,21 @@ export default function Edit( { name, attributes, setAttributes } ) {
 						id="mapSource"
 						label={ __( 'HTML', 'wbs' ) }
 						help={ __( '地図の埋め込みコード（iframe）' ) }
+						__nextHasNoMarginBottom
 					>
 						<TextControl
 							value={ attributes.mapSource }
 							onChange={ ( val ) =>
 								setAttributes( { mapSource: val } )
 							}
+							__nextHasNoMarginBottom
 						/>
 					</BaseControl>
 					<BaseControl
 						id="aspectRatio"
 						label={ __( 'Aspect Ratio', 'wbs' ) }
 						help={ __( '表示比率' ) }
+						__nextHasNoMarginBottom
 					>
 						<SelectControl
 							value={ attributes.aspectRatio }
@@ -41,6 +44,7 @@ export default function Edit( { name, attributes, setAttributes } ) {
 								setAttributes( { aspectRatio: val } )
 							}
 							options={ ASPECT_RATIO }
+							__nextHasNoMarginBottom
 						/>
 					</BaseControl>
 				</PanelBody>

@@ -1,0 +1,34 @@
+.term-select-wrapper {
+	--_icon-offset: 1.5em;
+
+	position: relative;
+	display: grid;
+	align-items: stretch;
+	inline-size: fit-content;
+	min-inline-size: 10em;
+	background-color: var(--wp--preset--color--base);
+	border: 2px solid var(--wp--preset--color--text-base);
+
+	&::after {
+		position: absolute;
+		inset: 0 0 0 auto;
+		inline-size: var(--_icon-offset);
+		block-size: 100%;
+		pointer-events: none;
+		content: "";
+		background-color: currentcolor;
+		mask: var(--img-ico-arrow-down) no-repeat center / 1em;
+	}
+
+	select {
+		padding: 0.25em 1em;
+		padding-inline-end: calc(0.5em + var(--_icon-offset));
+		appearance: none;
+		background-color: transparent;
+		border: none;
+
+		&:focus {
+			outline: 2px solid var(--wp--preset--color--theme-bl);
+		}
+	}
+}

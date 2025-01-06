@@ -3,7 +3,7 @@
 	"description": "Site Block theme",
 	"version": "0.1.0",
 	"author": "CAMP4 inc.",
-	"license": "GPL-2.0-or-later",
+	"license": "UNLICENSED",
 	"private": true,
 	"scripts": {
 		"dev": "wp-scripts start --experimental-modules",
@@ -20,10 +20,12 @@
 		"predev": "rimraf build/*"
 	},
 	"dependencies": {
-		"@acab/reset.css": "0.10.0",
-		"@alpinejs/intersect": "3.14.3",
-		"@wordpress/scripts": "30.3.0",
-		"alpinejs": "3.14.3"
+		"@acab/reset.css": "0.11.0",
+		"@wordpress/icons": "10.15.1",
+		"@wordpress/scripts": "30.8.1",
+		"clsx": "2.1.1",
+		"es-toolkit": "1.29.0",
+		"swiper": "11.1.15"
 	},
 	"prettier": "../../../../.prettierrc.js",
 	"eslintConfig": {

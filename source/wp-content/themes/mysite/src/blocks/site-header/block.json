@@ -3,18 +3,21 @@
 	"apiVersion": 3,
 	"name": "wbs/site-header",
 	"version": "0.1.0",
-	"title": "Site Header",
-	"category": "wbs-blocks",
+	"title": "サイトヘッダー",
+	"category": "wbs-theme-blocks",
 	"icon": "text-page",
-	"description": "Site Header",
+	"description": "",
 	"example": {},
 	"supports": {
-		"html": false
+		"html": false,
+		"inserter": false,
+		"interactivity": true,
+		"reusable": false
 	},
 	"textdomain": "dynamic",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
 	"render": "file:./render.php",
-	"viewScript": "file:./view.js"
+	"viewScriptModule": "file:./view.js"
 }
