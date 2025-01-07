@@ -1,0 +1,5 @@
+packages:
+    - 'source/wp-content/themes/*'
+    - 'source/wp-content/plugins/*'
+    - '!source/wp-content/themes/twenty*'
+    - '!source/wp-content/themes/advanced-custom-fields*'

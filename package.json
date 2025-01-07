@@ -7,25 +7,29 @@
 	"license": "GPL-2.0-or-later",
 	"private": true,
 	"engines": {
-		"node": "20 || 22"
+		"node": ">=20 || 22",
+		"pnpm": ">=9"
 	},
 	"scripts": {
-		"build": "npm run build --workspaces --if-present --silent",
-		"dev": "node ./bin/dev.mjs",
+		"preinstall": "npx only-allow pnpm",
+		"postinstall": "pnpm run init --silent",
+		"build": "pnpm -r run build",
+		"dev": "concurrently pnpm:dev:*",
+		"dev:ws": "pnpm -r run dev",
+		"dev:bs": "browser-sync start --config bs-config.js",
 		"format": "node ./bin/lint.mjs --format",
 		"lint": "node ./bin/lint.mjs",
-		"cli": "npx wp-env run cli",
-		"wp-env": "npx wp-env",
-		"wp-flush": "npx wp-env run cli wp rewrite flush --hard",
-		"wp-export": "npx wp-env run cli ./env/export.sh",
-		"wp-import": "npx wp-env run cli ./env/import.sh",
+		"cli": "wp-env run cli",
+		"wp-env": "wp-env",
+		"wp-flush": "wp-env run cli wp rewrite flush --hard",
+		"wp-export": "wp-env run cli ./env/export.sh",
+		"wp-import": "wp-env run cli ./env/import.sh",
 		"composer": "docker run --rm --interactive --tty --volume $PWD:/app composer composer",
 		"composer-install": "npm run composer install",
 		"composer-update": "npm run composer update",
-		"packages-update": "wp-scripts packages-update && npm run packages-update --workspaces --if-present",
-		"setup": "npm run composer-install && node ./bin/wp-setup.mjs",
-		"init": "chmod +x ./{env,bin}/*.sh && ./bin/init.sh",
-		"postinstall": "npm run init --silent"
+		"//packages-update": "wp-scripts packages-update && pnpm -r run packages-update",
+		"setup": "pnpm run composer-install && node ./bin/wp-setup.mjs",
+		"init": "chmod +x ./{env,bin}/*.sh && ./bin/init.sh"
 	},
 	"dependencies": {
 		"@wordpress/scripts": "30.8.1",
@@ -34,11 +38,9 @@
 	"devDependencies": {
 		"@wordpress/env": "10.15.0",
 		"browser-sync": "^3.0.3",
+		"concurrently": "9.1.2",
 		"stylelint-config-recess-order": "5.1.1"
 	},
-	"workspaces": [
-		"source/wp-content/themes/mysite"
-	],
 	"browserslist": [
 		"extends @wordpress/browserslist-config"
 	]

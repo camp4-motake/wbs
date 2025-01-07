@@ -10,7 +10,7 @@
 		"build": "wp-scripts build --experimental-modules",
 		"lint": "wp-scripts lint-js src && wp-scripts lint-style './src/**/*.{css,scss}'",
 		"format": "stylelint './src/**/*.{css,scss}' -i .prettierignore --fix && eslint --ignore-path .prettierignore . --fix && wp-scripts format",
-		"packages-update": "wp-scripts packages-update",
+		"//packages-update": "wp-scripts packages-update",
 		"prebuild": "rimraf build/*",
 		"predev": "rimraf build/*"
 	},
@@ -29,6 +29,10 @@
 		"rimraf": "6.0.1",
 		"sharp": "0.33.5",
 		"svgo": "3.3.2"
+	},
+	"devDependencies": {
+		"eslint": "7.32.0",
+		"stylelint": "16.12.0"
 	},
 	"prettier": "../../../../.prettierrc.js",
 	"eslintConfig": {
