@@ -13,7 +13,7 @@
 		"build": "npm run build --workspaces --if-present --silent",
 		"dev": "node ./bin/dev.mjs",
 		"format": "node ./bin/lint.mjs --format",
-		"lint": "node ./bin/lint.mjs ",
+		"lint": "node ./bin/lint.mjs",
 		"setup": "node ./bin/wp-setup.mjs",
 		"cli": "npx wp-env run cli",
 		"composer": "docker run --rm --interactive --tty --volume $PWD:/app composer composer",
@@ -27,20 +27,12 @@
 	},
 	"dependencies": {
 		"@wordpress/scripts": "30.8.1",
-		"copy-webpack-plugin": "12.0.2",
-		"cssnano": "7.0.6",
-		"image-minimizer-webpack-plugin": "4.1.3",
-		"postcss-easy-import": "4.0.0",
-		"postcss-preset-env": "10.1.3",
-		"postcss-url": "10.1.3",
-		"sharp": "0.33.5",
-		"stylelint-config-recess-order": "5.1.1",
-		"svgo": "3.3.2",
 		"zx": "8.3.0"
 	},
 	"devDependencies": {
 		"@wordpress/env": "10.15.0",
-		"browser-sync": "^3.0.3"
+		"browser-sync": "^3.0.3",
+		"stylelint-config-recess-order": "5.1.1"
 	},
 	"workspaces": [
 		"source/wp-content/themes/mysite"
