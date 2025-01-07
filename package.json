@@ -32,7 +32,7 @@
 		"zx": "8.3.0"
 	},
 	"devDependencies": {
-		"@wordpress/env": "latest",
+		"@wordpress/env": "10.15.0",
 		"browser-sync": "^3.0.3",
 		"stylelint-config-recess-order": "5.1.1"
 	},
