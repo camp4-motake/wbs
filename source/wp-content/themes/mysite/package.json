@@ -10,7 +10,6 @@
 		"build": "wp-scripts build --experimental-modules",
 		"lint": "wp-scripts lint-js src && wp-scripts lint-style './src/**/*.{css,scss}'",
 		"format": "stylelint './src/**/*.{css,scss}' -i .prettierignore --fix && eslint --ignore-path .prettierignore . --fix && wp-scripts format",
-		"//packages-update": "wp-scripts packages-update",
 		"prebuild": "rimraf build/*",
 		"predev": "rimraf build/*"
 	},

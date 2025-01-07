@@ -14,9 +14,7 @@
 		"preinstall": "npx only-allow pnpm",
 		"postinstall": "pnpm run init --silent",
 		"build": "pnpm -r run build",
-		"dev": "concurrently pnpm:dev:*",
-		"dev:ws": "pnpm -r run dev",
-		"dev:bs": "browser-sync start --config bs-config.js",
+		"dev": "node bin/dev.mjs",
 		"format": "node ./bin/lint.mjs --format",
 		"lint": "node ./bin/lint.mjs",
 		"cli": "wp-env run cli",
@@ -27,7 +25,6 @@
 		"composer": "docker run --rm --interactive --tty --volume $PWD:/app composer composer",
 		"composer-install": "npm run composer install",
 		"composer-update": "npm run composer update",
-		"//packages-update": "wp-scripts packages-update && pnpm -r run packages-update",
 		"setup": "pnpm run composer-install && node ./bin/wp-setup.mjs",
 		"init": "chmod +x ./{env,bin}/*.sh && ./bin/init.sh"
 	},
@@ -38,7 +35,6 @@
 	"devDependencies": {
 		"@wordpress/env": "10.15.0",
 		"browser-sync": "^3.0.3",
-		"concurrently": "9.1.2",
 		"stylelint-config-recess-order": "5.1.1"
 	},
 	"browserslist": [
