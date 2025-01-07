@@ -11,25 +11,27 @@
 	container-name: site-header;
 
 	&:has(:focus-visible) {
-		background-color: var(--wp--preset--color--bg-fill-global);
+		background-color: var(--wp--preset--color--base);
 	}
 
 	@media (any-hover: hover) {
 		&:hover {
-			background-color: var(--wp--preset--color--bg-fill-global);
+			background-color: var(--wp--preset--color--base);
 		}
 	}
 
 	.header-container {
-		display: grid;
+		display: flex;
 		align-items: center;
+		justify-content: space-between;
+		inline-size: 100%;
 		block-size: var(--header-height);
 		padding-inline: var(--wp--preset--spacing--normal);
 	}
 }
 
 .has-menu-shown .wp-block-wbs-site-header {
-	background-color: var(--wp--preset--color--bg-fill-global);
+	background-color: var(--wp--preset--color--base);
 }
 
 [data-header-trigger] {

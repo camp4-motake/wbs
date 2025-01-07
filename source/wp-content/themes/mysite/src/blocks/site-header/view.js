@@ -1,2 +1,2 @@
-import './siteHeader';
-import './siteHeaderInViewObserver';
+import './assets/siteHeader';
+import './assets/siteHeaderInViewObserver';

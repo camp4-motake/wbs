@@ -216,12 +216,12 @@
 			"textTransform": false,
 			"fontFamilies": [
 				{
-					"fontFamily": "fot-udkakugo-large-pr6n, \"Hiragino Sans\", \"Hiragino Kaku Gothic ProN\", \"メイリオ\", meiryo, sans-serif",
+					"fontFamily": "\"Hiragino Sans\", \"Hiragino Kaku Gothic ProN\", \"メイリオ\", meiryo, sans-serif",
 					"slug": "sans-serif-ja",
 					"name": "sans serif ja"
 				},
 				{
-					"fontFamily": "\"din-2014-narrow\", sans-serif",
+					"fontFamily": "sans-serif",
 					"slug": "sans-serif-en",
 					"name": "sans serif en"
 				}
@@ -382,7 +382,7 @@
 			}
 		},
 		"color": {
-			"background": "var(--wp--preset--color--bg-fill-global)",
+			"background": "var(--wp--preset--color--base)",
 			"text": "var(--wp--preset--color--text-base)"
 		},
 		"typography": {
