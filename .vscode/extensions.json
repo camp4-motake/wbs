@@ -1,12 +1,8 @@
 {
 	"recommendations": [
-		"bmewburn.vscode-intelephense-client",
 		"dbaeumer.vscode-eslint",
-		"editorconfig.editorconfig",
 		"esbenp.prettier-vscode",
-		"jota0222.multi-formatter",
 		"obliviousharmony.vscode-php-codesniffer",
-		"stylelint.vscode-stylelint",
-		"vunguyentuan.vscode-postcss"
+		"stylelint.vscode-stylelint"
 	]
 }

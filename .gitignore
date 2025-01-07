@@ -146,21 +146,20 @@ mise.local.toml
 mise.*.local.toml
 
 # workspace
-node_modules
-*/wp-content/languages
-*/wp-content/plugins/*
-# !*/wp-content/plugins/wbs-*
-*/dist
-.tmp/
-auth.json
-.zip/
-*.zip
+*.DS_Store
 *.gzip
 *.sql
-
-Thumbs.db
-*.DS_Store
 *.tsbuildinfo
-vendor
-env/_bkp
-**/build/
+*.zip
+*/wp-content/languages
+*/wp-content/plugins/*
+.tmp/
+.zip/
+Thumbs.db
+auth.json
+build/
+env/_bkp/
+node_modules/
+vendor/
+
+# !*/wp-content/plugins/wbs-*
