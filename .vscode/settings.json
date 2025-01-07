@@ -24,12 +24,6 @@
 		"source.fixAll.eslint": "explicit",
 		"source.fixAll.stylelint": "explicit"
 	},
-	"phpCodeSniffer.autoExecutable": true,
-	"phpCodeSniffer.standard": "Automatic",
-	"phpCodeSniffer.lintAction": "Save",
-	"intelephense.environment.includePaths": [
-		"source/wp-content/plugins/advanced-custom-fields-pro"
-	],
 	"[handlebars]": {
 		"editor.formatOnSave": false
 	},
@@ -46,14 +40,11 @@
 			"obliviousharmony.vscode-php-codesniffer"
 		]
 	},
-	"cSpell.words": [ "LGBTQ", "WBS", "uncategorized" ]
-	/*
-
-	// ex) phpcs only
-	"[php]": {
-		"editor.formatOnSave": true,
-		"editor.defaultFormatter": "obliviousharmony.vscode-php-codesniffer"
-	},
-
-	*/
+	"phpCodeSniffer.autoExecutable": true,
+	"phpCodeSniffer.standard": "Automatic",
+	"phpCodeSniffer.lintAction": "Save",
+	"intelephense.environment.includePaths": [
+		"source/wp-content/plugins/advanced-custom-fields-pro"
+	],
+	"cSpell.words": [ "wbs", "uncategorized" ]
 }

@@ -146,6 +146,7 @@ mise.local.toml
 mise.*.local.toml
 
 # workspace
+*.code-workspace
 *.DS_Store
 *.gzip
 *.sql
