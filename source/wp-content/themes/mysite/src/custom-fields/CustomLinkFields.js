@@ -16,7 +16,8 @@ import { __ } from '@wordpress/i18n';
 import { Icon, external, link } from '@wordpress/icons';
 import { registerPlugin } from '@wordpress/plugins';
 
-const ALLOWED_POST_TYPES = [ 'materials' ];
+// 対象投稿タイプ
+const ALLOWED_POST_TYPES = [];
 
 const CustomLinkFields = () => {
 	const [ isEditingLink, setIsEditingLink ] = useState( false );

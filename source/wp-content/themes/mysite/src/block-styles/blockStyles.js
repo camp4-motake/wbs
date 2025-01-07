@@ -5,7 +5,7 @@
 
 // 追加ブロックスタイル
 const ADD = [
-	// ボタン
+	/* // example
 	{
 		block: 'core/button',
 		option: { name: 'icon-none', label: 'アイコンなし' },
@@ -14,6 +14,7 @@ const ADD = [
 		block: 'core/button',
 		option: { name: 'arrow-left', label: '左矢印' },
 	},
+	 */
 ];
 
 // 削除するデフォルトスタイル

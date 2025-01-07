@@ -9,14 +9,12 @@ if ( ! empty( $ctx['class'] ) ) {
 
 ?>
 <article class="<?php echo esc_attr( $wrapper_class_name ); ?>">
-	<figure class="card-thumbnail">
-		<?php the_post_thumbnail(); ?>
-	</figure>
+	<figure class="card-thumbnail"><?php the_post_thumbnail(); ?></figure>
 	<div class="card-inner">
 		<div class="card-head">
-			<?php get_template_part( 'template-parts/components/entry-meta' ); ?>
+			<?php get_template_part( 'template-parts/entry-meta' ); ?>
 			<div class="card-tag-list">
-				<?php get_template_part( 'template-parts/components/loop-badge-category' ); ?>
+				<?php get_template_part( 'template-parts/loop-badge-category' ); ?>
 			</div>
 		</div>
 		<h3 class="card-heading">

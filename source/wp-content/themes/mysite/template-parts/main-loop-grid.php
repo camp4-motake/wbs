@@ -25,11 +25,11 @@ if ( $ctx['class'] ) {
 
 	while ( have_posts() ) :
 		the_post();
-		get_template_part( 'template-parts/components/content', $ctx['template_slug'] );
+		get_template_part( 'template-parts/content', $ctx['template_slug'] );
 	endwhile;
 
 	if ( ! have_posts() ) {
-		get_template_part( 'template-parts/components/no-posts' );
+		get_template_part( 'template-parts/no-posts' );
 	}
 
 	?>

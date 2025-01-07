@@ -1,5 +1,3 @@
-import { debounce } from 'es-toolkit';
-
 export const wpAdminBarSize = () => {
 	const wpAdminBar = document.getElementById( 'wpadminbar' );
 	setWPAdminBarSizeCSSProperty( wpAdminBar );
@@ -9,13 +7,11 @@ export const wpAdminBarSize = () => {
 	}
 
 	const { ResizeObserver } = window;
-	const resizeObserver = new ResizeObserver(
-		debounce( ( entries ) => {
-			if ( entries[ 0 ].contentBoxSize ) {
-				setWPAdminBarSizeCSSProperty( wpAdminBar );
-			}
-		}, 50 )
-	);
+	const resizeObserver = new ResizeObserver( ( entries ) => {
+		if ( entries[ 0 ].contentBoxSize ) {
+			setWPAdminBarSizeCSSProperty( wpAdminBar );
+		}
+	} );
 	resizeObserver.observe( document.body );
 };
 

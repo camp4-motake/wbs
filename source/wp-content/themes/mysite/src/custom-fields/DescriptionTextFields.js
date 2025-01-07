@@ -9,7 +9,8 @@ import { PluginDocumentSettingPanel } from '@wordpress/editor';
 import { __ } from '@wordpress/i18n';
 import { registerPlugin } from '@wordpress/plugins';
 
-const ALLOWED_POST_TYPES = [ 'materials' ];
+// 対象投稿タイプ
+const ALLOWED_POST_TYPES = [];
 
 const DescriptionTextFields = () => {
 	const { postID, postType } = useSelect( ( select ) => {

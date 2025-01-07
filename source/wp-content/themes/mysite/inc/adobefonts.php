@@ -2,6 +2,8 @@
 
 /**
  * Adobe Fonts
+ *
+ * @package wbs
  */
 
 namespace Site\Theme\AdobeFonts;
@@ -23,7 +25,7 @@ EOM
 );
 
 /**
- * frontend assets
+ * insert frontend
  */
 function add_head_font_tag() {
 	$_script = ADOBE_FONT_TAG;
@@ -32,7 +34,7 @@ function add_head_font_tag() {
 add_action( 'wp_head', __NAMESPACE__ . '\\add_head_font_tag', 100 );
 
 /**
- * block editor assets
+ * insert block editor
  */
 function enqueue_editor_adobe_fonts() {
 	$_script = ADOBE_FONT_TAG;

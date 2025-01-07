@@ -1,5 +1,5 @@
 /**
- * カスタムフィールド: Pickup記事 入力パネル追加
+ * カスタムフィールド: サイドバーに「Pickup記事」入力パネル追加
  */
 
 import { CheckboxControl } from '@wordpress/components';
@@ -9,7 +9,8 @@ import { PluginDocumentSettingPanel } from '@wordpress/editor';
 import { __ } from '@wordpress/i18n';
 import { registerPlugin } from '@wordpress/plugins';
 
-const ALLOWED_POST_TYPES = [ 'news' ];
+// 対象投稿タイプ
+const ALLOWED_POST_TYPES = [];
 
 const PickupPostFields = () => {
 	const { postID, postType } = useSelect( ( select ) => {

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Head hook
+ * Head meta hook
  *
  * @package wbs
  */

@@ -51,7 +51,7 @@ $extra_attributes = array( 'class' => 'has-post-type-' . $attributes['postTypeSl
 
 			while ( $the_query->have_posts() ) {
 				$the_query->the_post();
-				get_template_part( 'template-parts/components/content', get_post_type() );
+				get_template_part( 'template-parts/content', get_post_type() );
 			}
 
 			wp_reset_postdata();

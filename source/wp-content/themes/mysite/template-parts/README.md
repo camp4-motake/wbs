@@ -1,3 +1,3 @@
 # Dynamic Rendering Templates
 
-PHP Templates & Components
+PHP Template parts & components

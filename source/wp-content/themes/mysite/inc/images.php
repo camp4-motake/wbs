@@ -60,12 +60,12 @@ add_filter( 'max_srcset_image_width', __NAMESPACE__ . '\\custom_max_srcset_image
  * JPEG画質の調整
  */
 function custom_jpeg_quality() {
-	return 90; // 画質を85%に設定（デフォルトは82）
+	return 90; // 画質設定（デフォルトは82）
 }
 add_filter( 'jpeg_quality', __NAMESPACE__ . '\\custom_jpeg_quality' );
 
 /**
- * 画像リサイズ時の画質設定
+ * リサイズ時の画質設定
  */
 function custom_image_editor_quality( /*  $quality  */ ) {
 	return 90;

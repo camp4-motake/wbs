@@ -15,4 +15,4 @@ define( 'MQ_LANDSCAPE', '(orientation: landscape)' );
 define( 'MQ_PORTRAIT', '(orientation: portrait)' );
 
 define( 'IS_ENABLE_THEME_SITE_ICON', false );
-define( 'IS_ENABLE_GTM_TRACKING', true );
+define( 'IS_ENABLE_GTM_TRACKING', false );

@@ -55,10 +55,10 @@ function additional_head_assets() {
 		echo '<link rel="icon" type="image/png" sizes="48x48" href="' . esc_url( Path\cache_buster( '/static/meta/favicon-48x48.png' ) ) . '">' . "\n";
 	}
 
-	// theme color.
+	// ex) theme color.
 	// echo '<meta name="theme-color" content="#468bb7">' . "\n";
 
-	// theme color (dark mode support)
+	// ex) theme color (dark mode support)
 	// echo '<meta name="theme-color" media="(prefers-color-scheme: light)" content="#efefef">' . "\n";
 	// echo '<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#323232">' . "\n";
 }

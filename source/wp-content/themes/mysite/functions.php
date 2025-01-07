@@ -47,7 +47,6 @@ require_once __DIR__ . '/inc/helper/util.php';
 
 // theme setup
 require_once __DIR__ . '/inc/assets.php';
-require_once __DIR__ . '/inc/block-templates.php';
 require_once __DIR__ . '/inc/cleanup.php';
 require_once __DIR__ . '/inc/editor.php';
 require_once __DIR__ . '/inc/googlefonts.php';

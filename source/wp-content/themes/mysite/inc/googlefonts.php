@@ -8,7 +8,7 @@
 
 namespace Site\Theme\GoogleFonts;
 
-define( 'GOOGLE_FONTS', array( '' ) );
+define( 'GOOGLE_FONTS', array() );
 
 /**
  * Goggle Font キューを追加

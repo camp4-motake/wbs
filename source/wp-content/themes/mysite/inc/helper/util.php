@@ -84,7 +84,6 @@ function get_share_links() {
 	);
 }
 
-
 /**
  * Blank Check
  *
