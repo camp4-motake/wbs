@@ -7,14 +7,15 @@
 	"license": "GPL-2.0-or-later",
 	"private": true,
 	"engines": {
-		"node": ">=20 || 22",
-		"pnpm": ">=9"
+		"node": ">=22",
+		"pnpm": ">=10"
 	},
+	"packageManager": "pnpm@10.0.0",
 	"scripts": {
 		"preinstall": "npx only-allow pnpm",
 		"postinstall": "pnpm run init --silent",
 		"build": "pnpm -r run build",
-		"dev": "node bin/dev.mjs",
+		"dev": "pnpm -r run dev & browser-sync start --config bs-config.js",
 		"format": "node ./bin/lint.mjs --format",
 		"lint": "node ./bin/lint.mjs",
 		"cli": "wp-env run cli",
