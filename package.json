@@ -20,10 +20,8 @@
 		"wp-export": "npx wp-env run cli ./env/export.sh",
 		"wp-import": "npx wp-env run cli ./env/import.sh",
 		"composer": "docker run --rm --interactive --tty --volume $PWD:/app composer composer",
-		"composer-install": "npm run composer install",
-		"composer-update": "npm run composer update",
 		"packages-update": "wp-scripts packages-update && npm run packages-update --workspaces --if-present",
-		"setup": "npm run composer-install && node ./bin/wp-setup.mjs",
+		"setup": "npm run composer install && node ./bin/wp-setup.mjs",
 		"init": "chmod +x ./{env,bin}/*.sh && ./bin/init.sh",
 		"postinstall": "npm run init --silent"
 	},
