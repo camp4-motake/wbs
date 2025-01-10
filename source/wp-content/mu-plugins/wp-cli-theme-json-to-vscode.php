@@ -64,7 +64,7 @@ class Theme_JSON_CSS_Vars_Command
 
 			// If CSS format is requested, output stylesheet directly
 			if ($format === 'css') {
-				$content = $stylesheet;
+				$content = '/** DO NOT EDIT: theme.json CSS styles to autocomplete css variables in vscode */' . "\n" . $stylesheet;
 			} else {
 				// Extract CSS variables using regex
 				$variables = $this->extract_css_vars_from_stylesheet($stylesheet);
