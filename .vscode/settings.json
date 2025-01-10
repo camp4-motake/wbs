@@ -6,7 +6,7 @@
 		"composer.lock": true,
 		"node_modules": false,
 		"package-lock.json": true,
-		"source/wp-content/mu-plugins": false,
+		"source/wp-content/mu-plugins": true,
 		"source/wp-content/plugins/advanced-custom-fields-pro": true,
 		"**/*.tsbuildinfo": true
 	},
