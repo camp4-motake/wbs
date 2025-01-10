@@ -6,7 +6,7 @@
 		"composer.lock": true,
 		"node_modules": false,
 		"package-lock.json": true,
-		"source/wp-content/mu-plugins": true,
+		"source/wp-content/mu-plugins": false,
 		"source/wp-content/plugins/advanced-custom-fields-pro": true,
 		"**/*.tsbuildinfo": true
 	},
@@ -45,6 +45,9 @@
 	"phpCodeSniffer.lintAction": "Save",
 	"intelephense.environment.includePaths": [
 		"source/wp-content/plugins/advanced-custom-fields-pro"
+	],
+	"cssVariables.lookupFiles": [
+		"env/.vscode-helper/theme-json-variables.css"
 	],
 	"cSpell.words": [ "wbs", "uncategorized" ]
 }

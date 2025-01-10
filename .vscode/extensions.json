@@ -5,6 +5,7 @@
 		"esbenp.prettier-vscode",
 		"jota0222.multi-formatter",
 		"obliviousharmony.vscode-php-codesniffer",
-		"stylelint.vscode-stylelint"
+		"stylelint.vscode-stylelint",
+		"vunguyentuan.vscode-css-variables"
 	]
 }

@@ -146,8 +146,8 @@ mise.local.toml
 mise.*.local.toml
 
 # workspace
-*.code-workspace
 *.DS_Store
+*.code-workspace
 *.gzip
 *.sql
 *.tsbuildinfo
@@ -159,8 +159,8 @@ mise.*.local.toml
 Thumbs.db
 auth.json
 build/
+env/.vscode-helper/
 env/_bkp/
 node_modules/
 vendor/
-
 # !*/wp-content/plugins/wbs-*
