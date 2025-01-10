@@ -1,6 +1,4 @@
 {
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
-	"editor.formatOnSave": true,
 	"files.exclude": {
 		".cache": true,
 		"composer.lock": true,
@@ -17,13 +15,15 @@
 		"*.sql": true,
 		"*.zip": true
 	},
-	"css.validate": false,
-	"postcss.validate": false,
 	"editor.codeActionsOnSave": {
 		"source.organizeImports": "explicit",
 		"source.fixAll.eslint": "explicit",
 		"source.fixAll.stylelint": "explicit"
 	},
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	"css.validate": false,
+	"postcss.validate": false,
 	"[handlebars]": {
 		"editor.formatOnSave": false
 	},
@@ -40,14 +40,20 @@
 			"obliviousharmony.vscode-php-codesniffer"
 		]
 	},
+
+	/** vscode-php-codesniffer @see https://github.com/ObliviousHarmony/vscode-php-codesniffer */
 	"phpCodeSniffer.autoExecutable": true,
 	"phpCodeSniffer.standard": "Automatic",
 	"phpCodeSniffer.lintAction": "Save",
+
+	/** vscode-intelephense @see https://github.com/bmewburn/vscode-intelephense */
 	"intelephense.environment.includePaths": [
 		"source/wp-content/plugins/advanced-custom-fields-pro"
 	],
 
-	/** vscode-css-variables https://github.com/vunguyentuan/vscode-css-variables */
+	/** vscode-css-variables @see https://github.com/vunguyentuan/vscode-css-variables */
 	"cssVariables.lookupFiles": [ "env/.vscode-helper/*.css" ],
+
+	/** vscode-spell-checker @see https://github.com/streetsidesoftware/vscode-spell-checker */
 	"cSpell.words": [ "wbs", "uncategorized" ]
 }
