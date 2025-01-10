@@ -46,8 +46,19 @@ npm run lint
 npm run format
 ```
 
-### resources
+### tools
 
-- [wp-env](https://github.com/WordPress/gutenberg/tree/HEAD/packages/env#readme) | [wp-scripts](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/)
+```sh
+# export database & media files -> env/_bkp
+npm run wp-export
+
+# import database & media files -> env/_bkp
+npm run wp-import
+```
+
+## resources
+
 - [WordPress Developer Resources](https://developer.wordpress.org/)
+- [wp-env](https://github.com/WordPress/gutenberg/tree/HEAD/packages/env#readme)
+- [wp-scripts](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-scripts/)
 - [npm workspaces](https://docs.npmjs.com/cli/v10/using-npm/workspaces)
