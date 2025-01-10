@@ -16,6 +16,7 @@ if ( process.argv.includes( '--format' ) ) {
 		await $`docker run --rm --volume $PWD:/app composer composer format ${ ws }`;
 	} );
 }
+
 // lint
 else {
 	await $`npm run lint --workspaces --if-present`;

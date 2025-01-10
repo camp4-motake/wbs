@@ -10,7 +10,7 @@ $.verbose = true;
 
 // dev task
 await Promise.all( [
-	$`node ./bin/vscode-helper.mjs`,
+	$`node ./bin/vscode-helper.mjs --watch`,
 	$`npx browser-sync start --config bs-config.js`,
 	...workspaces.map( ( ws ) => $`npm run dev --if-present -w ${ ws }` ),
 ] );

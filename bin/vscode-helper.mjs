@@ -2,27 +2,31 @@
 import chokidar from 'chokidar';
 import { $ } from 'zx';
 
+const target = 'theme.json';
 process.env.FORCE_COLOR = '1';
 $.verbose = true;
 
-const target = 'theme.json';
-const generateHelper = async () =>
+const generateHelperFile = async () => {
 	await $`wp-env run cli wp css-vars-to-vscode -- --format=css --output=./env/.vscode-helper/theme-json-variables.css`;
+};
 
 const init = async () => {
-	const watcher = chokidar.watch( 'source/wp-content', {
-		ignored: ( path, stats ) => {
-			return !! ( stats?.isFile() && ! path.endsWith( target ) );
-		},
-	} );
+	generateHelperFile();
 
-	watcher.on( 'change', async ( path ) => {
-		console.log( `File ${ path } has been changed` );
-		generateHelper();
-	} );
+	if ( process.argv.includes( '--watch' ) ) {
+		const watcher = chokidar.watch( 'source/wp-content', {
+			ignored: ( path, stats ) => {
+				return !! ( stats?.isFile() && ! path.endsWith( target ) );
+			},
+		} );
 
-	generateHelper();
-	console.log( `Watching for ${ target } changes...` );
+		watcher.on( 'change', async ( path ) => {
+			console.log( `File ${ path } has been changed` );
+			generateHelperFile();
+		} );
+
+		console.log( `Watching for ${ target } changes...` );
+	}
 };
 
 init().catch( console.error );
