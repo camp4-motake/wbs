@@ -1,12 +1,11 @@
 /* eslint-disable no-console */
-import { findWorkspaces } from 'find-workspaces';
+import { findWorkspaces as fws } from 'find-workspaces';
 import { relative } from 'node:path';
 import { $ } from 'zx';
 
-const workspaces =
-	findWorkspaces()?.map( ( ws ) =>
-		relative( process.cwd(), ws?.location )
-	) || [];
+const workspaces = fws()?.map( ( ws ) =>
+	relative( process.cwd(), ws?.location )
+);
 
 const init = async () => {
 	$.verbose = true;

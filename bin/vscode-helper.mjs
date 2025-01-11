@@ -17,20 +17,22 @@ const generateHelperFile = async () => {
 const init = async () => {
 	generateHelperFile();
 
-	if ( process.argv.includes( '--watch' ) ) {
-		const watcher = chokidar.watch( 'source/wp-content', {
-			ignored: ( path, stats ) => {
-				return !! ( stats?.isFile() && ! path.endsWith( target ) );
-			},
-		} );
-
-		watcher.on( 'change', async ( path ) => {
-			console.log( `File ${ path } has been changed` );
-			generateHelperFile();
-		} );
-
-		console.log( `Watching for ${ target } changes...` );
+	if ( ! process.argv.includes( '--watch' ) ) {
+		return;
 	}
+
+	const watcher = chokidar.watch( 'source/wp-content', {
+		ignored: ( path, stats ) => {
+			return !! ( stats?.isFile() && ! path.endsWith( target ) );
+		},
+	} );
+
+	watcher.on( 'change', async ( path ) => {
+		console.log( `File ${ path } has been changed` );
+		generateHelperFile();
+	} );
+
+	console.log( `Watching for ${ target } changes...` );
 };
 
 init().catch( console.error );
