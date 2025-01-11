@@ -7,7 +7,11 @@ process.env.FORCE_COLOR = '1';
 $.verbose = true;
 
 const generateHelperFile = async () => {
-	await $`wp-env run cli wp css-vars-to-vscode -- --format=css --output=./env/.vscode-helper/theme-json-variables.css`;
+	try {
+		await $`wp-env run cli wp css-vars-to-vscode -- --format=css --output=./env/.vscode-helper/theme-json-variables.css`;
+	} catch ( error ) {
+		console.error( 'Error running wp-env:', error?.stderr ?? error );
+	}
 };
 
 const init = async () => {
