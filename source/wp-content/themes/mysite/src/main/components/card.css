@@ -10,7 +10,7 @@
 	display: block;
 	aspect-ratio: 3/2;
 	overflow: clip;
-	background-color: var(-- wp--preset--color--placeholder);
+	background-color: var(--wp--preset--color--placeholder);
 	border-radius: 1rem;
 
 	&:not(:has(img)) {
