@@ -2,20 +2,18 @@
 import chokidar from 'chokidar';
 import { $ } from 'zx';
 
-const target = 'theme.json';
-process.env.FORCE_COLOR = '1';
-$.verbose = true;
+const outFile = './env/.vscode-helper/theme-json-variables.css';
 
-const generateHelperFile = async () => {
+const generateThemeJsonVariables = async () => {
 	try {
-		await $`wp-env run cli wp css-vars-to-vscode -- --format=css --output=./env/.vscode-helper/theme-json-variables.css`;
+		await $`wp-env run cli wp css-vars-to-vscode -- --format=css --output=${ outFile }`;
 	} catch ( error ) {
 		console.error( 'Error running wp-env:', error?.stderr ?? error );
 	}
 };
 
 const init = async () => {
-	generateHelperFile();
+	generateThemeJsonVariables();
 
 	if ( ! process.argv.includes( '--watch' ) ) {
 		return;
@@ -23,16 +21,16 @@ const init = async () => {
 
 	const watcher = chokidar.watch( 'source/wp-content', {
 		ignored: ( path, stats ) => {
-			return !! ( stats?.isFile() && ! path.endsWith( target ) );
+			return !! ( stats?.isFile() && ! path.endsWith( `/theme.json` ) );
 		},
 	} );
 
 	watcher.on( 'change', async ( path ) => {
 		console.log( `File ${ path } has been changed` );
-		generateHelperFile();
+		generateThemeJsonVariables();
 	} );
 
-	console.log( `Watching for ${ target } changes...` );
+	console.log( `Watching for theme.json changes...` );
 };
 
 init().catch( console.error );
