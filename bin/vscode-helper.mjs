@@ -2,11 +2,14 @@
 import chokidar from 'chokidar';
 import { $ } from 'zx';
 
-const outFile = './env/.vscode-helper/theme-json-variables.css';
+const outFile = './env/.vscode-helper/_theme-json-styles.css';
+
+process.env.FORCE_COLOR = '1';
+$.verbose = true;
 
 const generateThemeJsonVariables = async () => {
 	try {
-		await $`wp-env run cli wp css-vars-to-vscode -- --format=css --output=${ outFile }`;
+		await $`wp-env run cli wp export-theme-json-styles -- --output=${ outFile }`;
 	} catch ( error ) {
 		console.error( 'Error running wp-env:', error?.stderr ?? error );
 	}
