@@ -39,14 +39,9 @@
 		"editor.defaultFormatter": "Jota0222.multi-formatter",
 		"multiFormatter.formatterList": [
 			"bmewburn.vscode-intelephense-client",
-			"obliviousharmony.vscode-php-codesniffer"
+			"ValeryanM.vscode-phpsab"
 		]
 	},
-
-	/** vscode-php-codesniffer @see https://github.com/ObliviousHarmony/vscode-php-codesniffer */
-	"phpCodeSniffer.autoExecutable": true,
-	"phpCodeSniffer.standard": "Automatic",
-	"phpCodeSniffer.lintAction": "Save",
 
 	/** vscode-intelephense @see https://github.com/bmewburn/vscode-intelephense */
 	"intelephense.environment.includePaths": [
