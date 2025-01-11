@@ -1,20 +1,20 @@
 <?php
 
-$ctx = wp_parse_args($args, array('class' => ''));
+$ctx = wp_parse_args( $args, array( 'class' => '' ) );
 
 $wrapper_class_name = 'card-article';
-if (! empty($ctx['class'])) {
+if ( ! empty( $ctx['class'] ) ) {
 	$wrapper_class_name .= ' ' . $ctx['class'];
 }
 
 ?>
-<article class="<?php echo esc_attr($wrapper_class_name); ?>">
+<article class="<?php echo esc_attr( $wrapper_class_name ); ?>">
 	<figure class="card-thumbnail"><?php the_post_thumbnail(); ?></figure>
 	<div class="card-inner">
 		<div class="card-head">
-			<?php get_template_part('template-parts/entry-meta'); ?>
+			<?php get_template_part( 'template-parts/entry-meta' ); ?>
 			<div class="card-tag-list">
-				<?php get_template_part('template-parts/loop-badge-category'); ?>
+				<?php get_template_part( 'template-parts/loop-badge-category' ); ?>
 			</div>
 		</div>
 		<h3 class="card-heading">
