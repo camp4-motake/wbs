@@ -33,10 +33,11 @@
 		"@wordpress/env": "10.15.0",
 		"browser-sync": "^3.0.3",
 		"chokidar": "4.0.3",
+		"find-workspaces": "0.3.1",
 		"stylelint-config-recess-order": "5.1.1"
 	},
 	"workspaces": [
-		"source/wp-content/themes/mysite"
+		"source/wp-content/themes/*"
 	],
 	"browserslist": [
 		"extends @wordpress/browserslist-config"
