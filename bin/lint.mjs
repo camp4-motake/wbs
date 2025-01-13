@@ -7,15 +7,19 @@ const init = async () => {
 	process.env.FORCE_COLOR = '1';
 
 	if ( process.argv.includes( '--format' ) ) {
-		/** format */
+		/**
+		 * format
+		 */
 		await $`npx wp-scripts format . '!source'`;
-		await $`npm run format --workspaces --if-present`;
+		await $`npm run format --ws --if-present`;
 		for ( const ws of workspaces ) {
 			await $`docker run --rm --volume $PWD:/app composer composer format ${ ws }`;
 		}
 	} else {
-		/** lint */
-		await $`npm run lint --workspaces --if-present`;
+		/**
+		 * lint
+		 */
+		await $`npm run lint --ws --if-present`;
 		for ( const ws of workspaces ) {
 			await $`docker run --rm --volume $PWD:/app composer composer lint ${ ws }`;
 		}

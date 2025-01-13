@@ -3,6 +3,7 @@
 $ctx = wp_parse_args( $args, array( 'class' => '' ) );
 
 $wrapper_class_name = 'card-article';
+
 if ( ! empty( $ctx['class'] ) ) {
 	$wrapper_class_name .= ' ' . $ctx['class'];
 }
