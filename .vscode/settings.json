@@ -23,7 +23,8 @@
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.formatOnSave": true,
 	"css.validate": false,
-	"postcss.validate": false,
+	"scss.validate": false,
+	"stylelint.validate": [ "css", "scss" ],
 	"eslint.validate": [
 		"javascript",
 		"javascriptreact",
