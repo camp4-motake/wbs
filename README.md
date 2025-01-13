@@ -46,16 +46,6 @@ npm run lint
 npm run format
 ```
 
-### tools
-
-```sh
-# export database & media files -> env/_bkp
-npm run wp-export
-
-# import database & media files -> env/_bkp
-npm run wp-import
-```
-
 ## resources
 
 - [WordPress Developer Resources](https://developer.wordpress.org/)
