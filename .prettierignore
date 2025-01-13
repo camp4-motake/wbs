@@ -1,7 +1,8 @@
-*.md
 *.hbs
-node_modules/
-vendor/
+*.md
 composer.lock
 package-lock.json
 pnpm-lock.yaml
+node_modules/
+vendor/
+source/wp-content/plugins/advanced-custom-fields-pro/
