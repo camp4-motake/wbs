@@ -1,5 +1,6 @@
 {
 	"files.exclude": {
+		"**/.DS_Store/**": true,
 		".cache": true,
 		"composer.lock": true,
 		"node_modules": false,
@@ -17,11 +18,11 @@
 	},
 	"editor.codeActionsOnSave": {
 		"source.organizeImports": "explicit",
-		"source.fixAll.eslint": "explicit",
-		"source.fixAll.stylelint": "explicit"
+		"source.fixAll": "explicit"
 	},
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.formatOnSave": true,
+
 	"css.validate": false,
 	"scss.validate": false,
 	"stylelint.validate": [ "css", "scss" ],
@@ -34,6 +35,38 @@
 	"eslint.useFlatConfig": false,
 	"typescript.tsdk": "node_modules/typescript/lib",
 
+	/** https://github.com/bmewburn/vscode-intelephense */
+	"intelephense.files.exclude": [
+		"**/.cache/**",
+		"**/.git/**",
+		"**/.history/**",
+		"**/vendor/**"
+	],
+	"intelephense.environment.includePaths": [
+		"source/wp-content/plugins/advanced-custom-fields-pro"
+	],
+	"intelephense.environment.phpVersion": "7.2.24",
+
+	/** https://marketplace.visualstudio.com/items?itemName=obliviousharmony.vscode-php-codesniffer */
+	"phpCodeSniffer.autoExecutable": true,
+	"phpCodeSniffer.standard": "Automatic",
+	"phpCodeSniffer.exclude": [
+		"**/.git/**",
+		"**/.svn/**",
+		"**/.hg/**",
+		"**/.cache/**",
+		"**/jetpack_vendor/**",
+		"**/vendor/**"
+	],
+
+	"[php]": {
+		"editor.formatOnSave": true,
+		"editor.defaultFormatter": "Jota0222.multi-formatter",
+		"multiFormatter.formatterList": [
+			"bmewburn.vscode-intelephense-client",
+			"obliviousharmony.vscode-php-codesniffer"
+		]
+	},
 	"[javascript]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
@@ -46,21 +79,6 @@
 	"[handlebars]": {
 		"editor.formatOnSave": false
 	},
-
-	"[php]": {
-		// WORKAROUND
-		/** https://github.com/jota0222/MultiFormatterVSCode */
-		"editor.defaultFormatter": "Jota0222.multi-formatter",
-		"multiFormatter.formatterList": [
-			"bmewburn.vscode-intelephense-client",
-			"ValeryanM.vscode-phpsab"
-		]
-	},
-
-	/** https://github.com/bmewburn/vscode-intelephense */
-	"intelephense.environment.includePaths": [
-		"source/wp-content/plugins/advanced-custom-fields-pro"
-	],
 
 	/** https://github.com/vunguyentuan/vscode-css-variables */
 	"cssVariables.lookupFiles": [ "env/.vscode-helper/*.css" ],
