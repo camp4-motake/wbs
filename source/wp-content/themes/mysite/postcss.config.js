@@ -7,8 +7,6 @@ module.exports = ( ctx ) => ( {
 			features: { 'nesting-rules': true },
 		},
 		'postcss-url': { filter: '**/_inline/*', url: 'inline' },
-		...( ctx.mode === 'production'
-			? { cssnano: { preset: 'default' } }
-			: {} ),
+		...( ctx.mode === 'production' && { cssnano: { preset: 'default' } } ),
 	},
 } );
