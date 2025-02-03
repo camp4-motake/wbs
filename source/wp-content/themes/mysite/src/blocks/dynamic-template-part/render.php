@@ -28,29 +28,29 @@ $extra_attributes = array( 'class' => 'has-display-content' );
 		get_template_part( esc_attr( $attributes['templatePartPath'] ) );
 
 	elseif ( is_front_page() || is_home() ) :
-		get_template_part( 'template-parts/front-page' );
+		get_template_part( 'partials/front-page' );
 
 	elseif ( is_page() ) :
 		global $post;
-		get_template_part( 'template-parts/page', $post->post_name );
+		get_template_part( 'partials/page', $post->post_name );
 
 	elseif ( is_singular() ) :
-		get_template_part( 'template-parts/single', get_post_type() );
+		get_template_part( 'partials/single', get_post_type() );
 
 	elseif ( is_tax() ) :
 		$tax_slug = get_query_var( 'taxonomy' );
 
-		if ( Util\check_template_part_exists( 'template-parts/taxonomy' . $tax_slug ) ) :
-			get_template_part( 'template-parts/taxonomy', $tax_slug );
+		if ( Util\check_template_part_exists( 'partials/taxonomy' . $tax_slug ) ) :
+			get_template_part( 'partials/taxonomy', $tax_slug );
 		else :
-			get_template_part( 'template-parts/archive', get_post_type() );
+			get_template_part( 'partials/archive', get_post_type() );
 		endif;
 
 	elseif ( is_archive() ) :
-		get_template_part( 'template-parts/archive', get_post_type() );
+		get_template_part( 'partials/archive', get_post_type() );
 
 	elseif ( is_search() ) :
-		get_template_part( 'template-parts/search' );
+		get_template_part( 'partials/search' );
 
 	else :
 		the_content();
