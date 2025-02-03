@@ -5,7 +5,6 @@
 		"composer.lock": true,
 		"node_modules": false,
 		"package-lock.json": true,
-		"source/wp-content/mu-plugins": true,
 		"source/wp-content/plugins/advanced-custom-fields-pro": true,
 		"**/*.tsbuildinfo": true
 	},
@@ -18,22 +17,27 @@
 	},
 	"editor.codeActionsOnSave": {
 		"source.organizeImports": "explicit",
-		"source.fixAll": "explicit"
+		"source.fixAll.eslint": "explicit",
+		"source.fixAll.stylelint": "explicit"
 	},
+
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.formatOnSave": true,
 
-	"css.validate": false,
-	"scss.validate": false,
-	"stylelint.validate": [ "css", "scss" ],
+	"eslint.format.enable": true,
+	"eslint.useFlatConfig": false,
+	"eslint.workingDirectories": [ { "mode": "auto" } ],
 	"eslint.validate": [
 		"javascript",
 		"javascriptreact",
 		"typescript",
 		"typescriptreact"
 	],
-	"eslint.useFlatConfig": false,
 	"typescript.tsdk": "node_modules/typescript/lib",
+
+	"css.validate": false,
+	"scss.validate": false,
+	"stylelint.validate": [ "css", "scss" ],
 
 	/** https://github.com/bmewburn/vscode-intelephense */
 	"intelephense.files.exclude": [
@@ -68,7 +72,16 @@
 		]
 	},
 	"[javascript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	},
+	"[javascriptreact]": {
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	},
+	"[typescript]": {
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
 	},
 	"[json]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
