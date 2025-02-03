@@ -42,10 +42,10 @@
 [data-modal-overlay] {
 	position: fixed;
 	z-index: calc(var(--wp--custom--z--overlay) - 1);
+	visibility: hidden;
 	inline-size: 100%;
 	block-size: 100%;
 	pointer-events: none;
-	visibility: hidden;
 	background-color: var(--wp--preset--color--text-base);
 	opacity: 0;
 	transition: 0.2s ease;

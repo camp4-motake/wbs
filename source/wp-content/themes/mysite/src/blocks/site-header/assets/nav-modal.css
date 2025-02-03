@@ -3,10 +3,10 @@
 	inset-block-start: var(--header-and-adminbar-heigh);
 	inset-inline-end: 0;
 	z-index: var(--wp--custom--z--nav-menu);
+	visibility: hidden;
 	inline-size: 100%;
 	block-size: calc(100svh - var(--header-and-adminbar-height));
 	overflow: clip;
-	visibility: hidden;
 	opacity: 0;
 }
 
@@ -57,7 +57,7 @@
 
 .has-page-active.has-menu-shown .nav-modal-content {
 	opacity: 1;
+	transform: translateY(0);
 	transition-delay: 0.6s, 0.6s;
 	transition-duration: 0.8s, 0.8s;
-	transform: translateY(0);
 }

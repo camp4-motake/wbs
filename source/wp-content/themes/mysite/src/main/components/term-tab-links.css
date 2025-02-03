@@ -44,8 +44,8 @@
 	font-size: var(--wp--preset--font-size--14);
 	font-weight: var(--wp--custom--font-weight--bold);
 	color: var(--wp--preset--color--text-disable);
-	text-decoration: none;
 	white-space: nowrap;
+	text-decoration: none;
 
 	&::after {
 		position: absolute;

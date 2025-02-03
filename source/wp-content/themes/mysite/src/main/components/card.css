@@ -66,10 +66,10 @@
 	min-block-size: 1.75rem;
 	margin-block-end: var(--wp--preset--spacing--xs);
 	overflow: hidden;
+	text-overflow: ellipsis;
 	font-size: var(--wp--preset--font-size--16);
 	font-weight: var(--wp--custom--font-weight--bold);
 	line-height: var(--wp--custom--line-height--md);
-	text-overflow: ellipsis;
 	white-space: nowrap;
 
 	.updated {

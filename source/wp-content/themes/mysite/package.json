@@ -30,9 +30,9 @@
 		"sharp": "0.33.5",
 		"svgo": "3.3.2"
 	},
-	"prettier": "../../../../.prettierrc",
+	"prettier": "../../../../.prettierrc.js",
 	"eslintConfig": {
-		"extends": "../../../../.eslintrc"
+		"extends": "../../../../.eslintrc.js"
 	},
 	"stylelint": {
 		"extends": "../../../../.stylelintrc.js"

@@ -42,8 +42,8 @@
 			content: "";
 			background-color: currentcolor;
 			mask: var(--img-ico-toggle-plus) no-repeat center / calc(100% - 2px);
-			transition: transform var(--_accordion-duration) ease;
 			transform: rotate(180deg);
+			transition: transform var(--_accordion-duration) ease;
 		}
 	}
 
