@@ -2,7 +2,7 @@ const { existsSync } = require( 'node:fs' );
 const { relative } = require( 'node:path' );
 const { findWorkspaces } = require( 'find-workspaces' );
 
-const { workspaces } = findWorkspaces()?.map( ( ws ) =>
+const workspaces = findWorkspaces()?.map( ( ws ) =>
 	relative( process.cwd(), ws?.location )
 );
 const wpEnv = [ './.wp-env.json', './.wp-env.override.json' ].reduce(
