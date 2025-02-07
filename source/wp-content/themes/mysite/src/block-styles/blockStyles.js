@@ -4,8 +4,9 @@
  */
 
 // 追加ブロックスタイル
-const ADD = [
+const ADDED_STYLES = [
 	/* // example
+	 */
 	{
 		block: 'core/button',
 		option: { name: 'icon-none', label: 'アイコンなし' },
@@ -14,14 +15,12 @@ const ADD = [
 		block: 'core/button',
 		option: { name: 'arrow-left', label: '左矢印' },
 	},
-	 */
 ];
 
 // 削除するデフォルトスタイル
-const REMOVED = [
+const REMOVED_STYLES = [
 	{ block: 'core/button', style: 'outline' },
 	{ block: 'core/button', style: 'fill' },
-	// { block: 'core/image', style: 'rounded' },
 ];
 
 export const blockStyles = () => {
@@ -29,10 +28,17 @@ export const blockStyles = () => {
 		return;
 	}
 
-	ADD?.forEach( ( s ) =>
+	ADDED_STYLES?.forEach( ( s ) =>
 		wp?.blocks?.registerBlockStyle( s.block, s.option )
 	);
-	REMOVED.forEach( ( s ) =>
+};
+
+export const removeBlockStyles = () => {
+	if ( ! window?.wp?.blocks ) {
+		return;
+	}
+
+	REMOVED_STYLES.forEach( ( s ) =>
 		wp.blocks.unregisterBlockStyle( s.block, s.style )
 	);
 };

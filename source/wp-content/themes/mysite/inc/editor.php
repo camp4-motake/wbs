@@ -18,6 +18,7 @@ function enqueue_editor_assets() {
 		return;
 	}
 
+	// editor assets
 	$asset        = include_once get_theme_file_path( 'build/editor/index.asset.php' );
 	$dependencies = ( ! empty( $asset['dependencies'] ) ) ? $asset['dependencies'] : array();
 	$version      = ( ! empty( $asset['version'] ) ) ? $asset['version'] : null;
@@ -28,20 +29,25 @@ function enqueue_editor_assets() {
 		array(),
 		$version,
 	);
-
 	wp_enqueue_script(
 		'theme-editor-scripts',
 		get_theme_file_uri( 'build/editor/index.js' ),
-		array(),
+		$dependencies,
 		$version,
 		false
 	);
 
-	// styles css
+	// block styles css
 	$asset        = include get_theme_file_path( 'build/block-styles/index.asset.php' );
 	$dependencies = ( ! empty( $asset['dependencies'] ) ) ? $asset['dependencies'] : array();
 	$version      = ( ! empty( $asset['version'] ) ) ? $asset['version'] : null;
 
+	wp_enqueue_style(
+		'theme-block-styles-styles',
+		get_theme_file_uri( 'build/block-styles/index.css' ),
+		array(),
+		$version,
+	);
 	wp_enqueue_script(
 		'theme-block-styles-scripts',
 		get_theme_file_uri( 'build/block-styles/index.js' ),
@@ -49,8 +55,47 @@ function enqueue_editor_assets() {
 		$version,
 		false
 	);
+
+	// block variations css
+	$asset        = include get_theme_file_path( 'build/block-variations/index.asset.php' );
+	$dependencies = ( ! empty( $asset['dependencies'] ) ) ? $asset['dependencies'] : array();
+	$version      = ( ! empty( $asset['version'] ) ) ? $asset['version'] : null;
+
+	wp_enqueue_style(
+		'theme-block-variations-styles',
+		get_theme_file_uri( 'build/block-variations/index.css' ),
+		array(),
+		$version,
+	);
+	wp_enqueue_script(
+		'theme-block-variations-scripts',
+		get_theme_file_uri( 'build/block-variations/index.js' ),
+		$dependencies,
+		$version,
+		false
+	);
+
+	// formats
+	$asset        = include get_theme_file_path( 'build/formats/index.asset.php' );
+	$dependencies = ( ! empty( $asset['dependencies'] ) ) ? $asset['dependencies'] : array();
+	$version      = ( ! empty( $asset['version'] ) ) ? $asset['version'] : null;
+
+	wp_enqueue_style(
+		'theme-editor-styles',
+		get_theme_file_uri( 'build/formats/index.css' ),
+		array(),
+		$version,
+	);
+	wp_enqueue_script(
+		'theme-formats-scripts',
+		get_theme_file_uri( 'build/formats/index.js' ),
+		$dependencies,
+		$version,
+		false
+	);
 }
 add_action( 'enqueue_block_assets', __NAMESPACE__ . '\\enqueue_editor_assets', 100 );
+
 
 /**
  * 投稿の初回保存時にページIDを設定（記事の日本語タイトルがそのままスラッグになるのを防ぐ）
