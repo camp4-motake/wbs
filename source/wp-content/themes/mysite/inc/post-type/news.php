@@ -80,9 +80,7 @@ function set_taxonomy() {
 				'with_front'   => false,
 				'hierarchical' => true,
 			),
-			// 'capabilities' => array(
-			//  'assign_terms' => 'edit_newss',
-			// ),
+			// 'capabilities' => array( 'assign_terms' => 'edit_newss', ),
 		)
 	);
 }
