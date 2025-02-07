@@ -76,7 +76,7 @@ function set_taxonomy() {
 				'new_item_name'     => __( '新規ニュースカテゴリー', 'wbs' ),
 			),
 			'rewrite'      => array(
-				'slug'         => 'categories/news',
+				'slug'         => 'news/categories',
 				'with_front'   => false,
 				'hierarchical' => true,
 			),
@@ -86,6 +86,18 @@ function set_taxonomy() {
 		)
 	);
 }
+
+// カスタムタクソノミーのリライトルールを追加
+function custom_news_taxonomy_rewrite_rules( $rules ) {
+	$new_rules = array();
+
+	$new_rules['news/categories/([^/]+)/?$']                   = 'index.php?category-news=$matches[1]';
+	$new_rules['news/categories/([^/]+)/page/?([0-9]{1,})/?$'] = 'index.php?category-news=$matches[1]&paged=$matches[2]';
+
+	return $new_rules + $rules;
+}
+add_filter( 'rewrite_rules_array', __NAMESPACE__ . '\\custom_news_taxonomy_rewrite_rules' );
+
 
 /**
  * 管理画面 投稿リストにカスタムタクソノミー絞り込みドロップダウンを追加
