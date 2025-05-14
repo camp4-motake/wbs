@@ -33,7 +33,6 @@
 		"browser-sync": "^3.0.4",
 		"chokidar": "4.0.3",
 		"find-workspaces": "0.3.1",
-		"stylelint-config-recess-order": "6.0.0",
 		"zx": "8.5.4"
 	},
 	"workspaces": [

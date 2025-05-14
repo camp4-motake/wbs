@@ -1,8 +1,0 @@
-*.hbs
-*.md
-composer.lock
-package-lock.json
-pnpm-lock.yaml
-node_modules/
-vendor/
-source/wp-content/plugins/advanced-custom-fields-pro/
