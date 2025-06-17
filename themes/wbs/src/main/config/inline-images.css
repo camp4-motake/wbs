@@ -1,0 +1,8 @@
+:root {
+	/* bg image */
+	--bg-no-image: url(../../images/_inline/bg-no-image.svg);
+
+	/* mask */
+	--img-ico-external: url(../../images/_inline/ico-external.svg);
+	--img-ico-pdf: url(../../images/_inline/ico-pdf.svg);
+}

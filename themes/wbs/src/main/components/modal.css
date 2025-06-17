@@ -1,0 +1,79 @@
+.dialog-modal {
+	--_duration: 0.2s;
+	--_bg: var(--wp--preset--color--base);
+	--_bg-backdrop: color-mix(
+		in srgb,
+		var(--wp--preset--color--text-base),
+		transparent 10%
+	);
+	--_max-block-size: calc(420 * var(--rem));
+
+	.dialog-modal-container {
+		block-size: 100%;
+		padding: var(--wp--preset--spacing--lg)
+			var(--wp--preset--spacing--inline-gutter)
+			var(--wp--preset--spacing--md);
+		overflow: auto;
+		overscroll-behavior: contain;
+	}
+
+	.dialog-modal-close {
+		--_bg: transparent;
+		--_cross: var(--wp--preset--color--text-base);
+		--_bg-active: color-mix(
+			in srgb,
+			var(--_bg) 80%,
+			var(--wp--preset--color--text-base)
+		);
+		--_z-order: 200;
+
+		position: absolute;
+		inset-block-start: calc(4 * var(--rem));
+		inset-block-start: var(--wp--preset--spacing--sm);
+		inset-inline-end: calc(
+			calc(
+				var(--wp--preset--spacing--sm) +
+					var(--window-scroll-bar-width, 0px)
+			)
+		);
+		z-index: var(--_z-order);
+		inline-size: 3em;
+		aspect-ratio: 1;
+		appearance: none;
+		cursor: pointer;
+		background-color: var(--_bg);
+		border: 0;
+		border-radius: 50%;
+		transition: background-color 0.3s ease;
+
+		&::before,
+		&::after {
+			position: absolute;
+			inset: 0;
+			display: inline-block;
+			inline-size: 45%;
+			block-size: calc(2 * var(--rem));
+			margin: auto;
+			content: "";
+			background-color: var(--_cross);
+		}
+
+		&::before {
+			rotate: 45deg;
+		}
+
+		&::after {
+			rotate: 135deg;
+		}
+
+		&:focus-visible {
+			background-color: var(--_bg-active);
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				background-color: var(--_bg-active);
+			}
+		}
+	}
+}

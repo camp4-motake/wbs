@@ -1,0 +1,11 @@
+:is(.wp-block-image, .wp-block-cover).is-style-hero-image {
+	inline-size: calc(
+		100% - (var(--wp--preset--spacing--inline-gutter) * 2)
+	) !important;
+	max-inline-size: var(--wp--custom--container-max-width--2-xl) !important;
+	margin-inline: auto !important;
+
+	img {
+		inline-size: 100%;
+	}
+}

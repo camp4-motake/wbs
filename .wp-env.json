@@ -2,19 +2,20 @@
 	"core": "https://ja.wordpress.org/wordpress-latest-ja.zip",
 	"phpVersion": "8.3",
 	"config": {
-		"WP_ENVIRONMENT_TYPE": "development",
+		"WP_ENVIRONMENT_TYPE": "local",
 		"WP_DEVELOPMENT_MODE": "theme"
 	},
 	"plugins": [
 		"https://downloads.wordpress.org/plugin/auto-block-recovery.zip",
+		"https://downloads.wordpress.org/plugin/autodescription.zip",
 		"https://downloads.wordpress.org/plugin/duplicate-post.zip",
-		"https://downloads.wordpress.org/plugin/safe-svg.zip",
+		"https://downloads.wordpress.org/plugin/enable-responsive-image.zip",
 		"https://downloads.wordpress.org/plugin/wp-multibyte-patch.zip"
 	],
-	"themes": [ "./source/wp-content/themes/mysite" ],
+	"themes": [ "./themes/wbs" ],
 	"mappings": {
 		"env": "./env",
-		"wp-content/mu-plugins": "./source/wp-content/mu-plugins",
+		"wp-content/mu-plugins": "./mu-plugins",
 		"wp-cli.local.yml": "./wp-cli.local.yml"
 	}
 }

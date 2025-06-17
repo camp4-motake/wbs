@@ -1,6 +1,6 @@
 #!/bin/bash
 
-WP_THEME_NAME=mysite
+WP_THEME_NAME=wbs
 
 # theme activate
 wp theme activate $WP_THEME_NAME

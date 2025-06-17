@@ -1,0 +1,39 @@
+.error404-section {
+	display: grid;
+	place-items: center;
+	min-block-size: 100svh;
+	padding: var(--wp--preset--spacing--block-gutter)
+		var(--wp--preset--spacing--inline-gutter);
+	font-family: var(--wp--preset--font-family--sans-serif-en);
+	text-align: center;
+}
+
+.error404-heading {
+	display: grid;
+	align-items: flex-start;
+	line-height: var(--wp--custom--line-height--sm);
+}
+
+.error404-heading-status {
+	display: block;
+	margin: 0 auto;
+	font-size: var(--wp--preset--font-size--80);
+	font-weight: var(--wp--custom--font-weight--bold);
+	line-height: 1;
+	color: var(--wp--preset--color--primary);
+}
+
+.error404-heading-label {
+	display: block;
+	margin-block-start: 0.25;
+	font-size: var(--wp--preset--font-size--24);
+	font-weight: var(--wp--custom--font-weight--bold);
+}
+
+* + p.error404-heading-label {
+	margin-block-start: 0.25em;
+}
+
+.error404-description {
+	font-size: var(--wp--preset--font-size--14);
+}

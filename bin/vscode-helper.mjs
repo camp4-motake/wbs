@@ -1,3 +1,5 @@
+#!/usr/bin/env zx
+
 /* eslint-disable no-console */
 import chokidar from 'chokidar';
 import { $ } from 'zx';
@@ -22,7 +24,7 @@ const init = async () => {
 		return;
 	}
 
-	const watcher = chokidar.watch( 'source/wp-content', {
+	const watcher = chokidar.watch( 'themes', {
 		ignored: ( path, stats ) => {
 			return !! ( stats?.isFile() && ! path.endsWith( `/theme.json` ) );
 		},

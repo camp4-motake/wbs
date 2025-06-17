@@ -1,0 +1,59 @@
+.bg-circle-layer {
+	position: absolute;
+	inset: 0;
+	z-index: 0;
+	inline-size: 100%;
+	block-size: 100%;
+	margin: auto;
+	container-name: bg-circle-layer;
+	container-type: inline-size;
+	overflow-x: visible;
+	overflow-y: clip;
+	pointer-events: none;
+}
+
+:where(body:not(.error404)) .bg-circle {
+	--_circle-size: 75cqi;
+	--_inset-out: -46cqi;
+	--_stroke-size: calc(10 * var(--rem));
+	--_stroke-color: var(--wp--preset--color--primary);
+
+	position: absolute;
+	inline-size: var(--_circle-size);
+	aspect-ratio: 1;
+
+	&::before {
+		position: absolute;
+		inset: 0;
+		content: "";
+		border: var(--_stroke-size) solid var(--_stroke-color);
+		border-radius: 50%;
+	}
+
+	@container (inline-size >= 48em) {
+		--_circle-size: 52cqi;
+		--_inset-out: -25cqi;
+	}
+
+	@container (inline-size >= 75em) {
+		--_circle-size: 42cqi;
+		--_inset-out: -14cqi;
+	}
+
+	&[data-bg-circle="top"] {
+		inset: calc(var(--wp--preset--spacing--block-gutter-large) * 2)
+			var(--_inset-out) auto auto;
+	}
+
+	&[data-bg-circle="bottom"] {
+		inset: auto auto
+			calc(-1.5 * var(--wp--preset--spacing--block-gutter-large))
+			calc(-0.5 * var(--_circle-size));
+	}
+}
+
+:where(body:has(.wp-block-wbs-page-header)) {
+	.bg-circle[data-bg-circle="top"] {
+		display: none;
+	}
+}

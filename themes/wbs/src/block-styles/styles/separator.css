@@ -1,0 +1,23 @@
+hr.wp-block-separator {
+	--_base-inline-size: var(--wp--style--global--content-size);
+	--_base-block-size: max(2px, calc(1.5 * var(--rem)));
+
+	inline-size: var(--_base-inline-size) !important;
+	block-size: var(--_base-block-size) !important;
+	margin-block: var(--wp--preset--spacing--block-gutter);
+
+	&.alignwide {
+		--_base-inline-size: var(--wp--style--global--wide-size);
+	}
+
+	&.alignfull {
+		--_base-inline-size: 100%;
+		inline-size: 100% !important;
+	}
+
+	&:not(.alignfull) {
+		max-inline-size: calc(
+			100% - (2 * var(--wp--preset--spacing--inline-gutter))
+		);
+	}
+}

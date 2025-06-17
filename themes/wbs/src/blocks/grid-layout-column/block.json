@@ -1,0 +1,46 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wbs/grid-layout-column",
+	"version": "1.0.0",
+	"category": "wbs-theme-blocks",
+	"icon": "grid-view",
+	"supports": {
+		"align": [ "full", "wide" ],
+		"anchor": true,
+		"className": true,
+		"inserter": false,
+		"html": false,
+		"spacing": {
+			"margin": true,
+			"padding": true
+		},
+		"color": {
+			"background": true,
+			"text": true
+		},
+		"border": {
+			"radius": true
+		}
+	},
+	"keywords": [ "section", "anchor" ],
+	"parent": [ "wbs/grid-layout" ],
+	"attributes": {
+		"columnSpan": {
+			"type": "number",
+			"default": 1
+		},
+		"rowSpan": {
+			"type": "number",
+			"default": 1
+		},
+		"minHeight": {
+			"type": "string",
+			"default": "auto"
+		}
+	},
+	"textdomain": "wbs",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

@@ -1,3 +1,5 @@
+#!/usr/bin/env zx
+
 import { $ } from 'zx';
 import { workspaces } from './util.mjs';
 

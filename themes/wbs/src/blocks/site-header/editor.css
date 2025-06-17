@@ -1,0 +1,14 @@
+@import "./style.css";
+
+.wp-block-wbs-site-header {
+	position: relative;
+	inline-size: 100%;
+
+	.header-container {
+		margin-inline: auto;
+	}
+
+	[data-header-trigger] {
+		display: none;
+	}
+}

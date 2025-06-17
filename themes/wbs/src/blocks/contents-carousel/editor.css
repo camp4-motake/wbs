@@ -1,0 +1,59 @@
+.wp-block-wbs-contents-carousel {
+	visibility: visible;
+	opacity: 1;
+
+	.toggle-edit-button-wrapper {
+		position: sticky;
+		inset-block-start: var(--wp--preset--spacing--sm);
+		z-index: 10;
+	}
+
+	.edit-slider-heading {
+		margin-top: 0;
+		margin-bottom: 1rem;
+		font-size: var(--wp--preset--font-size--14);
+		text-align: center;
+	}
+
+	.edit-mode {
+		position: relative;
+		display: block;
+		inline-size: 100%;
+		padding: 0.25rem;
+		background-color: var(--wp--preset--color--bg-fill);
+		border: 1px dashed
+			color-mix(
+				in srgb,
+				var(--wp--preset--color--text-base),
+				transparent 60%
+			);
+	}
+
+	.edit-mode__inner {
+		padding-inline: var(--wp--preset--spacing--sm);
+	}
+
+	.edit-mode .block-list-appender {
+		position: relative !important;
+		margin-block-start: 0.5rem;
+	}
+
+	.preview-mode {
+		.slider-btn-prev,
+		.slider-btn-next {
+			&::after {
+				visibility: visible;
+			}
+		}
+	}
+}
+
+.wp-block-wbs-contents-carousel:has(.wp-block-wbs-contents-carousel) {
+	border: 1px dashed transparent;
+
+	@media (any-hover: hover) {
+		&:hover {
+			border-color: var(--wp--preset--color--border-lighten);
+		}
+	}
+}

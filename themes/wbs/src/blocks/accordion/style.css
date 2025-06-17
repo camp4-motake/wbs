@@ -1,0 +1,8 @@
+.wp-block-wbs-accordion {
+	display: flex;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--md) var(--wp--preset--spacing--normal);
+	padding-bottom: var(--wp--preset--spacing--normal);
+	margin-inline: auto;
+	margin-bottom: var(--wp--preset--spacing--lg);
+}

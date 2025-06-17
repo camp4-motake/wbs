@@ -1,0 +1,43 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wbs/article-loop",
+	"version": "0.1.0",
+	"category": "wbs-theme-blocks",
+	"icon": "media-text",
+	"description": "article post loop",
+	"example": {},
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"reusable": false,
+		"align": [ "wide" ],
+		"spacing": {
+			"margin": [ "top", "bottom" ],
+			"padding": false
+		}
+	},
+	"attributes": {
+		"postTypeSlug": {
+			"type": "string",
+			"default": "news"
+		},
+		"taxonomySlug": {
+			"type": "string",
+			"default": ""
+		},
+		"termID": {
+			"type": "number",
+			"default": 0
+		},
+		"postPerPage": {
+			"type": "number",
+			"default": 3
+		}
+	},
+	"textdomain": "dynamic",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

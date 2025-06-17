@@ -1,0 +1,7 @@
+.wp-block-wbs-embed-iframe {
+	position: relative;
+
+	.embed-source {
+		pointer-events: none;
+	}
+}

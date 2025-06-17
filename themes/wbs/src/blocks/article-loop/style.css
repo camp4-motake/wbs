@@ -1,0 +1,19 @@
+.wp-block-wbs-article-loop {
+	container-name: archive-grid;
+	container-type: inline-size;
+
+	&.archive-articles {
+		inline-size: initial;
+		max-inline-size: var(--wp--style--global--content-size);
+		margin-block: var(--wp--preset--spacing--block-gutter);
+	}
+
+	.pagination-scroller {
+		--negative: calc(var(--wp--preset--spacing--normal) * -1);
+		margin-inline: var(--negative);
+	}
+
+	.no-posts {
+		text-align: center;
+	}
+}
