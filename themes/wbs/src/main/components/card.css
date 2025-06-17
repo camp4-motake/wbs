@@ -1,0 +1,211 @@
+.card-article {
+	position: relative;
+	container-name: card-article;
+	container-type: inline-size;
+}
+
+.card-thumbnail {
+	position: relative;
+	z-index: 0;
+	display: block;
+	aspect-ratio: 3/2;
+	overflow: clip;
+	background-color: var(--wp--preset--color--placeholder);
+	border: 1px solid var(--wp--preset--color--border-lighten);
+	border-radius: 1rem;
+
+	&:not(:has(img)) {
+		background: var(--bg-no-image) var(--wp--preset--color--base) no-repeat
+			center / contain;
+	}
+
+	img {
+		position: relative;
+		z-index: 0;
+		inline-size: 100%;
+		block-size: 100%;
+		object-fit: cover;
+	}
+
+	&.has-fit-contain img {
+		object-fit: contain;
+	}
+}
+
+.card-inner {
+	block-size: 100%;
+	margin-block-start: var(--wp--preset--spacing--sm);
+}
+
+@media (any-hover: hover) {
+	[class*="card"]:has(a.card-link) {
+		.card-link {
+			transition: opacity 0.2s;
+		}
+
+		.card-thumbnail {
+			transition: filter 0.2s;
+			will-change: filter;
+		}
+	}
+
+	[class*="card"]:has(a.card-link:hover) {
+		color: color-mix(in srgb, currentcolor 90%, transparent) !important;
+
+		.card-thumbnail {
+			filter: brightness(0.9);
+		}
+	}
+}
+
+.card-head {
+	display: grid;
+
+	/* grid-template-columns: auto 1fr; */
+	column-gap: 0.75rem;
+	align-items: flex-start;
+	inline-size: 100%;
+	min-block-size: 1.75rem;
+	margin-block-end: var(--wp--preset--spacing--xs);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: var(--wp--preset--font-size--16);
+	font-weight: var(--wp--custom--font-weight--bold);
+	line-height: var(--wp--custom--line-height--md);
+	white-space: nowrap;
+
+	.updated {
+		display: grid;
+		align-items: center;
+		min-block-size: 2.5em;
+		font-family: var(--wp--preset--font-family--sans-serif-en);
+		font-size: var(--font-size-18);
+	}
+}
+
+.card-link {
+	padding-bottom: 2px;
+	overflow: hidden;
+	color: var(--wp--preset--color--text-base);
+	text-decoration: none !important;
+
+	&::after {
+		position: absolute;
+		inset: 0;
+		z-index: 1;
+		content: "";
+	}
+}
+
+a.card-link {
+	&:focus-visible {
+		text-decoration: underline !important;
+	}
+
+	@media (any-hover: hover) {
+		&:hover {
+			text-decoration: underline !important;
+		}
+	}
+}
+
+.card-heading {
+	margin-block: 0.5em;
+	font-size: var(--wp--preset--font-size--16);
+	line-height: var(--wp--custom--line-height--xl);
+
+	.card-link {
+		padding: 0 0 0.125em;
+		font-size: inherit;
+		font-weight: var(--wp--custom--font-weight--bold);
+	}
+
+	> :is(span, a) {
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 5;
+		word-break: break-all;
+	}
+}
+
+* + .card-heading {
+	margin-block-start: 0.25em;
+}
+
+.card-label {
+	margin-block-start: auto;
+	font-size: var(--wp--preset--font-size--14);
+}
+
+.card-tag-list {
+	position: relative;
+	z-index: 5;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.25rem;
+
+	.badge-hashtag {
+		font-size: var(--wp--preset--font-size--14);
+	}
+}
+
+:where(* + .card-tag-list) {
+	margin-top: var(--wp--preset--spacing--xs);
+}
+
+.card-content {
+	& > *:last-child {
+		margin-block-end: 0;
+	}
+}
+
+.card-footer {
+	position: relative;
+	z-index: 2;
+	padding-block-start: var(--wp--preset--spacing--normal);
+	margin-block-start: auto;
+}
+
+.col .card {
+	& + & {
+		margin-block-start: var(--wp--preset--spacing--md);
+	}
+}
+
+.card-article.has-style-horizontal {
+	--_thumbnail-width: clamp(
+		calc(75 * var(--rem)),
+		42%,
+		calc(240 * var(--rem))
+	);
+
+	display: grid;
+	gap: var(--wp--preset--spacing--sm)
+		clamp(1rem, 2.5cqi, var(--wp--preset--spacing--md));
+
+	.card-heading {
+		font-size: var(--wp--preset--font-size--18);
+	}
+
+	@container (inline-size >= 38em) {
+		grid-template-columns: var(--_thumbnail-width) 1fr;
+		row-gap: var(--wp--preset--spacing--md);
+
+		.card-inner {
+			padding-block-start: 0;
+			margin-block-start: 0;
+		}
+	}
+
+	@container (inline-size >= 48em) {
+		.card-head {
+			grid-template-columns: auto 1fr;
+		}
+	}
+}
+
+:where(.editor-styles-wrapper) .card-article.has-style-horizontal {
+	grid-template-columns:
+		clamp(calc(100 * var(--rem)), 42cqi, calc(300 * var(--rem)))
+		1fr;
+}

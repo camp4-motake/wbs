@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wbs/definition-list",
+	"version": "0.1.0",
+	"category": "wbs-theme-blocks",
+	"icon": "list-view",
+	"description": "",
+	"example": {},
+	"supports": {
+		"anchor": true,
+		"align": [ "wide", "full" ],
+		"spacing": {
+			"margin": true,
+			"padding": true
+		}
+	},
+	"keywords": [ "definition-list" ],
+	"attributes": {},
+	"styles": [ { "name": "inline", "label": "インライン" } ],
+	"textdomain": "wbs",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

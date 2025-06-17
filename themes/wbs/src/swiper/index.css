@@ -1,0 +1,42 @@
+/* swiper common styles */
+
+/*
+	custom import swiper@11 css styles
+	https://swiperjs.com/swiper-api#css-styles
+*/
+@import "swiper/swiper.css";
+@import "swiper/modules/a11y.css";
+@import "swiper/modules/navigation.css";
+@import "swiper/modules/pagination.css";
+@import "swiper/modules/zoom.css";
+@import "swiper/modules/effect-creative.css";
+
+/*
+	custom styles
+*/
+:root {
+	--swiper-navigation-color: var(--wp--preset--color--text-base);
+	--swiper-pagination-color: var(--wp--preset--color--text-base);
+	--swiper-navigation-size: calc(26 * var(--rem));
+	--swiper-pagination-bullet-size: calc(8 * var(--rem));
+
+	@media (width >= 48em) {
+		--swiper-pagination-bullet-size: calc(11 * var(--rem));
+		--swiper-navigation-size: calc(32 * var(--rem));
+	}
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+	&:not(.swiper-button-disabled) {
+		&:focus-visible {
+			--swiper-navigation-color: var(--wp--preset--color--primary);
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				--swiper-navigation-color: var(--wp--preset--color--primary);
+			}
+		}
+	}
+}

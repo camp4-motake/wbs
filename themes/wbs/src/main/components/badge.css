@@ -1,0 +1,22 @@
+.badge-round-text {
+	--_size: calc(30 * var(--rem));
+	--_text-color: var(--wp--preset--color--base);
+	--_bg-color: var(--wp--preset--color--text-base);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	inline-size: fit-content;
+	block-size: var(--_size);
+	padding: 0.125em 1.25em;
+	font-size: var(--wp--preset--font-size--10);
+	font-weight: var(--wp--custom--font-weight--bold);
+	line-height: var(--wp--custom--line-height--xs);
+	color: var(--_text-color);
+	background-color: var(--_bg-color);
+	border-radius: var(--wp--custom--infinity);
+}
+
+a.badge-round-text {
+	text-decoration: none;
+}

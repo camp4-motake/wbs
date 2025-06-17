@@ -1,11 +1,9 @@
 # WBS
 
-WordPress Block Theme Site Starter
-
 ## prerequisites
 
 - Docker Client
-- Node.js 20 || 22
+- Node.js >=20
 
 ## setup environment
 
@@ -14,12 +12,6 @@ WordPress Block Theme Site Starter
 ```sh
 npm ci
 ```
-
-<!--
-2. Add ACF Pro key to `username` key in [auth.json](https://www.advancedcustomfields.com/resources/installing-acf-pro-with-composer/)
-
-> If you want to customize wp-env configuration, add settings to `.wp-env.override.json` in advance (e.g. [change port numbers](https://github.com/WordPress/gutenberg/tree/HEAD/packages/env#custom-port-numbers), [etc](https://github.com/WordPress/gutenberg/tree/HEAD/packages/env#examples))
--->
 
 2. run auto WordPress setup
 

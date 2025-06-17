@@ -1,0 +1,38 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wbs/contents-carousel-slide",
+	"version": "1.0.0",
+	"title": "wbs/contents-carousel-slide",
+	"category": "wbs-theme-blocks",
+	"icon": "welcome-write-blog",
+	"description": "",
+	"parent": [ "wbs/contents-carousel" ],
+	"example": {},
+	"supports": {
+		"html": false,
+		"color": { "background": true },
+		"spacing": { "padding": true }
+	},
+	"keywords": [ "slide", "carousel" ],
+	"attributes": {
+		"isLink": {
+			"type": "boolean",
+			"default": false
+		},
+		"link": {
+			"type": "object",
+			"default": null,
+			"properties": {
+				"url": { "type": "string" },
+				"title": { "type": "string" },
+				"target": { "type": "string" },
+				"rel": { "type": "string" }
+			}
+		}
+	},
+	"textdomain": "wbs",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

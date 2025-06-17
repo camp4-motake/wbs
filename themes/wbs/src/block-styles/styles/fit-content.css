@@ -1,0 +1,4 @@
+/* 幅 fit-content　*/
+:is(.wp-block-group, .wp-block-heading, p).has-inline-fit-content {
+	inline-size: fit-content;
+}

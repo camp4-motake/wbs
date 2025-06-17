@@ -1,0 +1,42 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wbs/contents-carousel",
+	"version": "1.0.0",
+	"title": "contents-carousel",
+	"category": "wbs-theme-blocks",
+	"icon": "slides",
+	"description": "",
+	"example": {},
+	"supports": {
+		"anchor": true,
+		"html": false,
+		"align": false,
+		"color": { "background": true },
+		"interactivity": true,
+		"spacing": {
+			"margin": [ "top", "bottom" ],
+			"padding": false
+		}
+	},
+	"attributes": {
+		"contentUpdated": {
+			"type": "number",
+			"default": 0
+		},
+		"innerContent": {
+			"type": "string",
+			"default": ""
+		},
+		"sliderOption": {
+			"type": "object",
+			"default": {}
+		}
+	},
+	"textdomain": "wbs",
+	"editorScript": "file:./index.js",
+	"editorStyle": [ "theme-swiper-styles", "file:./index.css" ],
+	"style": [ "theme-swiper-styles", "file:./style-index.css" ],
+	"render": "file:./render.php",
+	"viewScriptModule": "file:./view.js"
+}

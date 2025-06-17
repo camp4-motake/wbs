@@ -1,0 +1,33 @@
+:where(a) {
+	color: var(---wp--preset--color--text-base);
+	text-wrap: pretty;
+}
+
+:where(.entry-content, .editor-styles-wrapper, .footer, .header) {
+	a:not(.share-link, .card-link, [class*="button"], :has(img, svg)) {
+		&[target="_blank"]::after,
+		&[href*=".pdf"]::after {
+			display: inline-block;
+			inline-size: 1.25em;
+			block-size: 0.8em;
+			margin-inline: 0.25em;
+			content: "";
+			background-color: currentcolor;
+		}
+
+		&[href*=".pdf"]::after {
+			inline-size: 1.5em;
+			mask-image: var(--img-ico-pdf);
+			mask-repeat: no-repeat;
+			mask-position: center;
+			mask-size: 90%;
+		}
+
+		&[target="_blank"]::after {
+			mask-image: var(--img-ico-external);
+			mask-repeat: no-repeat;
+			mask-position: center;
+			mask-size: 120%;
+		}
+	}
+}

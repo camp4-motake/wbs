@@ -1,0 +1,13 @@
+.wp-block-wbs-article-loop {
+	a {
+		pointer-events: none;
+	}
+}
+
+.wp-block-wbs-article-loop .wp-block-wbs-article-loop {
+	max-inline-size: initial;
+
+	&.archive-articles {
+		margin-block: initial;
+	}
+}

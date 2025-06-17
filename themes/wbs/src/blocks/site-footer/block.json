@@ -1,0 +1,31 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wbs/site-footer",
+	"version": "0.1.0",
+	"category": "wbs-theme-blocks",
+	"icon": "text-page",
+	"description": "",
+	"example": {},
+	"supports": {
+		"html": false,
+		"inserter": false,
+		"interactivity": true,
+		"reusable": false
+	},
+	"attributes": {
+		"contentUpdated": {
+			"type": "number",
+			"default": 0
+		},
+		"innerContent": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"textdomain": "dynamic",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}

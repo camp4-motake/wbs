@@ -1,0 +1,84 @@
+.wp-block-wbs-page-header {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	inline-size: 100%;
+	max-inline-size: var(--wp--custom--container-max-width--view);
+	margin: 0 auto;
+	container-name: wp-block-wbs-page-header;
+	container-type: inline-size;
+	overflow: clip;
+	color: var(--wp--preset--color--base);
+	background-color: var(--wp--preset--color--primary);
+}
+
+:where(.wp-block-wbs-page-header) {
+	&::after {
+		position: relative;
+		display: block;
+		block-size: var(--entry-content-radius);
+		margin-block: auto 0;
+		content: "";
+		background-color: var(--wp--preset--color--base);
+		border-top-left-radius: calc(var(--entry-content-radius) * 0.75);
+		border-top-right-radius: calc(var(--entry-content-radius) * 0.75);
+	}
+
+	.circle {
+		position: absolute;
+		inset-block-start: clamp(
+			var(--wp--preset--spacing--normal),
+			2.5cqb,
+			var(--wp--preset--spacing--xxl)
+		);
+		inset-inline-start: 50%;
+		inline-size: clamp(
+			calc(390 * var(--rem)),
+			42dvi,
+			calc(var(--wp--custom--container-max-width--view) * 0.42)
+		);
+		aspect-ratio: 1;
+		border: calc(10 * var(--rem)) solid var(--wp--preset--color--base);
+		border-radius: 50%;
+
+		@media (width >= 48em) {
+			inset-inline-start: 64%;
+		}
+	}
+
+	.page-header-container {
+		inline-size: calc(
+			100% - (var(--wp--preset--spacing--inline-gutter) * 2)
+		);
+		max-inline-size: var(--wp--custom--container-max-width--xl);
+		padding-block: 0 var(--wp--preset--spacing--xl);
+		margin: 0 auto;
+	}
+
+	.breadcrumbs {
+		padding-block: var(--wp--preset--spacing--normal);
+		font-size: var(--wp--preset--font-size--12);
+		font-weight: var(--wp--custom--font-weight--bold);
+	}
+
+	.heading-group {
+		position: relative;
+		display: grid;
+		place-items: center;
+		min-block-size: 3.5em;
+		padding-block: var(--wp--preset--spacing--normal) 0;
+
+		.heading {
+			inline-size: fit-content;
+			margin: 0 auto;
+			font-size: var(--wp--preset--font-size--40);
+
+			> span {
+				padding: 0.05em 0.25em;
+				background-color: var(--wp--preset--color--primary);
+				box-decoration-break: clone;
+				border-radius: 0.25em;
+			}
+		}
+	}
+}

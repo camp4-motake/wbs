@@ -1,0 +1,24 @@
+.edit-mode {
+	position: relative;
+}
+
+.edit-mode__inner {
+	padding: 0 var(--wp--preset--spacing--inline-gutter)
+		var(--wp--preset--spacing--md);
+}
+
+.toggle-edit-button-wrapper {
+	display: grid;
+	justify-content: flex-end;
+}
+
+.toggle-edit-button {
+	z-index: 1;
+	display: inline-block;
+}
+
+.wp-block.is-reusable [class*="wp-block-wbs-"] {
+	.toggle-edit-button-wrapper {
+		visibility: hidden;
+	}
+}

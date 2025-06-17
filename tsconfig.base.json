@@ -31,9 +31,5 @@
 
 		"typeRoots": [ "./node_modules/@types" ]
 	},
-	"exclude": [
-		"source/wp-content/**/build-*/**",
-		"source/wp-content/**/build/**",
-		"**/test/**"
-	]
+	"exclude": [ "**/build-*/**", "**/build/**", "**/test/**" ]
 }

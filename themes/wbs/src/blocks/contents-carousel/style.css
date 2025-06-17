@@ -1,0 +1,107 @@
+/* @import "../../shared/swiper.css"; */
+
+.wp-block-wbs-contents-carousel {
+	--swiper-navigation-sides-offset: calc(-20 * var(--rem));
+	--swiper-pagination-bottom: var(--wp--preset--spacing--normal);
+	--swiper-pagination-color: var(--wp--preset--color--primary);
+	--_block-gutter: calc(var(--wp--preset--spacing--block-gutter) * 0.75);
+	--_slide-inline-size: calc(900 * var(--rem));
+
+	position: relative;
+	inline-size: 100%;
+	max-inline-size: var(--wp--custom--container-max-width--view) !important;
+	container-name: contents-carousel;
+	container-type: inline-size;
+	overflow: clip;
+
+	.carousel-container {
+		position: relative;
+		box-sizing: border-box;
+		inline-size: 100%;
+		max-inline-size: min(
+			calc(100% - (var(--wp--preset--spacing--inline-gutter) * 2)),
+			var(--_slide-inline-size)
+		);
+		padding-block-start: var(--_block-gutter);
+		margin-inline: auto;
+		overflow: visible;
+	}
+
+	.carousel-inner {
+		position: relative;
+		overflow: visible;
+	}
+
+	.swiper {
+		position: relative;
+		margin-block-end: 0;
+		overflow: visible;
+
+		.swiper-wrapper {
+			align-items: stretch;
+			block-size: 100%;
+
+			.swiper-slide {
+				position: relative;
+				block-size: initial;
+
+				> *:last-child {
+					margin-block-end: 0;
+				}
+			}
+		}
+	}
+
+	.carousel-footer {
+		display: grid;
+		place-items: center;
+		min-block-size: var(--_block-gutter);
+	}
+
+	.swiper-pagination.swiper-pagination-horizontal {
+		position: relative;
+		top: initial;
+		bottom: initial;
+		margin-inline: auto;
+	}
+
+	.swiper-button-next,
+	.swiper-button-prev {
+		--_arrow-negative: calc(
+			-0.9 * var(--wp--preset--spacing--inline-gutter)
+		);
+
+		@media (width >= 100em) {
+			--_arrow-negative: calc(
+				-1.5 * var(--wp--preset--spacing--inline-gutter)
+			);
+		}
+	}
+
+	.swiper-button-next {
+		inset-inline-end: var(--_arrow-negative);
+	}
+
+	.swiper-button-prev {
+		inset-inline-start: var(--_arrow-negative);
+	}
+
+	.swiper-pagination-bullet {
+		--swiper-pagination-bullet-width: calc(6 * var(--rem));
+		--swiper-pagination-bullet-height: calc(6 * var(--rem));
+		margin-inline: calc(3 * var(--rem));
+	}
+}
+
+:where(.wp-block-wbs-contents-carousel) {
+	visibility: hidden;
+	opacity: 0;
+}
+
+.has-page-active .wp-block-wbs-contents-carousel {
+	visibility: visible;
+	opacity: 1;
+	transition:
+		opacity 0.2s,
+		visibility 0.2s;
+}

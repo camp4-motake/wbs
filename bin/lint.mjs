@@ -1,3 +1,5 @@
+#!/usr/bin/env zx
+
 /* eslint-disable no-console */
 import { $ } from 'zx';
 import { workspaces } from './util.mjs';

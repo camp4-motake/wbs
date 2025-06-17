@@ -1,0 +1,37 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"title": "Page Header",
+	"name": "wbs/page-header",
+	"version": "0.1.0",
+	"category": "wbs-theme-blocks",
+	"icon": "admin-generic",
+	"description": "",
+	"supports": {
+		"anchor": false,
+		"html": false,
+		"align": false,
+		"reusable": false,
+		"inserter": false,
+		"multiple": false,
+		"spacing": {
+			"margin": true,
+			"padding": false
+		}
+	},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": ""
+		},
+		"subTitle": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"textdomain": "wbs",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"render": "file:./render.php"
+}
