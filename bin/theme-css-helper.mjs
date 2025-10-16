@@ -4,7 +4,7 @@
 import chokidar from 'chokidar';
 import { $ } from 'zx';
 
-const outFile = './env/.vscode-helper/_theme-json-styles.css';
+const outFile = './env/.theme-css-helper/_theme-json-styles.css';
 
 process.env.FORCE_COLOR = '1';
 $.verbose = true;

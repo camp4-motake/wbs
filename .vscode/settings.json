@@ -93,7 +93,7 @@
 	},
 
 	/** https://github.com/vunguyentuan/vscode-css-variables */
-	"cssVariables.lookupFiles": [ "themes", "env/.vscode-helper/*.css" ],
+	"cssVariables.lookupFiles": [ "themes", "env/.theme-css-helper/*.css" ],
 
 	/** https://github.com/streetsidesoftware/vscode-spell-checker */
 	"cSpell.words": [ "uncategorized" ]

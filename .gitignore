@@ -159,7 +159,7 @@ mise.*.local.toml
 Thumbs.db
 auth.json
 build/
-env/.vscode-helper/
+env/.theme-css-helper/
 env/_bkp/
 node_modules/
 vendor/
