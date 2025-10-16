@@ -7,7 +7,7 @@
 	"license": "GPL-2.0-or-later",
 	"private": true,
 	"engines": {
-		"node": "20 || 22"
+		"node": ">=20"
 	},
 	"scripts": {
 		"build": "npm run build -ws --if-present",
