@@ -24,4 +24,5 @@ module.exports = {
 	open: false,
 	proxy: PROXY_URL || `http://localhost:${ wpPort }`,
 	ui: false,
+	reloadOnRestart: true,
 };
