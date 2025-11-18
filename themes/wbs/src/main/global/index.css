@@ -32,14 +32,14 @@ body {
 	font-family: var(--wp--preset--font-family--sans-serif-ja);
 	font-optical-sizing: auto;
 	font-feature-settings: "pkna";
+	font-synthesis: none;
 	line-height: var(--wp--custom--line-height--base);
 	letter-spacing: var(--wp--custom--letter-spacing--base);
 	overflow-wrap: break-word;
+	background-color: transparent;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	text-size-adjust: 100%;
-	font-synthesis: none;
-	background-color: transparent;
 
 	/* overflow-y: scroll; */
 }

@@ -4,37 +4,30 @@
 		"stylelint-config-recess-order"
 	],
 	"rules": {
-		"no-descending-specificity": null,
-		"comment-empty-line-before": [
-			"always",
-			{
-				"except": [ "first-nested" ]
-			}
-		],
-		"rule-empty-line-before": [
-			"always",
-			{
-				"ignore": [ "after-comment", "first-nested" ]
-			}
-		],
 		"at-rule-empty-line-before": [
 			"always",
 			{
+				"except": [ "first-nested" ],
 				"ignore": [
 					"after-comment",
 					"first-nested",
 					"blockless-after-same-name-blockless",
 					"blockless-after-blockless"
-				]
+				],
+				"ignoreAtRules": [ "apply", "tailwind", "import", "source" ]
 			}
 		],
-		"selector-class-pattern": [
-			"^[a-z]([-]?[a-z0-9]+)*(__[a-z0-9]([-]?[a-z0-9]+)*)?(--[a-z0-9]([-]?[a-z0-9]+)*)?$",
-			{
-				"resolveNestedSelectors": true,
-				"message": "The expected class selector should be in lowercase, with words separated by hyphens, or follow the BEM CSS pattern. https://en.bem.info/methodology/css. Selector validation tool: https://regexr.com/3apms"
-			}
-		]
+		"at-rule-no-unknown": null,
+		"comment-empty-line-before": [
+			"always",
+			{ "except": [ "first-nested" ] }
+		],
+		"no-descending-specificity": null,
+		"rule-empty-line-before": [
+			"always",
+			{ "ignore": [ "after-comment", "first-nested" ] }
+		],
+		"selector-class-pattern": [ "", {} ]
 	},
 	"ignoreFiles": [
 		"build/**/*.css",
@@ -43,6 +36,7 @@
 		"**/*.min.css",
 		"**/*.js",
 		"**/*.ts",
-		"**/*.tsx"
+		"**/*.tsx",
+		"{themes,plugins}/!(wbs*)/**/*.{css,scss}"
 	]
 }

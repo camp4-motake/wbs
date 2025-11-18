@@ -17,7 +17,7 @@ function head_tracking_tag() {
 	if ( ! is_gtm_active() ) {
 		return;
 	}
-	echo <<<EOM
+	echo <<<'EOM'
 <!-- Google Tag Manager -->
 EOM;
 }
@@ -30,7 +30,7 @@ function body_open_tracking_tag() {
 	if ( ! is_gtm_active() ) {
 		return;
 	}
-	echo <<<EOM
+	echo <<<'EOM'
 <!-- Google Tag Manager (noscript) -->
 EOM;
 }

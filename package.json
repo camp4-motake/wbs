@@ -7,7 +7,7 @@
 	"license": "GPL-2.0-or-later",
 	"private": true,
 	"engines": {
-		"node": ">=20"
+		"node": ">=22"
 	},
 	"scripts": {
 		"build": "npm run build -ws --if-present",
@@ -25,13 +25,12 @@
 		"init": "chmod +x ./{env,bin}/*.sh && ./bin/init.sh",
 		"postinstall": "npm run init --silent"
 	},
-	"dependencies": {
-		"@wordpress/scripts": "31.0.0"
-	},
 	"devDependencies": {
+		"@wordpress/scripts": "31.0.0",
 		"browser-sync": "^3.0.4",
 		"chokidar": "4.0.3",
 		"find-workspaces": "0.3.1",
+		"stylelint-config-recess-order": "7.4.0",
 		"zx": "8.8.5"
 	},
 	"workspaces": [

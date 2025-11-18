@@ -1,11 +1,13 @@
 {
 	"require-dev": {
+		"phpcompatibility/phpcompatibility-wp": "*",
 		"squizlabs/php_codesniffer": "*",
 		"wp-coding-standards/wpcs": "*"
 	},
 	"scripts": {
-		"lint": "phpcs --standard=.phpcs.xml --report-summary --report-source",
-		"format": "phpcbf --standard=.phpcs.xml --report-summary --report-source"
+		"format": "phpcbf --standard=./phpcs.xml.dist --report-summary --report-source",
+		"lint": "phpcs --standard=./phpcs.xml.dist",
+		"phpcs": "phpcs --standard=./phpcs.xml.dist"
 	},
 	"config": {
 		"allow-plugins": {
