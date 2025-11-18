@@ -11,7 +11,7 @@ $.verbose = true;
 
 const generateThemeJsonVariables = async () => {
 	try {
-		await $`wp-env run cli wp export-theme-json-styles -- --output=${ outFile }`;
+		await $`npx @wordpress/env run cli wp export-theme-json-styles -- --output=${ outFile }`;
 	} catch ( error ) {
 		console.error( 'Error running wp-env:', error?.stderr ?? error );
 	}
