@@ -1,0 +1,12 @@
+{
+	"extends": [ "plugin:@wordpress/eslint-plugin/recommended" ],
+	"env": { "browser": true },
+	"rules": { "no-unused-vars": "warn" },
+	"ignorePatterns": [
+		"**/*.json",
+		"build",
+		"node_modules",
+		"vendor",
+		"{themes,plugins}/!(wbs*)/*"
+	]
+}

@@ -1,33 +1,21 @@
 #!/usr/bin/env zx
 
-/* eslint-disable no-console */
 import { $ } from 'zx';
-import { workspaces } from './util.mjs';
 
-const init = async () => {
-	$.verbose = true;
-	process.env.FORCE_COLOR = '1';
+$.verbose = true;
+process.env.FORCE_COLOR = '1';
 
-	if ( process.argv.includes( '--format' ) ) {
-		/**
-		 * format
-		 */
-		await $`npx wp-scripts format . '!source'`;
-		await $`npm run format --ws --if-present`;
-		for ( const ws of workspaces ) {
-			await $`docker run --rm --volume $PWD:/app composer composer format ${ ws }`;
-		}
-	} else {
-		/**
-		 * lint
-		 */
-		await $`npm run lint --ws --if-present`;
-		for ( const ws of workspaces ) {
-			await $`docker run --rm --volume $PWD:/app composer composer lint ${ ws }`;
-		}
-	}
-};
+// format
+if ( process.argv.includes( '--format' ) ) {
+	await $`wp-scripts lint-style --fix`;
+	await $`wp-scripts lint-js --fix`;
+	await $`wp-scripts format`;
+	await $`docker run --rm --volume $PWD:/app composer composer format`;
+}
 
-init().catch( ( error ) =>
-	console.error( error?._stderr || error?.stderr || error )
-);
+// lint
+else {
+	await $`wp-scripts lint-style`;
+	await $`wp-scripts lint-js`;
+	await $`docker run --rm --volume $PWD:/app composer composer lint`;
+}
