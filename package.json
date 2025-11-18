@@ -26,7 +26,6 @@
 		"postinstall": "npm run init --silent"
 	},
 	"devDependencies": {
-		"@wordpress/env": "10.35.0",
 		"@wordpress/scripts": "31.0.0",
 		"browser-sync": "^3.0.4",
 		"chokidar": "4.0.3",
