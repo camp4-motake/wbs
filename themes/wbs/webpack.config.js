@@ -25,6 +25,20 @@ for ( const cfg of config ) {
 		} ),
 
 		new ImageMinimizerPlugin( {
+			deleteOriginalAssets: false,
+			generator: [
+				...[
+					{ avif: { quality: 80, chromaSubsampling: '4:2:0' } },
+				].map( ( opt ) => ( {
+					type: 'asset',
+					implementation: ImageMinimizerPlugin.sharpGenerate,
+					filter: imgFilter,
+					options: { encodeOptions: opt },
+				} ) ),
+			],
+		} ),
+
+		new ImageMinimizerPlugin( {
 			minimizer: {
 				implementation: ImageMinimizerPlugin.sharpMinify,
 				options: {
@@ -36,17 +50,6 @@ for ( const cfg of config ) {
 					},
 				},
 			},
-			generator: [
-				...[
-					{ webp: { quality: 90, smartSubsample: true } },
-					{ avif: { quality: 80, chromaSubsampling: '4:2:0' } },
-				].map( ( opt ) => ( {
-					type: 'asset',
-					implementation: ImageMinimizerPlugin.sharpGenerate,
-					filter: imgFilter,
-					options: { encodeOptions: opt },
-				} ) ),
-			],
 		} ),
 
 		new CopyPlugin( {
@@ -68,10 +71,7 @@ for ( const cfg of config ) {
 
 	cfg.performance = {
 		assetFilter( assetFilename ) {
-			return (
-				! assetFilename.endsWith( '.webp' ) &&
-				! assetFilename.endsWith( '.avif' )
-			);
+			return ! /\.(jpe?g|png|webp|avif)$/i.test( assetFilename );
 		},
 	};
 }
