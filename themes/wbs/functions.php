@@ -34,6 +34,7 @@ require_once __DIR__ . '/inc/custom-fields/meta-news.php';
 require_once __DIR__ . '/inc/helper/environment.php';
 require_once __DIR__ . '/inc/helper/image.php';
 require_once __DIR__ . '/inc/helper/pagination.php';
+require_once __DIR__ . '/inc/helper/path.php';
 require_once __DIR__ . '/inc/helper/util.php';
 
 // theme setup
