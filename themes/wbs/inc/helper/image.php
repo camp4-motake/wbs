@@ -26,7 +26,6 @@ function wp_get_attachment_image_without_srcset( $attachment_id, $size = 'full',
 	return $result;
 }
 
-
 /**
  * Inline SVG
  *
@@ -128,6 +127,11 @@ function svg_sprite( $xlink = '', $title = '', $class_name_string = '', $attr = 
 	return $xml;
 }
 
+/**
+ * Image order
+ *
+ * @return array
+ */
 function image_order() {
 	return array(
 		'png'  => array( 'avif', 'webp', 'png' ),
@@ -136,6 +140,7 @@ function image_order() {
 		'webp' => array( 'avif', 'webp' ),
 	);
 }
+
 /**
  * Auto Image tag
  *
@@ -414,7 +419,6 @@ function array_to_attr_string( $attrs = array(), $spacer = ' ' ): string {
 
 	return $attr_string ? $spacer . $attr_string : '';
 }
-
 
 /**
  * Additional wp_kses_allowed_html target
