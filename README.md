@@ -36,6 +36,9 @@ npm run lint
 
 # format
 npm run format
+
+# generate plugin/theme zip
+npm run plugin-zip
 ```
 
 ## resources

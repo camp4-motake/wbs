@@ -8,7 +8,8 @@
 	"scripts": {
 		"dev": "rimraf build/* && wp-scripts start --experimental-modules --webpack-copy-php",
 		"build": "rimraf build/* && wp-scripts build --experimental-modules --webpack-copy-php",
-		"packages-update": "wp-scripts packages-update"
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts plugin-zip"
 	},
 	"dependencies": {
 		"@acab/reset.css": "0.11.0",
@@ -30,5 +31,18 @@
 		"sharp": "0.34.5",
 		"svgo": "4.0.0",
 		"swiper": "12.0.3"
-	}
+	},
+	"files": [
+		"build",
+		"inc",
+		"partials",
+		"parts",
+		"patterns",
+		"static",
+		"templates",
+		"functions.php",
+		"screenshot.png",
+		"style.css",
+		"theme.json"
+	]
 }
