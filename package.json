@@ -26,9 +26,9 @@
 		"init:sh": "chmod +x ./{env,bin}/*.sh && ./bin/init.sh"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "31.0.0",
+		"@wordpress/scripts": "31.1.0",
 		"browser-sync": "^3.0.4",
-		"chokidar": "4.0.3",
+		"chokidar": "5.0.0",
 		"find-workspaces": "0.3.1",
 		"stylelint-config-recess-order": "7.4.0",
 		"zx": "8.8.5"
