@@ -22,7 +22,7 @@
 		"composer": "docker run --rm --interactive --tty --volume $PWD:/app composer composer",
 		"packages-update": "wp-scripts packages-update && npm run packages-update -ws --if-present",
 		"plugin-zip": "npm run plugin-zip --ws --if-present",
-		"setup": "npm run composer install && npx @wordpress start && npx @wordpress/env run cli ./env/setup.sh && npm run build",
+		"setup": "npm run composer install && npx @wordpress/env start && npx @wordpress/env run cli ./env/setup.sh && npm run build",
 		"init:sh": "chmod +x ./{env,bin}/*.sh && ./bin/init.sh"
 	},
 	"devDependencies": {
