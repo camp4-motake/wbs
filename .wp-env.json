@@ -15,7 +15,6 @@
 	"themes": [ "./themes/wbs" ],
 	"mappings": {
 		"env": "./env",
-		"wp-content/mu-plugins": "./mu-plugins",
-		"wp-cli.local.yml": "./wp-cli.local.yml"
+		"wp-content/mu-plugins": "./mu-plugins"
 	}
 }
