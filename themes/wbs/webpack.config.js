@@ -41,17 +41,17 @@ for ( const cfg of config ) {
 			new ImageMinimizerPlugin( {
 				deleteOriginalAssets: false,
 				generator: [
-					...[
-						{ avif: { quality: 80, chromaSubsampling: '4:2:0' } },
-					].map( ( opt ) => ( {
+					...[ { avif: { quality: 85 } } ].map( ( opt ) => ( {
 						type: 'asset',
 						implementation: ImageMinimizerPlugin.sharpGenerate,
 						filter: imgFilter,
 						options: { encodeOptions: opt },
 					} ) ),
 				],
-			} ),
+			} )
 
+			/*
+			// other options
 			new ImageMinimizerPlugin( {
 				minimizer: {
 					implementation: ImageMinimizerPlugin.sharpMinify,
@@ -59,12 +59,13 @@ for ( const cfg of config ) {
 						encodeOptions: {
 							jpeg: { quality: 80 },
 							webp: { quality: 90, smartSubsample: true },
-							avif: { quality: 80 },
-							png: { quality: 80, palette: true, colors: 128 },
+							avif: { quality: 85 },
+							png: { palette: false, quality: 80, }, // [!] Impact on AVIF image quality
 						},
 					},
 				},
-			} )
+			})
+			*/
 		);
 	}
 
@@ -74,6 +75,7 @@ for ( const cfg of config ) {
 	} );
 
 	cfg.performance = {
+		maxAssetSize: 512000,
 		assetFilter( assetFilename ) {
 			return ! /\.(jpe?g|png|webp|avif)$/i.test( assetFilename );
 		},

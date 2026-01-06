@@ -3,7 +3,7 @@
 /**
  * Image Helper
  *
- * @package u60th
+ * @package wbs
  */
 
 namespace Site\Theme\Helper\Image;
@@ -25,6 +25,7 @@ function wp_get_attachment_image_without_srcset( $attachment_id, $size = 'full',
 	remove_filter( 'wp_calculate_image_srcset_meta', '__return_null' );
 	return $result;
 }
+
 
 /**
  * Inline SVG
@@ -128,177 +129,114 @@ function svg_sprite( $xlink = '', $title = '', $class_name_string = '', $attr = 
 }
 
 /**
- * Image order
- *
- * @return array
- */
-function image_order() {
-	return array(
-		'png'  => array( 'avif', 'webp', 'png' ),
-		'jpg'  => array( 'avif', 'webp', 'jpg' ),
-		'jpeg' => array( 'avif', 'webp', 'jpeg' ),
-		'webp' => array( 'avif', 'webp' ),
-	);
-}
-
-/**
  * Auto Image tag
  *
- * @param string  $path path.
- * @param array   $attrs attr.
- * @param boolean $is_origin use old image format.
+ * @param string|array $path path or array with ['img' => '...', 'source' => [...]].
+ * @param array        $attrs attr.
+ * @param boolean|array $is_origin_or_picture_attrs use old image format or picture attrs.
+ * @param array        $picture_attrs picture attr (if 3rd arg is boolean).
  * @return string
  */
-function auto_img( $path = '', $attrs = array(), $is_origin = true ) {
-	if ( ! $path ) {
-		return '';
-	}
+function auto_img( $path = '', $attrs = array(), $is_origin_or_picture_attrs = true, $picture_attrs = array() ) {
+	$img_src = '';
+	$sources = array();
 
-	$order_patterns = image_order();
-
-	$info    = pathinfo( $path );
-	$ext     = $info['extension'];
-	$img_tag = make_img_tag( $path, $attrs );
-
-	if ( empty( $order_patterns[ $ext ] ) ) {
-		return $img_tag;
-	}
-
-	$src_items = array_map(
-		function ( $e ) use ( $path, $ext, $img_tag, $is_origin ) {
-			$target_path = str_replace( ".{$ext}", ".{$e}", $path );
-
-			if ( $ext === $e && ! $is_origin ) {
-				return null;
-			}
-			if ( file_exists( get_theme_file_path( $target_path ) ) ) {
-				return $target_path;
-			}
-		},
-		$order_patterns[ $ext ]
-	);
-
-	$src_items = array_filter( $src_items );
-
-	$tag = '';
-	foreach ( $src_items as $item ) {
-		if ( end( $src_items ) === $item ) {
-			$tag .= make_img_tag( $item, $attrs );
-		} else {
-			$tag .= make_source_tag( $item );
+	if ( is_array( $path ) && isset( $path['img'] ) ) {
+		$img_src = $path['img'];
+		if ( isset( $path['source'] ) ) {
+			$sources = $path['source'];
 		}
-	}
-
-	if ( count( $src_items ) <= 1 ) {
-		return $tag;
-	}
-
-	return "<picture>\n" . $tag . "</picture>\n";
-}
-
-/**
- * Image Helper
- *
- * @example single image
- * echo Image\picture_media($src = 'images/sample.png', $img_attrs = [], $picture_attrs = []);
- *
- * @example responsive image
- * $src = [
- *  'img' => 'images/sample.jpg',
- *   'source' => [
- *     ['src' => 'images/sample-lg.jpg', 'media' => MQ_LG],
- *     ['src' => 'images/sample-sm.jpg', 'media' => MQ_MD],
- *   ]
- * ];
- * echo Image\picture_media($src, $img_attrs = [], $picture_attrs = []);
- *
- * @param string|array $src_path image path.
- * @param array        $img_attrs image attr.
- * @param array        $picture_attrs picture attr.
- * @return string
- */
-function picture_media( $src_path = '' || array(), $img_attrs = array(), $picture_attrs = array() ): string {
-	$sources = false;
-
-	if ( is_array( $src_path ) && isset( $src_path['img'] ) ) {
-		$path = $src_path['img'];
-		if ( isset( $src_path['source'] ) && count( $src_path['source'] ) ) {
-			$sources = $src_path['source'];
-		}
-	} elseif ( is_string( $src_path ) ) {
-		$path = $src_path;
+	} elseif ( is_string( $path ) ) {
+		$img_src = $path;
 	} else {
 		return '';
 	}
 
-	$img_tag        = make_img_tag( $path, $img_attrs );
-	$order_patterns = image_order();
-	$info           = pathinfo( $path );
-	$ext            = $info['extension'];
+	if ( ! $img_src ) {
+		return '';
+	}
 
-	$n           = "\n";
-	$source_html = '';
-	$use_picture = false;
+	$is_origin            = true;
+	$actual_picture_attrs = array();
 
-	if ( $sources ) {
-		$use_picture = true;
-		// レスポンシブ画像の場合：各ソース画像に対してimage_orderパターンを適用
-		if ( ! empty( $order_patterns[ $ext ] ) ) {
-			// 各フォーマット（AVIF, WebP, 元の形式）に対してsourceタグを生成
-			foreach ( $order_patterns[ $ext ] as $format ) {
-				if ( $format === $ext ) {
-					continue; // 元の形式は最後に処理
-				}
-				foreach ( $sources as $source ) {
-					if ( ! isset( $source['src'] ) || ! isset( $source['media'] ) ) {
-						continue;
-					}
-					$source_info = pathinfo( $source['src'] );
-					$source_ext  = $source_info['extension'];
-					$format_path = str_replace( ".{$source_ext}", ".{$format}", $source['src'] );
+	if ( is_array( $is_origin_or_picture_attrs ) ) {
+		$actual_picture_attrs = $is_origin_or_picture_attrs;
+	} else {
+		$is_origin            = $is_origin_or_picture_attrs;
+		$actual_picture_attrs = $picture_attrs;
+	}
 
-					if ( file_exists( get_theme_file_path( $format_path ) ) ) {
-						$mime_type    = 'avif' === $format ? 'image/avif' : 'image/webp';
-						$source_html .= make_source_tag( $format_path, $mime_type, $source['media'] );
-					}
-				}
-			}
+	$find_variants = function ( $file_path ) use ( $is_origin ) {
+		$variants       = array();
+		$order_patterns = array(
+			'png'  => array( 'avif', 'webp', 'png' ),
+			'jpg'  => array( 'avif', 'webp', 'jpg' ),
+			'webp' => array( 'avif', 'webp' ),
+		);
+
+		$info = pathinfo( $file_path );
+		if ( ! isset( $info['extension'] ) ) {
+			return file_exists( get_theme_file_path( $file_path ) ) ? array( $file_path ) : array();
 		}
-		// 元の形式のsourceタグ
-		foreach ( $sources as $source ) {
-			if ( ! isset( $source['src'] ) || ! isset( $source['media'] ) ) {
+		$ext = $info['extension'];
+
+		if ( ! isset( $order_patterns[ $ext ] ) ) {
+			return file_exists( get_theme_file_path( $file_path ) ) ? array( $file_path ) : array();
+		}
+
+		foreach ( $order_patterns[ $ext ] as $format_ext ) {
+			if ( $ext === $format_ext && ! $is_origin ) {
 				continue;
 			}
-			$source_html .= make_source_tag( $source['src'], null, $source['media'] );
+
+			$candidate = str_replace( ".{$ext}", ".{$format_ext}", $file_path );
+			// Check distinct file path to avoid redundant checks if extension matches
+			if ( file_exists( get_theme_file_path( $candidate ) ) ) {
+				$variants[] = $candidate;
+			}
+		}
+		return $variants;
+	};
+
+	$source_html = '';
+
+	if ( ! empty( $sources ) ) {
+		foreach ( $sources as $param ) {
+			if ( empty( $param['src'] ) || empty( $param['media'] ) ) {
+				continue;
+			}
+			$source_variants = $find_variants( $param['src'] );
+			foreach ( $source_variants as $v ) {
+				$source_html .= make_source_tag( $v, $param['media'] );
+			}
 		}
 	}
 
-	// imgタグのsrcと同名のWebP/AVIFがある場合はsourceタグを追加
-	if ( ! empty( $order_patterns[ $ext ] ) ) {
-		foreach ( $order_patterns[ $ext ] as $format ) {
-			if ( $format === $ext ) {
-				continue; // 元の形式はimgタグで処理
-			}
-			$format_path = str_replace( ".{$ext}", ".{$format}", $path );
+	$main_variants = $find_variants( $img_src );
 
-			if ( file_exists( get_theme_file_path( $format_path ) ) ) {
-				$mime_type    = 'avif' === $format ? 'image/avif' : 'image/webp';
-				$source_html .= make_source_tag( $format_path, $mime_type );
-				$use_picture  = true;
-			}
-		}
+	if ( empty( $main_variants ) ) {
+		return '';
 	}
 
-	if ( ! $use_picture ) {
-		return $img_tag;
+	$img_tag      = '';
+	$main_sources = '';
+
+	$last_variant = array_pop( $main_variants );
+	$img_tag      = make_img_tag( $last_variant, $attrs );
+
+	foreach ( $main_variants as $v ) {
+		$main_sources .= make_source_tag( $v );
 	}
 
-	$html  = '<picture' . array_to_attr_string( $picture_attrs ) . '>' . $n;
-	$html .= $source_html;
-	$html .= $img_tag;
-	$html .= '</picture>' . $n;
+	$has_sources   = ! empty( $source_html ) || ! empty( $main_sources );
+	$has_pic_attrs = ! empty( $actual_picture_attrs );
 
-	return $html;
+	if ( $has_sources || $has_pic_attrs ) {
+		$pic_attr_str = array_to_attr_string( $actual_picture_attrs );
+		return "<picture{$pic_attr_str}>\n" . $source_html . $main_sources . $img_tag . "</picture>\n";
+	}
+
+	return $img_tag;
 }
 
 /**
@@ -320,7 +258,6 @@ function make_img_tag( $path = '', $attrs = array() ) {
 			'width'    => ! empty( $img_size[0] ) ? $img_size[0] : '',
 			'height'   => ! empty( $img_size[1] ) ? $img_size[1] : '',
 			'alt'      => '',
-			'loading'  => 'lazy',
 			'decoding' => 'async',
 		)
 	);
@@ -331,34 +268,24 @@ function make_img_tag( $path = '', $attrs = array() ) {
  * Make Source tag
  *
  * @param string $path .
- * @param string $type MIME type.
- * @param string $media Media query.
+ * @param string $media .
  * @return string
  */
-function make_source_tag( $path = '', $type = null, $media = null ) {
+function make_source_tag( $path = '', $media = null ) {
 	$source_path = get_theme_file_path( $path );
 	if ( ! file_exists( $source_path ) ) {
 		return '';
 	}
 	$source_size = getimagesize( $source_path );
 	$attrs       = array(
-		'srcset' => esc_url( Path\cache_buster( $path ) ),
 		'width'  => ! empty( $source_size[0] ) ? $source_size[0] : '',
 		'height' => ! empty( $source_size[1] ) ? $source_size[1] : '',
+		'type'   => ! empty( $source_size['mime'] ) ? $source_size['mime'] : '',
 	);
-
-	// typeが指定されている場合はそれを使用、そうでなければgetimagesizeから取得
-	if ( ! empty( $type ) ) {
-		$attrs['type'] = $type;
-	} elseif ( ! empty( $source_size['mime'] ) ) {
-		$attrs['type'] = $source_size['mime'];
-	}
-
 	if ( ! empty( $media ) ) {
-		$attrs['media'] = $media;
+		$attrs = wp_parse_args( $attrs, array( 'media' => $media ) );
 	}
-
-	return '<source' . array_to_attr_string( $attrs ) . ' >' . "\n";
+	return '<source srcset="' . esc_url( Path\cache_buster( $path ) ) . '"' . array_to_attr_string( $attrs ) . ' >' . "\n";
 }
 
 /**
@@ -419,6 +346,7 @@ function array_to_attr_string( $attrs = array(), $spacer = ' ' ): string {
 
 	return $attr_string ? $spacer . $attr_string : '';
 }
+
 
 /**
  * Additional wp_kses_allowed_html target
