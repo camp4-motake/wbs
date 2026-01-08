@@ -2,10 +2,6 @@
 	"files.exclude": {
 		"**/.DS_Store/**": true,
 		".cache": true,
-		"composer.lock": true,
-		"node_modules": false,
-		"package-lock.json": true,
-		"plugins/advanced-custom-fields-pro": true,
 		"**/*.tsbuildinfo": true
 	},
 	"files.watcherExclude": {
@@ -24,9 +20,7 @@
 	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"editor.formatOnSave": true,
 
-	"eslint.format.enable": true,
-	"eslint.useFlatConfig": false,
-	"eslint.workingDirectories": [ { "mode": "auto" } ],
+	"eslint.runtime": "node",
 	"eslint.validate": [
 		"javascript",
 		"javascriptreact",
@@ -50,26 +44,19 @@
 		"plugins/advanced-custom-fields-pro"
 	],
 
-	/** https://marketplace.visualstudio.com/items?itemName=obliviousharmony.vscode-php-codesniffer */
-	"phpCodeSniffer.autoExecutable": true,
-	"phpCodeSniffer.standard": "Automatic",
-	"phpCodeSniffer.exclude": [
-		"**/.git/**",
-		"**/.svn/**",
-		"**/.hg/**",
-		"**/.cache/**",
-		"**/jetpack_vendor/**",
-		"**/vendor/**"
-	],
+	/** https://github.com/valeryan/vscode-phpsab */
+	"phpsab.fixerArguments": [ "--standard=phpcs.xml.dist" ],
 
+	/** https://github.com/jota0222/MultiFormatterVSCode */
 	"[php]": {
 		"editor.formatOnSave": true,
 		"editor.defaultFormatter": "Jota0222.multi-formatter",
 		"multiFormatter.formatterList": [
 			"bmewburn.vscode-intelephense-client",
-			"obliviousharmony.vscode-php-codesniffer"
+			"valeryanm.vscode-phpsab"
 		]
 	},
+
 	"[javascript]": {
 		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
 	},
@@ -96,5 +83,5 @@
 	"cssVariables.lookupFiles": [ "themes", "env/.theme-css-helper/*.css" ],
 
 	/** https://github.com/streetsidesoftware/vscode-spell-checker */
-	"cSpell.words": [ "uncategorized" ]
+	"cSpell.words": [ "honolulumarathon", "uncategorized" ]
 }
