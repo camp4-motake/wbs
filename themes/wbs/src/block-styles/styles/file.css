@@ -1,9 +1,0 @@
-:root .wp-block-file {
-	.wp-block-file__button {
-		--_min-inline-size: auto;
-		--_bg-color: var(--wp--preset--color--text-base);
-
-		font-weight: var(--wp--custom--font-weight--bold);
-		background-color: var(--_bg-color);
-	}
-}

@@ -9,76 +9,119 @@
 namespace Site\Theme\Assets;
 
 /**
- * main theme assets
+ * assets
  */
-function enqueue_theme_assets() {
+function enqueue_assets() {
+	$is_admin = is_admin(); // "true" is admin only
 
-	$asset = include get_theme_file_path( 'build/main/index.asset.php' );
+	$prefix = wp_get_theme()->get( 'TextDomain' );
 
-	wp_enqueue_style(
-		'theme-main-styles',
-		get_theme_file_uri( 'build/main/index.css' ),
-		array(),
-		$asset['version']
+	$assets = array(
+		'block-styles'     => array(
+			'path'   => 'build/block-styles/register-styles',
+			'script' => $is_admin,
+			'style'  => false,
+		),
+		'block-variations' => array(
+			'path'   => 'build/block-variations',
+			'script' => $is_admin,
+			'style'  => false, // Enable when using variations
+		),
+		'formats'          => array(
+			'path'   => 'build/formats',
+			'script' => $is_admin,
+			'style'  => true,
+		),
+		'main'             => array(
+			'path'   => 'build/main',
+			'script' => ! $is_admin,
+			'style'  => ! $is_admin,
+		),
+		'editor'           => array(
+			'path'   => 'build/editor',
+			'script' => $is_admin,
+			'style'  => $is_admin,
+		),
 	);
 
-	wp_enqueue_script_module(
-		'theme-main-scripts',
-		get_theme_file_uri( 'build/main/index.js' ),
-		$asset['dependencies'],
-		$asset['version'],
-	);
+	foreach ( $assets as $key => $asset ) {
+		$path = get_theme_file_path( $asset['path'] . '/index.asset.php' );
+
+		if ( ! file_exists( $path ) ) {
+			continue;
+		}
+
+		$ctx          = include_once $path;
+		$dependencies = ( ! empty( $ctx['dependencies'] ) ) ? $ctx['dependencies'] : array();
+		$version      = ( ! empty( $ctx['version'] ) ) ? $ctx['version'] : null;
+
+		if ( $asset['style'] && file_exists( get_theme_file_path( $asset['path'] . '/index.css' ) ) ) {
+			$deps = $is_admin ? array() : array( 'global-styles' );
+			wp_enqueue_style(
+				"$prefix-theme-$key-styles",
+				get_theme_file_uri( $asset['path'] . '/index.css' ),
+				$deps,
+				$version,
+			);
+		}
+
+		if ( $asset['script'] && file_exists( get_theme_file_path( $asset['path'] . '/index.js' ) ) ) {
+			wp_enqueue_script(
+				"$prefix-theme-$key-scripts",
+				get_theme_file_uri( $asset['path'] . '/index.js' ),
+				$dependencies,
+				$version,
+				false
+			);
+		}
+	}
 }
-add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_theme_assets', 100 );
+add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_assets', 200 );
+add_action( 'enqueue_block_assets', __NAMESPACE__ . '\\enqueue_assets', 200 );
+
 
 /**
- * Block Styles / Variations / Format assets
+ * Enqueue block styles
+ *
+ * @return void
  */
-function enqueue_theme_block_styles() {
+function enqueue_block_styles() {
 
-	// Block Styles
-	$asset = include get_theme_file_path( 'build/block-styles/index.asset.php' );
-	wp_enqueue_style(
-		'theme-block-styles',
-		get_theme_file_uri( 'build/block-styles/index.css' ),
-		array(),
-		$asset['version']
+	$prefix = wp_get_theme()->get( 'TextDomain' );
+
+	$styles = array(
+		/* // phpcs:ignore Squiz.PHP.CommentedOutCode.Found
+		//  example
+		'buttons' => array(
+			'blocks' => 'core/buttons',
+			'path'   => 'build/block-styles/buttons',
+		),
+		*/
 	);
 
-	// Block Variations
-	$asset = include get_theme_file_path( 'build/block-variations/index.asset.php' );
-	wp_enqueue_style(
-		'theme-block-variations',
-		get_theme_file_uri( 'build/block-variations/index.css' ),
-		array(),
-		$asset['version']
-	);
+	foreach ( $styles as $key => $style ) {
+		$path = get_theme_file_path( $style['path'] . '/index.asset.php' );
 
-	// Format api style
-	$asset = include get_theme_file_path( 'build/formats/index.asset.php' );
-	wp_enqueue_style(
-		'theme-formats',
-		get_theme_file_uri( 'build/formats/index.css' ),
-		array(),
-		$asset['version']
-	);
+		if ( ! file_exists( $path ) ) {
+			continue;
+		}
+
+		$ctx          = include_once $path;
+		$dependencies = ( ! empty( $ctx['dependencies'] ) ) ? $ctx['dependencies'] : array();
+		$version      = ( ! empty( $ctx['version'] ) ) ? $ctx['version'] : null;
+
+		if ( file_exists( get_theme_file_path( $style['path'] . '/index.css' ) ) ) {
+			wp_enqueue_block_style(
+				$style['blocks'],
+				array(
+					'handle' => "$prefix-theme-block-styles-$key",
+					'src'    => get_theme_file_uri( $style['path'] . '/index.css' ),
+					'path'   => get_theme_file_path( $style['path'] . '/index.css' ),
+					'deps'   => $dependencies,
+					'ver'    => $version,
+				)
+			);
+		}
+	}
 }
-add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\enqueue_theme_block_styles', 99 );
-add_action( 'enqueue_block_assets', __NAMESPACE__ . '\\enqueue_theme_block_styles', 100 );
-
-/**
- * register swiper/core common style
- * @see https://ja.wordpress.org/team/handbook/block-editor/reference-guides/block-api/block-metadata/#wpdefinedasset
- */
-function enqueue_early_styles() {
-
-	$asset = include get_theme_file_path( 'build/swiper/index.asset.php' );
-
-	wp_register_style(
-		'theme-swiper-styles',
-		get_theme_file_uri( 'build/swiper/index.css' ),
-		array(),
-		$asset['version'],
-	);
-}
-add_action( 'enqueue_block_assets', __NAMESPACE__ . '\enqueue_early_styles', -999 );
+add_action( 'init', __NAMESPACE__ . '\\enqueue_block_styles', 200 );

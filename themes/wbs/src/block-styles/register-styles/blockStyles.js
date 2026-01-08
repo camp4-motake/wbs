@@ -1,21 +1,20 @@
-/**
- * ブロックスタイル登録
- * @see https://ja.wordpress.org/team/handbook/block-editor/reference-guides/block-api/block-styles/
- */
+// import { __ } from '@wordpress/i18n';
 
 /**
- * 追加ブロックスタイル
- * example:
- * { block: 'core/button', option: { name: 'icon-none', label: __( 'アイコンなし', 'wbs' ) }, },
+ * 追加ブロックスタイル登録
+ * @see https://ja.wordpress.org/team/handbook/block-editor/reference-guides/block-api/block-styles/
  */
 const ADDED_STYLES = [
-	// {
-	// 	block: 'core/buttons',
-	// 	option: {
-	// 		name: 'under-line',
-	// 		label: __( '下線リンク', 'wbs' ),
-	// 	},
-	// },
+	/*
+	// example
+	{
+		block: 'core/buttons',
+		option: {
+			name: 'under-line',
+			label: __( '下線リンク', 'hmj' ),
+		},
+	},
+	*/
 ];
 
 // 削除するデフォルトスタイル
