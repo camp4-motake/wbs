@@ -11,7 +11,7 @@ const ADDED_STYLES = [
 		block: 'core/buttons',
 		option: {
 			name: 'under-line',
-			label: __( '下線リンク', 'hmj' ),
+			label: __( '下線リンク', 'wbs' ),
 		},
 	},
 	*/

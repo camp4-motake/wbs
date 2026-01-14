@@ -11,7 +11,7 @@ const config = [
 	// example
 	{
 		blockNames: [ 'core/buttons' ],
-		panelTitle: __( `ボタンタイプ`, 'hmj' ),
+		panelTitle: __( `ボタンタイプ`, 'wbs' ),
 		selectionType: 'select', // 'select' | 'radio'
 		styleOptions: [
 			{ label: '小', value: 'has-size-sm' },

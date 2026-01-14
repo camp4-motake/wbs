@@ -13,9 +13,9 @@ namespace Site\Theme\Assets;
  */
 function enqueue_assets() {
 	$is_admin = is_admin(); // "true" is admin only
+	$prefix   = wp_get_theme()->get( 'TextDomain' );
 
-	$prefix = wp_get_theme()->get( 'TextDomain' );
-
+	// assets
 	$assets = array(
 		'block-styles'     => array(
 			'path'   => 'build/block-styles/register-styles',
@@ -89,14 +89,20 @@ function enqueue_block_styles() {
 
 	$prefix = wp_get_theme()->get( 'TextDomain' );
 
+	// target blocks
 	$styles = array(
-		/* // phpcs:ignore Squiz.PHP.CommentedOutCode.Found
-		//  example
-		'buttons' => array(
+		'accordion' => array(
+			'blocks' => 'core/accordion',
+			'path'   => 'build/block-styles/accordion',
+		),
+		'buttons'   => array(
 			'blocks' => 'core/buttons',
 			'path'   => 'build/block-styles/buttons',
 		),
-		*/
+		'image'     => array(
+			'blocks' => 'core/image',
+			'path'   => 'build/block-styles/image',
+		),
 	);
 
 	foreach ( $styles as $key => $style ) {

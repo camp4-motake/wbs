@@ -1,9 +1,9 @@
 import { InspectorControls } from '@wordpress/block-editor';
 import {
-	CheckboxControl,
-	PanelBody,
-	RadioControl,
-	SelectControl,
+    CheckboxControl,
+    PanelBody,
+    RadioControl,
+    SelectControl,
 } from '@wordpress/components';
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { Fragment, useEffect, useState } from '@wordpress/element';
@@ -26,10 +26,10 @@ import { __ } from '@wordpress/i18n';
 export const registerExtendBlockStyles = ( {
 	blockNames,
 	styleOptions = [],
-	panelTitle = __( 'スタイル設定', 'hmj' ),
+	panelTitle = __( 'スタイル設定', 'wbs' ),
 	panelDescription = '',
 	initialOpen = true,
-	namespace = 'hmj',
+	namespace = 'wbs',
 	selectionType = 'checkbox',
 	defaultStyle = '',
 } = {} ) => {
@@ -121,7 +121,7 @@ export const registerExtendBlockStyles = ( {
 					<RadioControl
 						selected={ selectedStyle }
 						options={ [
-							{ label: __( 'Default', 'hmj' ), value: '' },
+							{ label: __( 'Default', 'wbs' ), value: '' },
 							...styleOptions.map( ( option ) => ( {
 								label: option.label,
 								value: option.value,
@@ -144,7 +144,7 @@ export const registerExtendBlockStyles = ( {
 					<SelectControl
 						value={ selectedStyle }
 						options={ [
-							{ label: __( 'Default', 'hmj' ), value: '' },
+							{ label: __( 'Default', 'wbs' ), value: '' },
 							...styleOptions.map( ( option ) => ( {
 								label: option.label,
 								value: option.value,

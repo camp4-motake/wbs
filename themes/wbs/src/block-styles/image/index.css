@@ -1,0 +1,128 @@
+.wp-block-image {
+	inline-size: fit-content;
+
+	&:is(.alignleft, .alignright) {
+		display: block;
+		block-size: 0;
+		padding: 0;
+		overflow: visible;
+
+		img {
+			inline-size: fit-content;
+			max-inline-size: calc(50% - (var(--spacer) * 1.25));
+			block-size: auto;
+		}
+	}
+
+	&.alignright:not(.has-align-margin-block) img {
+		float: right;
+		margin-block-end: var(--wp--preset--spacing--normal);
+		margin-inline-start: var(--wp--preset--spacing--md);
+	}
+
+	&.alignleft:not(.has-align-margin-block) img {
+		float: left;
+		margin-block-end: var(--wp--preset--spacing--normal);
+		margin-inline-end: var(--wp--preset--spacing--md);
+	}
+
+	&.aligncenter {
+		inline-size: fit-content;
+		margin-inline: auto !important;
+	}
+
+	&.alignwide,
+	&.alignfull {
+		inline-size: 100%;
+
+		img {
+			inline-size: 100%;
+			block-size: auto;
+		}
+	}
+
+	&.alignwide {
+		max-inline-size: min(
+			calc(100% - (var(--wp--preset--spacing--normal) * 2)),
+			var(--wp--style--global--wide-size)
+		);
+	}
+
+	&.alignfull {
+		max-inline-size: var(--wp--custom--container-max-width--view);
+
+		figcaption {
+			padding-inline: 0.5em;
+		}
+	}
+
+	&.has-display-force-thumbnail {
+		clear: both;
+		display: grid;
+		inline-size: 100%;
+		max-inline-size: var(--wp--custom--container-max-width--view);
+		block-size: auto;
+		margin-inline: auto;
+
+		img {
+			float: none !important;
+			inline-size: 100%;
+			margin: 0 !important;
+		}
+	}
+
+	&.has-align-margin-block {
+		&.alignleft,
+		&.alignright {
+			float: none;
+			block-size: initial;
+		}
+
+		&.alignleft {
+			margin-inline: 0 auto !important;
+		}
+
+		&.alignright {
+			margin-inline: auto 0 !important;
+		}
+	}
+
+	figcaption {
+		display: block;
+		padding: 0;
+		margin-block: 0.25em 0.75em;
+		font-size: var(--wp--preset--font-size--sm);
+	}
+}
+
+.is-layout-constrained {
+	> .wp-block-image:where(:not(.alignleft):not(.alignright):not(.alignfull)) {
+		max-inline-size: min(
+			calc(100% - (var(--wp--preset--spacing--normal) * 2)),
+			var(--wp--style--global--content-size)
+		) !important;
+	}
+
+	&.wp-block-image.alignwide {
+		max-inline-size: min(
+			calc(100% - (var(--wp--preset--spacing--normal) * 2)),
+			var(--wp--style--global--wide-size)
+		) !important;
+	}
+
+	&.wp-block-image.alignfull {
+		max-inline-size: 100% !important;
+	}
+}
+
+.editor-styles-wrapper .wp-block-image.has-display-force-thumbnail {
+	.components-resizable-box__container {
+		inline-size: 100% !important;
+		max-inline-size: 100% !important;
+
+		img {
+			inline-size: 100%;
+			object-fit: cover;
+		}
+	}
+}
