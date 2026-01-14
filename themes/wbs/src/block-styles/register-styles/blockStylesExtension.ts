@@ -1,4 +1,7 @@
-import { registerExtendBlockStyles } from './registerExtendBlockStyles';
+import {
+	registerExtendBlockStyles,
+	type ExtendBlockStylesConfig,
+} from './registerExtendBlockStyles';
 // import { __ } from '@wordpress/i18n';
 
 /**
@@ -6,7 +9,7 @@ import { registerExtendBlockStyles } from './registerExtendBlockStyles';
  * ブロックスタイル以外の追加クラス付け替え用スイッチ項目を追加する
  */
 
-const config = [
+const config: ExtendBlockStylesConfig[] = [
 	/*
 	// example
 	{
@@ -21,7 +24,7 @@ const config = [
 	*/
 ];
 
-export const blockStylesExtension = () => {
+export const blockStylesExtension = (): void => {
 	if ( ! config?.length ) {
 		return;
 	}

@@ -1,27 +1,35 @@
 import { InspectorControls } from '@wordpress/block-editor';
 import {
-    CheckboxControl,
-    PanelBody,
-    RadioControl,
-    SelectControl,
+	CheckboxControl,
+	PanelBody,
+	RadioControl,
+	SelectControl,
 } from '@wordpress/components';
 import { createHigherOrderComponent } from '@wordpress/compose';
 import { Fragment, useEffect, useState } from '@wordpress/element';
 import { addFilter } from '@wordpress/hooks';
 import { __ } from '@wordpress/i18n';
 
+export interface StyleOption {
+	label: string;
+	value: string;
+}
+
+export interface ExtendBlockStylesConfig {
+	blockNames: string | string[];
+	styleOptions?: StyleOption[];
+	panelTitle?: string;
+	panelDescription?: string;
+	initialOpen?: boolean;
+	namespace?: string;
+	selectionType?: 'checkbox' | 'radio' | 'select';
+	defaultStyle?: string;
+}
+
 /**
  * Registers a function to add custom block styles to WordPress blocks.
  *
- * @param {Object}             config                  Configuration object
- * @param {string|string[]}    config.blockNames       Name(s) of the target block(s)
- * @param {Object[]}           config.styleOptions     Array of style options
- * @param {string}             config.panelTitle       Title of the sidebar panel
- * @param {string}             config.panelDescription Optional description text to display under the panel title
- * @param {boolean}            config.initialOpen      Initial state of the panel (open or closed)
- * @param {string}             config.namespace        Namespace for the filter
- * @param {'checkbox'|'radio'} config.selectionType    Type of selection control ('checkbox' or 'radio')
- * @param {string}             [config.defaultStyle]   Default selected style for radio buttons
+ * @param {ExtendBlockStylesConfig} config Configuration object
  */
 export const registerExtendBlockStyles = ( {
 	blockNames,
@@ -32,7 +40,7 @@ export const registerExtendBlockStyles = ( {
 	namespace = 'wbs',
 	selectionType = 'checkbox',
 	defaultStyle = '',
-} = {} ) => {
+}: ExtendBlockStylesConfig ) => {
 	// Convert string to array if needed
 	const targetBlocks = Array.isArray( blockNames )
 		? blockNames
@@ -42,7 +50,7 @@ export const registerExtendBlockStyles = ( {
 	const styleOptionValues = styleOptions.map( ( option ) => option.value );
 
 	// Extend block attributes
-	const extendBlockAttributes = ( settings, name ) => {
+	const extendBlockAttributes = ( settings: any, name: string ) => {
 		if ( targetBlocks.includes( name ) ) {
 			return {
 				...settings,
@@ -61,8 +69,8 @@ export const registerExtendBlockStyles = ( {
 
 	// Update className while preserving existing classes
 	const updateClassNameWithPreservation = (
-		existingClassName = '',
-		newStyles
+		existingClassName: string = '',
+		newStyles: string | string[]
 	) => {
 		const existingClasses = existingClassName
 			.split( ' ' )
@@ -72,14 +80,22 @@ export const registerExtendBlockStyles = ( {
 			( className ) => ! styleOptionValues.includes( className )
 		);
 
-		if ( selectionType === 'checkbox' ) {
+		if ( selectionType === 'checkbox' && Array.isArray( newStyles ) ) {
 			return [ ...preservedClasses, ...newStyles ].join( ' ' );
 		}
-		return [ ...preservedClasses, newStyles ].filter( Boolean ).join( ' ' );
+		return [ ...preservedClasses, newStyles as string ]
+			.filter( Boolean )
+			.join( ' ' );
 	};
 
 	// Style settings component
-	const StyleSettings = ( { attributes, setAttributes } ) => {
+	const StyleSettings = ( {
+		attributes,
+		setAttributes,
+	}: {
+		attributes: any;
+		setAttributes: ( attrs: any ) => void;
+	} ) => {
 		const {
 			customStyles = selectionType === 'checkbox' ? [] : defaultStyle,
 			className = '',
@@ -92,12 +108,13 @@ export const registerExtendBlockStyles = ( {
 			const currentSelectedStyle =
 				className
 					.split( ' ' )
-					.find( ( cls ) => styleOptionValues.includes( cls ) ) ||
-				defaultStyle;
+					.find( ( cls: string ) =>
+						styleOptionValues.includes( cls )
+					) || defaultStyle;
 			setSelectedStyle( currentSelectedStyle );
-		}, [ setSelectedStyle, className ] );
+		}, [ className ] );
 
-		const updateStyles = ( newStyle ) => {
+		const updateStyles = ( newStyle: string | string[] ) => {
 			const updatedClassName = updateClassNameWithPreservation(
 				className,
 				newStyle
@@ -169,11 +186,12 @@ export const registerExtendBlockStyles = ( {
 						key={ option.value }
 						label={ option.label }
 						checked={ customStyles.includes( option.value ) }
-						onChange={ ( checked ) => {
+						onChange={ ( checked: boolean ) => {
 							const newStyles = checked
 								? [ ...customStyles, option.value ]
 								: customStyles.filter(
-										( style ) => style !== option.value
+										( style: string ) =>
+											style !== option.value
 								  );
 							updateStyles( newStyles );
 						} }
@@ -185,7 +203,7 @@ export const registerExtendBlockStyles = ( {
 
 	// Extend editor UI
 	const withCustomStyles = createHigherOrderComponent( ( BlockEdit ) => {
-		return ( props ) => {
+		return ( props: any ) => {
 			if ( ! targetBlocks.includes( props.name ) ) {
 				return <BlockEdit { ...props } />;
 			}
