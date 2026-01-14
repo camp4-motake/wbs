@@ -72,7 +72,7 @@ add_action( 'widgets_init', __NAMESPACE__ . '\\remove_recent_comments_style' );
  * @return $endpoints
  */
 function remove_user_endpoint( $endpoints ) {
-	if ( is_admin() ) {
+	if ( is_user_logged_in() ) {
 		return $endpoints;
 	}
 	if ( isset( $endpoints['/wp/v2/users'] ) ) {
