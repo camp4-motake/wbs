@@ -23,21 +23,23 @@ for ( const cfg of config ) {
 		} )
 	);
 
-	if ( process.env.NODE_ENV === 'production' ) {
-		cfg.plugins.push(
-			new ImageMinimizerPlugin( {
-				test: /\.(svg)$/i,
-				minimizer: {
-					implementation: ImageMinimizerPlugin.svgoMinify,
-					options: {
-						encodeOptions: {
-							multipass: true,
-							plugins: [ 'preset-default' ],
-						},
+	cfg.plugins.push(
+		new ImageMinimizerPlugin( {
+			test: /\.(svg)$/i,
+			minimizer: {
+				implementation: ImageMinimizerPlugin.svgoMinify,
+				options: {
+					encodeOptions: {
+						multipass: true,
+						plugins: [ 'preset-default' ],
 					},
 				},
-			} ),
+			},
+		} )
+	);
 
+	if ( process.env.NODE_ENV === 'production' ) {
+		cfg.plugins.push(
 			new ImageMinimizerPlugin( {
 				deleteOriginalAssets: false,
 				generator: [
@@ -49,23 +51,6 @@ for ( const cfg of config ) {
 					} ) ),
 				],
 			} )
-
-			/*
-			// other options
-			new ImageMinimizerPlugin( {
-				minimizer: {
-					implementation: ImageMinimizerPlugin.sharpMinify,
-					options: {
-						encodeOptions: {
-							jpeg: { quality: 80 },
-							webp: { quality: 90, smartSubsample: true },
-							avif: { quality: 85 },
-							png: { palette: false, quality: 80, }, // [!] Impact on AVIF image quality
-						},
-					},
-				},
-			})
-			*/
 		);
 	}
 
