@@ -21,16 +21,16 @@
 		"lint:js": "wp-scripts lint-js",
 		"lint:css": "wp-scripts lint-style",
 		"lint:php": "npm run composer lint",
-		"cli": "npx @wordpress/env cli",
+		"cli": "npm run wp-env -- run cli",
 		"wp-env": "npx @wordpress/env",
-		"wp-flush": "npx @wordpress/env run cli wp rewrite flush --hard",
-		"wp-export": "npx @wordpress/env run cli ./env/export.sh",
-		"wp-import": "npx @wordpress/env run cli ./env/import.sh",
+		"wp-flush": "npm run cli -- wp rewrite flush --hard",
+		"wp-export": "npm run cli -- ./env/export.sh",
+		"wp-import": "npm run cli -- ./env/import.sh",
 		"composer": "docker run --rm --interactive --tty --volume $PWD:/app composer composer",
 		"packages-update": "wp-scripts packages-update && npm run packages-update --ws --if-present",
 		"plugin-zip": "npm run plugin-zip --ws --if-present",
-		"setup": "npm run composer install && npx @wordpress/env start && npx @wordpress/env run cli ./env/setup.sh && npm run build",
-		"init:sh": "chmod +x ./{env,bin}/*.sh && ./bin/init.sh"
+		"setup": "npm run composer install && npx @wordpress/env start && npm run cli -- ./env/setup.sh && npm run build",
+		"init": "chmod +x ./{env,bin}/*.sh && ./bin/init.sh"
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "31.2.0",
