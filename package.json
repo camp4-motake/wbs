@@ -30,7 +30,7 @@
 		"packages-update": "wp-scripts packages-update && npm run packages-update --ws --if-present",
 		"plugin-zip": "npm run plugin-zip --ws --if-present",
 		"setup": "npm run composer install && npx @wordpress/env start && npm run cli -- ./env/setup.sh && npm run build",
-		"init": "chmod +x ./{env,bin}/*.sh && ./bin/init.sh"
+		"init:sh": "chmod +x ./{env,bin}/*.sh && ./bin/init.sh"
 	},
 	"devDependencies": {
 		"@wordpress/scripts": "31.2.0",
