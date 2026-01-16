@@ -6,6 +6,7 @@ import Edit from './edit';
 import './style.css';
 
 registerBlockType( metadata.name, {
+	...( metadata as any ),
 	title: __( 'ダイナミックテンプレートパーツ', 'wbs' ),
 	edit: Edit,
 	save: () => <InnerBlocks.Content />,
