@@ -12,7 +12,7 @@
 	"scripts": {
 		"build": "npm run build --ws --if-present",
 		"dev": "node ./bin/dev.mjs",
-		"format": "run-s format:*",
+		"format": "run-s -sn format:*",
 		"format:js": "wp-scripts lint-js --fix",
 		"format:css": "wp-scripts lint-style --fix",
 		"format:fix": "wp-scripts format",
