@@ -94,6 +94,7 @@ export const registerExtendBlockStyles = ( {
 		setAttributes,
 	}: {
 		attributes: any;
+		// eslint-disable-next-line no-unused-vars
 		setAttributes: ( attrs: any ) => void;
 	} ) => {
 		const {

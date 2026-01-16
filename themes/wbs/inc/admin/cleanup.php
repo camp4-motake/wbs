@@ -1,4 +1,5 @@
 <?php
+// phpcs:disable Squiz.PHP.CommentedOutCode.Found
 
 /**
  * Admin Cleanup
