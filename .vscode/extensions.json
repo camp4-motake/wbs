@@ -5,7 +5,6 @@
 		"esbenp.prettier-vscode",
 		"jota0222.multi-formatter",
 		"stylelint.vscode-stylelint",
-		"valeryanm.vscode-phpsab",
-		"vunguyentuan.vscode-css-variables"
+		"valeryanm.vscode-phpsab"
 	]
 }
