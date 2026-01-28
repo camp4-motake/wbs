@@ -89,24 +89,18 @@ function enqueue_block_styles() {
 
 	$prefix = wp_get_theme()->get( 'TextDomain' );
 
-	// target blocks
-	$styles = array(
-		'accordion' => array(
-			'blocks' => 'core/accordion',
-			'path'   => 'build/block-styles/accordion',
-		),
-		'buttons'   => array(
-			'blocks' => 'core/buttons',
-			'path'   => 'build/block-styles/buttons',
-		),
-		'image'     => array(
-			'blocks' => 'core/image',
-			'path'   => 'build/block-styles/image',
-		),
+	// target styled core blocks
+	$styled_blocks = array(
+		'core/accordion'  => array(),
+		'core/buttons'    => array(),
+		'core/image'      => array(),
+		'core/media-text' => array(),
 	);
 
-	foreach ( $styles as $key => $style ) {
-		$path = get_theme_file_path( $style['path'] . '/index.asset.php' );
+	foreach ( $styled_blocks as $block_type => $style ) {
+		$key  = str_replace( 'core/', '', $block_type );
+		$dir  = 'build/block-styles/' . $key;
+		$path = get_theme_file_path( $dir . '/index.asset.php' );
 
 		if ( ! file_exists( $path ) ) {
 			continue;
@@ -116,13 +110,13 @@ function enqueue_block_styles() {
 		$dependencies = ( ! empty( $ctx['dependencies'] ) ) ? $ctx['dependencies'] : array();
 		$version      = ( ! empty( $ctx['version'] ) ) ? $ctx['version'] : null;
 
-		if ( file_exists( get_theme_file_path( $style['path'] . '/index.css' ) ) ) {
+		if ( file_exists( get_theme_file_path( $dir . '/index.css' ) ) ) {
 			wp_enqueue_block_style(
-				$style['blocks'],
+				$block_type,
 				array(
 					'handle' => "$prefix-theme-block-styles-$key",
-					'src'    => get_theme_file_uri( $style['path'] . '/index.css' ),
-					'path'   => get_theme_file_path( $style['path'] . '/index.css' ),
+					'src'    => get_theme_file_uri( $dir . '/index.css' ),
+					'path'   => get_theme_file_path( $dir . '/index.css' ),
 					'deps'   => $dependencies,
 					'ver'    => $version,
 				)
