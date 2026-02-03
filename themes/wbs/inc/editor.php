@@ -36,3 +36,31 @@ function fix_cpt_lug( $slug, $post_ID, $post_status, $post_type ) {
 	return $slug;
 }
 add_filter( 'wp_unique_post_slug', __NAMESPACE__ . '\\fix_cpt_lug', 10, 4 );
+
+/**
+ * Openverseを無効化
+ * @see https://www.wppagebuilders.com/disable-openverse-wordpress/
+ */
+function remove_openverse( $settings ) {
+	$settings['enableOpenverseMediaCategory'] = false;
+	return $settings;
+}
+add_filter( 'block_editor_settings_all', __NAMESPACE__ . '\\remove_openverse', 10 );
+
+/**
+ * WordPressコアのブロックディレクトリパネルを非表示
+ */
+function disable_block_directory( $settings ) {
+	$settings['__experimentalBlockDirectory'] = false;
+	return $settings;
+}
+add_filter( 'block_editor_settings_all', __NAMESPACE__ . '\disable_block_directory' );
+add_filter( 'should_load_remote_block_patterns', '__return_false' );
+
+/**
+ * WordPressコアのパターンを削除
+ */
+function remove_default_block_patterns() {
+	remove_theme_support( 'core-block-patterns' );
+}
+add_action( 'after_setup_theme', __NAMESPACE__ . '\remove_default_block_patterns' );

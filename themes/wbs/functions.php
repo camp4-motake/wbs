@@ -21,14 +21,14 @@ require_once __DIR__ . '/inc/admin/user.php';
 require_once __DIR__ . '/inc/plugins/post-type-order.php';
 require_once __DIR__ . '/inc/plugins/seo-framework.php';
 
-// register blocks
-require_once __DIR__ . '/inc/blocks/register-blocks.php';
-
 // register post types
 require_once __DIR__ . '/inc/post-types/news.php';
 
 // register custom fields
 require_once __DIR__ . '/inc/custom-fields/meta-news.php';
+
+// register blocks
+require_once __DIR__ . '/inc/register-blocks.php';
 
 // helper
 require_once __DIR__ . '/inc/helper/environment.php';

@@ -44,13 +44,3 @@ function custom_register_theme_pattern_categories() {
 	register_block_pattern_category( 'wbs-theme-patterns', array( 'label' => __( 'wbsテーマ専用パターン', 'wbs' ) ) );
 }
 add_action( 'init', __NAMESPACE__ . '\\custom_register_theme_pattern_categories' );
-
-/**
- * remove Openverse
- * @see https://www.wppagebuilders.com/disable-openverse-wordpress/
- */
-function remove_openverse( $settings ) {
-	$settings['enableOpenverseMediaCategory'] = false;
-	return $settings;
-}
-add_filter( 'block_editor_settings_all', __NAMESPACE__ . '\\remove_openverse', 10 );
