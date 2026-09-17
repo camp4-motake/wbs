@@ -1,0 +1,118 @@
+// Folder-specific settings
+//
+// For a full list of overridable settings, and general information on folder-specific settings,
+// see the documentation: https://zed.dev/docs/configuring-zed#settings-files
+{
+	"languages": {
+		"PHP": {
+			"format_on_save": "on",
+			"enable_language_server": true,
+			"language_servers": [ "intelephense", "phpcs", "!phpactor" ],
+			"formatter": [
+				{ "language_server": { "name": "intelephense" } },
+				{
+					"external": {
+						"command": "bash",
+						"arguments": [ ".zed/phpcbf.sh", "{buffer_path}" ]
+					}
+				}
+			],
+			"code_actions_on_format": {
+				"source.fixAll.phpcs": true
+			}
+		},
+		"HTML": {
+			"format_on_save": "on",
+			"formatter": "language_server"
+		},
+		"CSS": {
+			"format_on_save": "on",
+			"formatter": [
+				"prettier",
+				{ "code_action": "source.fixAll.stylelint" }
+			]
+		},
+		"TypeScript": {
+			"format_on_save": "on",
+			"formatter": [
+				"prettier",
+				{ "code_action": "source.fixAll.eslint" }
+			]
+		},
+		"TSX": {
+			"format_on_save": "on",
+			"formatter": [
+				"prettier",
+				{ "code_action": "source.fixAll.eslint" }
+			]
+		},
+		"JavaScript": {
+			"format_on_save": "on",
+			"formatter": [
+				"prettier",
+				{ "code_action": "source.fixAll.eslint" }
+			]
+		}
+	},
+	"lsp": {
+		"intelephense": {
+			"settings": {
+				"format": {
+					"braces": "k&r"
+				},
+				"stubs": [
+					"Core",
+					"standard",
+					"date",
+					"pcre",
+					"hash",
+					"json",
+					"mysqli",
+					"session",
+					"filter",
+					"curl",
+					"dom",
+					"SimpleXML",
+					"tokenizer",
+					"xml",
+					"openssl",
+					"mbstring",
+					"gd",
+					"fileinfo",
+					"wordpress",
+					"woocommerce"
+				],
+				"environment": {
+					"includePaths": [ "vendor/php-stubs" ],
+					"phpVersion": "8.3"
+				},
+				"files": {
+					"maxSize": 5000000
+				}
+			}
+		},
+		"vtsls": {
+			"settings": {
+				"typescript": {
+					"tsdk": "node_modules/typescript/lib"
+				},
+				"vtsls": {
+					"autoUseWorkspaceTsdk": true
+				}
+			}
+		},
+		"css-variables": {
+			"settings": {
+				"cssVariables": {
+					"lookupFiles": [ "**/*.css" ],
+					"blacklistFolders": [
+						"**/dist/**",
+						"**/node_modules/**",
+						"**/vendor/**"
+					],
+					"undefinedVarFallback": "info"
+				}
+			}
+		}
+	}
+}
