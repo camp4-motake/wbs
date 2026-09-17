@@ -1,17 +1,53 @@
 {
+	"repositories": [
+		{
+			"name": "wp-packages",
+			"type": "composer",
+			"url": "https://repo.wp-packages.org"
+		}
+	],
+	"require": {
+		"php": ">=8.3"
+	},
 	"require-dev": {
+		"composer/installers": "^2.2",
 		"phpcompatibility/phpcompatibility-wp": "*",
+		"sirbrillig/phpcs-variable-analysis": "^2.11",
 		"squizlabs/php_codesniffer": "*",
-		"wp-coding-standards/wpcs": "*"
+		"wp-coding-standards/wpcs": "*",
+		"wp-plugin/auto-block-recovery": "*",
+		"wp-plugin/autodescription": "*",
+		"wp-plugin/duplicate-post": "*",
+		"wp-plugin/enable-responsive-image": "*",
+		"wp-plugin/flexible-table-block": "*",
+		"wp-plugin/post-types-order": "*",
+		"wp-plugin/safe-svg": "*",
+		"wp-plugin/taxonomy-terms-order": "*",
+		"wp-plugin/wp-multibyte-patch": "*",
+		"php-stubs/wordpress-stubs": "^7.0"
+	},
+	"extra": {
+		"installer-paths": {
+			"./mu-plugins/{$name}": [
+				"type:wordpress-muplugin"
+			],
+			"./plugins/{$name}": [
+				"type:wordpress-plugin"
+			],
+			"./themes/{$name}": [
+				"type:wordpress-theme"
+			]
+		}
 	},
 	"scripts": {
-		"format": "phpcbf --standard=./phpcs.xml.dist --report-summary --report-source",
-		"lint": "phpcs --standard=./phpcs.xml.dist",
-		"phpcs": "phpcs --standard=./phpcs.xml.dist"
+		"format": "mkdir -p .cache && phpcbf --standard=./phpcs.xml.dist --report-summary --report-source",
+		"lint": "mkdir -p .cache && phpcs --standard=./phpcs.xml.dist",
+		"phpcs": "mkdir -p .cache && phpcs --standard=./phpcs.xml.dist"
 	},
 	"config": {
 		"allow-plugins": {
-			"dealerdirect/phpcodesniffer-composer-installer": true
+			"dealerdirect/phpcodesniffer-composer-installer": true,
+			"composer/installers": true
 		}
 	}
 }

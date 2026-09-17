@@ -1,6 +1,10 @@
-*.md
 *.hbs
-node_modules/
-vendor/
+*.md
+.cache/
+.claude/
+.playwright*/
 build/
 composer.lock
+node_modules/
+plugins/
+vendor/

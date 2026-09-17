@@ -27,7 +27,6 @@
 		"typescript",
 		"typescriptreact"
 	],
-	"typescript.tsdk": "node_modules/typescript/lib",
 
 	"css.validate": false,
 	"scss.validate": false,
@@ -80,7 +79,7 @@
 	},
 
 	/** https://github.com/vunguyentuan/vscode-css-variables */
-	"cssVariables.lookupFiles": [ "themes", "env/.theme-css-helper/*.css" ],
+	"cssVariables.lookupFiles": [ "themes", "env/.helper/*.css" ],
 
 	/** https://github.com/streetsidesoftware/vscode-spell-checker */
 	"cSpell.words": [ "honolulumarathon", "uncategorized" ]

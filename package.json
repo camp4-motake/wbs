@@ -17,6 +17,7 @@
 		"format:css": "wp-scripts lint-style --fix",
 		"format:fix": "wp-scripts format",
 		"format:php": "npm run composer format",
+		"check-types": "tsc -p themes/wbs --noEmit",
 		"lint": "run-s -sn lint:*",
 		"lint:js": "wp-scripts lint-js",
 		"lint:css": "wp-scripts lint-style",
@@ -26,19 +27,21 @@
 		"wp-flush": "npm run cli -- wp rewrite flush --hard",
 		"wp-export": "npm run cli -- ./env/export.sh",
 		"wp-import": "npm run cli -- ./env/import.sh",
-		"composer": "docker run --rm --interactive --tty --volume $PWD:/app composer composer",
+		"composer": "docker run --rm --interactive --volume $PWD:/app composer composer",
 		"packages-update": "wp-scripts packages-update && npm run packages-update --ws --if-present",
 		"plugin-zip": "npm run plugin-zip --ws --if-present",
 		"setup": "npm run composer install && npx @wordpress/env start && npm run cli -- ./env/setup.sh && npm run build",
 		"init:sh": "chmod +x ./{env,bin}/*.sh && ./bin/init.sh"
 	},
 	"devDependencies": {
-		"@wordpress/scripts": "31.2.0",
+		"@wordpress/eslint-plugin": "25.7.0",
+		"@wordpress/scripts": "33.0.0",
 		"browser-sync": "^3.0.4",
 		"chokidar": "5.0.0",
 		"find-workspaces": "0.3.1",
-		"npm-run-all2": "8.0.4",
-		"stylelint-config-recess-order": "7.4.0",
+		"globals": "17.8.0",
+		"npm-run-all2": "9.0.2",
+		"stylelint-config-recess-order": "7.7.0",
 		"zx": "8.8.5"
 	},
 	"workspaces": [
