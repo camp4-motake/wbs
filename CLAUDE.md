@@ -6,7 +6,7 @@ Starter/boilerplate for WordPress **block theme** sites by CAMP4 inc. The theme 
 
 This repo is **cloned per project and renamed** — a new site replaces `wbs` (directory name, text domain, block/pattern namespace, `WP_SITE_PREFIX` in `bin/deploy.sh`, `WP_THEME_NAME` in `env/setup.sh`, `@wbs/slider` in `tsconfig.json`). Keep additions here generic: anything site-specific belongs in the derived project, not in the boilerplate.
 
-**Implementation targets WordPress 7.0+** — write code against WordPress 7.0 or later; do not add fallbacks or workarounds for older cores.
+**Implementation targets WordPress 7.1.1+ / PHP 8.4+ / Node.js 24+** — write code against those versions or later; do not add fallbacks or workarounds for older cores or runtimes.
 
 Language-specific coding rules (TS, CSS, PHP) live in `.claude/rules/*.md` and auto-load per file path — they are not repeated here.
 
@@ -30,7 +30,7 @@ npm run wp-flush     # flush rewrite rules (hard)
 npm run plugin-zip   # generate distributable theme zip
 ```
 
-- **PHP-only lint/format:** `npm run composer lint` / `npm run composer format` (phpcs/phpcbf via a `composer` Docker image; rules in `phpcs.xml.dist` → WordPress-Extra + PHPCompatibilityWP + VariableAnalysis, PHP 8.3+, WP 7.0+).
+- **PHP-only lint/format:** `npm run composer lint` / `npm run composer format` (phpcs/phpcbf via a `composer` Docker image; rules in `phpcs.xml.dist` → WordPress-Extra + PHPCompatibilityWP + VariableAnalysis, PHP 8.4+, WP 7.1+).
 - **Bundled plugins** come from Composer (`repo.wp-packages.org` + `composer/installers`) and land in `plugins/`, which `.wp-env.json` maps to `wp-content/plugins`. Add a plugin by requiring `wp-plugin/<slug>`, not by listing a zip URL in `.wp-env.json`.
 - **DB/uploads snapshot:** `npm run wp-export` / `npm run wp-import` (round-trips `env/_bkp/`).
 - **Deploy:** `bin/deploy.sh {production|test|zip}` — builds then rsyncs `themes/wbs/` over SSH (paths from `.env`).

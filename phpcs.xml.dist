@@ -17,8 +17,10 @@
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<exclude-pattern>*/build/*</exclude-pattern>
 
-	<config name="testVersion" value="8.3-"/>
-	<config name="minimum_supported_wp_version" value="7.0"/>
+	<config name="testVersion" value="8.4-"/>
+	<!-- WPCS 3.x で minimum_supported_wp_version から改名。値は float として解釈されるため
+	     x.y 形式のみ有効(7.1.1 のような 3 桁は無効値として既定値へフォールバックする)。 -->
+	<config name="minimum_wp_version" value="7.1"/>
 
 	<rule ref="WordPress-Extra" />
 	<rule ref="PHPCompatibilityWP"/>

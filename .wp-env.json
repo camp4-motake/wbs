@@ -1,6 +1,6 @@
 {
 	"core": "https://ja.wordpress.org/wordpress-latest-ja.zip",
-	"phpVersion": "8.3",
+	"phpVersion": "8.4",
 	"config": {
 		"WP_ENVIRONMENT_TYPE": "local",
 		"WP_DEVELOPMENT_MODE": "theme"

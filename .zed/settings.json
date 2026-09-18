@@ -84,7 +84,7 @@
 				],
 				"environment": {
 					"includePaths": [ "vendor/php-stubs" ],
-					"phpVersion": "8.3"
+					"phpVersion": "8.4"
 				},
 				"files": {
 					"maxSize": 5000000

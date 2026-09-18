@@ -7,7 +7,7 @@
 		}
 	],
 	"require": {
-		"php": ">=8.3"
+		"php": ">=8.4"
 	},
 	"require-dev": {
 		"composer/installers": "^2.2",
@@ -21,7 +21,7 @@
 		"wp-plugin/safe-svg": "*",
 		"wp-plugin/taxonomy-terms-order": "*",
 		"wp-plugin/wp-multibyte-patch": "*",
-		"php-stubs/wordpress-stubs": "^7.0"
+		"php-stubs/wordpress-stubs": "^7.1"
 	},
 	"extra": {
 		"installer-paths": {
@@ -42,6 +42,9 @@
 		"phpcs": "mkdir -p .cache && phpcs --standard=./phpcs.xml.dist"
 	},
 	"config": {
+		"platform": {
+			"php": "8.4"
+		},
 		"allow-plugins": {
 			"dealerdirect/phpcodesniffer-composer-installer": true,
 			"composer/installers": true
