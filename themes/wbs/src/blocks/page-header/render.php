@@ -10,18 +10,20 @@
  * @param string $content - The block inner HTML (usually empty unless using inner blocks).
  */
 
-$is_rest_request  = defined( 'REST_REQUEST' ) && REST_REQUEST;
 $extra_attributes = array();
 
-$plugin_shortcodes = array(
-	'autodescription/autodescription.php' => '[tsf_breadcrumb]',
-	'wordpress-seo/wp-seo.php'            => '[wpseo_breadcrumb]',
+// パンくずは SEO プラグインのショートコードに委ねる。プラグインの有効状態ではなく
+// ショートコードの登録有無で判定する: is_plugin_active() は wp-admin/includes/plugin.php
+// でしか定義されず、フロントのブロック描画中に呼ぶと undefined function になる。
+$breadcrumb_shortcodes = array(
+	'tsf_breadcrumb',   // The SEO Framework
+	'wpseo_breadcrumb', // Yoast SEO
 );
 
 $breadcrumb_shortcode = '';
-foreach ( $plugin_shortcodes as $plugin_path => $shortcode ) {
-	if ( is_plugin_active( $plugin_path ) ) {
-		$breadcrumb_shortcode = $shortcode;
+foreach ( $breadcrumb_shortcodes as $shortcode_tag ) {
+	if ( shortcode_exists( $shortcode_tag ) ) {
+		$breadcrumb_shortcode = '[' . $shortcode_tag . ']';
 		break;
 	}
 }
