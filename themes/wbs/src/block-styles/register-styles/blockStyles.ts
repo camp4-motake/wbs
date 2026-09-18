@@ -52,6 +52,6 @@ export const removeBlockStyles = (): void => {
 	}
 
 	REMOVED_STYLES.forEach( ( s ) =>
-		window.wp.blocks.unregisterBlockStyle( s.block, s.style )
+		window.wp?.blocks?.unregisterBlockStyle( s.block, s.style )
 	);
 };

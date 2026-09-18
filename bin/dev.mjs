@@ -8,6 +8,9 @@ $.verbose = true;
 
 await Promise.all( [
 	$`node ./bin/theme-css-helper.mjs --watch`,
+	...workspaces.map(
+		( ws ) => $`npm run watch:images --if-present -w ${ ws }`
+	),
 	$`npx browser-sync start --config bs-config.js`,
 	...workspaces.map( ( ws ) => $`npm run dev --if-present -w ${ ws }` ),
 ] );

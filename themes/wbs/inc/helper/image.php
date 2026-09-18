@@ -310,7 +310,7 @@ function get_srcset_attr( $filename = '', $resolution = array(), $non_1x = false
 		if ( '1x' === $key && true === $non_1x ) {
 			continue;
 		}
-		$high_res_name = preg_replace( '/\.[^.]s+$/', $res . '$0', $filename );
+		$high_res_name = preg_replace( '/\.[^.]+$/', $res . '$0', $filename );
 		if ( ! file_exists( get_theme_file_path( $high_res_name ) ) ) {
 			continue;
 		}

@@ -6,9 +6,8 @@ export const blockVariations = () => {
 		return;
 	}
 
-	variations.forEach(
-		( s: { block?: string; variations?: unknown } ) =>
-			window.wp?.blocks?.registerBlockVariation( s.block, s.variations )
+	variations.forEach( ( s ) =>
+		window.wp?.blocks?.registerBlockVariation( s.block, s.variations )
 	);
 };
 

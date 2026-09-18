@@ -29,6 +29,7 @@ require_once __DIR__ . '/inc/custom-fields/meta-news.php';
 
 // register blocks
 require_once __DIR__ . '/inc/register-blocks.php';
+require_once __DIR__ . '/inc/script-modules.php';
 
 // helper
 require_once __DIR__ . '/inc/helper/environment.php';

@@ -2,7 +2,10 @@
 	"$schema": "https://json.schemastore.org/jsconfig",
 	"extends": "../../tsconfig.base.json",
 	"compilerOptions": {
-		"declarationDir": "build-types"
+		"declarationDir": "build-types",
+		"paths": {
+			"@wbs/slider": [ "./src/slider/index.ts" ]
+		}
 	},
 	"include": [ "src/**/*" ]
 }

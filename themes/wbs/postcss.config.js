@@ -6,7 +6,13 @@ const cssnano = require( 'cssnano' );
 module.exports = ( { mode } ) => {
 	const plugins = [
 		postcssEasyImport(),
-		postcssPresetEnv( { stage: 2, features: {} } ),
+		// `image-set-function` is disabled so raw `url()`s survive into the built
+		// CSS, where bin/build-images.mjs rewrites them into `image-set()` with
+		// AVIF variants — keep the two in sync.
+		postcssPresetEnv( {
+			stage: 2,
+			features: { 'image-set-function': false },
+		} ),
 		postcssUrl( { filter: '**/_inline/*', url: 'inline' } ),
 	];
 

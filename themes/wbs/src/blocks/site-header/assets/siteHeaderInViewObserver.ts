@@ -24,7 +24,7 @@ store( 'siteHeaderInViewObserver', {
 	},
 } );
 
-function toggleRootMenuClass( isActive ) {
+function toggleRootMenuClass( isActive?: boolean ) {
 	document.documentElement.classList.toggle(
 		'has-site-header-in-view',
 		isActive

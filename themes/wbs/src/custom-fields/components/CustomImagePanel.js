@@ -2,7 +2,7 @@ import { MediaUpload, MediaUploadCheck } from '@wordpress/block-editor';
 import { Button, PanelRow } from '@wordpress/components';
 import { useEntityProp } from '@wordpress/core-data';
 import { useSelect } from '@wordpress/data';
-import { PluginDocumentSettingPanel } from '@wordpress/edit-post';
+import { PluginDocumentSettingPanel } from '@wordpress/editor';
 import { useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 

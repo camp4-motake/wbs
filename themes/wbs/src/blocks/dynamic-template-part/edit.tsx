@@ -3,8 +3,15 @@ import { BaseControl, PanelBody, TextControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import ServerSideRender from '@wordpress/server-side-render';
 import './editor.css';
+import type { BlockEditPropsWithName } from '../../shared/types';
 
-export default function Edit( { name, attributes, setAttributes } ) {
+export type DynamicTemplatePartAttributes = {
+	templatePartPath: string;
+};
+
+type EditProps = BlockEditPropsWithName< DynamicTemplatePartAttributes >;
+
+export default function Edit( { name, attributes, setAttributes }: EditProps ) {
 	const { templatePartPath } = attributes;
 	const blockProps = useBlockProps();
 

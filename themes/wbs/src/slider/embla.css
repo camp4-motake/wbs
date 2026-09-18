@@ -1,0 +1,326 @@
+/* @see https://www.embla-carousel.com/get-started/module/ */
+
+/*
+ * 消費側が上書きする既定値は :where() で詳細度ゼロのベースレイヤにする。embla.css
+ * は各スライダーブロックの style バンドルへ重複インライン展開されるため、ルートの
+ * カスタムプロパティ既定値を [data-slider] のままにすると、別ブロックのコピーが
+ * 後方に出力されたとき同一詳細度（0,1,0）＋ソース順で消費側ルート（.wp-block-wbs-*）
+ * の上書きを巻き戻し、間隔やボタンサイズが壊れる。:where() なら消費側のクラス指定が
+ * 常に勝ち、重複ロードや読み込み順に依存しなくなる。
+ */
+:where([data-slider]) {
+	--_slide-height: 19rem;
+	--_slide-spacing: 1rem;
+	--_slide-size: 70%;
+	--_button-size: 0.75rem;
+
+	margin: auto;
+}
+
+[data-slider-viewport] {
+	overflow: hidden;
+}
+
+[data-slider-container] {
+	display: flex;
+	padding: 0;
+	margin: 0;
+	margin-inline-start: calc(var(--_slide-spacing) * -1); /* Renders -10px */
+	touch-action: pan-y pinch-zoom;
+
+	cursor: grab;
+
+	&:active {
+		cursor: grabbing;
+	}
+}
+
+[data-slider-viewport].is-centered [data-slider-container] {
+	justify-content: center;
+}
+
+/*
+ * スライド幅（flex）だけを :where() でベースレイヤ化する。消費側が
+ * `.term-link-slider__item { flex: 0 0 auto }` のようにクラス（0,1,0）で上書き
+ * するため、別ブロックの embla コピーが後方に出ても常に消費側が勝つ。
+ */
+:where([data-slider-slide]) {
+	flex: 0 0 var(--_slide-size);
+}
+
+/*
+ * gap（padding-inline-start）と min-width は詳細度を [data-slider-slide]（0,1,0）の
+ * まま保つ。これらは全消費ブロックが共通で必要とし上書き衝突しない一方、:where()
+ * でゼロ詳細度にすると <li>（スライド要素）へ当たる要素/クラスレベルの padding に
+ * 負け、スライド間 gap が消える（コンテナの負マージンだけ残る）ため。
+ * @see https://www.embla-carousel.com/guides/slide-gaps/
+ */
+[data-slider-slide] {
+	min-width: 0;
+	padding-inline-start: var(--_slide-spacing);
+}
+
+[data-slider-controls] {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 1.2rem;
+	justify-content: space-between;
+	margin-top: 1.8rem;
+}
+
+[data-slider-buttons] {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 0.6rem;
+	align-items: center;
+	pointer-events: none;
+}
+
+/* button style arrow */
+[data-slider-button] {
+	position: relative;
+	z-index: 1;
+	inline-size: var(--_button-size, 1.375rem);
+	block-size: calc(var(--_button-size, 1.375rem) * 1.6);
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+	-webkit-appearance: none;
+	appearance: none;
+	pointer-events: auto;
+	touch-action: manipulation;
+	cursor: pointer;
+	background-color: transparent;
+	-webkit-tap-highlight-color: rgba(var(--text-high-contrast-rgb-value), 0.5);
+
+	&::before,
+	&::after {
+		position: absolute;
+		inset: 0;
+		inline-size: min(100%, 1.5rem);
+		block-size: calc(1.5 * var(--rem));
+		margin: auto;
+		content: "";
+		background: var(
+			--_button-bg-color,
+			var(--wp--preset--color--text-base)
+		);
+		opacity: 0.5;
+		transform-origin: center;
+		transition: opacity 0.2s ease;
+	}
+
+	@media (any-hover: hover) {
+		&:hover {
+			&::before,
+			&::after {
+				opacity: 1;
+			}
+		}
+	}
+}
+
+[data-slider-button="prev"] {
+	margin-inline: 0 auto;
+
+	&::before,
+	&::after {
+		transform-origin: center left;
+	}
+
+	&::before {
+		rotate: 45deg;
+	}
+
+	&::after {
+		rotate: -45deg;
+	}
+}
+
+[data-slider-button="next"] {
+	margin-inline: auto 0;
+
+	&::before,
+	&::after {
+		transform-origin: center right;
+	}
+
+	&::before {
+		rotate: 45deg;
+	}
+
+	&::after {
+		rotate: -45deg;
+	}
+}
+
+/* button style triangle */
+
+/* .is-style-triangle {
+	[data-slider-button] {
+		position: absolute;
+		inset-block: 0;
+		inline-size: var(--_button-size, 1rem);
+		block-size: var(--_button-size, 1rem);
+		aspect-ratio: 1;
+		aspect-ratio: initial;
+		margin-block: auto;
+		pointer-events: auto;
+
+		&::before {
+			content: none;
+		}
+
+		&::after {
+			all: unset;
+			position: absolute;
+			inset: 0;
+			inline-size: 100%;
+			block-size: 100%;
+			content: "";
+			background-color: var(
+				--_button-bg-color,
+				var(--wp--preset--color--text-base)
+			);
+		}
+
+		@media (any-hover: hover) {
+			&:hover::after {
+				opacity: 0.5;
+			}
+		}
+	}
+
+	[data-slider-button="prev"] {
+		inset-inline-start: 0;
+		clip-path: polygon(100% 0, 100% 100%, 0 50%);
+	}
+
+	[data-slider-button="next"] {
+		inset-inline-end: 0;
+
+		&::after {
+			clip-path: polygon(0 0, 0% 100%, 100% 50%);
+		}
+	}
+} */
+
+/* button style circle */
+
+/* .is-style-circle {
+	[data-slider-button] {
+		inline-size: var(--_button-size, 1.5rem);
+		block-size: auto;
+		aspect-ratio: 1;
+		margin: auto;
+		background-color: var(
+			--_button-bg-color,
+			var(--wp--preset--color--text-base)
+		);
+		border: calc(1 * var(--rem)) solid
+			color-mix(
+				in oklch,
+				var(--_circle-base-color, var(--wp--preset--color--text-base))
+					20%,
+				transparent
+			);
+		border-radius: 50%;
+
+		&::before,
+		&::after {
+			inline-size: 20%;
+			content: "";
+		}
+
+		> svg {
+			z-index: 0;
+			grid-area: 1/1;
+			inline-size: 100%;
+			block-size: 100%;
+			stroke: var(--_circle-color, var(--wp--preset--color--primary));
+			stroke-width: var(--_circle-stroke-width, 0.25rem);
+			stroke-dasharray: 1.01;
+			stroke-dashoffset: 1.01;
+			transform: rotate(-90deg);
+			transition:
+				stroke-dashoffset var(--_circle-duration, 0.6s)
+					var(--ease-out-sine),
+				rotate var(--_circle-duration, 0.6s) var(--ease-out-sine);
+		}
+
+		&:focus-visible {
+			> svg {
+				stroke-dashoffset: 0;
+				rotate: 360deg;
+			}
+		}
+
+		@media (any-hover: hover) {
+			&:hover {
+				> svg {
+					stroke-dashoffset: 0;
+					rotate: 359deg;
+				}
+			}
+		}
+	}
+} */
+
+[data-slider-button].is-disabled {
+	visibility: hidden !important;
+}
+
+[data-slider-dots] {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: flex-end;
+	margin-inline-start: calc((2.6rem - 1.4rem) / 2 * -1);
+}
+
+[data-slider-dot] {
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	inline-size: max(1em, var(--_slider-dot-size, 1.5em));
+	aspect-ratio: 1;
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+	appearance: none;
+	touch-action: manipulation;
+	cursor: pointer;
+	background-color: transparent;
+	-webkit-tap-highlight-color: rgba(var(--text-high-contrast-rgb-value), 0.5);
+
+	&::before,
+	&::after {
+		position: absolute;
+		display: flex;
+		align-items: center;
+		inline-size: 40%;
+		aspect-ratio: 1;
+		content: "";
+		border-radius: 50%;
+	}
+
+	&::before {
+		background-color: color-mix(
+			in oklch,
+			var(--wp--preset--color--text-base) 16%,
+			transparent
+		);
+	}
+
+	&::after {
+		background-color: var(--wp--preset--color--text-base);
+		opacity: 0;
+	}
+
+	&.is-selected {
+		&::after {
+			opacity: 1;
+		}
+	}
+}
