@@ -1,5 +1,4 @@
 :root {
-	--overlay-opacity: 0.25;
 	--font-base: 16;
 	--rem: calc(1rem / var(--font-base));
 

@@ -38,8 +38,6 @@ $wrapper_attribute = array(
 				?>
 			</nav>
 		</div>
-		<div class="footer-aside">
-		</div>
 	</div>
 	<?php get_template_part( 'src/blocks/site-footer/copyright' ); ?>
 </div>

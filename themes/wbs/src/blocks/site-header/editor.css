@@ -7,8 +7,4 @@
 	.header-container {
 		margin-inline: auto;
 	}
-
-	[data-header-trigger] {
-		display: none;
-	}
 }

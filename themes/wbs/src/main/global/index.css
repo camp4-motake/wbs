@@ -22,10 +22,6 @@ html {
 	font-size: var(--wp--custom--font-sizes--root);
 	color-scheme: initial;
 	scroll-padding-top: var(--header-height);
-
-	&:not(.has-dialog-open) {
-		background-color: var(--wp--preset--color--primary);
-	}
 }
 
 body {
@@ -297,8 +293,6 @@ gsap marker fix
 }
 
 main {
-	/* &.has-bg-circle { padding-block-end: calc( var(--wp--preset--spacing--block-gutter-lg) * 1.5 ); } */
-
 	> :where(*) {
 		position: relative;
 		z-index: 1;
