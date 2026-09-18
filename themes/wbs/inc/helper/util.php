@@ -38,12 +38,39 @@ function check_template_part_exists( $slug, $name = null ) {
 }
 
 /**
+ * partials/ 配下のテンプレート名として安全なスラッグを生成する
+ *
+ * 任意の "partials/" 接頭辞だけを許容し、残りが英小文字・数字・ハイフン・
+ * アンダースコアのみで構成されることを検証する。スラッシュとドットを
+ * 許可しないため .. や .php、ヌルバイトは弾かれ、ディレクトリ
+ * トラバーサルを防止する。不正な値は黙って読み替えず空文字列を返す。
+ *
+ * @param string $value エディタで入力されたテンプレート名（partials/ 接頭辞は任意）
+ * @return string 安全な場合は "partials/{name}"、不正な場合は空文字列
+ */
+function sanitize_partial_slug( string $value ): string {
+	// Windows 由来の区切り文字を正規化し、許容する接頭辞のみ取り除く
+	$name = str_replace( '\\', '/', $value );
+
+	if ( str_starts_with( $name, 'partials/' ) ) {
+		$name = substr( $name, strlen( 'partials/' ) );
+	}
+
+	// 英小文字・数字・ハイフン・アンダースコアのみ許可（/ や .. や .php、ヌルバイトを排除）
+	if ( ! preg_match( '/\A[a-z0-9_-]+\z/', $name ) ) {
+		return '';
+	}
+
+	return 'partials/' . $name;
+}
+
+/**
  * Namespace 生成
  *
- * @param object $post .
+ * @param object $post_object .
  * @return string
  */
-function get_namespace( $post ) {
+function get_namespace( $post_object ) {
 	if ( is_front_page() ) {
 		return 'home';
 	}
@@ -51,7 +78,7 @@ function get_namespace( $post ) {
 		global $post;
 		return $post->post_name ? $post->post_name : '';
 	}
-	return get_post_type( $post ) ? esc_html( get_post_type( $post ) ) : 'other';
+	return get_post_type( $post_object ) ? esc_html( get_post_type( $post_object ) ) : 'other';
 }
 
 /**
@@ -142,22 +169,23 @@ function extract_src_url( $html = '' ) {
  * Yoast Seo のメインタームを取得
  *
  * @param [type] $term_list .
- * @param [type] $post .
+ * @param [type] $post_object .
  * @return $term
  */
-function get_main_term( $term_list, $post = null ) {
+function get_main_term( $term_list, $post_object = null ) {
 	if ( empty( $term_list ) ) {
 		return null;
 	}
 
-	if ( ! $post ) {
+	if ( ! $post_object ) {
 		global $post;
+		$post_object = $post;
 	}
 
 	$main_term = null;
 
 	foreach ( $term_list as $term ) {
-		if ( get_post_meta( $post->ID, '_yoast_wpseo_primary_category', true ) === $term->term_id ) {
+		if ( get_post_meta( $post_object->ID, '_yoast_wpseo_primary_category', true ) === $term->term_id ) {
 			$main_term = $term;
 		}
 	}
@@ -226,4 +254,79 @@ function is_page_published_by_slug( $slug ) {
 		return get_post_status( $page->ID ) === 'publish';
 	}
 	return false;
+}
+
+/**
+ * 投稿に紐づく公開タクソノミのターム一覧をフラットに取得
+ *
+ * 投稿タイプに登録された public なタクソノミ（例: case なら業種＋サービス）を
+ * 横断し、その投稿に付与されたタームを 1 本の配列にまとめて返す。
+ *
+ * @param int|\WP_Post|null $post_object 対象投稿（省略時はループ内の現在の投稿）。
+ * @return \WP_Term[] タームの配列（無ければ空配列）。
+ */
+function get_post_term_list( $post_object = null ) {
+	$post_object = get_post( $post_object );
+	if ( ! $post_object ) {
+		return array();
+	}
+
+	$taxonomies = get_object_taxonomies( $post_object->post_type, 'objects' );
+	$terms      = array();
+
+	foreach ( $taxonomies as $taxonomy ) {
+		if ( empty( $taxonomy->public ) ) {
+			continue;
+		}
+
+		$tax_terms = get_the_terms( $post_object, $taxonomy->name );
+		if ( is_wp_error( $tax_terms ) || empty( $tax_terms ) ) {
+			continue;
+		}
+
+		$terms = array_merge( $terms, $tax_terms );
+	}
+
+	return $terms;
+}
+
+/**
+ * 投稿のリンク先属性を解決する
+ *
+ * カスタムフィールド wbs_external_link が設定されていればその外部リンク
+ * （target / rel、新しいタブで開く場合は noopener を付与）を返し、未設定なら
+ * パーマリンクを返す。content.php / content-bar-link.php などのカードリンクで共用する。
+ *
+ * @param int|\WP_Post|null $post_object 対象投稿（省略時はループ内の現在の投稿）。
+ * @return array{url:string,new_tab:bool,rel:string} url=リンク先、new_tab=新しいタブで開くか、rel=スペース区切りの rel 値。
+ */
+function get_post_link_attributes( $post_object = null ) {
+	$post_object = get_post( $post_object );
+	if ( ! $post_object ) {
+		return array(
+			'url'     => '',
+			'new_tab' => false,
+			'rel'     => '',
+		);
+	}
+
+	$external_link = get_post_meta( $post_object->ID, 'wbs_external_link', true );
+	$external_url  = ( is_array( $external_link ) && ! empty( $external_link['url'] ) ) ? $external_link['url'] : '';
+
+	$new_tab = $external_url && ! empty( $external_link['target'] ) && '_blank' === $external_link['target'];
+	$rel     = '';
+
+	if ( $external_url ) {
+		$rel_values = ( ! empty( $external_link['rel'] ) && is_array( $external_link['rel'] ) ) ? $external_link['rel'] : array();
+		if ( $new_tab && ! in_array( 'noopener', $rel_values, true ) ) {
+			$rel_values[] = 'noopener';
+		}
+		$rel = implode( ' ', $rel_values );
+	}
+
+	return array(
+		'url'     => $external_url ? $external_url : get_permalink( $post_object ),
+		'new_tab' => $new_tab,
+		'rel'     => $rel,
+	);
 }

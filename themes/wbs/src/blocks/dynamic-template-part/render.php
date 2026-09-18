@@ -25,7 +25,10 @@ $extra_attributes = array();
 		echo '<div class="block-attention text-center">Dynamic Template Area</div>';
 
 	elseif ( ! empty( $attributes['templatePartPath'] ) ) :
-		get_template_part( esc_attr( $attributes['templatePartPath'] ) );
+		$partial_slug = Util\sanitize_partial_slug( $attributes['templatePartPath'] );
+		if ( '' !== $partial_slug ) :
+			get_template_part( $partial_slug );
+		endif;
 
 	elseif ( is_front_page() || is_home() ) :
 		get_template_part( 'partials/front-page' );
@@ -40,7 +43,7 @@ $extra_attributes = array();
 	elseif ( is_tax() ) :
 		$tax_slug = get_query_var( 'taxonomy' );
 
-		if ( Util\check_template_part_exists( 'partials/taxonomy' . $tax_slug ) ) :
+		if ( Util\check_template_part_exists( 'partials/taxonomy', $tax_slug ) ) :
 			get_template_part( 'partials/taxonomy', $tax_slug );
 		else :
 			get_template_part( 'partials/archive', get_post_type() );

@@ -1,0 +1,11 @@
+.editor-styles-wrapper {
+	.wp-block-wbs-toc:has(nav.wp-block-wbs-toc) {
+		padding: 0;
+		border: none;
+	}
+
+	/* 目次内のアンカーのみクリック無効化（エディタ全体のリンクに波及させない） */
+	.wp-block-wbs-toc a {
+		pointer-events: none;
+	}
+}

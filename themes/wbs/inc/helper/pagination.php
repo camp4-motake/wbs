@@ -105,8 +105,8 @@ function custom_pagination( $is_echo = true, $custom_query = null ) {
 			'total'     => $query->max_num_pages,
 			'type'      => 'array',
 			'prev_next' => true,
-			'prev_text' => '<span>' . __( '前へ' ) . '</span>',
-			'next_text' => '<span>' . __( '次へ' ) . '</span>',
+			'prev_text' => '<span>' . __( '前へ', 'wbs' ) . '</span>',
+			'next_text' => '<span>' . __( '次へ', 'wbs' ) . '</span>',
 		)
 	);
 
