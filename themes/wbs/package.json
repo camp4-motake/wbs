@@ -16,7 +16,6 @@
 	"dependencies": {
 		"@acab/reset.css": "0.11.0",
 		"@wordpress/scripts": "33.0.0",
-		"clsx": "2.1.1",
 		"cssnano": "8.0.2",
 		"embla-carousel": "9.0.0-rc02",
 		"embla-carousel-class-names": "9.0.0-rc02",
