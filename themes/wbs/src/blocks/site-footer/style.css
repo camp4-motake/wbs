@@ -19,7 +19,6 @@
 			calc(100% - (var(--wp--preset--spacing--inline-gutter) * 2)),
 			var(--wp--custom--container-max-width--xl)
 		);
-		inline-size:;
 		padding: var(--wp--preset--spacing--lg)
 			var(--wp--preset--spacing--normal);
 		margin-inline: auto;

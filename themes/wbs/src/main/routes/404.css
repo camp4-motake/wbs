@@ -25,7 +25,7 @@
 
 .error404-heading-label {
 	display: block;
-	margin-block-start: 0.25;
+	margin-block-start: 0.25em;
 	font-size: var(--wp--preset--font-size--24);
 	font-weight: var(--wp--custom--font-weight--bold);
 }
