@@ -23,11 +23,11 @@
 }
 
 .has-leading-2xl {
-	line-height: var(--wp--custom--line-height--2xl);
+	line-height: var(--wp--custom--line-height--xxl);
 }
 
 .has-leading-x3l {
-	line-height: var(--wp--custom--line-height--x3l);
+	line-height: var(--wp--custom--line-height--xxxl);
 }
 
 .has-text-normal {
@@ -211,7 +211,7 @@
 }
 
 .has-text-color-border {
-	color: var(--wp--preset--color--border);
+	color: var(--wp--preset--color--stroke);
 }
 
 .has-text-color-danger {

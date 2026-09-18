@@ -1,7 +1,7 @@
 .wp-block-wbs-site-footer {
 	position: relative;
 	max-inline-size: var(--wp--custom--container-max-width--view);
-	margin: var(--wp--preset--spacing--block-gutter-large) auto 0;
+	margin: var(--wp--preset--spacing--block-gutter-lg) auto 0;
 	color: var(--wp--preset--color--base);
 	background-color: var(--wp--preset--color--primary);
 }

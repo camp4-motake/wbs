@@ -41,13 +41,13 @@
 	}
 
 	&[data-bg-circle="top"] {
-		inset: calc(var(--wp--preset--spacing--block-gutter-large) * 2)
+		inset: calc(var(--wp--preset--spacing--block-gutter-lg) * 2)
 			var(--_inset-out) auto auto;
 	}
 
 	&[data-bg-circle="bottom"] {
 		inset: auto auto
-			calc(-1.5 * var(--wp--preset--spacing--block-gutter-large))
+			calc(-1.5 * var(--wp--preset--spacing--block-gutter-lg))
 			calc(-0.5 * var(--_circle-size));
 	}
 }

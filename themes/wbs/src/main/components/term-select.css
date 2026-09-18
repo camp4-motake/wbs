@@ -28,7 +28,7 @@
 		border: none;
 
 		&:focus {
-			outline: 2px solid var(--wp--preset--color--theme-bl);
+			outline: 2px solid var(--wp--preset--color--text-base);
 		}
 	}
 }

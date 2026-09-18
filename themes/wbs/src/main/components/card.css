@@ -11,7 +11,7 @@
 	aspect-ratio: 3/2;
 	overflow: clip;
 	background-color: var(--wp--preset--color--placeholder);
-	border: 1px solid var(--wp--preset--color--border-lighten);
+	border: 1px solid var(--wp--preset--color--stroke-lighten);
 	border-radius: 1rem;
 
 	&:not(:has(img)) {

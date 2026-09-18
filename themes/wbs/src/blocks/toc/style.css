@@ -1,7 +1,7 @@
 .wp-block-wbs-toc {
 	--_base-depth: 1.25em;
 
-	padding: max(var(--wp--preset--spacing--block-gutter-small), 1.5em)
+	padding: max(var(--wp--preset--spacing--block-gutter-sm), 1.5em)
 		var(--wp--preset--spacing--inline-gutter);
 
 	container-name: toc;

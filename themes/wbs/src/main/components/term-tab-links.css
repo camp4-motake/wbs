@@ -43,7 +43,7 @@
 	padding-block: 1em calc(1.5em + var(--_bottom-gutter));
 	font-size: var(--wp--preset--font-size--14);
 	font-weight: var(--wp--custom--font-weight--bold);
-	color: var(--wp--preset--color--text-disable);
+	color: var(--wp--preset--color--disable);
 	white-space: nowrap;
 	text-decoration: none;
 

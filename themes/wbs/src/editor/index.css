@@ -9,7 +9,7 @@
 
 .editor-visual-editor__post-title-wrapper {
 	margin-block: var(--wp--preset--spacing--md) var(--wp--preset--spacing--lg) !important;
-	border-block-end: 1px solid var(--wp--preset--color--border-lighten);
+	border-block-end: 1px solid var(--wp--preset--color--stroke-lighten);
 }
 
 .wp-block-post-title {

@@ -36,54 +36,29 @@
 					"color": "#000"
 				},
 				{
-					"name": "text-description",
-					"slug": "text-description",
-					"color": "#888"
-				},
-				{
-					"name": "text-disable",
-					"slug": "text-disable",
-					"color": "#818181"
-				},
-				{
-					"name": "text-placeholder",
-					"slug": "text-placeholder",
-					"color": "#ddd"
-				},
-				{
-					"name": "text-annotation",
-					"slug": "text-annotation",
-					"color": "#666"
-				},
-				{
-					"name": "bg-fill",
-					"slug": "bg-fill",
-					"color": "#f0f3f5"
-				},
-				{
-					"name": "border",
-					"slug": "border",
-					"color": "#000"
-				},
-				{
-					"name": "border-lighten",
-					"slug": "border-lighten",
-					"color": "#d8d8d8"
-				},
-				{
-					"name": "placeholder",
-					"slug": "placeholder",
-					"color": "#eaeaea"
-				},
-				{
 					"name": "primary",
 					"slug": "primary",
 					"color": "#005db9"
 				},
 				{
-					"name": "success",
-					"slug": "danger",
-					"color": "#198754"
+					"name": "primary-dark",
+					"slug": "primary-dark",
+					"color": "color-mix(in srgb, var(--wp--preset--color--primary) 80%, #000)"
+				},
+				{
+					"name": "primary-light",
+					"slug": "primary-light",
+					"color": "color-mix(in srgb, var(--wp--preset--color--primary) 70%, #fff)"
+				},
+				{
+					"name": "accent",
+					"slug": "accent",
+					"color": "var(--wp--preset--color--primary)"
+				},
+				{
+					"name": "accent-light",
+					"slug": "accent-light",
+					"color": "var(--wp--preset--color--primary-light)"
 				},
 				{
 					"name": "danger",
@@ -94,6 +69,51 @@
 					"name": "warning",
 					"slug": "warning",
 					"color": "#ffc107"
+				},
+				{
+					"name": "success",
+					"slug": "success",
+					"color": "#198754"
+				},
+				{
+					"name": "placeholder",
+					"slug": "placeholder",
+					"color": "#eaeaea"
+				},
+				{
+					"name": "text-placeholder",
+					"slug": "text-placeholder",
+					"color": "#ddd"
+				},
+				{
+					"name": "description",
+					"slug": "description",
+					"color": "#888"
+				},
+				{
+					"name": "disable",
+					"slug": "disable",
+					"color": "#818181"
+				},
+				{
+					"name": "annotation",
+					"slug": "annotation",
+					"color": "#666"
+				},
+				{
+					"name": "bg-fill",
+					"slug": "bg-fill",
+					"color": "#f0f3f5"
+				},
+				{
+					"name": "stroke",
+					"slug": "stroke",
+					"color": "#000"
+				},
+				{
+					"name": "stroke-lighten",
+					"slug": "stroke-lighten",
+					"color": "#d8d8d8"
 				}
 			]
 		},
@@ -149,10 +169,22 @@
 			},
 			"infinity": "calc(1px / 0)"
 		},
+		"dimensions": {
+			"aspectRatio": true,
+			"defaultAspectRatios": true,
+			"aspectRatios": [
+				{
+					"name": "Ad - 191:100",
+					"slug": "191-100",
+					"ratio": "191/100"
+				}
+			]
+		},
 		"spacing": {
 			"padding": true,
 			"margin": true,
 			"units": [ "px", "%", "em", "rem", "vw", "vh" ],
+			"defaultSpacingSizes": false,
 			"spacingSizes": [
 				{
 					"size": "auto",
@@ -160,9 +192,14 @@
 					"name": "auto"
 				},
 				{
+					"size": "0",
+					"slug": "none",
+					"name": "none"
+				},
+				{
 					"size": "clamp(0.75rem, 1.25vi, 1.125rem)",
-					"slug": "inline-gutter-small",
-					"name": "inline gutter small"
+					"slug": "inline-gutter-sm",
+					"name": "inline gutter sm"
 				},
 				{
 					"size": "clamp(1rem, 2.75vi, 1.75rem)",
@@ -171,13 +208,13 @@
 				},
 				{
 					"size": "clamp(1.75rem, 3.5vi, 2.5rem)",
-					"slug": "inline-gutter-large",
-					"name": "inline gutter large"
+					"slug": "inline-gutter-lg",
+					"name": "inline gutter lg"
 				},
 				{
 					"size": "clamp(var(--wp--preset--spacing--sm), 2.5vi, var(--wp--preset--spacing--md))",
-					"slug": "block-gutter-small",
-					"name": "block gutter small"
+					"slug": "block-gutter-sm",
+					"name": "block gutter sm"
 				},
 				{
 					"size": "clamp(var(--wp--preset--spacing--lg), 5vi, var(--wp--preset--spacing--xl))",
@@ -186,8 +223,8 @@
 				},
 				{
 					"size": "clamp(var(--wp--preset--spacing--xl), 7.5vi, var(--wp--preset--spacing--xxl))",
-					"slug": "block-gutter-large",
-					"name": "block gutter large"
+					"slug": "block-gutter-lg",
+					"name": "block gutter lg"
 				},
 				{
 					"size": "0.25rem",
@@ -241,6 +278,7 @@
 			"lineHeight": true,
 			"textDecoration": false,
 			"textTransform": false,
+			"defaultFontSizes": false,
 			"fontFamilies": [
 				{
 					"fontFamily": "\"Helvetica Neue\", Arial, \"Hiragino Kaku Gothic ProN\", \"Hiragino Sans\", \"Noto Sans JP\", Meiryo, sans-serif;",

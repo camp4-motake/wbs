@@ -59,7 +59,7 @@ hr,
 
 	inline-size: calc(100% - (var(--wp--preset--spacing--inline-gutter) * 2));
 	margin: var(--wp--preset--spacing--md) auto;
-	border-block-start-color: var(--wp--preset--color--border);
+	border-block-start-color: var(--wp--preset--color--stroke);
 
 	&.alignwide {
 		max-inline-size: var(--wp--style--global--wide-size);
@@ -297,7 +297,7 @@ gsap marker fix
 }
 
 main {
-	/* &.has-bg-circle { padding-block-end: calc( var(--wp--preset--spacing--block-gutter-large) * 1.5 ); } */
+	/* &.has-bg-circle { padding-block-end: calc( var(--wp--preset--spacing--block-gutter-lg) * 1.5 ); } */
 
 	> :where(*) {
 		position: relative;
